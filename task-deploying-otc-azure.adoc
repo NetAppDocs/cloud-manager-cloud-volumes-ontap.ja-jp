@@ -1,0 +1,250 @@
+---
+sidebar: sidebar 
+permalink: task-deploying-otc-azure.html 
+keywords: Cloud Volumes ONTAP, deploying, launching, creating, deploy, launch, create, azure, BYOL, license key, serial number, tags, azure tags, location, license, preconfigured packages, programmatic deployments, disk size, write speed, access control, volume protection, usage profile, register, CIFS share, quota, qtree, HA, HA pair, associate subscription, azure marketplace, marketplace subscription 
+summary: Cloud Manager で Cloud Volumes ONTAP の作業環境を作成することで、 Azure で単一の Cloud Volumes ONTAP システムを起動できます。 
+---
+= Azure で Cloud Volumes ONTAP を起動します
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager で Cloud Volumes ONTAP の作業環境を作成することで、 Azure で単一ノードシステムまたは HA ペアを起動できます。
+
+作業環境を作成するには、次の作業が必要です。
+
+[[licensing]]
+* 稼働中のコネクタ。
++
+** を用意しておく必要があります https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["ワークスペースに関連付けられているコネクタ"^]。
+** https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["コネクタをで実行したままにする準備をしておく必要があります 常時"^]。
+
+
+* 使用する構成についての理解。
++
+設定を選択し、ネットワーク管理者から Azure ネットワーク情報を入手しておく必要があります。詳細については、を参照してください link:task-planning-your-config-azure.html["Cloud Volumes ONTAP 構成を計画"]。
+
+* 作業環境の追加ウィザードで特定のライセンスオプションを選択するために必要な事項について説明します。 link:concept-licensing.html["Cloud Volumes ONTAP ライセンスの詳細については、こちらをご覧ください"]。
++
+[cols="20,40,40"]
+|===
+| ライセンスオプション | 要件 | 要件を満たす方法 
+
+
+| フリーミアム | Marketplace サブスクリプションまたはネットアップサポートサイト（ NSS ）アカウントが必要です。 | クラウドプロバイダのマーケットプレイスに登録するには、 * Details & Credentials * ページを選択します。NSS アカウントは、「 * 充電方法」および「 NSS アカウント * 」ページで入力できます。 
+
+
+| Professional または Essential パッケージ | Marketplace のサブスクリプションまたは容量ベースのライセンス（ BYOL ）が必要です。有効な容量ベースのライセンスがない場合や、プロビジョニングされた容量がライセンス容量を超えた場合は、容量ベースの課金が推奨されます。 | クラウドプロバイダのマーケットプレイスに登録するには、 * Details & Credentials * ページを選択します。ネットアップから購入した容量ベースのライセンス（ BYOL ）を使用する場合は、最初にそのライセンスを * Digital Wallet * に追加する必要があります。 link:task-manage-capacity-licenses.html["容量ベースの BYOL ライセンスを追加する方法について説明します"]。 
+
+
+| Keystone Flex サブスクリプション | アカウントが承認され、 Cloud Volumes ONTAP で使用できるようにサブスクリプションが有効になっている必要があります。  a| 
+.. mailto ： ng-keystone-success@netapp.com [ ネットアップにお問い合わせください ] 1 つ以上の Keystone Flex Subscriptions で Cloud Manager のユーザアカウントを承認します。
+.. ネットアップがお客様のアカウントを許可したあと、 link:task-manage-keystone.html#link-a-subscription["Cloud Volumes ONTAP で使用するサブスクリプションをリンクします"]。
+.. Cloud Volumes ONTAP HA ペアを作成するときに、 Keystone Flex サブスクリプションの課金方法を選択します。
+
+
+
+
+| ノード単位のライセンス | Marketplace サブスクリプションが必要です。または、お客様所有のライセンスを使用（ BYOL ）する必要があります。このオプションは、既存のサブスクリプションまたは既存のライセンスをお持ちのお客様にご利用いただけます。新規のお客様にはご利用いただけません。 | ネットアップから購入したノードベースのライセンス（ BYOL ）を使用する場合は、最初にそのライセンスを * Digital Wallet * に追加する必要があります。 link:task-manage-node-licenses.html#obtain-a-system-license-file["ノードベースの BYOL ライセンスを追加する方法について説明します"]。NSS アカウントは、「 * 充電方法」および「 NSS アカウント * 」ページで入力できます。 
+|===
+
+
+Azure で Cloud Volumes ONTAP システムを作成すると、リソースグループ、ネットワークインターフェイス、ストレージアカウントなどの Azure オブジェクトがいくつか作成されます。ウィザードの最後にあるリソースの概要を確認できます。
+
+[WARNING]
+.データ損失の可能性があります
+====
+Cloud Volumes ONTAP システムごとに新しい専用のリソースグループを使用することを推奨します。
+
+データ損失のリスクがあるため、既存の共有リソースグループに Cloud Volumes ONTAP を導入することは推奨されません。導入の失敗や削除が発生した場合、 Cloud Manager は共有リソースグループから Cloud Volumes ONTAP リソースを削除できますが、 Azure ユーザが誤って共有リソースグループから Cloud Volumes ONTAP リソースを削除してしまう可能性があります。
+
+====
+.手順
+. [[subscribe] キャンバスページで、 * 作業環境の追加 * をクリックし、プロンプトに従います。
+. * 場所を選択 * ：「 * Microsoft * Azure * 」および「 * Cloud Volumes ONTAP シングルノード * 」または「 * Cloud Volumes ONTAP 高可用性 * 」を選択します。
+. プロンプトが表示されたら、 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["コネクタを作成します"^]。
+. * 詳細とクレデンシャル * ：必要に応じて Azure のクレデンシャルとサブスクリプションを変更し、クラスタ名を指定し、タグを追加し、クレデンシャルを指定することもできます。
++
+次の表では、ガイダンスが必要なフィールドについて説明します。
+
++
+[cols="25,75"]
+|===
+| フィールド | 説明 
+
+
+| 作業環境名 | Cloud Manager は、作業環境名を使用して、 Cloud Volumes ONTAP システムと Azure 仮想マシンの両方に名前を付けます。また、このオプションを選択した場合は、事前定義されたセキュリティグループのプレフィックスとして名前が使用されます。 
+
+
+| リソースグループタグ | タグは、 Azure リソースのメタデータです。このフィールドにタグを入力すると、 Cloud Volumes ONTAP システムに関連付けられているリソースグループにタグが追加されます。作業環境を作成するときに、ユーザインターフェイスから最大 4 つのタグを追加し、作成後にさらに追加できます。API では、作業環境の作成時にタグを 4 つに制限することはありません。タグの詳細については、を参照してください https://azure.microsoft.com/documentation/articles/resource-group-using-tags/["Microsoft Azure のドキュメント：「 Using tags to organize your Azure resources"^]。 
+
+
+| ユーザ名とパスワード | Cloud Volumes ONTAP クラスタ管理者アカウントのクレデンシャルです。このクレデンシャルを使用して、 System Manager またはその CLI から Cloud Volumes ONTAP に接続できます。default_admin_user の名前をそのまま使用するか ' カスタム・ユーザー名に変更します 
+
+
+| [[video]] 資格情報を編集します | この Cloud Volumes ONTAP システムで使用する別の Azure クレデンシャルと別の Azure サブスクリプションを選択できます。従量課金制 Cloud Volumes ONTAP システムを導入するには、選択した Azure サブスクリプションに Azure Marketplace サブスクリプションを関連付ける必要があります。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-azure-accounts.html["クレデンシャルを追加する方法について説明します"^]。 
+|===
++
+次のビデオでは、 Marketplace サブスクリプションを Azure サブスクリプションに関連付ける方法を紹介します。
+
++
+video::video_subscribing_azure.mp4[width=848,height=480]
+. * サービス *: サービスを有効にしておくか、 Cloud Volumes ONTAP で使用しない個々のサービスを無効にします。
++
+** https://docs.netapp.com/us-en/cloud-manager-data-sense/concept-cloud-compliance.html["クラウドデータセンスの詳細をご確認ください"^]。
+** https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-backup-to-cloud.html["Cloud Backup の詳細については、こちらをご覧ください"^]。
+** https://docs.netapp.com/us-en/cloud-manager-monitoring/concept-monitoring.html["監視サービスの詳細については、こちらをご覧ください"^]。
+
+
+. * 場所と接続 * ：場所、リソースグループ、セキュリティグループを選択し、チェックボックスを選択して、コネクタとターゲットの場所間のネットワーク接続を確認します。
++
+次の表では、ガイダンスが必要なフィールドについて説明します。
+
++
+[cols="25,75"]
+|===
+| フィールド | 説明 
+
+
+| 場所 | シングルノードシステムの場合は、 Cloud Volumes ONTAP を導入するアベイラビリティゾーンを選択できます。AZ を選択しない場合は、 Cloud Manager によってその AZ が選択されます。 
+
+
+| リソースグループ  a| 
+Cloud Volumes ONTAP の新しいリソースグループを作成するか、既存のリソースグループを使用します。Cloud Volumes ONTAP には、新しい専用のリソースグループを使用することを推奨します。既存の共有リソースグループに Cloud Volumes ONTAP を導入することは可能ですが、データ損失のリスクがあるため推奨されません。詳細については、上記の警告を参照してください。
+
+Azure に導入する Cloud Volumes ONTAP HA ペアごとに専用のリソースグループを使用する必要があります。リソースグループでサポートされる HA ペアは 1 つだけです。Azure リソースグループに 2 つ目の Cloud Volumes ONTAP HA ペアを導入しようとすると、 Cloud Manager で接続の問題が発生します。
+
+
+TIP: 使用している Azure アカウントにが割り当てられている場合 https://mysupport.netapp.com/site/info/cloud-manager-policies["必要な権限"^]導入の失敗や削除が発生した場合、 Cloud Manager はリソースグループから Cloud Volumes ONTAP リソースを削除します。
+
+
+
+| セキュリティグループ | 既存のセキュリティグループを選択する場合は、 Cloud Volumes ONTAP の要件を満たす必要があります。 link:reference-networking-azure.html#security-group-rules-for-cloud-volumes-ontap["デフォルトのセキュリティグループを表示します"]。 
+|===
+. * 充電方法と NSS アカウント * ：このシステムで使用する充電オプションを指定し、ネットアップサポートサイトのアカウントを指定します。
++
+** link:concept-licensing.html["これらの充電方法について説明します"]。
+** link:task-deploying-otc-azure.html#licensing["使用するライセンス方式に応じたウィザードの要件について説明します"]。
+
+
+. * 構成済みパッケージ * ： Cloud Volumes ONTAP システムを迅速に導入するパッケージを 1 つ選択するか、 * 独自の構成を作成 * をクリックします。
++
+いずれかのパッケージを選択した場合は、ボリュームを指定してから、設定を確認して承認するだけで済みます。
+
+. * ライセンス * ：必要に応じて Cloud Volumes ONTAP のバージョンを変更し、ライセンスを選択して、仮想マシンのタイプを選択します。
++
+image:screenshot_cvo_licensing_azure.gif["Licensing （ライセンス）ページのスクリーンショット"]
+
++
+システムの起動後に必要な変更があった場合は、後でライセンスまたは仮想マシンのタイプを変更できます。
+
++
+
+NOTE: 選択したバージョンで新しいリリース候補、一般的な可用性、またはパッチリリースが利用可能な場合は、作業環境の作成時に Cloud Manager によってシステムがそのバージョンに更新されます。たとえば、 Cloud Volumes ONTAP 9.6 RC1 と 9.6 GA を選択した場合、更新が行われます。たとえば、 9.6 から 9.7 への更新など、あるリリースから別のリリースへの更新は行われません。
+
+. * Azure Marketplace からサブスクライブ * ： Cloud Manager で Cloud Volumes ONTAP のプログラムによる導入を有効にできなかった場合は、以下の手順に従ってください。
+. * 基盤となるストレージリソース * ：初期アグリゲートの設定を選択します。ディスクタイプ、各ディスクのサイズ、 BLOB ストレージへのデータ階層化を有効にするかどうかを指定します。
++
+次の点に注意してください。
+
++
+** ディスクタイプは初期ボリューム用です。以降のボリュームでは、別のディスクタイプを選択できます。
+** ディスクサイズは、最初のアグリゲート内のすべてのディスクと、シンプルプロビジョニングオプションを使用したときに Cloud Manager によって作成される追加のアグリゲートに適用されます。Advanced Allocation オプションを使用すると、異なるディスクサイズを使用するアグリゲートを作成できます。
++
+ディスクの種類とサイズの選択については、を参照してください link:task-planning-your-config-azure.html#sizing-your-system-in-azure["Azure でのシステムのサイジング"]。
+
+** ボリュームを作成または編集するときに、特定のボリューム階層化ポリシーを選択できます。
+** データの階層化を無効にすると、以降のアグリゲートで有効にすることができます。
++
+link:concept-data-tiering.html["データ階層化の詳細については、こちらをご覧ください。"]。
+
+
+
+. * 書き込み速度と WORM * （シングルノードシステムのみ）： * Normal * または * High * 書き込み速度を選択し、必要に応じて Write Once 、 Read Many （ WORM ）ストレージをアクティブにします。
++
+link:concept-write-speed.html["書き込み速度の詳細については、こちらをご覧ください。"]。
+
++
+Cloud Backup が有効になっている場合やデータ階層化が有効になっている場合は、 WORM を有効にすることはできません。
+
++
+link:concept-worm.html["WORM ストレージの詳細については、こちらをご覧ください。"]。
+
+. * Secure Communication to Storage & WORM * （ HA のみ）： Azure ストレージアカウントへの HTTPS 接続を有効にするかどうかを選択し、必要に応じて Write Once Read Many （ WORM ）ストレージをアクティブにします。
++
+HTTPS 接続は、 Cloud Volumes ONTAP 9.7 の HA ペアから Azure のストレージアカウントへの接続です。このオプションを有効にすると、書き込みパフォーマンスに影響する可能性があります。作業環境の作成後に設定を変更することはできません。
+
++
+link:concept-worm.html["WORM ストレージの詳細については、こちらをご覧ください。"]。
+
+. * ボリュームの作成 * ：新しいボリュームの詳細を入力するか、 * スキップ * をクリックします。
++
+このページの一部のフィールドは、説明のために用意されています。次の表では、ガイダンスが必要なフィールドについて説明します。
+
++
+<stdin> で未解決のディレクティブ : _include/create_volume. adoc[]
+
++
+次の図は、 CIFS プロトコルの [Volume] ページの設定を示しています。
+
++
+image:screenshot_cot_vol.gif["スクリーンショット： Cloud Volumes ONTAP インスタンスのボリュームページが表示されます。"]
+
+. * CIFS セットアップ * ： CIFS プロトコルを選択した場合は、 CIFS サーバをセットアップします。
++
+[cols="25,75"]
+|===
+| フィールド | 説明 
+
+
+| DNS プライマリおよびセカンダリ IP アドレス | CIFS サーバの名前解決を提供する DNS サーバの IP アドレス。リストされた DNS サーバには、 CIFS サーバが参加するドメインの Active Directory LDAP サーバとドメインコントローラの検索に必要なサービスロケーションレコード（ SRV ）が含まれている必要があります。 
+
+
+| 参加する Active Directory ドメイン | CIFS サーバを参加させる Active Directory （ AD ）ドメインの FQDN 。 
+
+
+| ドメインへの参加を許可されたクレデンシャル | AD ドメイン内の指定した組織単位（ OU ）にコンピュータを追加するための十分な権限を持つ Windows アカウントの名前とパスワード。 
+
+
+| CIFS サーバの NetBIOS 名 | AD ドメイン内で一意の CIFS サーバ名。 
+
+
+| 組織単位 | CIFS サーバに関連付ける AD ドメイン内の組織単位。デフォルトは CN=Computers です。Azure AD ドメインサービスを Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=AADDC computers* 」または「 * OU=AADDC Users* 」と入力します。https://docs.microsoft.com/en-us/azure/active-directory-domain-services/create-ou["Azure のドキュメント：「 Create an Organizational Unit （ OU ；組織単位） in an Azure AD Domain Services managed domain"^] 
+
+
+| DNS ドメイン | Cloud Volumes ONTAP Storage Virtual Machine （ SVM ）の DNS ドメイン。ほとんどの場合、ドメインは AD ドメインと同じです。 
+
+
+| NTP サーバ | Active Directory DNS を使用して NTP サーバを設定するには、「 Active Directory ドメインを使用」を選択します。別のアドレスを使用して NTP サーバを設定する必要がある場合は、 API を使用してください。を参照してください https://docs.netapp.com/us-en/cloud-manager-automation/index.html["Cloud Manager 自動化に関するドキュメント"^] を参照してください。 
+|===
+. * 使用状況プロファイル、ディスクタイプ、階層化ポリシー * ： Storage Efficiency 機能を有効にするかどうかを選択し、必要に応じてボリューム階層化ポリシーを変更します。
++
+詳細については、を参照してください link:task-planning-your-config-azure.html#choosing-a-volume-usage-profile["ボリューム使用率プロファイルについて"] および link:concept-data-tiering.html["データ階層化の概要"]。
+
+. * レビューと承認 *: 選択内容を確認して確認します。
++
+.. 設定の詳細を確認します。
+.. 詳細情報 * をクリックして、 Cloud Manager で購入するサポートと Azure リソースの詳細を確認します。
+.. [* I understand ... * （理解しています ... * ） ] チェックボックスを選択
+.. [Go*] をクリックします。
+
+
+
+
+Cloud Manager は Cloud Volumes ONTAP システムを導入します。タイムラインで進行状況を追跡できます。
+
+Cloud Volumes ONTAP システムの導入で問題が発生した場合は、障害メッセージを確認してください。作業環境を選択し、 * 環境の再作成 * をクリックすることもできます。
+
+詳細については、を参照してください https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp Cloud Volumes ONTAP のサポート"^]。
+
+.完了後
+* CIFS 共有をプロビジョニングした場合は、ファイルとフォルダに対する権限をユーザまたはグループに付与し、それらのユーザが共有にアクセスしてファイルを作成できることを確認します。
+* ボリュームにクォータを適用する場合は、 System Manager または CLI を使用します。
++
+クォータを使用すると、ユーザ、グループ、または qtree が使用するディスク・スペースとファイル数を制限または追跡できます。
+
+

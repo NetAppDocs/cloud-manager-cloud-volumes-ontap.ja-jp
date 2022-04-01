@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: task-connect-lun.html 
+keywords: lun, connect lun, iscsi lun, target iqn, iqn 
+summary: iSCSI ボリュームを作成すると、 Cloud Manager によって自動的に LUN が作成されます。ボリュームごとに 1 つの LUN を作成するだけでシンプルになり、管理は不要です。ボリュームの作成後、 IQN を使用してホストから LUN に接続します。 
+---
+= LUN をホストに接続します
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+iSCSI ボリュームを作成すると、 Cloud Manager によって自動的に LUN が作成されます。ボリュームごとに 1 つの LUN を作成するだけでシンプルになり、管理は不要です。ボリュームの作成後、 IQN を使用してホストから LUN に接続します。
+
+次の点に注意してください。
+
+* Cloud Manager の自動容量管理は、 LUN には適用されません。Cloud Manager で LUN を作成すると自動拡張機能が無効になります。
+* LUN は、 System Manager または CLI を使用して追加で作成できます。
+
+
+.手順
+. キャンバスページで、ボリュームを管理する Cloud Volumes ONTAP 作業環境をダブルクリックします。
+. ボリュームを選択し、 * Target IQN * をクリックします。
+. [* Copy*] をクリックして IQN 名をコピーします。
+. ホストから LUN への iSCSI 接続をセットアップします。
++
+** http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-iscsi-rhel-cg/GUID-15E8C226-BED5-46D0-BAED-379EA4311340.html["ONTAP 9 Red Hat Enterprise Linux 向けの iSCSI の簡単な設定：ターゲットとの iSCSI セッションの開始"^]
+** http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-iscsi-cpg/GUID-857453EC-90E9-4AB6-B543-83827CF374BF.html["ONTAP 9 Windows 向けの iSCSI の簡単な設定：ターゲットとの iSCSI セッションの開始"^]
+
+
+

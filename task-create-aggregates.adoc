@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: task-create-aggregates.html 
+keywords: storage, provisioning, aggregates, provision, create, advanced allocation, creating aggregates, adding an aggregate, add an aggregate, create an aggregate 
+summary: アグリゲートは、自分で作成することも、 Cloud Manager でボリュームを作成するときに作成することもできます。アグリゲートを手動で作成することのメリットは、基盤となるディスクサイズを選択して、必要な容量またはパフォーマンスに合わせてアグリゲートをサイジングできることです。 
+---
+= アグリゲートを作成する
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+アグリゲートは、自分で作成することも、 Cloud Manager でボリュームを作成するときに作成することもできます。アグリゲートを手動で作成することのメリットは、基盤となるディスクサイズを選択して、必要な容量またはパフォーマンスに合わせてアグリゲートをサイジングできることです。
+
+
+CAUTION: すべてのディスクとアグリゲートは、 Cloud Manager から直接作成および削除する必要があります。これらのアクションは、別の管理ツールから実行しないでください。これにより、システムの安定性が低下し、将来ディスクを追加できなくなる可能性があります。また、クラウドプロバイダの冗長料金が発生する可能性もあります。
+
+.手順
+. キャンバスページで、アグリゲートを管理する Cloud Volumes ONTAP インスタンスの名前をダブルクリックします。
+. メニューアイコンをクリックし、 [ * 詳細設定 ] 、 [ 詳細な割り当て * ] の順にクリックします。
+. Add Aggregate * をクリックして、アグリゲートの詳細を指定します。
++
+ディスクタイプとディスクサイズについては、を参照してください link:task-planning-your-config.html["構成の計画"]。
+
+. [* Go * ] をクリックし、 [* 承認して購入 * ] をクリックします。
+

@@ -1,0 +1,553 @@
+---
+sidebar: sidebar 
+permalink: reference-networking-gcp.html 
+keywords: networking, network, requirements, connection, connections, subnet, vpn, internet, proxy, HTTP, private, proxy server, routing, firewall, autosupport, connection, jump host, outbound, ports, tiering, data tiering, bucket, private google access, set up data tiering, data tiering requirement, gcp networking, google networking, shared vpc, host project, service project 
+summary: Cloud Volumes ONTAP システムが正常に動作するように、 Google Cloud Platform ネットワークをセットアップします。これには、コネクタと Cloud Volumes ONTAP のネットワークも含まれます。 
+---
+= Cloud Volumes ONTAP in GCP のネットワーク要件
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP システムが正常に動作するように、 Google Cloud Platform ネットワークをセットアップします。これには、コネクタと Cloud Volumes ONTAP のネットワークも含まれます。
+
+HA ペアを導入する場合は、を実行します link:concept-ha-google-cloud.html["GCP での HA ペアの仕組みをご確認ください"]。
+
+
+
+== Cloud Volumes ONTAP の要件
+
+GCP では、次の要件を満たす必要があります。
+
+内部ロードバランサ:: Cloud Manager は、 Cloud Volumes ONTAP HA ペアへの受信トラフィックを管理する Google Cloud 内部ロードバランサ（ TCP / UDP ）を 4 つ自動作成します。セットアップは必要ありませんネットワークトラフィックを通知し、セキュリティ上の問題を緩和するだけで、この要件が満たされることがわかりました。
++
+--
+クラスタ管理用のロードバランサで、 1 つは Storage VM （ SVM ）管理用、もう 1 つはノード 1 への NAS トラフィック用、もう 1 つはノード 2 への NAS トラフィック用です。
+
+各ロードバランサの設定は次のとおりです。
+
+* 共有プライベート IP アドレス × 1
+* グローバル健全性チェック 1 回
++
+デフォルトでは、ヘルスチェックで使用されるポートは 63001 、 63002 、および 63003 です。
+
+* 地域 TCP バックエンドサービス × 1
+* 地域 UDP バックエンドサービス × 1
+* 1 つの TCP 転送ルール
+* 1 つの UDP 転送ルール
+* グローバルアクセスは無効です
++
+グローバルアクセスはデフォルトでは無効になっていますが、展開後に有効にすることができます。クロスリージョントラフィックのレイテンシが大幅に高くなるため、この機能は無効にしました。誤ってリージョン間にマウントすることが原因でマイナスの体験が得られないようにしたいと考えていました。このオプションを有効にすることは、ビジネスニーズに固有のものです。
+
+
+
+--
+HA ペア用のゾーン:: 複数のゾーンまたは単一のゾーンに HA 構成を導入することで、データの高可用性を確保できます。HA ペアの作成時には、 Cloud Manager から複数のゾーンまたは単一のゾーンの選択を求められます。
++
+--
+* 複数のゾーン（推奨）
++
+3 つのゾーンに HA 構成を導入することで、ゾーン内で障害が発生した場合の継続的なデータ可用性を確保できます。書き込みパフォーマンスは、単一のゾーンを使用する場合に比べてわずかに低くなりますが、最小のパフォーマンスです。
+
+* シングルゾーン
++
+Cloud Volumes ONTAP HA 構成では、単一のゾーンに導入する場合は分散配置ポリシーを使用します。このポリシーにより、 HA 構成がゾーン内の単一点障害から保護されます。障害の切り分けに別々のゾーンを使用する必要はありません。
+
++
+この導入モデルでは、ゾーン間にデータ出力料金が発生しないため、コストが削減されます。
+
+
+
+--
+HA ペア用の仮想プライベートクラウド × 4:: HA 構成には、 4 つの Virtual Private Cloud （ VPC ；仮想プライベートクラウド）が必要です。GCP では各ネットワークインターフェイスが別々の VPC ネットワークに存在する必要があるため、 4 つの VPC が必要です。
++
+--
+HA ペアの作成時に、 Cloud Manager から 4 つの VPC を選択するよう求められます。
+
+* vPC-0 ：データおよびノードへのインバウンド接続
+* vPC-1 、 VPC -2 、および VPC -3 ：ノードと HA メディエーター間の内部通信
++
+image:diagram_gcp_ha.png[""]
+
+
+
+--
+HA ペアのサブネット:: VPC ごとにプライベートサブネットが必要です。
++
+--
+コネクタを VPC 0 に配置する場合は、サブネットで Private Google Access を有効にして API にアクセスし、データの階層化を有効にする必要があります。
+
+これらの VPC 内のサブネットには、個別の CIDR 範囲が必要です。CIDR 範囲を重複させることはできません。
+
+--
+シングルノードシステムに対応した 1 つの仮想プライベートクラウド:: シングルノードシステムには 1 つの VPC が必要です。
+共有 VPC:: Cloud Volumes ONTAP とコネクタは、 Google Cloud の共有 VPC とスタンドアロンの VPC でサポートされます。
++
+--
+シングルノードシステムの場合は、 VPC は共有 VPC またはスタンドアロン VPC のどちらかになります。
+
+HA ペアの場合は、 4 つの VPC が必要です。これらの各 VPC は、共有またはスタンドアロンのどちらかにすることができます。たとえば、 VPC は VPC を共有化し、 VPC は VPC 1 、 VPC は 2 、 VPC は 3 で構成されることになります。
+
+共有 VPC を使用すると、複数のプロジェクトの仮想ネットワークを設定し、一元管理できます。ホストプロジェクト _ で共有 VPC ネットワークをセットアップし、 Connector および Cloud Volumes ONTAP 仮想マシンインスタンスをサービスプロジェクト _ で導入できます。 https://cloud.google.com/vpc/docs/shared-vpc["Google Cloud のドキュメント：「 Shared VPC Overview"^]。
+
+link:task-creating-connectors-gcp.html#shared-vpc-permissions["Connector の導入でカバーされている必要な共有 VPC の権限を確認します"]。
+
+--
+VPC でのパケットミラーリング:: https://cloud.google.com/vpc/docs/packet-mirroring["パケットミラーリング"^] Cloud Volumes ONTAP を導入する Google Cloud VPC で無効にする必要があります。パケットミラーリングがイネーブルの場合、 Cloud Volumes ONTAP は正常に動作しません。
+Cloud Volumes ONTAP 用のアウトバウンドインターネットアクセス:: Cloud Volumes ONTAP では、ネットアップ AutoSupport にメッセージを送信するためにアウトバウンドインターネットアクセスが必要です。ネットアップ AutoSupport は、ストレージの健全性をプロアクティブに監視します。
++
+--
+Cloud Volumes ONTAP が AutoSupport メッセージを送信できるように、ルーティングポリシーとファイアウォールポリシーで次のエンドポイントへの HTTP / HTTPS トラフィックを許可する必要があります。
+
+* \ https://support.netapp.com/aods/asupmessage
+* \ https://support.netapp.com/asupprod/post/1.0/postAsup
++
+link:task-verify-autosupport.html["AutoSupport の検証方法について説明します"]。
+
++
+
+TIP: HA ペアを使用している場合、 HA メディエーターではアウトバウンドのインターネットアクセスは必要ありません。
+
+
+
+--
+プライベート IP アドレス:: Cloud Manager は、次の数のプライベート IP アドレスを GCP の Cloud Volumes ONTAP に割り当てます。
++
+--
+* * シングルノード * ： 3 または 4 つのプライベート IP アドレス
++
+Cloud Volumes ONTAP を API を使用して導入する場合、 Storage VM （ SVM ）管理 LIF の作成をスキップし、次のフラグを指定できます。
+
++
+'kipsvmManagementLIF ： true
+
++
+LIF は、物理ポートに関連付けられた IP アドレスです。SnapCenter などの管理ツールには、 Storage VM （ SVM ）管理 LIF が必要です。
+
+* * HA ペア * ： 14 または 15 個のプライベート IP アドレス
++
+** VPC -0 の 7 つまたは 8 つのプライベート IP アドレス
++
+Cloud Volumes ONTAP を API を使用して導入する場合、 Storage VM （ SVM ）管理 LIF の作成をスキップし、次のフラグを指定できます。
+
++
+'kipsvmManagementLIF ： true
+
+** VPC 1 用のプライベート IP アドレスが 2 つあります
+** VPC 2 のプライベート IP アドレス × 2
+** VPC 3 つのプライベート IP アドレス
+
+
+
+
+--
+ファイアウォールルール:: ファイアウォールルールを作成する必要はありません。ファイアウォールルールは Cloud Manager で自動的に作成されます。独自のファイアウォールを使用する必要がある場合は、以下のファイアウォールルールを参照してください。
++
+--
+HA 構成には、次の 2 組のファイアウォールルールが必要です。
+
+* VPC -0 の HA コンポーネントのルールセット。これらのルールにより、 Cloud Volumes ONTAP へのデータアクセスが可能になります。 <<Firewall rules for Cloud Volumes ONTAP,詳細はこちら。>>。
+* VPC -1 、 VPC -2 、および VPC -3 の HA コンポーネントに関するもう 1 つのルールセット。これらのルールは、 HA コンポーネント間のインバウンド通信とアウトバウンド通信に対してオープンです。 <<Firewall rules for Cloud Volumes ONTAP,詳細はこちら。>>。
+
+
+--
+の Cloud Volumes ONTAP から Google Cloud Storage への接続 データ階層化:: コールドデータを Google Cloud Storage バケットに階層化する場合は、 Cloud Volumes ONTAP が配置されているサブネットをプライベート Google Access 用に設定する必要があります（ HA ペアを使用している場合、これは VPC 0 のサブネットです）。手順については、を参照してください https://cloud.google.com/vpc/docs/configure-private-google-access["Google Cloud のドキュメント：「 Configuring Private Google Access"^]。
++
+--
+Cloud Manager でデータの階層化を設定するための追加の手順については、を参照してください link:task-tiering.html["コールドデータを低コストのオブジェクトストレージに階層化する"]。
+
+--
+他のネットワーク内の ONTAP システムへの接続:: GCP 内の Cloud Volumes ONTAP システムと他のネットワーク内の ONTAP システムの間でデータをレプリケートするには、 VPC と他のネットワーク（たとえば社内ネットワーク）の間に VPN 接続が必要です。
++
+--
+手順については、を参照してください https://cloud.google.com/vpn/docs/concepts/overview["Google Cloud のドキュメント：「 Cloud VPN Overview"^]。
+
+--
+
+
+
+
+== コネクタの要件
+
+コネクタがパブリッククラウド環境内のリソースやプロセスを管理できるように、ネットワークを設定します。最も重要なステップは、さまざまなエンドポイントへのアウトバウンドインターネットアクセスを確保することです。
+
+
+TIP: ネットワークでインターネットへのすべての通信にプロキシサーバを使用している場合は、 [ 設定 ] ページでプロキシサーバを指定できます。を参照してください https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-configuring-proxy.html["プロキシサーバを使用するようにコネクタを設定します"^]。
+
+
+
+=== ターゲットネットワークへの接続
+
+コネクタには、 Cloud Volumes ONTAP を導入する VPC へのネットワーク接続が必要です。HA ペアを導入する場合は、コネクタから VPC -0 への接続のみが必要です。
+
+
+
+=== アウトバウンドインターネットアクセス
+
+Connector では、パブリッククラウド環境内のリソースとプロセスを管理するためにアウトバウンドインターネットアクセスが必要です。
+
+[cols="2*"]
+|===
+| エンドポイント | 目的 
+
+
+| \ https://support.netapp.com | ライセンス情報を取得し、ネットアップサポートに AutoSupport メッセージを送信するため。 
+
+
+| \ https://*.cloudmanager.cloud.netapp.com | Cloud Manager 内で SaaS の機能やサービスを提供できます。 
+
+
+| ¥ https://cloudmanagerinfraprod.azurecr.io ¥ https://*.blob.core.windows.net | をクリックして、 Connector と Docker コンポーネントをアップグレードします。 
+|===
+
+
+== Cloud Volumes ONTAP のファイアウォールルール
+
+Cloud Manager は、 Cloud Volumes ONTAP が正常に動作するために必要なインバウンドとアウトバウンドのルールを含む GCP ファイアウォールルールを作成します。テスト目的または独自のファイアウォールルールを使用する場合は、ポートを参照してください。
+
+Cloud Volumes ONTAP のファイアウォールルールには、インバウンドとアウトバウンドの両方のルールが必要です。
+
+HA 構成を導入する場合は、 VPC 0 の Cloud Volumes ONTAP のファイアウォールルールを以下に示します。
+
+
+
+=== インバウンドルール
+
+定義済みファイアウォールのインバウンドルールのソースは 0.0.0.0/0 です。
+
+独自のファイアウォールを作成するには、 Cloud Volumes ONTAP と通信する必要のあるすべてのネットワークを追加するとともに、内部の Google ロードバランサが正常に機能するように両方のアドレス範囲を追加する必要があります。これらのアドレスは 130.211.0.0/22 および 35.191.0.0/16 です。詳細については、を参照してください https://cloud.google.com/load-balancing/docs/tcp#firewall_rules["Google Cloud ドキュメント：ロードバランサファイアウォールルール"^]。
+
+[cols="10,10,80"]
+|===
+| プロトコル | ポート | 目的 
+
+
+| すべての ICMP | すべて | インスタンスの ping を実行します 
+
+
+| HTTP | 80 | クラスタ管理 LIF の IP アドレスを使用した System Manager Web コンソールへの HTTP アクセス 
+
+
+| HTTPS | 443 | クラスタ管理 LIF の IP アドレスを使用した System Manager Web コンソールへの HTTPS アクセス 
+
+
+| SSH | 22 | クラスタ管理 LIF またはノード管理 LIF の IP アドレスへの SSH アクセス 
+
+
+| TCP | 111 | NFS のリモートプロシージャコール 
+
+
+| TCP | 139 | CIFS の NetBIOS サービスセッション 
+
+
+| TCP | 161-162 | 簡易ネットワーク管理プロトコル 
+
+
+| TCP | 445 | NetBIOS フレーム同期を使用した Microsoft SMB over TCP 
+
+
+| TCP | 635 | NFS マウント 
+
+
+| TCP | 749 | Kerberos 
+
+
+| TCP | 2049 | NFS サーバデーモン 
+
+
+| TCP | 3260 | iSCSI データ LIF を介した iSCSI アクセス 
+
+
+| TCP | 4045 | NFS ロックデーモン 
+
+
+| TCP | 4046 | NFS のネットワークステータスモニタ 
+
+
+| TCP | 10000 | NDMP を使用したバックアップ 
+
+
+| TCP | 11104 | SnapMirror のクラスタ間通信セッションの管理 
+
+
+| TCP | 11105 | クラスタ間 LIF を使用した SnapMirror データ転送 
+
+
+| TCP | 63001-63050 | プローブポートをロードバランシングして、どのノードが正常であるかを判断します （ HA ペアの場合のみ必要） 
+
+
+| UDP | 111 | NFS のリモートプロシージャコール 
+
+
+| UDP | 161-162 | 簡易ネットワーク管理プロトコル 
+
+
+| UDP | 635 | NFS マウント 
+
+
+| UDP | 2049 | NFS サーバデーモン 
+
+
+| UDP | 4045 | NFS ロックデーモン 
+
+
+| UDP | 4046 | NFS のネットワークステータスモニタ 
+
+
+| UDP | 4049 | NFS rquotad プロトコル 
+|===
+
+
+=== アウトバウンドルール
+
+Cloud Volumes 用の事前定義済みセキュリティグループ ONTAP は、すべての発信トラフィックをオープンします。これが可能な場合は、基本的なアウトバウンドルールに従います。より厳格なルールが必要な場合は、高度なアウトバウンドルールを使用します。
+
+
+
+==== 基本的なアウトバウンドルール
+
+Cloud Volumes ONTAP 用の定義済みセキュリティグループには、次のアウトバウンドルールが含まれています。
+
+[cols="20,20,60"]
+|===
+| プロトコル | ポート | 目的 
+
+
+| すべての ICMP | すべて | すべての発信トラフィック 
+
+
+| すべての TCP | すべて | すべての発信トラフィック 
+
+
+| すべての UDP | すべて | すべての発信トラフィック 
+|===
+
+
+==== 高度なアウトバウンドルール
+
+発信トラフィックに厳格なルールが必要な場合は、次の情報を使用して、 Cloud Volumes ONTAP による発信通信に必要なポートのみを開くことができます。
+
+
+NOTE: source は、 Cloud Volumes ONTAP システムのインターフェイス（ IP アドレス）です。
+
+[cols="10,10,6,20,20,34"]
+|===
+| サービス | プロトコル | ポート | ソース | 宛先 | 目的 
+
+
+.18+| Active Directory | TCP | 88 | ノード管理 LIF | Active Directory フォレスト | Kerberos V 認証 
+
+
+| UDP | 137 | ノード管理 LIF | Active Directory フォレスト | NetBIOS ネームサービス 
+
+
+| UDP | 138 | ノード管理 LIF | Active Directory フォレスト | NetBIOS データグラムサービス 
+
+
+| TCP | 139 | ノード管理 LIF | Active Directory フォレスト | NetBIOS サービスセッション 
+
+
+| TCP および UDP | 389 | ノード管理 LIF | Active Directory フォレスト | LDAP 
+
+
+| TCP | 445 | ノード管理 LIF | Active Directory フォレスト | NetBIOS フレーム同期を使用した Microsoft SMB over TCP 
+
+
+| TCP | 464 | ノード管理 LIF | Active Directory フォレスト | Kerberos V パスワードの変更と設定（ SET_CHANGE ） 
+
+
+| UDP | 464 | ノード管理 LIF | Active Directory フォレスト | Kerberos キー管理 
+
+
+| TCP | 749 | ノード管理 LIF | Active Directory フォレスト | Kerberos V Change & Set Password （ RPCSEC_GSS ） 
+
+
+| TCP | 88 | データ LIF （ NFS 、 CIFS 、 iSCSI ） | Active Directory フォレスト | Kerberos V 認証 
+
+
+| UDP | 137 | データ LIF （ NFS 、 CIFS ） | Active Directory フォレスト | NetBIOS ネームサービス 
+
+
+| UDP | 138 | データ LIF （ NFS 、 CIFS ） | Active Directory フォレスト | NetBIOS データグラムサービス 
+
+
+| TCP | 139 | データ LIF （ NFS 、 CIFS ） | Active Directory フォレスト | NetBIOS サービスセッション 
+
+
+| TCP および UDP | 389 | データ LIF （ NFS 、 CIFS ） | Active Directory フォレスト | LDAP 
+
+
+| TCP | 445 | データ LIF （ NFS 、 CIFS ） | Active Directory フォレスト | NetBIOS フレーム同期を使用した Microsoft SMB over TCP 
+
+
+| TCP | 464 | データ LIF （ NFS 、 CIFS ） | Active Directory フォレスト | Kerberos V パスワードの変更と設定（ SET_CHANGE ） 
+
+
+| UDP | 464 | データ LIF （ NFS 、 CIFS ） | Active Directory フォレスト | Kerberos キー管理 
+
+
+| TCP | 749 | データ LIF （ NFS 、 CIFS ） | Active Directory フォレスト | Kerberos V Change & Set Password （ RPCSEC_GSS ） 
+
+
+.2+| AutoSupport | HTTPS | 443 | ノード管理 LIF | support.netapp.com | AutoSupport （デフォルトは HTTPS ） 
+
+
+| HTTP | 80 | ノード管理 LIF | support.netapp.com | AutoSupport （転送プロトコルが HTTPS から HTTP に変更された場合のみ） 
+
+
+| クラスタ | すべてのトラフィック | すべてのトラフィック | 1 つのノード上のすべての LIF | もう一方のノードのすべての LIF | クラスタ間通信（ Cloud Volumes ONTAP HA のみ） 
+
+
+| UDP | 68 | ノード管理 LIF | DHCP | 初回セットアップ用の DHCP クライアント | DHCP 
+
+
+| UDP | 67 | ノード管理 LIF | DHCP | DHCP サーバ | DNS 
+
+
+| UDP | 53 | ノード管理 LIF とデータ LIF （ NFS 、 CIFS ） | DNS | DNS | NDMP 
+
+
+| TCP | 18600 ～ 18699 | ノード管理 LIF | 宛先サーバ | NDMP コピー | SMTP 
+
+
+| TCP | 25 | ノード管理 LIF | メールサーバ | SMTP アラート。 AutoSupport に使用できます .4+| SNMP 
+
+
+| TCP | 161 | ノード管理 LIF | サーバを監視します | SNMP トラップによる監視 
+
+
+| UDP | 161 | ノード管理 LIF | サーバを監視します | SNMP トラップによる監視 
+
+
+| TCP | 162 | ノード管理 LIF | サーバを監視します | SNMP トラップによる監視 
+
+
+| UDP | 162 | ノード管理 LIF | サーバを監視します | SNMP トラップによる監視 .2+| SnapMirror 
+
+
+| TCP | 11104 | クラスタ間 LIF | ONTAP クラスタ間 LIF | SnapMirror のクラスタ間通信セッションの管理 
+
+
+| TCP | 11105 | クラスタ間 LIF | ONTAP クラスタ間 LIF | SnapMirror によるデータ転送 | syslog 
+|===
+
+
+== VPC -1 、 VPC -2 、および VPC -3 のファイアウォールルール
+
+GCP では、 4 つの VPC 間で HA 構成が導入されます。VPC -0 の HA 構成に必要なファイアウォールルール はです <<Firewall rules for Cloud Volumes ONTAP,Cloud Volumes ONTAP については上記のリストを参照してください>>。
+
+一方、 Cloud Manager で VPC -1 、 VPC -2 、および VPC -3 のインスタンスに対して作成される事前定義されたファイアウォールルールによって、 _All_protocols とポートを介した入力通信が有効になります。これらのルールに従って、 HA ノード間の通信が可能になります。
+
+HA ノードから HA メディエーターへの通信は、ポート 3260 （ iSCSI ）を介して行われます。
+
+
+
+=== VPC 1 から 3 を含む独自のファイアウォールルールを使用
+
+HA ペアを作成する場合、 Cloud Manager で事前定義されたファイアウォールルールを使用するか、 VPC ごとに既存のルールを使用するかを選択できます。VPC 1-3 に対して独自のファイアウォールルールを使用していて、複数の Google Cloud ゾーンに HA ペアを導入している場合は、ファイアウォールルールに対して _target tag_ を設定する必要があります。ターゲットタグを設定しないと、配置中にエラーが発生します。
+
+. Google Cloud でファイアウォールルールを作成する場合は、 [* Targets] フィールドに移動し、 [* 指定されたターゲットタグ *] を選択して、タグを入力します。
++
+値には任意のテキスト文字列を指定できます。
+
+. Cloud Manager で HA ペアを作成するときに、 * Connectivity * ページで既存のファイアウォールルールを選択します。
++
+ファイアウォールルールが Cloud Volumes ONTAP に接続されると、ターゲットタグが Cloud Volumes ONTAP ノードに _network tags_. として自動的に追加されます。
+
+
+
+
+
+== コネクタのファイアウォールルール
+
+コネクタのファイアウォールルールには、インバウンドとアウトバウンドの両方のルールが必要です。
+
+
+
+=== インバウンドルール
+
+[cols="10,10,80"]
+|===
+| プロトコル | ポート | 目的 
+
+
+| SSH | 22 | コネクタホストへの SSH アクセスを提供します 
+
+
+| HTTP | 80 | クライアント Web ブラウザからローカルへの HTTP アクセスを提供します ユーザインターフェイス 
+
+
+| HTTPS | 443 | クライアント Web ブラウザからローカルへの HTTPS アクセスを提供します ユーザインターフェイス 
+|===
+
+
+=== アウトバウンドルール
+
+コネクタの定義済みファイアウォールルールによって、すべてのアウトバウンドトラフィックが開かれます。これが可能な場合は、基本的なアウトバウンドルールに従います。より厳格なルールが必要な場合は、高度なアウトバウンドルールを使用します。
+
+
+
+==== 基本的なアウトバウンドルール
+
+コネクタの定義済みファイアウォールルールには、次のアウトバウンドルールが含まれています。
+
+[cols="20,20,60"]
+|===
+| プロトコル | ポート | 目的 
+
+
+| すべての TCP | すべて | すべての発信トラフィック 
+
+
+| すべての UDP | すべて | すべての発信トラフィック 
+|===
+
+
+==== 高度なアウトバウンドルール
+
+発信トラフィックに固定ルールが必要な場合は、次の情報を使用して、コネクタによる発信通信に必要なポートだけを開くことができます。
+
+
+NOTE: 送信元 IP アドレスは、コネクタホストです。
+
+[cols="5*"]
+|===
+| サービス | プロトコル | ポート | 宛先 | 目的 
+
+
+.9+| Active Directory | TCP | 88 | Active Directory フォレスト | Kerberos V 認証 
+
+
+| TCP | 139 | Active Directory フォレスト | NetBIOS サービスセッション 
+
+
+| TCP | 389 | Active Directory フォレスト | LDAP 
+
+
+| TCP | 445 | Active Directory フォレスト | NetBIOS フレーム同期を使用した Microsoft SMB over TCP 
+
+
+| TCP | 464 | Active Directory フォレスト | Kerberos V パスワードの変更と設定（ SET_CHANGE ） 
+
+
+| TCP | 749 | Active Directory フォレスト | Active Directory Kerberos v の変更とパスワードの設定（ RPCSEC_GSS ） 
+
+
+| UDP | 137 | Active Directory フォレスト | NetBIOS ネームサービス 
+
+
+| UDP | 138 | Active Directory フォレスト | NetBIOS データグラムサービス 
+
+
+| UDP | 464 | Active Directory フォレスト | Kerberos キー管理 
+
+
+| API コールと AutoSupport | HTTPS | 443 | アウトバウンドインターネットおよび ONTAP クラスタ管理 LIF | GCP および ONTAP への API コール、およびネットアップへの AutoSupport メッセージの送信 
+
+
+| DNS | UDP | 53 | DNS | Cloud Manager による DNS 解決に使用されます 
+|===

@@ -1,0 +1,93 @@
+---
+sidebar: sidebar 
+permalink: task-manage-keystone.html 
+keywords: license, licensing, install, updating license, system license, add system license, adding a system license, byol license, add byol license, update byol license, nlf, license generator 
+summary: '[ デジタルウォレット ] ページでは、 Cloud Volumes ONTAP のライセンスを 1 箇所から管理できます。新しいライセンスを追加したり、既存のライセンスを更新したりできます。' 
+---
+= Keystone Flex Subscriptions を管理します
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP でサブスクリプションを使用できるようにすることで、デジタルウォレットから Keystone Flex Subscriptions を管理できます。コミット済み容量に対する変更を要求したり、サブスクリプションのリンクを解除したりすることもできます。
+
+a_Keystone Flex Subscription_ は、ネットアップが提供する、ビジネスの成長に合わせて拡張できるストレージサービスです。
+
+_Digital Wallet では、 Cloud Volumes ONTAP のライセンスを 1 箇所から管理できます。新しいライセンスを追加したり、既存のライセンスを更新したりできます。
+
+link:concept-licensing.html["Cloud Volumes ONTAP ライセンスの詳細については、こちらをご覧ください"]。
+
+
+
+== アカウントを承認します
+
+Cloud Manager で Keystone Flex Subscriptions を使用して管理する前に、ネットアップに連絡して、 Keystone Flex Subscriptions で Cloud Manager ユーザアカウントを承認する必要があります。
+
+.手順
+. [ * すべてのサービス ] > [ デジタルウォレット * ] をクリックします。
+. [* Keystone Flex Subscription* ] をクリックします。
+. 「 NetApp Keystone へようこそ」ページが表示された場合は、ページに記載されているアドレスにメールを送信してください。
++
+ネットアップの担当者は、お客様のユーザアカウントに登録へのアクセスを許可することで、リクエストを処理します。
+
+. サブスクリプションを確認するには、 * Keystone Flex Subscription * に戻ってください。
++
+image:screenshot-keystone-overview.png["Keystone Flex Subscriptions のリストを示すスクリーンショット。"]
+
+
+
+Cloud Volumes ONTAP で使用するサブスクリプションをリンクします。
+
+
+
+== サブスクリプションをリンクします
+
+ネットアップがアカウントを承認したら、 Keystone Flex Subscriptions をリンクして Cloud Volumes ONTAP で使用できるようにする必要があります。この操作により、新しい Cloud Volumes ONTAP システムの充電方法としてサブスクリプションを選択できます。
+
+.手順
+. [ * すべてのサービス ] > [ デジタルウォレット * ] をクリックします。
+. [* Keystone Flex Subscription* ] をクリックします。
+. リンクするサブスクリプションの場合は、をクリックします image:icon-action.png["横方向の 3 つの点を示すアイコン"] をクリックし、 * Link * を選択します。
++
+image:screenshot-keystone-link.png["サブスクリプションのリンクオプションを示すスクリーンショット。"]
+
+
+
+これで、 Cloud Manager アカウントにリンクされ、 Cloud Volumes ONTAP の作業環境を作成する際に選択できるようになります。
+
+
+
+== コミット済み容量を増やして申請してください
+
+サブスクリプションのコミット済み容量を調整する必要がある場合は、 Cloud Manager のインターフェイスから直接要求を送信できます。
+
+.手順
+. [ * すべてのサービス ] > [ デジタルウォレット * ] をクリックします。
+. [* Keystone Flex Subscription* ] をクリックします。
+. 容量を調整するサブスクリプションの場合、をクリックします image:icon-action.png["横方向の 3 つの点を示すアイコン"] をクリックし、 * 詳細を表示して編集 * を選択します。
+. 1 つ以上のサブスクリプションのコミット済み容量を入力します。
++
+image:screenshot-keystone-request.png["サブスクリプションのコミット済み容量の変更を要求する機能を示すスクリーンショット。"]
+
+. 下にスクロールしてリクエストの詳細を入力し、 [ 送信 ] をクリックします。
+
+
+リクエストに応じて、ネットアップのシステムで処理用のチケットが作成されます。
+
+
+
+== サブスクリプションのリンクを解除します
+
+新しい Cloud Volumes ONTAP システムで Keystone Flex サブスクリプションを使用する必要がなくなった場合は、サブスクリプションのリンクを解除できます。既存の Cloud Volumes ONTAP サブスクリプションに関連付けられていないサブスクリプションはリンク解除のみ可能です。
+
+.手順
+. [ * すべてのサービス ] > [ デジタルウォレット * ] をクリックします。
+. [* Keystone Flex Subscription* ] をクリックします。
+. リンクを解除するサブスクリプションの場合は、をクリックします image:icon-action.png["横方向の 3 つの点を示すアイコン"] をクリックし、 * リンク解除 * を選択します。
+
+
+このサブスクリプションへのリンクが Cloud Manager アカウントから解除され、 Cloud Volumes ONTAP の作業環境を作成する際に選択できなくなります。

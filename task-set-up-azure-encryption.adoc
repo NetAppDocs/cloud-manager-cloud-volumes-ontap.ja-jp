@@ -1,0 +1,185 @@
+---
+sidebar: sidebar 
+permalink: task-set-up-azure-encryption.html 
+keywords: customer-managed key, customer key, azure storage service encryption, azure encryption, encryption key, azure encryption key 
+summary: Azure の Cloud Volumes ONTAP では、 Microsoft 管理キーを使用して Azure Storage Service Encryption でデータが自動的に暗号化されます。ただし、このページの手順に従って独自の暗号化キーを使用することもできます。 
+---
+= Azure でお客様が管理するキーを使用するように Cloud Volumes ONTAP を設定します
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+データは、を使用して Azure の Cloud Volumes ONTAP で自動的に暗号化されます https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/["Azure Storage Service Encryption の略"] Microsoft が管理するキーを使用する場合：ただし、このページの手順に従って独自の暗号化キーを使用することもできます。
+
+
+
+== データ暗号化の概要
+
+Cloud Volumes ONTAP データは、を使用して Azure で自動的に暗号化されます https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/["Azure Storage Service Encryption の略"^]。デフォルトの実装では、 Microsoft が管理するキーが使用されます。セットアップは必要ありません。
+
+Cloud Volumes ONTAP で顧客管理キーを使用する場合は、次の手順を実行する必要があります。
+
+. Azure で、キーヴォールトを作成し、そのヴォールトでキーを生成します
+. Cloud Manager から、 API を使用して、キーを使用する Cloud Volumes ONTAP 作業環境を作成します
+
+
+
+
+=== キーローテーション
+
+キーの新しいバージョンを作成すると、 Cloud Volumes ONTAP では自動的に最新のキーバージョンが使用されます。
+
+
+
+=== データの暗号化方法
+
+お客様が管理するキーを使用するように設定された Cloud Volumes ONTAP 作業環境を作成すると、 Cloud Volumes ONTAP データは次のように暗号化されます。
+
+HA ペア::
++
+--
+* Cloud Volumes ONTAP 用のすべての Azure ストレージアカウントは、お客様が管理するキーを使用して暗号化されます。
+* 新しいストレージアカウント（ディスクやアグリゲートを追加する場合など）も同じキーを使用します。
+
+
+--
+シングルノード::
++
+--
+* Cloud Volumes ONTAP 用のすべての Azure ストレージアカウントは、お客様が管理するキーを使用して暗号化されます。
+* ルートディスク、ブートディスク、およびデータディスクの場合、 Cloud Manager はを使用します https://docs.microsoft.com/en-us/azure/virtual-machines/disk-encryption["ディスク暗号化セット"^]を使用して、管理対象ディスクで暗号化キーを管理できます。
+* 新しいデータディスクでも同じディスク暗号化セットが使用されます。
+* NVRAM とコアディスクは、お客様が管理するキーではなく、 Microsoft が管理するキーを使用して暗号化されます。
+
+
+--
+
+
+
+
+== キーボールトを作成し、キーを生成します
+
+キーヴォールトは、 Cloud Volumes ONTAP システムを作成するときと同じ Azure サブスクリプションとリージョンに配置する必要があります。
+
+.手順
+. https://docs.microsoft.com/en-us/azure/key-vault/general/quick-create-portal["Azure サブスクリプションでキーヴォールトを作成します"^]。
++
+キーヴォールトの次の要件に注意してください。
+
++
+** キーヴォールトは、 Cloud Volumes ONTAP システムと同じリージョンに配置する必要があります。
+** 次のオプションを有効にする必要があります。
++
+*** * Soft -delete * （このオプションはデフォルトで有効ですが、 DISABLE_NOT BE 無効にする必要があります）
+*** * パージ保護 *
+*** * Azure Disk Encryption for Volume Encryption * （シングルノード Cloud Volumes ONTAP システムのみ）
+
+
+
+
+. https://docs.microsoft.com/en-us/azure/key-vault/keys/quick-create-portal#add-a-key-to-key-vault["キーボールトでキーを生成します"^]。
++
+キーに関する次の要件に注意してください。
+
++
+** キータイプは * rsa * である必要があります。
+** 推奨される RSA キー・サイズは *2048* ですが、それ以外のサイズもサポートされます。
+
+
+
+
+
+
+== 暗号化キーを使用する作業環境を作成します
+
+キーヴォールトを作成して暗号化キーを生成したら、そのキーを使用するように設定した新しい Cloud Volumes ONTAP システムを作成できます。これらの手順は、 Cloud Manager API を使用してサポートされています。
+
+シングルノードの Cloud Volumes ONTAP システムでお客様が管理するキーを使用する場合は、 Cloud Manager Connector で次の権限を確認します。
+
+[source, json]
+----
+"Microsoft.Compute/diskEncryptionSets/read"
+"Microsoft.Compute/diskEncryptionSets/write",
+"Microsoft.Compute/diskEncryptionSets/delete"
+"Microsoft.KeyVault/vaults/deploy/action",
+"Microsoft.KeyVault/vaults/read",
+"Microsoft.KeyVault/vaults/accessPolicies/write"
+----
+最新の権限のリストは、で確認できます https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager のポリシーのページです"^]。
+
+これらの権限は HA ペアには必要ありません。
+
+.手順
+. 次の Cloud Manager API 呼び出しを使用して、 Azure サブスクリプション内の主要なバックアップのリストを取得します。
++
+HA ペアの場合：「 GET /azure-ha/ma/metadata/vaults 」
+
++
+シングルノードの場合：「 GET /azure-vsa/metadata/vaults 」
+
++
+* name * および * resourcegroup * をメモします。次の手順でこれらの値を指定する必要があります。
+
++
+https://docs.netapp.com/us-en/cloud-manager-automation/cm/api_ref_resources.html#azure-hametadata["この API 呼び出しの詳細を確認してください"^]。
+
+. 次の Cloud Manager API 呼び出しを使用して、バックアップ内のキーのリストを取得します。
++
+HA ペアの場合：「 GET /azure-ha/ma/metadata/keys - vault 」
+
++
+シングルノードの場合：「 get/azure-vsa/metadata/keys - vault 」
+
++
+* keyName * をメモします。次のステップで、その値（ボルト名とともに）を指定する必要があります。
+
++
+https://docs.netapp.com/us-en/cloud-manager-automation/cm/api_ref_resources.html#azure-hametadata["この API 呼び出しの詳細を確認してください"^]。
+
+. 次の Cloud Manager API 呼び出しを使用して Cloud Volumes ONTAP システムを作成します。
++
+.. HA ペアの場合：
++
+「 POST/Azure/HA/ 作業環境」
+
++
+要求の本文には次のフィールドを含める必要があります。
+
++
+[source, json]
+----
+"azureEncryptionParameters": {
+       "key": "keyName",
+       "vaultName": "vaultName"
+}
+----
++
+https://docs.netapp.com/us-en/cloud-manager-automation/cm/api_ref_resources.html#azure-haworking-environments["この API 呼び出しの詳細を確認してください"^]。
+
+.. シングルノードシステムの場合：
++
+「 POST/Azure/VSA/Working-Environments 」
+
++
+要求の本文には次のフィールドを含める必要があります。
+
++
+[source, json]
+----
+"azureEncryptionParameters": {
+       "key": "keyName",
+       "vaultName": "vaultName"
+}
+----
++
+https://docs.netapp.com/us-en/cloud-manager-automation/cm/api_ref_resources.html#azure-vsaworking-environments["この API 呼び出しの詳細を確認してください"^]。
+
+
+
+
+
+新しい Cloud Volumes ONTAP システムで、お客様が管理するキーを使用してデータを暗号化するように設定しておきます。

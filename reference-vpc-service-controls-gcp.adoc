@@ -1,0 +1,123 @@
+---
+sidebar: sidebar 
+permalink: reference-vpc-service-controls-gcp.html 
+keywords: vpc, service controls, vpc-sc, google, psc, private service connect 
+summary: VPC サービスコントロールを使用して Google 環境をロックダウンすることを選択する際には、 Cloud Manager と Cloud Volumes ONTAP が Google API とどのように連携するか、また Cloud Manager と Cloud Volumes ONTAP を導入するためのサービスパラメータを設定する方法について理解しておく必要があります。 
+---
+= GCP での VPC サービスコントロールの計画
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+VPC Service Controls を使用して Google Cloud 環境をロックダウンすることを選択する際には、 Cloud Manager と Cloud Volumes ONTAP が Google Cloud API とどのように連携するか、また Cloud Manager と Cloud Volumes ONTAP を導入するためのサービス境界を設定する方法について理解しておく必要があります。
+
+vPC サービスコントロールを使用すると、信頼できる境界外の Google 管理サービスへのアクセスを制御し、信頼できない場所からのデータアクセスをブロックし、不正なデータ転送のリスクを軽減できます。 https://cloud.google.com/vpc-service-controls/docs["Google Cloud VPC Service Controls の詳細をご覧ください"^]。
+
+
+
+== ネットアップサービスと VPC サービスコントロールの通信方法
+
+Cloud Central や Cloud Manager などのネットアップサービスは、 Google Cloud API と直接通信します。これは、 Google Cloud 以外の外部 IP アドレス（ api.services.cloud.netapp.com など）または Cloud Manager Connector に割り当てられた内部アドレスから Google Cloud 内でトリガーされます。
+
+コネクタの配置スタイルによっては、サービスの境界に対して特定の例外を設定する必要があります。
+
+
+
+== イメージ
+
+Cloud Volumes ONTAP と Cloud Manager はどちらも、ネットアップが管理する GCP 内のプロジェクトのイメージを使用します。組織内でホストされていないイメージの使用をブロックするポリシーがある場合、 Cloud Manager Connector および Cloud Volumes ONTAP の導入に影響することがあります。
+
+手動インストールでもコネクタを手動で導入できますが、 Cloud Volumes ONTAP プロジェクトからイメージを取得する必要があります。Connector と Cloud Volumes ONTAP を導入するには、許可されたリストを指定する必要があります。
+
+
+
+=== コネクタの配置
+
+コネクタを導入するユーザーは、 projectId_NetApp-cloudmanager_and the project Number_14190056516_ でホストされているイメージを参照できる必要があります。
+
+
+
+=== Cloud Volumes ONTAP の導入
+
+* Cloud Manager サービスアカウントは、サービスプロジェクトから projectId_NetApp-cloudmanager_and the project number_14190056516_ でホストされているイメージを参照する必要があります。
+* デフォルトの Google API サービスエージェントのサービスアカウントは、 projectId_NetApp-cloudmanager_and the project number_14190056516_ サービスプロジェクトからホストされているイメージを参照する必要があります。
+
+
+VPC サービスコントロールを使用してこれらのイメージをプルするために必要なルールの例を次に示します。
+
+
+
+== vPC サービスは境界ポリシーを制御します
+
+ポリシーでは、 VPC Service Controls ルールセットの例外が許可されます。ポリシーの詳細については、を参照してください https://cloud.google.com/vpc-service-controls/docs/ingress-egress-rules#policy-model["GCP VPC Service Controls Policy Documentation を参照してください"^]。
+
+Cloud Manager で必要なポリシーを設定するには、組織内の VPC Service Controls Perimeter に移動し、次のポリシーを追加します。各フィールドは、 VPC の [Service Controls Policy] ページで指定されたオプションと一致する必要があります。また、 * すべての * ルールが必要であり、 * または * パラメーターをルールセットで使用する必要があります。
+
+
+
+=== 入力規則
+
+....
+From:
+	Identities:
+		[User Email Address]
+	Source > All sources allowed
+To:
+	Projects =
+		[Service Project]
+	Services =
+		Service name: iam.googleapis.com
+		  Service methods: All actions
+		Service name: compute.googleapis.com
+		  Service methods:All actions
+....
+または
+
+....
+From:
+	Identities:
+		[User Email Address]
+	Source > All sources allowed
+To:
+	Projects =
+		[Host Project]
+	Services =
+		Service name: compute.googleapis.com
+		  Service methods: All actions
+....
+または
+
+....
+From:
+	Identities:
+		[Service Project Number]@cloudservices.gserviceaccount.com
+	Source > All sources allowed
+To:
+	Projects =
+		[Service Project]
+		[Host Project]
+	Services =
+		Service name: compute.googleapis.com
+		Service methods: All actions
+....
+
+
+=== 出力ルール
+
+....
+From:
+	Identities:
+		[Service Project Number]@cloudservices.gserviceaccount.com
+To:
+	Projects =
+		14190056516
+	Service =
+		Service name: compute.googleapis.com
+		Service methods: All actions
+....
+
+TIP: 上記のプロジェクト番号は、コネクタと Cloud Volumes ONTAP のイメージを格納するためにネットアップが使用する project_name cloudmanager_used です。
