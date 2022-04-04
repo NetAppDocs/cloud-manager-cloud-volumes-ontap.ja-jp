@@ -232,6 +232,8 @@ homepage:
       url: concept-licensing.html
     - title: 容量ベースのライセンスを管理します
       url: task-manage-capacity-licenses.html
+    - title: 未割り当てのノードベースライセンスを交換します
+      url: task-manage-node-licenses.html#exchange-unassigned-node-based-licenses
     - title: Keystone Flex Subscriptions を管理します
       url: task-manage-keystone.html
   - title: ストレージ管理
@@ -277,9 +279,9 @@ homepage:
   - title: ブログコミュニティ
     links:
     - title: ネットアップコミュニティ
-      url: https://community.netapp.com/t5/Cloud-Data-Services/ct-p/CDS
+      url: https://community.netapp.com/t5/Cloud-Volumes-ONTAP/bd-p/CloudVolumes
     - title: Cloud Central のブログです
-      url: https://cloud.netapp.com/blog
+      url: https://cloud.netapp.com/blog/topic/cloud-volumes-ontap
     - title: クラウドに関する Web セミナー
       url: https://cloud.netapp.com/events
 product-family: {}
