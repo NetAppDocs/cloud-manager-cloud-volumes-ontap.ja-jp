@@ -15,7 +15,19 @@ summary: <service> の新機能について説明します。
 [role="lead"]
 Cloud Manager の Cloud Volumes ONTAP 管理の新機能について説明します。
 
-このページで説明する機能拡張は、 Cloud Volumes ONTAP の管理を可能にする Cloud Manager の機能に固有のものです。リリースノートには、 Cloud Volumes ONTAP ソフトウェア自体の新機能が記載されています。
+このページで説明する機能拡張は、 Cloud Volumes ONTAP の管理を可能にする Cloud Manager の機能に固有のものです。 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["Cloud Volumes ONTAP のリリースノートを参照してください"^] Cloud Volumes ONTAP ソフトウェア自体の新機能を学習します。
+
+
+
+== 2022 年 4 月 3 日
+
+
+
+=== WORM ストレージの充電
+
+導入時の特別料金が期限切れになり、 WORM ストレージの使用料が請求されます。ボリュームのプロビジョニング済み容量の合計に基づいて、 1 時間ごとに課金されます。この環境 の新規および既存の Cloud Volumes ONTAP システムです。
+
+https://cloud.netapp.com/pricing["WORM ストレージの価格設定については、こちらをご覧ください"^]。
 
 
 
@@ -27,7 +39,7 @@ Cloud Manager の Cloud Volumes ONTAP 管理の新機能について説明しま
 
 特定のアグリゲートに * Advanced allocation * オプションからボリュームを作成するときに、新しいボリューム作成ウィザードを使用できるようになりました。
 
-link:task-create-volumes.html["特定のアグリゲートにボリュームを作成する方法について説明します"]。
+https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-create-volumes.html["特定のアグリゲートにボリュームを作成する方法について説明します"]。
 
 
 
@@ -53,7 +65,7 @@ link:task-create-volumes.html["特定のアグリゲートにボリュームを�
 
 
 
-link:concept-licensing.html["Cloud Volumes ONTAP のライセンスオプションの詳細については、こちらをご覧ください"]。
+https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html["Cloud Volumes ONTAP のライセンスオプションの詳細については、こちらをご覧ください"]。
 
 
 
@@ -67,7 +79,7 @@ Cloud Volumes ONTAP 用の未割り当てのノードベースライセンスが
 
 この操作により、 Cloud Volumes ONTAP ライセンスが取り消され、同じ有効期限のサービスに対してドル相当のライセンスが作成されます。
 
-link:task-manage-node-licenses.html#exchange-unassigned-node-based-licenses["未割り当てのノードベースライセンスを交換する方法について説明します"]。
+https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-node-licenses.html#exchange-unassigned-node-based-licenses["未割り当てのノードベースライセンスを交換する方法について説明します"]。
 
 
 
@@ -263,7 +275,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes["AWS で Cloud Volume
 
 
 
-=== 既存の Azure リソースグループ
+=== 既存の Azure リソースグループを選択します
 
 Azure で Cloud Volumes ONTAP システムを作成する際に、 VM とその関連リソースに対して既存のリソースグループを選択できるようになりました。
 

@@ -2,11 +2,7 @@
 <blocks>
   <block id="29e5950813e59366056c85a091ad2206" category="summary">NTP サーバを指定すると、ネットワーク内のシステム間で時刻が同期されるため、時刻の違いによる問題の回避に役立ちます。</block>
   <block id="8b3aeec8c25c17c966b0b882195c6050" category="doc">NTP を使用してシステム時刻を同期します</block>
-  <block id="583771bc3fbbc02d314407a92769ef62" category="paragraph">Cloud Manager API を使用するか、 CIFS サーバのセットアップ時にユーザインターフェイスから NTP サーバを指定します。</block>
-  <block id="2bef8d9c4ca19169a987d6de800c38d8" category="inline-link-macro">CIFS サーバの変更</block>
-  <block id="babd17328e643798fbc635a48fbbd153" category="list-text"><block ref="babd17328e643798fbc635a48fbbd153" category="inline-link-macro-rx"></block></block>
   <block id="339d2db752bad623389940365590a650" category="inline-link">Cloud Manager 自動化に関するドキュメント</block>
-  <block id="b61d2b4f1e4e1c7b7a6dda6b118d8c20" category="list-text"><block ref="b61d2b4f1e4e1c7b7a6dda6b118d8c20" category="inline-link-rx"></block></block>
   <block id="09c2d588c3e592f299dad8547672e4db" category="paragraph">たとえば、 AWS のシングルノードシステム用の API は次のようになります。</block>
   <block id="ed7ec64f50d9b2deb6fa30e3baa1c74a" category="inline-image-macro">NTP API 呼び出しを表示する Swagger インターフェイスのスクリーンショット。</block>
   <block id="4e5cb490ddc195f42366f47cba576aa2" category="paragraph"><block ref="4e5cb490ddc195f42366f47cba576aa2" category="inline-image-macro-rx" type="image"></block></block>
@@ -895,13 +891,9 @@
   <block id="e7cfd9476b70a39fe06e26c19f27e8d4" category="summary">&lt;service&gt; の新機能について説明します。</block>
   <block id="490414e0366b091220802d406e52c076" category="doc">新機能</block>
   <block id="f2f463c5dd86d093007a370bdac1ee4e" category="paragraph">Cloud Manager の Cloud Volumes ONTAP 管理の新機能について説明します。</block>
-  <block id="110e6abdd06281368088348ee9f6b06b" category="paragraph">このページで説明する機能拡張は、 Cloud Volumes ONTAP の管理を可能にする Cloud Manager の機能に固有のものです。リリースノートには、 Cloud Volumes ONTAP ソフトウェア自体の新機能が記載されています。</block>
-  <block id="62e5cbd8225037095ff7d2605cde92ce" category="section-title">2022 年 2 月 27 日（コネクタ 3.9.16 ）</block>
   <block id="06a685f653628719e2e70fedf9b250a9" category="section-title">ボリュームウィザードの再設計</block>
   <block id="dd787088b52e69b3d8bf590e16c8413c" category="paragraph">特定のアグリゲートに * Advanced allocation * オプションからボリュームを作成するときに、新しいボリューム作成ウィザードを使用できるようになりました。</block>
   <block id="c4abca012bce01614c5a65c5b0e6ecd6" category="inline-link-macro">特定のアグリゲートにボリュームを作成する方法について説明します</block>
-  <block id="567bd4707a89e21a3bfde8b0a474b587" category="paragraph"><block ref="f748de2d6397be35d9bf1c72e9ecbca5" category="inline-link-macro-rx"></block>。</block>
-  <block id="9fe54dabf8677a2dd216b421ca613a20" category="section-title">2022 年 2 月 9 日</block>
   <block id="b1894f3de88322c422613dce3ce8f4cd" category="section-title">市場の最新情報</block>
   <block id="376dea476fe87cb9b0aae288d191c1cc" category="list-text">Essentials パッケージと Professional パッケージが AWS と Google Cloud Marketplace で利用できるようになりました。</block>
   <block id="8b5bbca61d06a4ab0106010904673191" category="paragraph">容量単位の課金方法では、時間単位での支払いや、年間契約の購入をクラウドプロバイダから直接行うことができます。容量単位のライセンスは、ネットアップから直接購入することもできます。</block>
@@ -910,14 +902,10 @@
   <block id="0395ddea3013558664b640709c4005e0" category="list-text">AWS と Google Cloud Marketplace を使用したノード単位のライセンスは廃止され、新しいユーザには提供されなくなりました。これには、年間契約と時間単位のサブスクリプション（ Explore 、 Standard 、 Premium ）が含まれます。</block>
   <block id="b353203eeb0af0c192ef9706121d7227" category="paragraph">この充電方法は、有効なサブスクリプションをお持ちの既存のお客様には引き続きご利用いただけます。</block>
   <block id="ad66e158a2e414eee17bb2c5185f011a" category="inline-link-macro">Cloud Volumes ONTAP のライセンスオプションの詳細については、こちらをご覧ください</block>
-  <block id="3fcf12dcb6c72aec4434fa4f3789fc52" category="paragraph"><block ref="07995a3dc55aacf94321b688970cb4b0" category="inline-link-macro-rx"></block>。</block>
-  <block id="be6dee2c6f768e88adbcb8dc45f0aa47" category="section-title">2022 年 2 月 6 日</block>
   <block id="089a91d1490be155439f7062afd61de6" category="section-title">未割り当ての Exchange ライセンス</block>
   <block id="7d01c1cc395e0cffba4499f340107e1a" category="paragraph">Cloud Volumes ONTAP 用の未割り当てのノードベースライセンスがあり、使用していない場合は、そのライセンスを Cloud Backup ライセンス、 Cloud Data Sense ライセンス、 Cloud Tiering ライセンスに変換してライセンスを交換できるようになりました。</block>
   <block id="cc326b8fcf3d9827bf4c76a2355d4982" category="paragraph">この操作により、 Cloud Volumes ONTAP ライセンスが取り消され、同じ有効期限のサービスに対してドル相当のライセンスが作成されます。</block>
   <block id="d3a00eb246f944956b374b24dba964fa" category="inline-link-macro">未割り当てのノードベースライセンスを交換する方法について説明します</block>
-  <block id="9773f2c5ef59f0f6a0d089fe4b8e3f0b" category="paragraph"><block ref="26cec6922476e2c52040dae734cb884f" category="inline-link-macro-rx"></block>。</block>
-  <block id="e0e56e93173ee70e32687d6287121379" category="section-title">2022 年 1 月 30 日（コネクタ 3.9.15 ）</block>
   <block id="a2948bb2c0954938fc7f75cbf81a308b" category="section-title">ライセンスの選択を再設計</block>
   <block id="cc3717c29172e7c4beafc5f30f3639ac" category="paragraph">新しい Cloud Volumes ONTAP 作業環境を作成する際に、ライセンス選択画面を再設計しました。この変更は、 2021 年 7 月に導入された容量別課金方法と、クラウドプロバイダマーケットプレイスを通じて提供される予定のサービスを反映しています。</block>
   <block id="cb859e966c34323b5da18c0c77998603" category="section-title">デジタルウォレットの更新</block>
@@ -928,7 +916,6 @@
   <block id="a259bb127cd2a1cd02edf6a3a2484f33" category="paragraph">ご質問がある場合は、アカウント担当者または営業チームにお問い合わせください。</block>
   <block id="fc2be74c7bf9f46e12967c2298a899ba" category="inline-link-macro">ネットアップアカウントの詳細については、こちらをご覧ください</block>
   <block id="b1c11f104149c330a596bcfca05619de" category="paragraph"><block ref="3186c16f77793c8a282d8b22bfef6617" category="inline-link-macro-rx"></block>。</block>
-  <block id="705a32e6b332460f5c2f6f97bcb56819" category="section-title">2022 年 1 月 2 日（コネクタ 3.9.14 ）</block>
   <block id="2a1a89ba5e012b27da809d07c186942f" category="section-title">追加の VM タイプがサポートされます</block>
   <block id="bbbee7961ccb9cea5bdfe8ab78e43452" category="paragraph">Cloud Volumes ONTAP は、 9.10.1 リリース以降、 Microsoft Azure で次の VM タイプでサポートされるようになりました。</block>
   <block id="aafab9b991240605f56b3df780360449" category="list-text">E4ds_v4</block>
@@ -954,7 +941,6 @@
   <block id="69582189d37c402edf59b0f133df7c09" category="list-text">これで、 NFS 用のカスタムエクスポートポリシーを選択できるようになりました。</block>
   <block id="7ab20d098d6605f542bfe595351b4d64" category="inline-image-macro">新しいボリュームの作成時にプロトコルページを示すスクリーンショット。</block>
   <block id="7aece74ebc88a7e88e14656ceaecf9cf" category="paragraph"><block ref="7aece74ebc88a7e88e14656ceaecf9cf" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="d2bf15efa3f15c62d362aa16ea679954" category="section-title">2021 年 11 月 28 日（コネクタ 3.9.13 ）</block>
   <block id="793e5668f96fd622a2b0f0f5b056d9f1" category="section-title">Cloud Volumes ONTAP 9.10.1</block>
   <block id="8baf16305e1b4a602be4e87a3f1f5af7" category="paragraph">Cloud Manager で Cloud Volumes ONTAP 9.10.1 の導入と管理が可能になりました。</block>
   <block id="9f97c3125a701942b4e6e648146819fc" category="inline-link">このリリースのに含まれる新機能について説明します Cloud Volumes ONTAP</block>
@@ -972,13 +958,11 @@
   <block id="81e5e1bf62f444795eff3721d2872fb5" category="section-title">ポート削減</block>
   <block id="0cc520b9133a409c63dec80a3107fdda" category="paragraph">Azure の Cloud Volumes ONTAP システムでは、シングルノードシステムと HA ペアの両方に対してポート 8023 と 49000 が開かれなくなりました。</block>
   <block id="524d299ea985e3a42c95b0980478eba1" category="paragraph">これにより、 Cloud Volumes ONTAP の _new_環境 システムが、 3.9.13 リリース以降のコネクタから変更されます。</block>
-  <block id="0a5a72f64ebedc78cb9eb8e26e4daf34" category="section-title">2021 年 10 月 4 日（コネクタ 3.9.11 ）</block>
   <block id="1217a2d42a5d039798ff2ec7be351708" category="section-title">Cloud Volumes ONTAP 9.10.0</block>
   <block id="9626d137fffc72f724082f7d85bf9865" category="paragraph">Cloud Manager で Cloud Volumes ONTAP 9.10.0 の導入と管理が可能になりました。</block>
   <block id="32f35594134f3fdc6f434e91ec798f50" category="paragraph"><block ref="adde97be46da5fda88041fd113726d44" category="inline-link-rx"></block>。</block>
   <block id="9cc2b6cdaf0b50459353a2d67c0baa80" category="section-title">導入時間を短縮</block>
   <block id="66d5639668d7c3e585771304940a252b" category="paragraph">通常の書き込み速度が有効な場合、 Microsoft Azure または Google Cloud で Cloud Volumes ONTAP 作業環境を導入するための時間を短縮しました。導入時間が平均して 3~4 分短縮されます。</block>
-  <block id="19b803d2d375ddb2e6b6fba5abf518c5" category="section-title">2021 年 9 月 2 日（コネクタ 3.9.10 ）</block>
   <block id="e272f662e26b78ec82fb7603aa62b559" category="section-title">Azure のお客様が管理する暗号化キー</block>
   <block id="aee0c7bd7ef514bde14e9b9748f71cdb" category="paragraph">データは、を使用して Azure の Cloud Volumes ONTAP で自動的に暗号化されます<block ref="7c6c7ca9180a9433e704ac02b33a8ed3" category="inline-link-rx"></block> Microsoft が管理するキーを使用する場合：ただし、次の手順を実行する代わりに、お客様が管理する独自の暗号化キーを使用できるようになりました。</block>
   <block id="a89c0ff0556e15cdcfdad2e0435e60a8" category="list-text">Azure で、キーヴォールトを作成し、そのヴォールトでキーを生成します。</block>
@@ -1001,7 +985,6 @@
   <block id="00d49b73dec766d5bc6218641c9a5a8a" category="paragraph">9.9.1 リリース以降、 Cloud Volumes ONTAP では m5dn.24xlarge インスタンスタイプがサポートされるようになりました。課金方式は PAYGO Premium 、 Bring Your Own License （ BYOL ；お客様所有のライセンスを使用）、 Freemium です。</block>
   <block id="848f9c28f44b52e1b52cd70a11b0e4ef" category="inline-link">AWS で Cloud Volumes ONTAP のサポートされている構成を表示します</block>
   <block id="55941b5f51f9a2c13dcc42739dc5d4c9" category="paragraph"><block ref="325ad59680664bb3bc1759e5df16e142" category="inline-link-rx"></block>。</block>
-  <block id="3579e14e0674c90c5798623386108cc6" category="section-title">既存の Azure リソースグループ</block>
   <block id="9e6ec92516b72180109e61ff34cc07d1" category="paragraph">Azure で Cloud Volumes ONTAP システムを作成する際に、 VM とその関連リソースに対して既存のリソースグループを選択できるようになりました。</block>
   <block id="1b267f21193669a66008c34cc479a4fc" category="inline-image-macro">既存のリソースグループを選択できる作業環境作成ウィザードのスクリーンショット。</block>
   <block id="cad0012f66cb2f1cfe9fddf03895f77e" category="paragraph"><block ref="cad0012f66cb2f1cfe9fddf03895f77e" category="inline-image-macro-rx" type="image"></block></block>
@@ -1118,7 +1101,6 @@
   <block id="a4a6f068d81ff1afeac110af2570a8ab" category="paragraph">WORM ストレージにコミットされたファイルは、保持期間が過ぎたあとも変更することはできません。改ざん防止クロックは、 WORM ファイルの保持期間が経過したタイミングを決定します。</block>
   <block id="487d92711c834ef6ed6c245a4ade969b" category="paragraph">保存期間が経過すると、不要になったファイルを削除する必要があります。</block>
   <block id="d7b54fc61b65b19c4694a29b6044aacd" category="section-title">充電中</block>
-  <block id="06f06d012a2cbcc622f07b98883083ea" category="paragraph">WORM ストレージは現在初歩的な特別料金で提供されており、 2022 年 4 月 1 日まで無償で使用できます。その後、この機能を引き続き使用することもできます。その場合、追加料金が発生します。</block>
   <block id="74f13d97ea448b8140308bf35c78920e" category="section-title">WORM ストレージのアクティブ化</block>
   <block id="82389b2fd96eb0a8c75af9a934cf690c" category="paragraph">新しい作業環境を作成するときに、 Cloud Volumes ONTAP システムで WORM ストレージをアクティブにできます。これには、ファイルのデフォルトの保持期間の設定も含まれます。</block>
   <block id="99726e6dac736d4f262968c3400fc895" category="admonition">個々のボリュームで WORM ストレージをアクティブ化することはできません -- WORM はシステムレベルでアクティブ化する必要があります</block>
@@ -3014,7 +2996,6 @@
   <block id="25827e83a178b9b140976a356e0ea48a" category="section-title">充電に関するメモ</block>
   <block id="c1092325501599c6dcc90500081a2184" category="list-text">BYOL の容量を超えた場合やライセンスの有効期限が切れた場合は、マーケットプレイスのサブスクリプションに基づいて 1 時間あたりの料金が高すぎることを意味します。</block>
   <block id="caa54273e5fb3b700fad994050e4dde4" category="list-text">パッケージごとに 4TiB 以上の容量を追加容量が 4TiB 未満の Cloud Volumes ONTAP インスタンスは、 4TiB の割合で請求されます。</block>
-  <block id="c44f1d716d7612886617d980c0523196" category="list-text">Storage VM （ SVM ）を提供するための追加のライセンスコストは発生しませんが、 SVM あたりの容量は 4TiB になります。</block>
   <block id="55675f6a5328a3c661aa2daa971f7c76" category="list-text">HA ペアの場合、ノードのプロビジョニング済み容量に対してのみ料金が発生します。パートナーノードに同期ミラーリングされるデータには料金は発生しません。</block>
   <block id="e61eacf9a2b260a46a8935478c8a063d" category="list-text">FlexClone ボリュームで使用される容量に対する料金は発生しません。</block>
   <block id="529bcec2b9675b3cb0a81186e626a92b" category="list-text">ソースおよびデスティネーションの FlexCache ボリュームはプライマリデータとみなされ、プロビジョニング済みスペースに基づいて料金が発生します。</block>
@@ -3636,4 +3617,32 @@
   <block id="dd490b81914dd945601e442a41cb4222" category="sidebar">ネットアップコミュニティ</block>
   <block id="ff6c37cbc252e306a6b4e390ec13cbc1" category="sidebar">Cloud Central のブログです</block>
   <block id="ad203e818e0c9d7f42f1c260b33875f3" category="sidebar">クラウドに関する Web セミナー</block>
+  <block id="801caea7574977976b69eba4142742d5" category="inline-link">Cloud Manager API の略</block>
+  <block id="eb6af55ec97d39baf95e6c3351e05033" category="paragraph">を使用して NTP サーバを指定します<block ref="bdf6617265a65c254cce57819a969697" category="inline-link-rx"></block> または、 CIFS サーバを作成するときに、ユーザインターフェイスからも取得できます。</block>
+  <block id="2a78c747c7c403eb351149aacb4255b0" category="cell">Active Directory DNS を使用して NTP サーバを設定するには、「 Active Directory ドメインを使用」を選択します。別のアドレスを使用して NTP サーバを設定する必要がある場合は、 API を使用してください。を参照してください<block ref="42b82f9ba6c1ea0d7f3f7e3fde7e922d" category="inline-link-rx"></block> を参照してください。NTP サーバは、 CIFS サーバを作成するときにのみ設定できます。CIFS サーバを作成したあとで設定することはできません。</block>
+  <block id="15b547deddcdfd8bf2fb3a23397e7833" category="list-text">Storage VM に 1 つ以上のアグリゲートを割り当てます。</block>
+  <block id="d6f0e34ef668049ec1996dc9805ae695" category="paragraph">この手順は、 Storage VM にボリュームを作成する前に、新しい Storage VM が少なくとも 1 つのアグリゲートにアクセスする必要があるためです。</block>
+  <block id="23ba60a40ef8778d57147aad46997917" category="inline-link">Cloud Volumes ONTAP のリリースノートを参照してください</block>
+  <block id="37f6145500352f5c01d4de415efe57f0" category="paragraph">このページで説明する機能拡張は、 Cloud Volumes ONTAP の管理を可能にする Cloud Manager の機能に固有のものです。<block ref="017f5a752a7f075df16d48b9a482c0c4" category="inline-link-rx"></block> Cloud Volumes ONTAP ソフトウェア自体の新機能を学習します。</block>
+  <block id="5e16db4c47abe8cb1c5bd746df2fd94a" category="section-title">2022 年 4 月 3 日</block>
+  <block id="0f132f66e81cbab588044405a33dc058" category="section-title">WORM ストレージの充電</block>
+  <block id="89e51b22871a787913c4aa90cf856626" category="paragraph">導入時の特別料金が期限切れになり、 WORM ストレージの使用料が請求されます。ボリュームのプロビジョニング済み容量の合計に基づいて、 1 時間ごとに課金されます。この環境 の新規および既存の Cloud Volumes ONTAP システムです。</block>
+  <block id="10142c9d88b9419ee393574e858e86c8" category="inline-link">WORM ストレージの価格設定については、こちらをご覧ください</block>
+  <block id="074dbf8cc93ccd34e86e3e2e8f2a1e3a" category="paragraph"><block ref="38aefad2ca205e663da97b7fdd932dcf" category="inline-link-rx"></block>。</block>
+  <block id="32215461c426d2e6cd125109ca715d8f" category="section-title">2022 年 2 月 27 日（コネクタ 3.9.16 ）</block>
+  <block id="1c6f86b67d4150db2b816bc084d4c069" category="paragraph"><block ref="525dd47105081fbda31ba7a2793ca879" category="inline-link-rx"></block>。</block>
+  <block id="17fc50243c5a80f407e83d268bcab18e" category="section-title">2022 年 2 月 9 日</block>
+  <block id="41fe6a9591d04d2b5dc40ba59fd15df9" category="paragraph"><block ref="e22d1e33878d70a72f20edc19056d016" category="inline-link-rx"></block>。</block>
+  <block id="5c46bd67ae4b5c23f9c243b5f396c088" category="section-title">2022 年 2 月 6 日</block>
+  <block id="e186d5095e3d6d1b5247bef6646ae005" category="paragraph"><block ref="ef3979f2f1932fd482bb464a3e7d984f" category="inline-link-rx"></block>。</block>
+  <block id="2b9fafb77808b816392633fe1036ceb4" category="section-title">2022 年 1 月 30 日（コネクタ 3.9.15 ）</block>
+  <block id="305f98fa0d49873a77484c14f71bfec4" category="section-title">2022 年 1 月 2 日（コネクタ 3.9.14 ）</block>
+  <block id="35e4cbbe7120f5a106048c84199b5c38" category="section-title">2021 年 11 月 28 日（コネクタ 3.9.13 ）</block>
+  <block id="01b6222a6fdfe753189cb7e0753ef51a" category="section-title">2021 年 10 月 4 日（コネクタ 3.9.11 ）</block>
+  <block id="2e88f3ae6e50f5f0bbc46ea8158b71ea" category="section-title">2021 年 9 月 2 日（コネクタ 3.9.10 ）</block>
+  <block id="96ce026f2bc7496743369db3f0e33981" category="section-title">既存の Azure リソースグループを選択します</block>
+  <block id="6f2d75bffb91c65e98a19f69305c5cb4" category="paragraph">WORM ストレージの充電は、ボリュームのプロビジョニング済み容量の合計に基づいて 1 時間ごとに行われます。</block>
+  <block id="96b2257b99d74387ccf906445ab11df4" category="paragraph">NTP サーバは、 CIFS サーバを作成するときにのみ設定できます。CIFS サーバを作成したあとで設定することはできません。</block>
+  <block id="ee095a2fd0990ba785c303c6524d8145" category="list-text">データ提供用の Storage VM （ SVM ）を追加する場合、追加のライセンスコストは発生しませんが、データ提供用 SVM ごとの容量は 4TiB になります。</block>
+  <block id="cc331a0f761602982769cdbb99e71272" category="list-text">ディザスタリカバリ用 SVM は、プロビジョニングされた容量に基づいて料金が発生します。</block>
 </blocks>

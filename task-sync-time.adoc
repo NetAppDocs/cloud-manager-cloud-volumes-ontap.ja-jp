@@ -15,11 +15,7 @@ summary: NTP サーバを指定すると、ネットワーク内のシステム�
 [role="lead"]
 NTP サーバを指定すると、ネットワーク内のシステム間で時刻が同期されるため、時刻の違いによる問題の回避に役立ちます。
 
-Cloud Manager API を使用するか、 CIFS サーバのセットアップ時にユーザインターフェイスから NTP サーバを指定します。
-
-* link:task-manage-volumes.html#modifying-the-cifs-server["CIFS サーバの変更"]
-* https://docs.netapp.com/us-en/cloud-manager-automation/index.html["Cloud Manager 自動化に関するドキュメント"^]
-
+を使用して NTP サーバを指定します https://docs.netapp.com/us-en/cloud-manager-automation/index.html["Cloud Manager API の略"^] または、 CIFS サーバを作成するときに、ユーザインターフェイスからも取得できます。
 
 たとえば、 AWS のシングルノードシステム用の API は次のようになります。
 
