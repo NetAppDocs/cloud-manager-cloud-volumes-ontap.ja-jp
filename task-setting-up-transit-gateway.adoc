@@ -13,7 +13,7 @@ summary: AWS 転送ゲートウェイを設定して、 Cloud Volumes ONTAP が�
 
 
 [role="lead"]
-へのアクセスを有効にするために、 AWS 転送ゲートウェイを設定します HA ペアの 1 つ link:reference-networking-aws.html#aws-networking-requirements-for-cloud-volumes-ontap-ha-in-multiple-azs["フローティング IP アドレス"] HA ペアが存在する VPC の外部から
+へのアクセスを有効にするために、 AWS 転送ゲートウェイを設定します HA ペアの 1 つ link:reference-networking-aws.html#requirements-for-ha-pairs-in-multiple-azs["フローティング IP アドレス"] HA ペアが存在する VPC の外部から
 
 Cloud Volumes ONTAP HA 構成が複数の AWS アベイラビリティゾーンに分散されている場合は、 VPC 内からの NAS データアクセス用にフローティング IP アドレスが必要です。これらのフローティング IP アドレスは、障害の発生時にノード間で移行できますが、 VPC の外部からネイティブにアクセスすることはできません。VPC の外部からのデータアクセスはプライベート IP アドレスで提供されますが、自動フェイルオーバーは提供されません。
 

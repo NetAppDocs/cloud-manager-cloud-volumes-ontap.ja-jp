@@ -195,7 +195,7 @@ image:screenshot_aggr_state.gif["スクリーンショット：アグリゲー�
 
 新しいバージョンがアップグレード可能になると、 Cloud Manager から通知が表示されます。この通知からアップグレードプロセスを開始できます。詳細については、を参照してください <<Upgrade from Cloud Manager notifications>>。
 
-外部 URL 上のイメージを使用してソフトウェアのアップグレードを実行するもう 1 つの方法。このオプションは、 Cloud Manager が S3 バケットにアクセスしてソフトウェアをアップグレードできない場合、またはパッチを適用して提供された場合に役立ちます。詳細については、を参照してください <<Upgrade by using an HTTP or FTP server>>。
+外部 URL 上のイメージを使用してソフトウェアのアップグレードを実行するもう 1 つの方法。このオプションは、 Cloud Manager が S3 バケットにアクセスしてソフトウェアをアップグレードできない場合、またはパッチを適用して提供された場合に役立ちます。詳細については、を参照してください <<Upgrade from an image available at a URL>>。
 
 
 

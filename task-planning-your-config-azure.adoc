@@ -33,7 +33,7 @@ Cloud Volumes ONTAP には、いくつかのライセンスオプションがあ
 
 Cloud Volumes ONTAP では、選択したライセンスタイプに応じて、複数の VM タイプがサポートされます。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_azure_9101.html["Azure で Cloud Volumes ONTAP がサポートされている構成"^]
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["Azure で Cloud Volumes ONTAP がサポートされている構成"^]
 
 
 
@@ -41,7 +41,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_azure_9101.h
 
 Cloud Volumes ONTAP システムの未フォーマット時の容量制限は、ライセンスに関連付けられています。追加の制限は、アグリゲートとボリュームのサイズに影響します。設定を計画する際には、これらの制限に注意する必要があります。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_limits_azure_9101.html["Azure での Cloud Volumes ONTAP のストレージの制限"^]
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-azure.html["Azure での Cloud Volumes ONTAP のストレージの制限"^]
 
 
 

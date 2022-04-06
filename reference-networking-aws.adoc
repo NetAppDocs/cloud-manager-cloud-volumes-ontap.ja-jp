@@ -179,7 +179,7 @@ CIFS ストレージをプロビジョニングする場合は、 AWS で DNS �
 
 DNS サーバは、 Active Directory 環境に名前解決サービスを提供する必要があります。デフォルトの EC2 DNS サーバを使用するように DHCP オプションセットを設定できます。このサーバは、 Active Directory 環境で使用される DNS サーバであってはなりません。
 
-手順については、を参照してください https://docs.aws.amazon.com/quickstart/latest/active-directory-ds/welcome.html["AWS ドキュメント：「 Active Directory Domain Services on the AWS Cloud ： Quick Start Reference Deployment"^]。
+手順については、を参照してください https://aws-quickstart.github.io/quickstart-microsoft-activedirectory/["AWS ドキュメント：「 Active Directory Domain Services on the AWS Cloud ： Quick Start Reference Deployment"^]。
 
 
 

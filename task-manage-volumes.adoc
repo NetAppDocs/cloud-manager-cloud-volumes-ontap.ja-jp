@@ -118,7 +118,7 @@ NOTE: Cloud Manager は、選択したディスクタイプを使用する既存
 
 デフォルトでは、スペースが不足したときにボリュームが最大サイズに自動的に拡張されます。デフォルト値は 1 、 000 で、ボリュームはサイズの 11 倍まで拡張できます。この値はコネクタの設定で設定できます。
 
-ボリュームのサイズを変更する必要がある場合は、を使用して変更できます https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-C04C2C72-FF1F-4240-A22D-BE20BB74A116.html["ONTAP システムマネージャ"^]。ボリュームのサイズを変更する際は、システムの容量制限を考慮してください。にアクセスします https://docs.netapp.com/us-en/cloud-volumes-ontap/index.html["Cloud Volumes ONTAP リリースノート"^] 詳細：
+ボリュームのサイズを変更する必要がある場合は、を使用して変更できます https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-C04C2C72-FF1F-4240-A22D-BE20BB74A116.html["ONTAP システムマネージャ"^]。ボリュームのサイズを変更する際は、システムの容量制限を考慮してください。にアクセスします https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["Cloud Volumes ONTAP リリースノート"^] 詳細：
 
 
 

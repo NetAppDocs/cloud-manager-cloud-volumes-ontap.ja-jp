@@ -15,7 +15,7 @@ summary: 既知の制限事項は、このリリースの製品でサポート�
 [role="lead"]
 既知の制限事項は、このリリースの製品でサポートされていないプラットフォーム、デバイス、機能、または製品と正しく相互運用できない機能を特定します。これらの制限事項を慎重に確認してください
 
-これらの制限は、 Cloud Manager での Cloud Volumes ONTAP の管理に固有のものです。
+これらの制限は、 Cloud Manager での Cloud Volumes ONTAP の管理に固有のものです。Cloud Volumes ONTAP ソフトウェア自体の制限を確認するには、次の手順を実行します。 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limitations.html["Cloud Volumes ONTAP のリリースノートに移動します"^]
 
 
 

@@ -22,7 +22,7 @@ Storage VM は ONTAP 内で実行される仮想マシンであり、クライ�
 
 == サポートされている Storage VM 数
 
-特定の構成の Cloud Volumes ONTAP では、 AWS および Azure で複数の Storage VM がサポートされます。にアクセスします https://docs.netapp.com/us-en/cloud-volumes-ontap/index.html["Cloud Volumes ONTAP リリースノート"^] 使用している Cloud Volumes ONTAP のバージョンでサポートされる Storage VM 数を確認してください。
+特定の構成の Cloud Volumes ONTAP では、 AWS および Azure で複数の Storage VM がサポートされます。にアクセスします https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["Cloud Volumes ONTAP リリースノート"^] 使用している Cloud Volumes ONTAP のバージョンでサポートされる Storage VM 数を確認してください。
 
 
 

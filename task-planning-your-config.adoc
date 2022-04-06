@@ -35,7 +35,7 @@ Cloud Volumes ONTAP には、いくつかのライセンスオプションがあ
 
 Cloud Volumes ONTAP では、選択したライセンスタイプに応じて、複数のインスタンスタイプがサポートされます。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_configs_aws_9101.html["AWS で Cloud Volumes ONTAP がサポートされる構成"^]
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html["AWS で Cloud Volumes ONTAP がサポートされる構成"^]
 
 
 
@@ -49,7 +49,7 @@ AWS の一部の Cloud Volumes ONTAP 構成にはローカルの NVMe ストレ�
 
 Cloud Volumes ONTAP システムの未フォーマット時の容量制限は、ライセンスに関連付けられています。追加の制限は、アグリゲートとボリュームのサイズに影響します。設定を計画する際には、これらの制限に注意する必要があります。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_limits_aws_9101.html["AWS での Cloud Volumes ONTAP のストレージの制限"^]
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-aws.html["AWS での Cloud Volumes ONTAP のストレージの制限"^]
 
 
 
