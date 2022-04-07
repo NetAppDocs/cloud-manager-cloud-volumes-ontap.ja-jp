@@ -107,7 +107,7 @@ GCP では、アグリゲートに同じサイズのディスクを 6 本まで�
 
 == RAID タイプ
 
-各 Cloud Volumes ONTAP アグリゲートの RAID タイプは RAID 0 （ストライピング）です。その他の RAID タイプはサポートされません。Cloud Volumes ONTAP は、ディスクの可用性とデータ保持性についてクラウドプロバイダに依存しています。
+各 Cloud Volumes ONTAP アグリゲートの RAID タイプは RAID 0 （ストライピング）です。Cloud Volumes ONTAP は、ディスクの可用性とデータ保持性についてクラウドプロバイダに依存しています。その他の RAID タイプはサポートされません。
 
 
 
