@@ -169,6 +169,7 @@ AWS Commercial クラウドサービス環境でアクションを実行する�
                 "iam:CreateRole",
                 "iam:DeleteRole",
                 "iam:PutRolePolicy",
+                "iam:ListInstanceProfiles",
                 "iam:CreateInstanceProfile",
                 "iam:DeleteRolePolicy",
                 "iam:AddRoleToInstanceProfile",
