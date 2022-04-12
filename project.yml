@@ -172,6 +172,8 @@ sidebar:
     entries:
     - title: ストレージ
       entries:
+      - title: クライアントプロトコル
+        url: "/concept-client-protocols.html"
       - title: ディスクとアグリゲート
         url: "/concept-storage.html"
       - title: データの階層化

@@ -3655,4 +3655,18 @@
   <block id="d30ed55a4efaa85c9be23afd54902f99" category="paragraph">各 Cloud Volumes ONTAP アグリゲートの RAID タイプは RAID 0 （ストライピング）です。Cloud Volumes ONTAP は、ディスクの可用性とデータ保持性についてクラウドプロバイダに依存しています。その他の RAID タイプはサポートされません。</block>
   <block id="e85cd480a7048786255eb3e2a749e48d" category="paragraph">WORM ストレージの充電は、合計プロビジョニング容量に基づいて 1 時間ごとに行われます。</block>
   <block id="d87a373c29bad4362e9f6515cb3a6927" category="paragraph">導入時の特別料金が期限切れになり、 WORM ストレージの使用料が請求されます。WORM ボリュームのプロビジョニング済みの合計容量に基づいて、 1 時間ごとに課金されます。この環境 の新規および既存の Cloud Volumes ONTAP システムです。</block>
+  <block id="8911c2770edec78a9b5da666d560dd90" category="summary">Cloud Volumes ONTAP は、 iSCSI 、 NFS 、 SMB 、 S3 のクライアントプロトコルをサポートしています。</block>
+  <block id="36f3832717137e178e376fc49ba4e550" category="doc">クライアントプロトコル</block>
+  <block id="5494b349161a941df24b2a8abfcb1bc9" category="paragraph">iSCSI は、標準のイーサネットネットワークで実行できるブロックプロトコルです。ほとんどのクライアントオペレーティングシステムには、標準のイーサネットポートで動作するソフトウェアイニシエータが搭載されています。</block>
+  <block id="a506035b6cec6c14b89e2274b8f507fc" category="paragraph">NFS は、 UNIX および Linux システム向けの従来のファイルアクセスプロトコルです。クライアントは、 NFSv3 、 NFSv4 、および NFSv4.1 プロトコルを使用して ONTAP ボリューム内のファイルにアクセスできます。ファイルアクセスは、 UNIX 形式の権限、 NTFS 形式の権限、またはその両方の組み合わせを使用して制御できます。</block>
+  <block id="1ecf939f833364bdd59ce6237b13389d" category="paragraph">クライアントは、 NFS プロトコルと SMB プロトコルの両方を使用して同じファイルにアクセスできます。</block>
+  <block id="b4fdd997b1f33e0d4c6964444c2bf399" category="section-title">SMB</block>
+  <block id="11b07e87cde6233c7e410399ad203deb" category="paragraph">SMB は、 Windows システム向けの従来のファイルアクセスプロトコルです。クライアントは、 SMB 2.0 、 SMB 2.1 、 SMB 3.0 、および SMB 3.1.1 の各プロトコルを使用して ONTAP ボリューム内のファイルにアクセスできます。NFS と同様に、複数の形式の権限の組み合わせがサポートされています。</block>
+  <block id="e2ab7c65b21ed8cc1c3b642b5e36429e" category="section-title">S3</block>
+  <block id="97d123cf781865da390957834e7dec4a" category="paragraph">Cloud Volumes ONTAP は、 Microsoft Azure のスケールアウトストレージ用のオプションとして S3 をサポートしています。S3 プロトコルをサポートすると、 SVM のバケットに格納されたオブジェクトへの S3 クライアントアクセスを設定できるようになります。</block>
+  <block id="ba36d0b77efc9f46158b78a4e8ec9019" category="paragraph">現時点では、 AWS の Cloud Volumes ONTAP や Google Cloud では S3 プロトコルはサポートされていません。</block>
+  <block id="6958464059ef304c59d06fcb948ccafd" category="inline-link">ONTAP で S3 オブジェクトストレージサービスを設定および管理する方法について説明します</block>
+  <block id="75081fb4982f7b843e702079b35f0ed4" category="paragraph"><block ref="3fe75f10a35597997861eca633c30fa7" category="inline-link-rx"></block>。</block>
+  <block id="cad02caeb4ee636c87f28b0bb1263080" category="inline-link-macro">サポートされるクライアントプロトコルおよびバージョンについて説明します</block>
+  <block id="f0ddee23dd0d83f105bbdaa15ff5d87a" category="paragraph"><block ref="43c09f3d08ec80b50648a2a905bca06c" category="inline-link-macro-rx"></block>。</block>
 </blocks>
