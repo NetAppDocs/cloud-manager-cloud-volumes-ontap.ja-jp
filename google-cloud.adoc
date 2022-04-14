@@ -6,6 +6,7 @@ summary: 以下のガイドは、 Google Cloud で Cloud Volumes ONTAP を使用
 ---
 = Cloud Volumes ONTAP for Google Cloud の略
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

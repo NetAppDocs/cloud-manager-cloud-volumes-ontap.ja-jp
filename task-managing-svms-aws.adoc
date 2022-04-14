@@ -7,6 +7,7 @@ summary: Storage VM は ONTAP 内で実行される仮想マシンであり、�
 = AWS で Cloud Volumes ONTAP 用のデータ提供用 Storage VM を作成します
 :toc: macro
 :hardbreaks:
+:allow-uri-read: 
 :toc: 
 :nofooter: 
 :icons: font

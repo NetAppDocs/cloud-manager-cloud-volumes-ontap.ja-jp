@@ -6,6 +6,7 @@ summary: いくつかの手順で、 Cloud Volumes ONTAP for Azure を使い始�
 ---
 = Azure での Cloud Volumes ONTAP のクイックスタート
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

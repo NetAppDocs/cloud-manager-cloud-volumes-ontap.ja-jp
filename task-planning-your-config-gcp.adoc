@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP を導入する場合は、ワークロード要件
 ---
 = Google Cloud での Cloud Volumes ONTAP 構成の計画
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

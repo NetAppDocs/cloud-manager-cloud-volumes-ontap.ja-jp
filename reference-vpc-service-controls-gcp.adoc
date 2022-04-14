@@ -6,6 +6,7 @@ summary: VPC サービスコントロールを使用して Google 環境をロ�
 ---
 = GCP での VPC サービスコントロールの計画
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: ノードベース BYOL を使用する各 Cloud Volumes ONTAP シス�
 ---
 = ノードベースの BYOL のライセンス管理
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

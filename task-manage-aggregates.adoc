@@ -6,6 +6,7 @@ summary: アグリゲートの管理を自分で行うには、ディスクの�
 ---
 = アグリゲートを管理する
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

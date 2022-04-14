@@ -6,6 +6,7 @@ summary: Microsoft Azure で Cloud Volumes ONTAP を起動する際には、い�
 ---
 = Cloud Volumes ONTAP の Azure VM タイプを変更します
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

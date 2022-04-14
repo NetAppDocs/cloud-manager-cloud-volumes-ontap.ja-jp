@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP でのクラウドストレージの使用方法を
 ---
 = ディスクとアグリゲート
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

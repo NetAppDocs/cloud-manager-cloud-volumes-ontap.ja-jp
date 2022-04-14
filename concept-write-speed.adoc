@@ -6,6 +6,7 @@ summary: Cloud Manager では、 Cloud Volumes ONTAP に対して通常または
 ---
 = 書き込み速度
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

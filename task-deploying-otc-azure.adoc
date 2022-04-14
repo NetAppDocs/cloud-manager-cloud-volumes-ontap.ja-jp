@@ -6,6 +6,7 @@ summary: Cloud Manager で Cloud Volumes ONTAP の作業環境を作成するこ
 ---
 = Azure で Cloud Volumes ONTAP を起動します
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

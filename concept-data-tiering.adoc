@@ -6,6 +6,7 @@ summary: コールドデータを低コストのオブジェクトストレー�
 ---
 = データ階層化の概要
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

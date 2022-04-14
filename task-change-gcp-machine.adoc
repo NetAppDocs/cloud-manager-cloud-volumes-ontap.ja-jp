@@ -6,6 +6,7 @@ summary: Google Cloud で Cloud Volumes ONTAP を起動する際には、複数�
 ---
 = Cloud Volumes ONTAP の Google Cloud マシンタイプを変更します
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

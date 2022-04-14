@@ -6,6 +6,7 @@ summary: iSCSI ボリュームを作成すると、 Cloud Manager によって�
 ---
 = LUN をホストに接続します
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

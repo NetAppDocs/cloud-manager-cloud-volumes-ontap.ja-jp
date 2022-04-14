@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP は、シングルシステム構成または Googl
 ---
 = GCP での Cloud Volumes ONTAP の起動
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

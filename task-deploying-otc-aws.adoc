@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP インスタンスは、単一システム構成ま
 ---
 = AWS での Cloud Volumes ONTAP の起動
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

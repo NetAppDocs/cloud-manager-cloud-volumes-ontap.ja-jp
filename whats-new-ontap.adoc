@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP のリリースノートには、リリース固有
 ---
 = Cloud Volumes ONTAP リリースノート
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

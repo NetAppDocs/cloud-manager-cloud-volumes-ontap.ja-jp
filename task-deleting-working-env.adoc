@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP システムは、クラウドプロバイダのコ
 ---
 = Cloud Volumes ONTAP システムを削除する
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

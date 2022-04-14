@@ -6,6 +6,7 @@ summary: FlexCache ボリュームは、元のボリュームまたはソース�
 ---
 = FlexCache ボリュームでデータアクセスを高速化
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

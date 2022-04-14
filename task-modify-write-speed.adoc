@@ -6,6 +6,7 @@ summary: ストレージニーズの変化に合わせて Cloud Volumes ONTAP �
 ---
 = システムの書き込み速度を変更する
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

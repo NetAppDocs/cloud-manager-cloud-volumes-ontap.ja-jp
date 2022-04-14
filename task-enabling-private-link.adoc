@@ -6,6 +6,7 @@ summary: デフォルトでは、 Cloud Manager は Cloud Volumes ONTAP とそ�
 ---
 = Cloud Volumes ONTAP で Azure プライベートリンクを使用する
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

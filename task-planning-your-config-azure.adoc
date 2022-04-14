@@ -6,6 +6,7 @@ summary: Azure で Cloud Volumes ONTAP を導入する場合は、ワークロ�
 ---
 = Azure での Cloud Volumes ONTAP 構成の計画
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

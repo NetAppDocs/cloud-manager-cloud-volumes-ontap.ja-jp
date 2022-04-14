@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP を Cloud Manager からアップグレードする
 ---
 = Cloud Volumes ONTAP ソフトウェアをアップグレードします
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

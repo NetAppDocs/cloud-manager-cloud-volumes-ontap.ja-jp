@@ -6,6 +6,7 @@ summary: Cloud Manager は、 IP アドレス、ネットマスク、ルート�
 ---
 = Cloud Volumes ONTAP in AWS のネットワーク要件
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

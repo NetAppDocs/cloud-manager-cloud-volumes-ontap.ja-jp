@@ -6,6 +6,7 @@ summary: ONTAP の AutoSupport コンポーネントはテレメトリを収集�
 ---
 = AutoSupport と Active IQ デジタルアドバイザ
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

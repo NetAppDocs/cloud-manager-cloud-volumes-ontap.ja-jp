@@ -6,6 +6,7 @@ summary: 複数の AWS アベイラビリティゾーンに導入されている
 ---
 = 複数の AZ にまたがる HA ペア用のルーティングテーブルを変更します
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

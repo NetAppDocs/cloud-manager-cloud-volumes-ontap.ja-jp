@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP は、 iSCSI 、 NFS 、 SMB 、 S3 のクライア
 ---
 = クライアントプロトコル
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

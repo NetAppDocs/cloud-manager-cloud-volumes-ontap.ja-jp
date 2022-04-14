@@ -6,6 +6,7 @@ summary: いくつかの手順で、 Cloud Volumes ONTAP for AWS を使い始め
 ---
 = AWS での Cloud Volumes ONTAP のクイックスタート
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

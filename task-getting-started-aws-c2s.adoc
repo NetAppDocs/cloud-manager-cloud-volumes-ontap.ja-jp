@@ -6,6 +6,7 @@ summary: 標準の AWS リージョンと同様に、 AWS Commercial クラウ�
 ---
 = AWS C2S で Cloud Volumes ONTAP を使用する方法を確認します 環境
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

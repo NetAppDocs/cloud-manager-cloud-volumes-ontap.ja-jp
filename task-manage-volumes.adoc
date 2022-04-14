@@ -6,6 +6,7 @@ summary: Cloud Manager では、ボリュームと CIFS サーバを管理でき
 ---
 = 既存のボリュームを管理
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

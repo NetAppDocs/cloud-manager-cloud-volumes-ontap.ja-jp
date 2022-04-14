@@ -6,6 +6,7 @@ summary: アグリゲートは、自分で作成することも、 Cloud Manager
 ---
 = アグリゲートを作成する
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

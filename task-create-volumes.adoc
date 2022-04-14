@@ -6,6 +6,7 @@ summary: 初期 Cloud Volumes ONTAP システムの起動後にストレージ�
 ---
 = FlexVol ボリュームを作成します
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: Cloud Manager は、 Cloud Manager と Cloud Volumes ONTAP が正常に
 ---
 = AWS のセキュリティグループルール
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -409,34 +410,7 @@ NOTE: 送信元 IP アドレスは、コネクタホストです。
 | サービス | プロトコル | ポート | 宛先 | 目的 
 
 
-.9+| Active Directory | TCP | 88 | Active Directory フォレスト | Kerberos V 認証 
-
-
-| TCP | 139 | Active Directory フォレスト | NetBIOS サービスセッション 
-
-
-| TCP | 389 | Active Directory フォレスト | LDAP 
-
-
-| TCP | 445 | Active Directory フォレスト | NetBIOS フレーム同期を使用した Microsoft SMB over TCP 
-
-
-| TCP | 464 | Active Directory フォレスト | Kerberos V パスワードの変更と設定（ SET_CHANGE ） 
-
-
-| TCP | 749 | Active Directory フォレスト | Active Directory Kerberos v の変更とパスワードの設定（ RPCSEC_GSS ） 
-
-
-| UDP | 137 | Active Directory フォレスト | NetBIOS ネームサービス 
-
-
-| UDP | 138 | Active Directory フォレスト | NetBIOS データグラムサービス 
-
-
-| UDP | 464 | Active Directory フォレスト | Kerberos キー管理 
-
-
-| API コールと AutoSupport | HTTPS | 443 | アウトバウンドインターネットおよび ONTAP クラスタ管理 LIF | AWS および ONTAP への API コール、およびネットアップへの AutoSupport メッセージの送信 
+| API コールと AutoSupport | HTTPS | 443 | アウトバウンドインターネットおよび ONTAP クラスタ管理 LIF | API が AWS や ONTAP 、クラウドデータ検知、ランサムウェアサービス、ネットアップへの AutoSupport メッセージの送信を呼び出します 
 
 
 .2+| API コール | TCP | 3000 | ONTAP HA メディエーター | ONTAP HA メディエーターとの通信 

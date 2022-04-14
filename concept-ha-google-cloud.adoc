@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP のハイアベイラビリティ構成は、ノン
 ---
 = Google Cloud Platform のハイアベイラビリティペア
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
