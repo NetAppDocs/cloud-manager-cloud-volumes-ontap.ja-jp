@@ -96,7 +96,7 @@ image:screenshot_cmk_add_accounts_dialog.gif["このスクリーンショット�
 }
 ----
 +
-このプロセスの詳細については、を参照してください https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html#key-policy-modifying-external-accounts["AWS ドキュメント：「外部 AWS アカウントによる CMK へのアクセスの許可"^]。
+このプロセスの詳細については、を参照してください https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html["AWS のマニュアル：他のアカウントのユーザに KMS キーの使用を許可する"^]。
 
 
 

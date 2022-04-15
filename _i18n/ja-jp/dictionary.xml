@@ -1425,8 +1425,6 @@
   <block id="82bb5935870011035cbcd473a3789892" category="list-text">以下の権限を含む IAM ポリシーを作成します。</block>
   <block id="6f7f1463a2a1b8ca4d55b6233107a3fd" category="list-text">Cloud Manager に権限を付与する IAM ロールまたは IAM ユーザにポリシーを関連付けます。</block>
   <block id="b544b5b880735f9bf39da4d996ceb45b" category="paragraph">次のポリシーは、 Cloud Manager が外部 AWS アカウントから CMK を使用するために必要な権限を提供します。「リソース」セクションで、リージョンとアカウント ID を必ず変更してください。</block>
-  <block id="c11629c76cb2cf223c1ad3cdd5246200" category="inline-link">AWS ドキュメント：「外部 AWS アカウントによる CMK へのアクセスの許可</block>
-  <block id="d71f387349ef382aae2381e384e80734" category="paragraph">このプロセスの詳細については、を参照してください<block ref="e587bf292bcc348620cff97c127107a8" category="inline-link-rx"></block>。</block>
   <block id="c81afb1b84ded76b91ff7f71834201df" category="list-text">お客様が管理する CMK を使用している場合は、 Cloud Volumes ONTAP IAM ロールを a_key user_権限 として追加して、 CMK のキーポリシーを変更します。</block>
   <block id="0384244b4a5a8a089d8df0c3da87ddc5" category="paragraph">この手順は、 Cloud Volumes ONTAP でデータの階層化を有効にし、 S3 バケットに格納されているデータを暗号化する場合に必要です。</block>
   <block id="a5b811aae80c48f2c3219bcc0dc331ec" category="paragraph">作業環境の作成時に IAM ロールが作成されるため、このステップの _ 導入後 _ Cloud Volumes ONTAP を実行する必要があります。（もちろん、既存の Cloud Volumes ONTAP IAM ロールを使用することもできるため、この手順を前に実行することもできます）。</block>
@@ -3714,4 +3712,6 @@
   <block id="bece28b158ab337d9ed24b00d7d02cc7" category="list-text">[ * お問い合わせ * ] をクリックして、ネットアップ・テクニカル・サポートの電話番号を検索してください。</block>
   <block id="efe81cff8e6f47ec59ef94167b76bf5a" category="list-text">[ * 問題 を開く * ] をクリックし、いずれかのオプションを選択して、 [ * 送信 * ] をクリックします。</block>
   <block id="cbb1040836732e478409dacf7e45171a" category="paragraph">ネットアップの担当者がケースを確認し、すぐに対応を開始します。</block>
+  <block id="c2a34cad77f0451e7d0f58a7e0e6e450" category="inline-link">AWS のマニュアル：他のアカウントのユーザに KMS キーの使用を許可する</block>
+  <block id="21adb1598ef7a554ecf87a6c0bffbd4c" category="paragraph">このプロセスの詳細については、を参照してください<block ref="9601f431d0df2b9877da4b65b53342b6" category="inline-link-rx"></block>。</block>
 </blocks>
