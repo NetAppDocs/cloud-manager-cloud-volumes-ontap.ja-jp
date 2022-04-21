@@ -108,6 +108,11 @@ Access Control の略:: クライアントがボリュームを使用できる�
 --
 権限とユーザ / グループ:: ユーザとグループの SMB 共有へのアクセスレベルを制御できます（アクセス制御リストまたは ACL とも呼ばれます）。ローカルまたはドメインの Windows ユーザまたはグループ、 UNIX ユーザまたはグループを指定できます。ドメイン Windows ユーザ名を指定する場合は、 domain\username の形式を使用してユーザのドメインを含める必要があります。
 DNS プライマリおよびセカンダリ IP アドレス:: CIFS サーバの名前解決を提供する DNS サーバの IP アドレス。リストされた DNS サーバには、 CIFS サーバが参加するドメインの Active Directory LDAP サーバとドメインコントローラの検索に必要なサービスロケーションレコード（ SRV ）が含まれている必要があります。
++
+--
+Google Managed Active Directory を設定している場合は、デフォルトで 169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.x.x の IP アドレスを使用して AD にアクセスできます。
+
+--
 参加する Active Directory ドメイン:: CIFS サーバを参加させる Active Directory （ AD ）ドメインの FQDN 。
 ドメインへの参加を許可されたクレデンシャル:: AD ドメイン内の指定した組織単位（ OU ）にコンピュータを追加するための十分な権限を持つ Windows アカウントの名前とパスワード。
 CIFS サーバの NetBIOS 名:: AD ドメイン内で一意の CIFS サーバ名。
@@ -115,7 +120,8 @@ CIFS サーバの NetBIOS 名:: AD ドメイン内で一意の CIFS サーバ名
 +
 --
 *** AWS Managed Microsoft AD を Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=computers 、 OU=corp * 」と入力します。
-*** Azure AD ドメインサービスを Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=AADDC computers* 」または「 * OU=AADDC Users* 」と入力します。https://docs.microsoft.com/en-us/azure/active-directory-domain-services/create-ou["Azure のドキュメント：「 Create an Organizational Unit （ OU ；組織単位） in an Azure AD Domain Services managed domain"^]
+*** Azure AD ドメインサービスを Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=AADDC computers * 」または「 * OU=AADDC Users * 」と入力します。https://docs.microsoft.com/en-us/azure/active-directory-domain-services/create-ou["Azure のドキュメント：「 Create an Organizational Unit （ OU ；組織単位） in an Azure AD Domain Services managed domain"^]
+*** Google Managed Microsoft AD を Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=computers 、 OU=Cloud 」と入力します。https://cloud.google.com/managed-microsoft-ad/docs/manage-active-directory-objects#organizational_units["Google Cloud ドキュメント：「 Organizational Units in Google Managed Microsoft AD"^]
 
 
 --

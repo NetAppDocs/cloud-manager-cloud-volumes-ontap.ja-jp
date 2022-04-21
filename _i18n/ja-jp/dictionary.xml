@@ -681,7 +681,6 @@
   <block id="fd549a6bcd2d53b8accb49a7225fcfa0" category="paragraph">DNS サーバまたは Active Directory ドメインを変更した場合は、クライアントへのストレージの提供を継続できるように、 Cloud Volumes ONTAP で CIFS サーバを変更する必要があります。</block>
   <block id="26eb89266cb77257e69e50bb61b2da4e" category="list-text">作業環境で、メニューアイコンをクリックし、 * Advanced &gt; CIFS setup * をクリックします。</block>
   <block id="47839a059e385e1317a08bc188364e78" category="list-text">CIFS サーバの設定を指定します。</block>
-  <block id="ce8072a497c516b7feafdc7f85189540" category="cell">CIFS サーバの名前解決を提供する DNS サーバの IP アドレス。リストされた DNS サーバには、 CIFS サーバが参加するドメインの Active Directory LDAP サーバとドメインコントローラの検索に必要なサービスロケーションレコード（ SRV ）が含まれている必要があります。</block>
   <block id="fb0f1ebb01626c50d4db72222f7f93b8" category="cell">CIFS サーバに関連付ける AD ドメイン内の組織単位。デフォルトは CN=Computers です。AWS Managed Microsoft AD を Cloud Volumes ONTAP の AD サーバとして設定する場合は、このフィールドに「 * OU=computers 、 OU=corp * 」と入力します。</block>
   <block id="d72f7fe99597ed8f22050ed88031cb7e" category="paragraph">Cloud Volumes ONTAP は CIFS サーバを変更して更新します。</block>
   <block id="3fa1556429ab2d5c82bf33695eafd79b" category="section-title">ボリュームを移動する</block>
@@ -1147,8 +1146,6 @@
   <block id="400ffb1399d3b8d7d41dacde44c9a555" category="list-text">権限とユーザ / グループ</block>
   <block id="5f5586468344265a0b77d8d95679c505" category="list-text">ユーザとグループの SMB 共有へのアクセスレベルを制御できます（アクセス制御リストまたは ACL とも呼ばれます）。ローカルまたはドメインの Windows ユーザまたはグループ、 UNIX ユーザまたはグループを指定できます。ドメイン Windows ユーザ名を指定する場合は、 domain\username の形式を使用してユーザのドメインを含める必要があります。</block>
   <block id="e04aef302973ec752f06497862924bbd" category="list-text">CIFS サーバの名前解決を提供する DNS サーバの IP アドレス。リストされた DNS サーバには、 CIFS サーバが参加するドメインの Active Directory LDAP サーバとドメインコントローラの検索に必要なサービスロケーションレコード（ SRV ）が含まれている必要があります。</block>
-  <block id="2859714529b3c97d804c63700416d382" category="list-text">AWS Managed Microsoft AD を Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=computers 、 OU=corp * 」と入力します。</block>
-  <block id="0b65283ddb7514110dc1b43564c71fdc" category="list-text">Azure AD ドメインサービスを Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=AADDC computers* 」または「 * OU=AADDC Users* 」と入力します。<block ref="c77116dc5056757dacd34253f40507d7" category="inline-link-rx"></block></block>
   <block id="e4e1c13bb0b14f6cb7608cbecea948ef" category="open-title">iSCSI</block>
   <block id="b26e74ed6e2892c7e2bb95e414d460c6" category="list-text">LUN</block>
   <block id="e27b0c58e0eb09abee401a5c059fae69" category="list-text">iSCSI ストレージターゲットは LUN （論理ユニット）と呼ばれ、標準のブロックデバイスとしてホストに提示されます。iSCSI ボリュームを作成すると、 Cloud Manager によって自動的に LUN が作成されます。ボリュームごとに 1 つの LUN を作成するだけでシンプルになり、管理は不要です。ボリュームを作成したら、 <block ref="a56ae12401d3846252ee1d7537583dde" category="inline-link-macro-rx"></block>。</block>
@@ -3714,4 +3711,12 @@
   <block id="cbb1040836732e478409dacf7e45171a" category="paragraph">ネットアップの担当者がケースを確認し、すぐに対応を開始します。</block>
   <block id="c2a34cad77f0451e7d0f58a7e0e6e450" category="inline-link">AWS のマニュアル：他のアカウントのユーザに KMS キーの使用を許可する</block>
   <block id="21adb1598ef7a554ecf87a6c0bffbd4c" category="paragraph">このプロセスの詳細については、を参照してください<block ref="9601f431d0df2b9877da4b65b53342b6" category="inline-link-rx"></block>。</block>
+  <block id="21daef3fadb3dd64defa83d39be31db2" category="paragraph">Google Managed Active Directory を設定している場合は、デフォルトで 169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.x.x の IP アドレスを使用して AD にアクセスできます。</block>
+  <block id="42c3be7fd8f6754b6276a788fafb5c2a" category="list-text">AWS Managed Microsoft AD を Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=computers 、 OU=corp * 」と入力します。</block>
+  <block id="c6889b0f09506ef266562788f0e045c4" category="list-text">Azure AD ドメインサービスを Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=AADDC computers * 」または「 * OU=AADDC Users * 」と入力します。<block ref="c77116dc5056757dacd34253f40507d7" category="inline-link-rx"></block></block>
+  <block id="dd1469e83233ef1220eabf5ed3052e71" category="inline-link">Google Cloud ドキュメント：「 Organizational Units in Google Managed Microsoft AD</block>
+  <block id="574cb50e267b71a9b98541218b0def7d" category="list-text">Google Managed Microsoft AD を Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=computers 、 OU=Cloud 」と入力します。<block ref="8e7507132642e39310c024b1b990cf52" category="inline-link-rx"></block></block>
+  <block id="74fcd5478f5518e9bba0d4231bc72033" category="cell">CIFS サーバの名前解決を提供する DNS サーバの IP アドレス。リストされた DNS サーバには、 CIFS サーバが参加するドメインの Active Directory LDAP サーバとドメインコントローラの検索に必要なサービスロケーションレコード（ SRV ）が含まれている必要があります。Google Managed Active Directory を設定している場合は、デフォルトで 169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.x.x の IP アドレスを使用して AD にアクセスできます。</block>
+  <block id="61406b1bdfba5a7d3fd5d0089edfe238" category="cell">CIFS サーバの名前解決を提供する DNS サーバの IP アドレス。リストされた DNS サーバには、 CIFS サーバが参加するドメインの Active Directory LDAP サーバとドメインコントローラの検索に必要なサービスロケーションレコード（ SRV ）が含まれている必要があります。Google Managed Active Directory を設定している場合は、デフォルトで 169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.x.x の IP アドレスを使用して AD にアクセスできます。</block>
+  <block id="40bf45be09da9df22806f3324816106f" category="cell">CIFS サーバに関連付ける AD ドメイン内の組織単位。デフォルトは CN=Computers です。Google Managed Microsoft AD を Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=computers 、 OU=Cloud 」と入力します。<block ref="8e7507132642e39310c024b1b990cf52" category="inline-link-rx"></block></block>
 </blocks>
