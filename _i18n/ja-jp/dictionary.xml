@@ -1330,15 +1330,10 @@
   <block id="5e09b978da9c03ac56e9ae009a493fb2" category="list-text">ネットアップサポートサイトのアカウントを選択し、 * 登録 * をクリックします。</block>
   <block id="7323c95986e1d39c2cd9db2d73aada05" category="paragraph">Cloud Manager によってシステムがネットアップに登録されます。</block>
   <block id="4dfabb9a74a517d95b15695d846b0944" category="summary">Cloud Volumes ONTAP の高度な管理を実行する必要がある場合は、 ONTAP System Manager またはコマンドラインインターフェイスを使用します。</block>
-  <block id="97f183af88f6423c81ee403641078b9c" category="doc">Cloud Volumes ONTAP に接続しています</block>
   <block id="cadd82fb79e2226fff6bf6cfb889bd39" category="section-title">System Manager に接続しています</block>
   <block id="f07d90bbfefc445d1cb078ac5046d7cc" category="paragraph">一部の Cloud Volumes ONTAP タスクを System Manager から実行する必要が生じることがあります。 System Manager は、 Cloud Volumes ONTAP システム上で稼働するブラウザベースの管理ツールです。たとえば、 LUN を作成する場合は、 System Manager を使用する必要があります。</block>
   <block id="b11c90fa5b1825891f7306cced59a8f6" category="paragraph">Cloud Manager にアクセスするコンピュータは、 Cloud Volumes ONTAP にネットワーク接続している必要があります。たとえば、クラウドプロバイダネットワークにあるジャンプホストから Cloud Manager へのログインが必要になることがあります。</block>
   <block id="bc50e2c8c6842f075870ca9f893488d7" category="admonition">複数の AWS 可用性ゾーンに導入されている場合、 Cloud Volumes ONTAP HA 構成では、クラスタ管理インターフェイスにフローティング IP アドレスが使用されます。つまり、外部ルーティングは使用できません。同じルーティングドメインの一部であるホストから接続する必要があります。</block>
-  <block id="091477b1eeac6961b7c4940885b39fb1" category="list-text">キャンバスページで、 System Manager で管理する Cloud Volumes ONTAP システムをダブルクリックします。</block>
-  <block id="8c58c2aa1c49fb3b1b08e45ab654df6b" category="list-text">メニューアイコンをクリックし、 * Advanced &gt; System Manager * をクリックします。</block>
-  <block id="3eab8ee0f45fd9624973c05ec4303d5a" category="list-text">[* 起動 * ] をクリックします。</block>
-  <block id="7587c6609566a034156659b2141e3de1" category="paragraph">System Manager が新しいブラウザタブにロードされます。</block>
   <block id="7587e47fb1fdfd160b82df32e24fa40e" category="list-text">ログイン画面で、 [ ユーザー名 ] フィールドに「 * admin * 」と入力し、作業環境の作成時に指定したパスワードを入力して、 [ * サインイン * ] をクリックします。</block>
   <block id="a3203a051e5a85d3cb527a2c606eeda2" category="paragraph">System Manager コンソールがロードされます。これで、 Cloud Volumes ONTAP の管理に使用できるようになりました。</block>
   <block id="ef51c06afbfb97dceda87a3df6d89d3e" category="section-title">Cloud Volumes ONTAP CLI に接続しています</block>
@@ -2249,8 +2244,6 @@
   <block id="a502184baec20af3276eaf812b0bc5e9" category="paragraph">Cloud Volumes ONTAP システムにアクティブな SnapMirror 関係がある場合は、 Cloud Volumes ONTAP ソフトウェアを更新する前に転送を一時停止することを推奨します。転送を一時停止すると、 SnapMirror の障害を防ぐことができます。デスティネーションシステムからの転送を一時停止する必要があります。</block>
   <block id="1012c18719a2bd0b8e401c9112d9058a" category="admonition">Cloud Backup は SnapMirror を使用してバックアップファイル（ SnapMirror Cloud ）を作成しますが、システムのアップグレード時にバックアップを一時停止する必要はありません。</block>
   <block id="068ef446ee32940f054de5afadc7112f" category="paragraph">ここでは、 System Manager for Version 9.3 以降の使用方法について説明します。</block>
-  <block id="71340f6434a4561187ca02a51181cb71" category="inline-link-macro">System Manager にログインします。</block>
-  <block id="4e982372306628046a2080e5e8e7cdf8" category="list-text"><block ref="f45fd923a8ada94bb321515947889b87" category="inline-link-macro-rx"></block> デスティネーションシステムから作成します。</block>
   <block id="dd715b0f8dc26e2b2f4f5af8a6644cce" category="list-text">［ * 保護 ］ &gt; ［ 関係 * ］ の順にクリックします。</block>
   <block id="502ba236a1cae83a29d3574451caea8b" category="list-text">関係を選択し、 * Operations &gt; Quiesce * をクリックします。</block>
   <block id="58f03f4aa156a72c372951a943f6b4d3" category="section-title">アグリゲートがオンラインになっていることを確認する</block>
@@ -2259,7 +2252,6 @@
   <block id="8a58bd2f86c7acb1b532ae3d8d8ffea5" category="inline-image-macro">スクリーンショット：アグリゲートの情報を表示するときの State フィールドを表示します。</block>
   <block id="9a995e2acb4483a9819c1ce69c1838e4" category="paragraph"><block ref="9a995e2acb4483a9819c1ce69c1838e4" category="inline-image-macro-rx" type="image"></block></block>
   <block id="3c9582501e322eb574b7a8f727a9838c" category="list-text">アグリゲートがオフラインの場合は、 System Manager を使用してアグリゲートをオンラインにします。</block>
-  <block id="585a70dc1cfd8ed940cb0f352dc54612" category="list-text"><block ref="f45fd923a8ada94bb321515947889b87" category="inline-link-macro-rx"></block>。</block>
   <block id="9f4fc08ee817c29b22638b7544f0a27a" category="list-text">ストレージ &gt; アグリゲートとディスク &gt; アグリゲート * をクリックします。</block>
   <block id="c8a8f302f21fc7d1accf5a0eb3025496" category="list-text">アグリゲートを選択し、 * その他の操作 &gt; ステータス &gt; オンライン * をクリックします。</block>
   <block id="3a3843b2672bd389702bef2d50b13ac2" category="section-title">Cloud Volumes ONTAP をアップグレードします</block>
@@ -3719,4 +3711,12 @@
   <block id="74fcd5478f5518e9bba0d4231bc72033" category="cell">CIFS サーバの名前解決を提供する DNS サーバの IP アドレス。リストされた DNS サーバには、 CIFS サーバが参加するドメインの Active Directory LDAP サーバとドメインコントローラの検索に必要なサービスロケーションレコード（ SRV ）が含まれている必要があります。Google Managed Active Directory を設定している場合は、デフォルトで 169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.x.x の IP アドレスを使用して AD にアクセスできます。</block>
   <block id="61406b1bdfba5a7d3fd5d0089edfe238" category="cell">CIFS サーバの名前解決を提供する DNS サーバの IP アドレス。リストされた DNS サーバには、 CIFS サーバが参加するドメインの Active Directory LDAP サーバとドメインコントローラの検索に必要なサービスロケーションレコード（ SRV ）が含まれている必要があります。Google Managed Active Directory を設定している場合は、デフォルトで 169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.x.x の IP アドレスを使用して AD にアクセスできます。</block>
   <block id="40bf45be09da9df22806f3324816106f" category="cell">CIFS サーバに関連付ける AD ドメイン内の組織単位。デフォルトは CN=Computers です。Google Managed Microsoft AD を Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=computers 、 OU=Cloud 」と入力します。<block ref="8e7507132642e39310c024b1b990cf52" category="inline-link-rx"></block></block>
+  <block id="e4db2787e7af2ca8c09486148b05c8e4" category="list-text">デスティネーションシステムから System Manager にログインします。</block>
+  <block id="1bce083b19f5671fb510debd0f3e2ebb" category="paragraph">System Manager にログインするには、 Web ブラウザでクラスタ管理 LIF の IP アドレスを指定します。IP アドレスは Cloud Volumes ONTAP の作業環境で確認できます。</block>
+  <block id="a646a80e76f72b13f2cee97e769c5030" category="doc">System Manager または CLI を使用する</block>
+  <block id="0c0ce3241df32dee76208cf9ff12a089" category="list-text">キャンバスから Cloud Volumes ONTAP 作業環境を選択します。</block>
+  <block id="6199ed87a5c284fc6c96c4e407ddc2f0" category="list-text">右側のペインで、情報アイコンをクリックし、クラスタ管理 IP をコピーします。</block>
+  <block id="209dd9c5f51e29f38bd51ffe692ab25b" category="inline-image-macro">Cloud Volumes ONTAP 作業環境のキャンバスに表示される情報アイコンのスクリーンショット。</block>
+  <block id="508479659d1c4cbd35007e03e8274c60" category="paragraph"><block ref="508479659d1c4cbd35007e03e8274c60" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="46d765dd07540dedc3fb62a81ca5191e" category="list-text">Cloud Volumes ONTAP へのネットワーク接続が確立されたマシンで Web ブラウザを開き、 IP アドレスを入力します。</block>
 </blocks>

@@ -162,7 +162,14 @@ NOTE: Cloud Backup は SnapMirror を使用してバックアップファイル�
 ここでは、 System Manager for Version 9.3 以降の使用方法について説明します。
 
 .手順
-. link:task-connecting-to-otc.html["System Manager にログインします。"] デスティネーションシステムから作成します。
+. デスティネーションシステムから System Manager にログインします。
++
+System Manager にログインするには、 Web ブラウザでクラスタ管理 LIF の IP アドレスを指定します。IP アドレスは Cloud Volumes ONTAP の作業環境で確認できます。
+
++
+
+NOTE: Cloud Manager にアクセスするコンピュータは、 Cloud Volumes ONTAP にネットワーク接続している必要があります。たとえば、クラウドプロバイダネットワークにあるジャンプホストから Cloud Manager へのログインが必要になることがあります。
+
 . ［ * 保護 ］ > ［ 関係 * ］ の順にクリックします。
 . 関係を選択し、 * Operations > Quiesce * をクリックします。
 
@@ -183,7 +190,6 @@ image:screenshot_aggr_state.gif["スクリーンショット：アグリゲー�
 
 . アグリゲートがオフラインの場合は、 System Manager を使用してアグリゲートをオンラインにします。
 +
-.. link:task-connecting-to-otc.html["System Manager にログインします。"]。
 .. ストレージ > アグリゲートとディスク > アグリゲート * をクリックします。
 .. アグリゲートを選択し、 * その他の操作 > ステータス > オンライン * をクリックします。
 

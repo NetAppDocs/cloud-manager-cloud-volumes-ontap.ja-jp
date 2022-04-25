@@ -4,7 +4,7 @@ permalink: task-connecting-to-otc.html
 keywords: system manager, connecting, cli, command, command line, connect, shell, interface 
 summary: Cloud Volumes ONTAP の高度な管理を実行する必要がある場合は、 ONTAP System Manager またはコマンドラインインターフェイスを使用します。 
 ---
-= Cloud Volumes ONTAP に接続しています
+= System Manager または CLI を使用する
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -27,12 +27,12 @@ Cloud Manager にアクセスするコンピュータは、 Cloud Volumes ONTAP 
 NOTE: 複数の AWS 可用性ゾーンに導入されている場合、 Cloud Volumes ONTAP HA 構成では、クラスタ管理インターフェイスにフローティング IP アドレスが使用されます。つまり、外部ルーティングは使用できません。同じルーティングドメインの一部であるホストから接続する必要があります。
 
 .手順
-. キャンバスページで、 System Manager で管理する Cloud Volumes ONTAP システムをダブルクリックします。
-. メニューアイコンをクリックし、 * Advanced > System Manager * をクリックします。
-. [* 起動 * ] をクリックします。
+. キャンバスから Cloud Volumes ONTAP 作業環境を選択します。
+. 右側のペインで、情報アイコンをクリックし、クラスタ管理 IP をコピーします。
 +
-System Manager が新しいブラウザタブにロードされます。
+image:screenshot-cvo-info.png["Cloud Volumes ONTAP 作業環境のキャンバスに表示される情報アイコンのスクリーンショット。"]
 
+. Cloud Volumes ONTAP へのネットワーク接続が確立されたマシンで Web ブラウザを開き、 IP アドレスを入力します。
 . ログイン画面で、 [ ユーザー名 ] フィールドに「 * admin * 」と入力し、作業環境の作成時に指定したパスワードを入力して、 [ * サインイン * ] をクリックします。
 
 
