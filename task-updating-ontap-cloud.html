@@ -1409,7 +1409,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:28:17 +0000">04/14/2022</time>
+    <time datetime="2022-04-25 20:09:05 +0000">04/25/2022</time>
     
   
 
@@ -1644,7 +1644,22 @@ Cloud Backup は SnapMirror を使用してバックアップファイル（ Sna
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p><a href="task-connecting-to-otc.html">"System Manager にログインします。"</a> デスティネーションシステムから作成します。</p>
+<p>デスティネーションシステムから System Manager にログインします。</p>
+<div class="paragraph">
+<p>System Manager にログインするには、 Web ブラウザでクラスタ管理 LIF の IP アドレスを指定します。IP アドレスは Cloud Volumes ONTAP の作業環境で確認できます。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注記">
+</td>
+<td class="content">
+Cloud Manager にアクセスするコンピュータは、 Cloud Volumes ONTAP にネットワーク接続している必要があります。たとえば、クラウドプロバイダネットワークにあるジャンプホストから Cloud Manager へのログインが必要になることがあります。
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>［ * 保護 ］ &gt; ［ 関係 * ］ の順にクリックします。</p>
@@ -1679,9 +1694,6 @@ Cloud Backup は SnapMirror を使用してバックアップファイル（ Sna
 <p>アグリゲートがオフラインの場合は、 System Manager を使用してアグリゲートをオンラインにします。</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
-<li>
-<p><a href="task-connecting-to-otc.html">"System Manager にログインします。"</a>。</p>
-</li>
 <li>
 <p>ストレージ &gt; アグリゲートとディスク &gt; アグリゲート * をクリックします。</p>
 </li>
