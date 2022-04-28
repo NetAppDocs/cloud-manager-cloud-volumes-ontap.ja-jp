@@ -25,7 +25,7 @@ Storage VM は ONTAP 内で実行される仮想マシンであり、クライ�
 
 == サポートされている Storage VM 数
 
-Cloud Volumes ONTAP の BYOL では、 9.7 リリース以降、複数の Storage VM がアドオンライセンスで AWS でサポートされます。にアクセスします https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["Cloud Volumes ONTAP リリースノート"^] 使用している Cloud Volumes ONTAP のバージョンでサポートされる Storage VM 数を確認してください。
+9.7 以降のリリースでは、特定の Cloud Volumes ONTAP 構成で複数の Storage VM を使用できます。にアクセスします https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["Cloud Volumes ONTAP リリースノート"^] 使用している Cloud Volumes ONTAP のバージョンでサポートされる Storage VM 数を確認してください。
 
 他のすべての Cloud Volumes ONTAP 構成で、ディザスタリカバリに使用する 1 つのデータ提供用 Storage VM と 1 つのデスティネーション Storage VM がサポートされます。ソース Storage VM で停止が発生した場合は、デスティネーション Storage VM をデータアクセス用にアクティブ化できます。
 

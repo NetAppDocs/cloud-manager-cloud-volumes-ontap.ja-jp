@@ -556,10 +556,7 @@
   <block id="bbf8762fd7719517f7567e338ea9aa0b" category="section-title">サポートされている Storage VM 数</block>
   <block id="61a207d9bd50b686e92d93d0f36e5fd4" category="paragraph">他のすべての Cloud Volumes ONTAP 構成で、ディザスタリカバリに使用する 1 つのデータ提供用 Storage VM と 1 つのデスティネーション Storage VM がサポートされます。ソース Storage VM で停止が発生した場合は、デスティネーション Storage VM をデータアクセス用にアクティブ化できます。</block>
   <block id="bc2d82be5ce2a751775a44460f5f36ae" category="section-title">Azure で IP アドレスを割り当てます</block>
-  <block id="ec1961021d4275205f590654d3717686" category="paragraph">構成に応じて、シングルノードシステム、 iSCSI を使用する HA ペア、 NFS / SMB を使用する HA ペアのいずれかの手順を実行します。</block>
   <block id="5aabc9069557be7e4aeff466605cbc75" category="section-title">シングルノード</block>
-  <block id="ab446ebd1f851655193779b7c50f3533" category="paragraph">Storage VM を作成して LIF を割り当てる前に、 Azure で IP アドレスを nic0 に割り当てる必要があります。</block>
-  <block id="19c2f8be3dc9f0749efedd54317e259b" category="paragraph">データ LIF アクセス用の IP アドレスと、 Storage VM （ SVM ）管理 LIF のオプションの IP アドレスを作成する必要があります。この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</block>
   <block id="2c1d1f56d207e6b42d7866029b8f4f38" category="list-text">Azure ポータルにログインし、 * Virtual Machine * サービスを開きます。</block>
   <block id="dd5a058a2c46a43106332205c45a30ee" category="list-text">Cloud Volumes ONTAP VM の名前をクリックします。</block>
   <block id="e63661b2472f7f4dc8a5b7065ca6d208" category="list-text">[* ネットワーク ] をクリックします。</block>
@@ -571,16 +568,11 @@
   <block id="42986462673b87a9a58e425c4a99bb91" category="paragraph">静的 IP アドレスを使用することをお勧めします。静的 IP で IP アドレスが変更されないようにすることで、アプリケーションの不必要な停止を防止できます。</block>
   <block id="69aaba68c1c7e074c02079ece294e4ca" category="list-text">SVM 管理 LIF を作成する場合は、ノード 1 で上記の手順を繰り返します。</block>
   <block id="b961dd3512f483e2a3c032644c80c59b" category="paragraph">作成したプライベート IP アドレスをコピーします。新しい Storage VM の LIF を作成するときに、これらの IP アドレスを指定する必要があります。</block>
-  <block id="db47dc0102741150ae993267c082726b" category="section-title">iSCSI を使用した HA ペア</block>
   <block id="de6c446eec02722de82f7d7eaffa3970" category="paragraph">Storage VM を作成して LIF を割り当てる前に、 Azure で iSCSI IP アドレスを nic0 に割り当てる必要があります。iSCSI はフェイルオーバーに ALUA を使用するため、 iSCSI の IPS はロードバランサではなく nic0 に割り当てられます。</block>
-  <block id="a29e4df5dd39bde6573cc886acfbaca8" category="paragraph">データ LIF からアクセスするための IP アドレスはノード 1 から、データ LIF からノード 2 のアクセス用の別の IP アドレス、および Storage VM （ SVM ）管理 LIF の別のオプションの IP アドレスで作成する必要があります。この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</block>
   <block id="27f352c696e29cd9fd0f401648ff9862" category="list-text">ノード 1 の Cloud Volumes ONTAP VM の名前をクリックします。</block>
   <block id="160ff1b01bd06e8151784b706f33a6a1" category="list-text">ノード 2 で上記の手順を繰り返します。</block>
-  <block id="de6cbe326eeb24cea97aa8f30df88276" category="section-title">NFS / SMB を使用した HA ペア</block>
-  <block id="95c5c777456b3e0149069ea5a4c53d2f" category="paragraph">NFS データおよび SMB データに使用する IP アドレスはロードバランサに割り当てられます。これにより、フェイルオーバー時に IP アドレスを別のノードに移行できるようになります。</block>
   <block id="7be0ecb9e73595d673d5fbaed0cb6378" category="list-text">Azure ポータルで、 * ロードバランサ * サービスを開きます。</block>
   <block id="8097feb21f6c4186704bf26f92131fe0" category="list-text">HA ペアのロードバランサの名前をクリックします。</block>
-  <block id="2fe0657b31f144216e2ef4d8e54d6344" category="list-text">データ LIF へのアクセスに使用するフロントエンド IP 構成をノード 1 から、データ LIF へのアクセスに使用するフロントエンド IP 構成（ HA ペアのみ）と、 Storage VM （ SVM ）管理 LIF のもう 1 つのオプションのフロントエンド IP を作成します。</block>
   <block id="91755019ec4f9b4503c2abd1e2018220" category="list-text">[* 設定 ] で、 [* フロントエンド IP 設定 *] をクリックします。</block>
   <block id="7edcf3b7dac7218c74f45badfcadf54c" category="list-text">フロントエンド IP の名前を入力し、 Cloud Volumes ONTAP HA ペアのサブネットを選択して、 * Dynamic * を選択したままにします。</block>
   <block id="fde48a87720c7f4a7b3fe579cf70ce21" category="inline-image-macro">名前とサブネットが選択されている Azure ポータルにフロントエンド IP アドレスを追加するスクリーンショット。</block>
@@ -607,15 +599,10 @@
   <block id="4dfb9365c6db058f009ea80d9ad1d88a" category="paragraph"><block ref="4dfb9365c6db058f009ea80d9ad1d88a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5031fdddd713681aa180d7bfa60b1f72" category="paragraph">Cloud Volumes ONTAP のネットワークセキュリティグループルールで、ロードバランサが上記の手順 4 で作成したヘルスプローブの TCP プローブを送信できることを確認します。これはデフォルトで許可されています。</block>
   <block id="a094ded8d387643804f456ad69ef9c4e" category="section-title">Storage VM と LIF を作成</block>
-  <block id="559b2da2c29b62b98df683781dd648f8" category="paragraph">以下の手順では、シングルノードシステムまたは HA ペアに新しい Storage VM を作成します。ノード 1 からのデータ LIF へのアクセスには、ノード 2 （ HA ペアのみ）からのデータ LIF へのアクセスに使用する別の IP アドレス、および Storage VM （ SVM ）の管理 LIF のオプションの IP アドレスが 1 つ必要です。この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</block>
-  <block id="892275a45aef630ce148bbe286a635e7" category="paragraph">次のコマンドは、 Storage VM のデータアクセスプロトコルである NAS または iSCSI に一致するものを使用してください。</block>
   <block id="9b08db40ecf3304d34c7dadb34a6d2c2" category="list-text">Storage VM と Storage VM へのルートを作成してください。</block>
   <block id="120f35ca25d8256725ff2b7eb89df365" category="list-text">データ LIF を作成します。</block>
   <block id="622931dd0b6724a34dfe5a4f99b9a820" category="list-text">次のコマンドを使用して、ノード 1 に NAS LIF を作成します。</block>
-  <block id="074d9032b933b69b2be3568382166425" category="paragraph">シングルノードシステムの場合は、 -failover-policy パラメータの値を _disabled_ に変更する必要があります。</block>
-  <block id="a12208fb6f089d35aa483240e3ff8cfa" category="list-text">次のコマンドを使用して、ノード 2 に NAS LIF を作成します（ HA ペアの場合のみ）。</block>
   <block id="604199268b7709a557c60a09df0624bf" category="list-text">次のコマンドを使用して、ノード 1 に iSCSI LIF を作成します。</block>
-  <block id="4f8662666e7a1ea48a0773b6ce030409" category="list-text">次のコマンドを使用して、ノード 2 に iSCSI LIF を作成します（ HA ペアの場合のみ）。</block>
   <block id="67694021a675f2be09781b9b9c744e99" category="list-text">オプション：ノード 1 に Storage VM 管理 LIF を作成します。</block>
   <block id="c31f35122f9199d133c6a36e3c7d0875" category="paragraph">HA ペアに Storage VM を作成したら、その SVM でストレージをプロビジョニングする前に 12 時間待つことを推奨します。Cloud Volumes ONTAP 9.10.1 リリース以降、 Cloud Manager は HA ペアのロードバランサの設定を 12 時間おきにスキャンします。新しい SVM がある場合、 Cloud Manager はより短い計画外フェイルオーバーを実現する設定を有効にします。</block>
   <block id="8ec18a80b08142a9ee538b8ce4350b54" category="summary">ストレージニーズの変化に合わせて Cloud Volumes ONTAP システム構成の変更が必要になる場合があります。たとえば、従量課金制構成の変更、インスタンスや VM のタイプの変更などが可能です。</block>
@@ -3594,7 +3581,6 @@
   <block id="b64442e22e4baecde15d6214c922aa65" category="paragraph">ディスク制限によって、ディスクだけを使用することで容量制限に達することがないことに注意してください。を使用すると、ディスク制限を超えることができます <block ref="c80d06c6bbd06cbbb7b267be96c5b90c" category="inline-link-macro-rx"></block>。ディスクの制限については、を参照してください<block ref="02f1a1c120ffb5f37ea9d7c14b5f1158" category="inline-link-rx"></block>。</block>
   <block id="9402e8f13b9c1b7b1bbcad4d4c4eb4a9" category="paragraph"><block ref="9402e8f13b9c1b7b1bbcad4d4c4eb4a9" category="inline-link-rx"></block></block>
   <block id="2dcb300e9b01e5d98962a7e0c6eee87e" category="paragraph"><block ref="2dcb300e9b01e5d98962a7e0c6eee87e" category="inline-link-rx"></block></block>
-  <block id="08115db3513c03dc43fad61ef9de1776" category="paragraph">Azure では、 9.9.0 リリース以降、複数の Storage VM が Cloud Volumes ONTAP BYOL でサポートされており、アドオンライセンスが付与されています。にアクセスします<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 使用している Cloud Volumes ONTAP のバージョンでサポートされる Storage VM 数を確認してください。</block>
   <block id="ea03e008412c5794c43fdb2384bcb567" category="paragraph">高速の書き込み速度は、すべてのタイプのシングルノードシステムでサポートされています。特定のインスタンスまたは VM タイプを使用する場合は、 AWS と Azure の HA ペアでもサポートされます。GCP の HA ペアでは、高速の書き込み速度はサポートされていません。<block ref="af635009e2e9e5e8e83bc1e8e043f24c" category="inline-link-rx"></block>。</block>
   <block id="506e74c9262ca17fcd45f9fc1bb03b87" category="paragraph">ボリュームのサイズを変更する必要がある場合は、を使用して変更できます<block ref="bfb8b856b98909d9b8eda9fe0698d61f" category="inline-link-rx"></block>。ボリュームのサイズを変更する際は、システムの容量制限を考慮してください。にアクセスします<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 詳細：</block>
   <block id="3a08b0ef34be7d1bdbd1691c198e8824" category="paragraph">特定の構成の Cloud Volumes ONTAP では、 AWS および Azure で複数の Storage VM がサポートされます。にアクセスします<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 使用している Cloud Volumes ONTAP のバージョンでサポートされる Storage VM 数を確認してください。</block>
@@ -3615,7 +3601,6 @@
   <block id="95cb432951e690caaf3364033a849ac6" category="paragraph">これらの制限は、 Cloud Manager での Cloud Volumes ONTAP の管理に固有のものです。Cloud Volumes ONTAP ソフトウェア自体の制限を確認するには、次の手順を実行します。<block ref="70a3d165b5204ef94ef3f2d7b3d098d2" category="inline-link-rx"></block></block>
   <block id="374b69ed8baae6c10fc401a5f23dfabf" category="paragraph"><block ref="374b69ed8baae6c10fc401a5f23dfabf" category="inline-link-rx"></block></block>
   <block id="ce3a671f0219e5e11c7063a6ad822e79" category="paragraph"><block ref="ce3a671f0219e5e11c7063a6ad822e79" category="inline-link-rx"></block></block>
-  <block id="6b41bd25883d4b9d3fc620ddc9e20114" category="paragraph">Cloud Volumes ONTAP の BYOL では、 9.7 リリース以降、複数の Storage VM がアドオンライセンスで AWS でサポートされます。にアクセスします<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 使用している Cloud Volumes ONTAP のバージョンでサポートされる Storage VM 数を確認してください。</block>
   <block id="46a458ccb12155fe64d1df81ec5ab17f" category="list-text">に移動します<block ref="39149cc0a92530a12be08de697a6a796" category="inline-link-rx"></block>。</block>
   <block id="986760502c5f72b9233b40b1621b0e4c" category="paragraph"><block ref="986760502c5f72b9233b40b1621b0e4c" category="inline-link-rx"></block></block>
   <block id="28d1200478fccc009b0e5ac11ab32501" category="paragraph"><block ref="28d1200478fccc009b0e5ac11ab32501" category="inline-link-rx"></block></block>
@@ -3723,4 +3708,41 @@
   <block id="249f6fd27ec465f7b6af7dc12178a1ea" category="paragraph">Cloud Volumes ONTAP 作業環境内から以前に利用可能だった System Manager のリンクを削除しました。</block>
   <block id="1979125e36e7d7c49ca297e15301d908" category="inline-link">System Manager への接続に関する詳細情報</block>
   <block id="bbf60c789b26c6dcc40b75262425eac7" category="paragraph">Cloud Volumes ONTAP システムに接続している Web ブラウザにクラスタ管理 IP アドレスを入力しても、 System Manager に接続できます。<block ref="c343c10570bfa751089c9639f87b6a1f" category="inline-link-rx"></block>。</block>
+  <block id="5e10fd94744d67ee9b4af8576d7d871b" category="paragraph">9.9.0 リリース以降では、特定の Cloud Volumes ONTAP 構成で複数の Storage VM がサポートされます。にアクセスします<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 使用している Cloud Volumes ONTAP のバージョンでサポートされる Storage VM 数を確認してください。</block>
+  <block id="b06a344c267b8ee73a6d4d78ace617ea" category="paragraph">Storage VM を作成して LIF を割り当てる前に、 Azure で IP アドレスを割り当てる必要があります。</block>
+  <block id="0ecbfe2cb5b1df888639e1751cec905a" category="section-title">シングルノードシステム</block>
+  <block id="49da92f2dba049d8208289b0992f5eea" category="paragraph">Storage VM を作成して LIF を割り当てる前に、 Azure で IP アドレスを nic0 に割り当てる必要があります。必要な IP アドレスの数は、ストレージプロトコルによって異なります。</block>
+  <block id="0afcee1178b91716c388f1396185ac6f" category="list-text">iSCSI データ LIF アクセス用に 1 つの IP アドレス</block>
+  <block id="d9fa1bba25e264315bb45a5db857089c" category="list-text">Storage VM （ SVM ）管理 LIF のオプションの IP アドレスです</block>
+  <block id="0212110e6e591f399e46a0a33621323b" category="paragraph">この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</block>
+  <block id="eec85f955016d792db9f5b3484d9ed93" category="list-text">NAS データ LIF へのアクセス用に 1 つの IP アドレス</block>
+  <block id="6790f564ef647fd6702f6e6f05bf9f56" category="list-text">iSCSI LIF を介した DNS 通信と SMB 通信に使用する IP アドレス × 1</block>
+  <block id="fffed9c5a0bdaa00d58449115b30129f" category="paragraph">iSCSI LIF はフェイルオーバー時に移行されないため、この目的に使用されます。</block>
+  <block id="59411573b05f8ba9bff2c6ebef3042a6" category="list-text">SMB を使用している場合は、上記の手順を繰り返して、 DNS 通信と SMB 通信用に追加の IP アドレスを作成します。</block>
+  <block id="3fc61f795c4036debc9bbee70495f5d3" category="list-text">SVM 管理 LIF を作成する場合は、上記の手順を繰り返して追加の IP アドレスを作成します。</block>
+  <block id="556696d309aaf81ce29c6a76f8f8a503" category="section-title">HA ペア</block>
+  <block id="8ebc8557356a6ebd39c4dd48a6f84931" category="paragraph">HA ペアに IP アドレスを割り当てる方法は、使用しているストレージプロトコルによって異なります。</block>
+  <block id="bd88ed594712224b8e3f79251707158b" category="paragraph">次の IP アドレスを作成する必要があります。</block>
+  <block id="959519864abf23eb751637cd9762312f" category="list-text">ノード 1 からの iSCSI データ LIF アクセス用に IP アドレス × 1</block>
+  <block id="72b179a0d02f32caa6ee9d21826a4a30" category="list-text">ノード 2 からの iSCSI データ LIF アクセス用に 1 つの IP アドレス</block>
+  <block id="92e91b161b0371348686cd8b37ca5028" category="paragraph">NFS に使用する IP アドレスはロードバランサに割り当てられます。これにより、フェイルオーバー時に IP アドレスがもう一方のノードに移行できるようになります。</block>
+  <block id="8560b84a5b55caac8c8ef30051a197e5" category="list-text">ノード 1 から NAS データ LIF にアクセスするための IP アドレス × 1</block>
+  <block id="aba6d4795536d5c4e61cf75ce0ddd22c" category="list-text">ノード 2 からの NAS データ LIF アクセス用に 1 つの IP アドレス</block>
+  <block id="7a5be31086b3ad69d1c6b2c5abafcc64" category="list-text">データ LIF へのアクセスに使用するフロントエンド IP 設定をノード 1 から、データ LIF へのアクセスに使用するフロントエンド IP をノード 2 から、 Storage VM （ SVM ）管理 LIF のもう 1 つのオプションのフロントエンド IP に作成します。</block>
+  <block id="c09d6988bf61135b41e7b195d446e2b9" category="paragraph">SMB データに使用する IP アドレスはロードバランサに割り当てられます。これにより、フェイルオーバー時に IP アドレスを別のノードに移行できるようになります。</block>
+  <block id="da253cd0d6c8d87b61a60f7e67560913" category="list-text">ノード 1 の iSCSI LIF の IP アドレス × 1</block>
+  <block id="5aa1fc4c5c5e3c602f89524b94fcaf47" category="list-text">ノード 2 の iSCSI LIF の IP アドレス × 1</block>
+  <block id="d31b2ca2df7d7ec89a597cf3ff166e6d" category="paragraph">iSCSI LIF は、 DNS 通信と SMB 通信に必要です。iSCSI LIF はフェイルオーバー時に移行されないため、この目的に使用されます。</block>
+  <block id="ccc2da4a96a5d07ea0b03ab18f4ed608" category="list-text">必要な数のフロントエンド IP 設定を作成します。</block>
+  <block id="3ad6e3f460248126da5c801e403088c1" category="paragraph">Azure で IP アドレスを割り当てると、単一のノードシステムまたは HA ペアに新しい Storage VM を作成できます。</block>
+  <block id="5683cfda0c67cd1651e904160b0a5460" category="paragraph">シングルノードシステムで Storage VM と LIF を作成する方法は、使用しているストレージプロトコルによって異なります。</block>
+  <block id="2d376cf045c4838856b9429d7fecf7a5" category="paragraph">新しい Storage VM と必要な LIF を作成するには、次の手順を実行します。</block>
+  <block id="070ee68a98b928bc45bc4178848e21da" category="list-text">データ LIF を作成します。</block>
+  <block id="7e0c9dfe920929d81d8d5761b763bb63" category="list-text">DNS 通信と SMB 通信を提供するために必要な iSCSI LIF を作成します。</block>
+  <block id="b41808a70de11f6ad8400c22ebe933f1" category="paragraph">HA ペアで Storage VM と LIF を作成する方法は、使用しているストレージプロトコルによって異なります。</block>
+  <block id="83871791a7611e5a981ec0b38a662078" category="list-text">次のコマンドを使用して、ノード 2 に iSCSI LIF を作成します。</block>
+  <block id="0cffe85429bb79552ce3607190d9dbad" category="list-text">次のコマンドを使用して、ノード 2 に NAS LIF を作成します。</block>
+  <block id="6c6c472de3f0cea0f21c8e31be81490c" category="list-text">NAS データ LIF を作成します。</block>
+  <block id="477dc9bfd99f5e3ed09c8dbdc76a2c7c" category="list-text">DNS 通信と SMB 通信を提供する iSCSI LIF を作成します。</block>
+  <block id="1d690a933c240dda520f6527f56da475" category="paragraph">9.7 以降のリリースでは、特定の Cloud Volumes ONTAP 構成で複数の Storage VM を使用できます。にアクセスします<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 使用している Cloud Volumes ONTAP のバージョンでサポートされる Storage VM 数を確認してください。</block>
 </blocks>
