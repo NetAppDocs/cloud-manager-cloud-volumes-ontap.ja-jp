@@ -1409,7 +1409,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:28:17 +0000">04/14/2022</time>
+    <time datetime="2022-04-28 18:09:08 +0000">04/28/2022</time>
     
   
 
@@ -1422,12 +1422,16 @@
 <li><a href="#サポートされている-storage-vm-数">サポートされている Storage VM 数</a></li>
 <li><a href="#azure-で-ip-アドレスを割り当てます">Azure で IP アドレスを割り当てます</a>
 <ul class="sectlevel2">
-<li><a href="#シングルノード">シングルノード</a></li>
-<li><a href="#iscsi-を使用した-ha-ペア">iSCSI を使用した HA ペア</a></li>
-<li><a href="#nfs-smb-を使用した-ha-ペア">NFS / SMB を使用した HA ペア</a></li>
+<li><a href="#シングルノードシステム">シングルノードシステム</a></li>
+<li><a href="#ha-ペア">HA ペア</a></li>
 </ul>
 </li>
-<li><a href="#storage-vm-と-lif-を作成">Storage VM と LIF を作成</a></li>
+<li><a href="#storage-vm-と-lif-を作成">Storage VM と LIF を作成</a>
+<ul class="sectlevel2">
+<li><a href="#シングルノードシステム-2">シングルノードシステム</a></li>
+<li><a href="#ha-ペア-2">HA ペア</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div id="preamble">
@@ -1444,7 +1448,7 @@
 <h2 id="サポートされている-storage-vm-数">サポートされている Storage VM 数</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Azure では、 9.9.0 リリース以降、複数の Storage VM が Cloud Volumes ONTAP BYOL でサポートされており、アドオンライセンスが付与されています。にアクセスします <a href="https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html" target="_blank" rel="noopener">"Cloud Volumes ONTAP リリースノート"</a> 使用している Cloud Volumes ONTAP のバージョンでサポートされる Storage VM 数を確認してください。</p>
+<p>9.9.0 リリース以降では、特定の Cloud Volumes ONTAP 構成で複数の Storage VM がサポートされます。にアクセスします <a href="https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html" target="_blank" rel="noopener">"Cloud Volumes ONTAP リリースノート"</a> 使用している Cloud Volumes ONTAP のバージョンでサポートされる Storage VM 数を確認してください。</p>
 </div>
 <div class="paragraph">
 <p>他のすべての Cloud Volumes ONTAP 構成で、ディザスタリカバリに使用する 1 つのデータ提供用 Storage VM と 1 つのデスティネーション Storage VM がサポートされます。ソース Storage VM で停止が発生した場合は、デスティネーション Storage VM をデータアクセス用にアクティブ化できます。</p>
@@ -1455,15 +1459,76 @@
 <h2 id="azure-で-ip-アドレスを割り当てます">Azure で IP アドレスを割り当てます</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>構成に応じて、シングルノードシステム、 iSCSI を使用する HA ペア、 NFS / SMB を使用する HA ペアのいずれかの手順を実行します。</p>
+<p>Storage VM を作成して LIF を割り当てる前に、 Azure で IP アドレスを割り当てる必要があります。</p>
 </div>
 <div class="sect2">
-<h3 id="シングルノード">シングルノード</h3>
+<h3 id="シングルノードシステム">シングルノードシステム</h3>
 <div class="paragraph">
-<p>Storage VM を作成して LIF を割り当てる前に、 Azure で IP アドレスを nic0 に割り当てる必要があります。</p>
+<p>Storage VM を作成して LIF を割り当てる前に、 Azure で IP アドレスを nic0 に割り当てる必要があります。必要な IP アドレスの数は、ストレージプロトコルによって異なります。</p>
 </div>
+<div class="exampleblock tabbed-block">
+<div class="content">
+<div class="openblock">
+<div class="title">iSCSI</div>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>iSCSI データ LIF アクセス用に 1 つの IP アドレス</p>
+</li>
+<li>
+<p>Storage VM （ SVM ）管理 LIF のオプションの IP アドレスです</p>
 <div class="paragraph">
-<p>データ LIF アクセス用の IP アドレスと、 Storage VM （ SVM ）管理 LIF のオプションの IP アドレスを作成する必要があります。この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</p>
+<p>この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">NFS</div>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>NAS データ LIF へのアクセス用に 1 つの IP アドレス</p>
+</li>
+<li>
+<p>Storage VM （ SVM ）管理 LIF のオプションの IP アドレスです</p>
+<div class="paragraph">
+<p>この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">SMB</div>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>NAS データ LIF へのアクセス用に 1 つの IP アドレス</p>
+</li>
+<li>
+<p>iSCSI LIF を介した DNS 通信と SMB 通信に使用する IP アドレス × 1</p>
+<div class="paragraph">
+<p>iSCSI LIF はフェイルオーバー時に移行されないため、この目的に使用されます。</p>
+</div>
+</li>
+<li>
+<p>Storage VM （ SVM ）管理 LIF のオプションの IP アドレスです</p>
+<div class="paragraph">
+<p>この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="olist arabic">
 <div class="title">手順</div>
@@ -1496,7 +1561,10 @@
 </div>
 </li>
 <li>
-<p>SVM 管理 LIF を作成する場合は、ノード 1 で上記の手順を繰り返します。</p>
+<p>SMB を使用している場合は、上記の手順を繰り返して、 DNS 通信と SMB 通信用に追加の IP アドレスを作成します。</p>
+</li>
+<li>
+<p>SVM 管理 LIF を作成する場合は、上記の手順を繰り返して追加の IP アドレスを作成します。</p>
 </li>
 </ol>
 </div>
@@ -1505,12 +1573,36 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="iscsi-を使用した-ha-ペア">iSCSI を使用した HA ペア</h3>
+<h3 id="ha-ペア">HA ペア</h3>
+<div class="paragraph">
+<p>HA ペアに IP アドレスを割り当てる方法は、使用しているストレージプロトコルによって異なります。</p>
+</div>
+<div class="exampleblock tabbed-block">
+<div class="content">
+<div class="openblock">
+<div class="title">iSCSI</div>
+<div class="content">
 <div class="paragraph">
 <p>Storage VM を作成して LIF を割り当てる前に、 Azure で iSCSI IP アドレスを nic0 に割り当てる必要があります。iSCSI はフェイルオーバーに ALUA を使用するため、 iSCSI の IPS はロードバランサではなく nic0 に割り当てられます。</p>
 </div>
 <div class="paragraph">
-<p>データ LIF からアクセスするための IP アドレスはノード 1 から、データ LIF からノード 2 のアクセス用の別の IP アドレス、および Storage VM （ SVM ）管理 LIF の別のオプションの IP アドレスで作成する必要があります。この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</p>
+<p>次の IP アドレスを作成する必要があります。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ノード 1 からの iSCSI データ LIF アクセス用に IP アドレス × 1</p>
+</li>
+<li>
+<p>ノード 2 からの iSCSI データ LIF アクセス用に 1 つの IP アドレス</p>
+</li>
+<li>
+<p>Storage VM （ SVM ）管理 LIF のオプションの IP アドレスです</p>
+<div class="paragraph">
+<p>この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</p>
+</div>
+</li>
+</ul>
 </div>
 <div class="olist arabic">
 <div class="title">手順</div>
@@ -1550,14 +1642,32 @@
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>作成したプライベート IP アドレスをコピーします。新しい Storage VM の LIF を作成するときに、これらの IP アドレスを指定する必要があります。</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="nfs-smb-を使用した-ha-ペア">NFS / SMB を使用した HA ペア</h3>
+<div class="openblock">
+<div class="title">NFS</div>
+<div class="content">
 <div class="paragraph">
-<p>NFS データおよび SMB データに使用する IP アドレスはロードバランサに割り当てられます。これにより、フェイルオーバー時に IP アドレスを別のノードに移行できるようになります。</p>
+<p>NFS に使用する IP アドレスはロードバランサに割り当てられます。これにより、フェイルオーバー時に IP アドレスがもう一方のノードに移行できるようになります。</p>
+</div>
+<div class="paragraph">
+<p>次の IP アドレスを作成する必要があります。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ノード 1 から NAS データ LIF にアクセスするための IP アドレス × 1</p>
+</li>
+<li>
+<p>ノード 2 からの NAS データ LIF アクセス用に 1 つの IP アドレス</p>
+</li>
+<li>
+<p>Storage VM （ SVM ）管理 LIF のオプションの IP アドレスです</p>
+<div class="paragraph">
+<p>この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</p>
+</div>
+</li>
+</ul>
 </div>
 <div class="olist arabic">
 <div class="title">手順</div>
@@ -1569,7 +1679,7 @@
 <p>HA ペアのロードバランサの名前をクリックします。</p>
 </li>
 <li>
-<p>データ LIF へのアクセスに使用するフロントエンド IP 構成をノード 1 から、データ LIF へのアクセスに使用するフロントエンド IP 構成（ HA ペアのみ）と、 Storage VM （ SVM ）管理 LIF のもう 1 つのオプションのフロントエンド IP を作成します。</p>
+<p>データ LIF へのアクセスに使用するフロントエンド IP 設定をノード 1 から、データ LIF へのアクセスに使用するフロントエンド IP をノード 2 から、 Storage VM （ SVM ）管理 LIF のもう 1 つのオプションのフロントエンド IP に作成します。</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1659,10 +1769,158 @@
 </ol>
 </div>
 </li>
+<li>
+<p>Cloud Volumes ONTAP のネットワークセキュリティグループルールで、ロードバランサが上記の手順 4 で作成したヘルスプローブの TCP プローブを送信できることを確認します。これはデフォルトで許可されています。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">SMB</div>
+<div class="content">
+<div class="paragraph">
+<p>SMB データに使用する IP アドレスはロードバランサに割り当てられます。これにより、フェイルオーバー時に IP アドレスを別のノードに移行できるようになります。</p>
+</div>
+<div class="paragraph">
+<p>次の IP アドレスを作成する必要があります。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ノード 1 から NAS データ LIF にアクセスするための IP アドレス × 1</p>
+</li>
+<li>
+<p>ノード 2 からの NAS データ LIF アクセス用に 1 つの IP アドレス</p>
+</li>
+<li>
+<p>ノード 1 の iSCSI LIF の IP アドレス × 1</p>
+</li>
+<li>
+<p>ノード 2 の iSCSI LIF の IP アドレス × 1</p>
+<div class="paragraph">
+<p>iSCSI LIF は、 DNS 通信と SMB 通信に必要です。iSCSI LIF はフェイルオーバー時に移行されないため、この目的に使用されます。</p>
+</div>
+</li>
+<li>
+<p>Storage VM （ SVM ）管理 LIF のオプションの IP アドレスです</p>
+<div class="paragraph">
+<p>この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>Azure ポータルで、 * ロードバランサ * サービスを開きます。</p>
+</li>
+<li>
+<p>HA ペアのロードバランサの名前をクリックします。</p>
+</li>
+<li>
+<p>必要な数のフロントエンド IP 設定を作成します。</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>[* 設定 ] で、 [* フロントエンド IP 設定 *] をクリックします。</p>
+</li>
+<li>
+<p>[ 追加（ Add ） ] をクリックします。</p>
+</li>
+<li>
+<p>フロントエンド IP の名前を入力し、 Cloud Volumes ONTAP HA ペアのサブネットを選択して、 * Dynamic * を選択したままにします。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_azure_frontend_ip.gif" alt="名前とサブネットが選択されている Azure ポータルにフロントエンド IP アドレスを追加するスクリーンショット。"></span></p>
+</div>
+</li>
+<li>
+<p>作成したフロントエンド IP 設定の名前をクリックし、 * Assignment * を * Static * に変更して、 * Save * をクリックします。</p>
+<div class="paragraph">
+<p>静的 IP アドレスを使用することをお勧めします。静的 IP で IP アドレスが変更されないようにすることで、アプリケーションの不必要な停止を防止できます。</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>作成した各フロントエンド IP のヘルスプローブを追加します。</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>ロードバランサーの * 設定 * で、 * ヘルスプローブ * をクリックします。</p>
+</li>
+<li>
+<p>[ 追加（ Add ） ] をクリックします。</p>
+</li>
+<li>
+<p>ヘルスプローブの名前を入力し、 63005 ～ 65000. のポート番号を入力します。他のフィールドはデフォルト値のままにします。</p>
+<div class="paragraph">
+<p>ポート番号が 63005 ～ 65000. であることが重要です。たとえば、 3 つのヘルスプローブを作成する場合、ポート番号 63005 、 63006 、および 63007 を使用するプローブを入力できます。</p>
+</div>
+</li>
 </ol>
 </div>
 <div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_azure_health_probe.gif" alt="名前とポートを入力する Azure ポータルにヘルスプローブを追加するスクリーンショット。"></span></p>
+</div>
+</li>
+<li>
+<p>フロントエンド IP ごとに新しいロードバランシングルールを作成します。</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>ロードバランサーの * 設定 * で、 * ロードバランシングルール * をクリックします。</p>
+</li>
+<li>
+<p>[ * 追加（ Add ） ] をクリックして、必要な情報を入力する。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>* 名前 * ：ルールの名前を入力します。</p>
+</li>
+<li>
+<p>* IP バージョン * ：「 * ipv4 * 」を選択します。</p>
+</li>
+<li>
+<p>* フロントエンド IP アドレス *: 作成したフロントエンド IP アドレスのいずれかを選択します。</p>
+</li>
+<li>
+<p>*HA Ports *: このオプションを有効にします。</p>
+</li>
+<li>
+<p>* バックエンドプール * ：すでに選択されているデフォルトのバックエンドプールをそのまま使用します。</p>
+</li>
+<li>
+<p>* ヘルスプローブ * ：選択したフロントエンド IP に対して作成したヘルスプローブを選択します。</p>
+</li>
+<li>
+<p>* セッション持続性 *: 「なし」を選択します。</p>
+</li>
+<li>
+<p>* フローティング IP * ： * 有効 * を選択します。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_azure_lb_rule.gif" alt="Azure ポータルに、上記のフィールドを含むロードバランシングルールを追加するスクリーンショット。"></span></p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
 <p>Cloud Volumes ONTAP のネットワークセキュリティグループルールで、ロードバランサが上記の手順 4 で作成したヘルスプローブの TCP プローブを送信できることを確認します。これはデフォルトで許可されています。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>作成したプライベート IP アドレスをコピーします。新しい Storage VM の LIF を作成するときに、これらの IP アドレスを指定する必要があります。</p>
 </div>
 </div>
 </div>
@@ -1671,10 +1929,268 @@
 <h2 id="storage-vm-と-lif-を作成">Storage VM と LIF を作成</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>以下の手順では、シングルノードシステムまたは HA ペアに新しい Storage VM を作成します。ノード 1 からのデータ LIF へのアクセスには、ノード 2 （ HA ペアのみ）からのデータ LIF へのアクセスに使用する別の IP アドレス、および Storage VM （ SVM ）の管理 LIF のオプションの IP アドレスが 1 つ必要です。この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</p>
+<p>Azure で IP アドレスを割り当てると、単一のノードシステムまたは HA ペアに新しい Storage VM を作成できます。</p>
+</div>
+<div class="sect2">
+<h3 id="シングルノードシステム-2">シングルノードシステム</h3>
+<div class="paragraph">
+<p>シングルノードシステムで Storage VM と LIF を作成する方法は、使用しているストレージプロトコルによって異なります。</p>
+</div>
+<div class="exampleblock tabbed-block">
+<div class="content">
+<div class="openblock">
+<div class="title">iSCSI</div>
+<div class="content">
+<div class="paragraph">
+<p>新しい Storage VM と必要な LIF を作成するには、次の手順を実行します。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>Storage VM と Storage VM へのルートを作成してください。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver create -vserver &lt;svm-name&gt; -subtype default -rootvolume &lt;root-volume-name&gt; -rootvolume-security-style unix</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network route create -destination 0.0.0.0/0 -vserver &lt;svm-name&gt; -gateway &lt;ip-of-gateway-server&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>データ LIF を作成します。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -home-port e0a -address &lt;iscsi-ip-address&gt; -lif &lt;lif-name&gt; -home-node &lt;name-of-node1&gt; -data-protocol iscsi</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>オプション： Storage VM 管理 LIF を作成する</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol none -address &lt;svm-mgmt-ip-address&gt; -netmask-length &lt;length&gt; -home-node node1 -status-admin up -failover-policy system-defined -firewall-policy mgmt -home-port e0a -auto-revert false -failover-group Default</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Storage VM に 1 つ以上のアグリゲートを割り当てます。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>次のコマンドは、 Storage VM のデータアクセスプロトコルである NAS または iSCSI に一致するものを使用してください。</p>
+<p>この手順は、 Storage VM にボリュームを作成する前に、新しい Storage VM が少なくとも 1 つのアグリゲートにアクセスする必要があるためです。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">NFS</div>
+<div class="content">
+<div class="paragraph">
+<p>新しい Storage VM と必要な LIF を作成するには、次の手順を実行します。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>Storage VM と Storage VM へのルートを作成してください。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver create -vserver &lt;svm-name&gt; -subtype default -rootvolume &lt;root-volume-name&gt; -rootvolume-security-style unix</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network route create -destination 0.0.0.0/0 -vserver &lt;svm-name&gt; -gateway &lt;ip-of-gateway-server&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>データ LIF を作成します。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol cifs,nfs -address &lt;nfs--ip-address&gt; -netmask-length &lt;length&gt; -home-node &lt;name-of-node1&gt; -status-admin up -failover-policy disabled -firewall-policy data -home-port e0a -auto-revert true -failover-group Default</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>オプション： Storage VM 管理 LIF を作成する</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol none -address &lt;svm-mgmt-ip-address&gt; -netmask-length &lt;length&gt; -home-node node1 -status-admin up -failover-policy system-defined -firewall-policy mgmt -home-port e0a -auto-revert false -failover-group Default</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Storage VM に 1 つ以上のアグリゲートを割り当てます。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>この手順は、 Storage VM にボリュームを作成する前に、新しい Storage VM が少なくとも 1 つのアグリゲートにアクセスする必要があるためです。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">SMB</div>
+<div class="content">
+<div class="paragraph">
+<p>新しい Storage VM と必要な LIF を作成するには、次の手順を実行します。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>Storage VM と Storage VM へのルートを作成してください。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver create -vserver &lt;svm-name&gt; -subtype default -rootvolume &lt;root-volume-name&gt; -rootvolume-security-style unix</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network route create -destination 0.0.0.0/0 -vserver &lt;svm-name&gt; -gateway &lt;ip-of-gateway-server&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>データ LIF を作成します。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol cifs,nfs -address &lt;nfs--ip-address&gt; -netmask-length &lt;length&gt; -home-node &lt;name-of-node1&gt; -status-admin up -failover-policy disabled -firewall-policy data -home-port e0a -auto-revert true -failover-group Default</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>DNS 通信と SMB 通信を提供するために必要な iSCSI LIF を作成します。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -home-port e0a -address &lt;iscsi-ip-address&gt; -lif &lt;lif-name&gt; -home-node &lt;name-of-node1&gt; -data-protocol iscsi</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>オプション： Storage VM 管理 LIF を作成する</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol none -address &lt;svm-mgmt-ip-address&gt; -netmask-length &lt;length&gt; -home-node node1 -status-admin up -failover-policy system-defined -firewall-policy mgmt -home-port e0a -auto-revert false -failover-group Default</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Storage VM に 1 つ以上のアグリゲートを割り当てます。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>この手順は、 Storage VM にボリュームを作成する前に、新しい Storage VM が少なくとも 1 つのアグリゲートにアクセスする必要があるためです。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ha-ペア-2">HA ペア</h3>
+<div class="paragraph">
+<p>HA ペアで Storage VM と LIF を作成する方法は、使用しているストレージプロトコルによって異なります。</p>
+</div>
+<div class="exampleblock tabbed-block">
+<div class="content">
+<div class="openblock">
+<div class="title">iSCSI</div>
+<div class="content">
+<div class="paragraph">
+<p>新しい Storage VM と必要な LIF を作成するには、次の手順を実行します。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>Storage VM と Storage VM へのルートを作成してください。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver create -vserver &lt;svm-name&gt; -subtype default -rootvolume &lt;root-volume-name&gt; -rootvolume-security-style unix</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network route create -destination 0.0.0.0/0 -vserver &lt;svm-name&gt; -gateway &lt;ip-of-gateway-server&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>データ LIF を作成します。</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>次のコマンドを使用して、ノード 1 に iSCSI LIF を作成します。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -home-port e0a -address &lt;iscsi-ip-address&gt; -lif &lt;lif-name&gt; -home-node &lt;name-of-node1&gt; -data-protocol iscsi</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>次のコマンドを使用して、ノード 2 に iSCSI LIF を作成します。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -home-port e0a -address &lt;iscsi-ip-address&gt; -lif &lt;lif-name&gt; -home-node &lt;name-of-node2&gt; -data-protocol iscsi</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>オプション：ノード 1 に Storage VM 管理 LIF を作成します。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol none -address &lt;svm-mgmt-ip-address&gt; -netmask-length &lt;length&gt; -home-node node1 -status-admin up -failover-policy system-defined -firewall-policy mgmt -home-port e0a -auto-revert false -failover-group Default</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</p>
+</div>
+</li>
+<li>
+<p>Storage VM に 1 つ以上のアグリゲートを割り当てます。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>この手順は、 Storage VM にボリュームを作成する前に、新しい Storage VM が少なくとも 1 つのアグリゲートにアクセスする必要があるためです。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">NFS</div>
+<div class="content">
+<div class="paragraph">
+<p>新しい Storage VM と必要な LIF を作成するには、次の手順を実行します。</p>
 </div>
 <div class="olist arabic">
 <div class="title">手順</div>
@@ -1703,18 +2219,93 @@
 <pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol cifs,nfs -address &lt;nfs--ip-address&gt; -netmask-length &lt;length&gt; -home-node &lt;name-of-node1&gt; -status-admin up -failover-policy system-defined -firewall-policy data -home-port e0a -auto-revert true -failover-group Default -probe-port &lt;port-number-for-azure-health-probe1&gt;</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>シングルノードシステムの場合は、 -failover-policy パラメータの値を <em>disabled</em> に変更する必要があります。</p>
-</div>
 </li>
 <li>
-<p>次のコマンドを使用して、ノード 2 に NAS LIF を作成します（ HA ペアの場合のみ）。</p>
+<p>次のコマンドを使用して、ノード 2 に NAS LIF を作成します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol cifs,nfs -address &lt;nfs-cifs-ip-address&gt; -netmask-length &lt;length&gt; -home-node &lt;name-of-node2&gt; -status-admin up -failover-policy system-defined -firewall-policy data -home-port e0a -auto-revert true -failover-group Default -probe-port &lt;port-number-for-azure-health-probe2&gt;</code></pre>
 </div>
 </div>
 </li>
+</ol>
+</div>
+</li>
+<li>
+<p>オプション：ノード 1 に Storage VM 管理 LIF を作成します。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol none -address &lt;svm-mgmt-ip-address&gt; -netmask-length &lt;length&gt; -home-node node1 -status-admin up -failover-policy system-defined -firewall-policy mgmt -home-port e0a -auto-revert false -failover-group Default -probe-port &lt;port-number-for-azure-health-probe3&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</p>
+</div>
+</li>
+<li>
+<p>Storage VM に 1 つ以上のアグリゲートを割り当てます。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>この手順は、 Storage VM にボリュームを作成する前に、新しい Storage VM が少なくとも 1 つのアグリゲートにアクセスする必要があるためです。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">SMB</div>
+<div class="content">
+<div class="paragraph">
+<p>新しい Storage VM と必要な LIF を作成するには、次の手順を実行します。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>Storage VM と Storage VM へのルートを作成してください。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver create -vserver &lt;svm-name&gt; -subtype default -rootvolume &lt;root-volume-name&gt; -rootvolume-security-style unix</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network route create -destination 0.0.0.0/0 -vserver &lt;svm-name&gt; -gateway &lt;ip-of-gateway-server&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>NAS データ LIF を作成します。</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>次のコマンドを使用して、ノード 1 に NAS LIF を作成します。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol cifs,nfs -address &lt;nfs--ip-address&gt; -netmask-length &lt;length&gt; -home-node &lt;name-of-node1&gt; -status-admin up -failover-policy system-defined -firewall-policy data -home-port e0a -auto-revert true -failover-group Default -probe-port &lt;port-number-for-azure-health-probe1&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>次のコマンドを使用して、ノード 2 に NAS LIF を作成します。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol cifs,nfs -address &lt;nfs-cifs-ip-address&gt; -netmask-length &lt;length&gt; -home-node &lt;name-of-node2&gt; -status-admin up -failover-policy system-defined -firewall-policy data -home-port e0a -auto-revert true -failover-group Default -probe-port &lt;port-number-for-azure-health-probe2&gt;</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>DNS 通信と SMB 通信を提供する iSCSI LIF を作成します。</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>次のコマンドを使用して、ノード 1 に iSCSI LIF を作成します。</p>
 <div class="listingblock">
@@ -1724,7 +2315,7 @@
 </div>
 </li>
 <li>
-<p>次のコマンドを使用して、ノード 2 に iSCSI LIF を作成します（ HA ペアの場合のみ）。</p>
+<p>次のコマンドを使用して、ノード 2 に iSCSI LIF を作成します。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -home-port e0a -address &lt;iscsi-ip-address&gt; -lif &lt;lif-name&gt; -home-node &lt;name-of-node2&gt; -data-protocol iscsi</code></pre>
@@ -1741,6 +2332,9 @@
 <pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -lif &lt;lif-name&gt; -role data -data-protocol none -address &lt;svm-mgmt-ip-address&gt; -netmask-length &lt;length&gt; -home-node node1 -status-admin up -failover-policy system-defined -firewall-policy mgmt -home-port e0a -auto-revert false -failover-group Default -probe-port &lt;port-number-for-azure-health-probe3&gt;</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</p>
+</div>
 </li>
 <li>
 <p>Storage VM に 1 つ以上のアグリゲートを割り当てます。</p>
@@ -1755,8 +2349,13 @@
 </li>
 </ol>
 </div>
+</div>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>HA ペアに Storage VM を作成したら、その SVM でストレージをプロビジョニングする前に 12 時間待つことを推奨します。Cloud Volumes ONTAP 9.10.1 リリース以降、 Cloud Manager は HA ペアのロードバランサの設定を 12 時間おきにスキャンします。新しい SVM がある場合、 Cloud Manager はより短い計画外フェイルオーバーを実現する設定を有効にします。</p>
+</div>
 </div>
 </div>
 </div>
