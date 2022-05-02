@@ -1344,7 +1344,6 @@
   <block id="25ecc9395604e745b655dbcb6eed23bc" category="list-text">Cloud Volumes ONTAP システムは、 _Standard_storage クラスを使用して、アクセス頻度の低いデータを 1 つの S3 バケットに階層化します。Standard は、複数の可用性ゾーンにまたがって保存された頻繁にアクセスされるデータに最適です。</block>
   <block id="b162acd76f83f99ac24045020f8e1c25" category="admonition">Cloud Manager は、作業環境ごとに 1 つの S3 バケットを作成して、 fabric-pool-_cluster unique identifier_ という名前を付けます。ボリュームごとに異なる S3 バケットが作成されることはありません。</block>
   <block id="7672a092783c4348b96b40ea2dcf6681" category="list-text">ストレージクラス</block>
-  <block id="6711770262164538f1923cc482f7d399" category="list-text">AWS の階層化データのデフォルトのストレージクラスは _Standard_ です。アクセス頻度の低いデータがない場合は、ストレージクラスを「インテリジェントな階層化」、「 1 ゾーンの頻度の低いアクセス」、「 _ 標準 - 低頻度アクセス _ 」のいずれかに変更することで、ストレージコストを削減できます。ストレージクラスを変更すると、アクセス頻度の低いデータは Standard ストレージクラスから始まり、 30 日経ってもアクセスされない場合は選択したストレージクラスに移行されます。</block>
   <block id="20831024dd0b150380212ea26b281613" category="inline-link">Amazon S3 ストレージクラスに関する詳細情報</block>
   <block id="e401c2b474cb7d11a68d9e90b0a09307" category="paragraph">データにアクセスするとアクセスコストが高くなるため、ストレージクラスを変更する前にこの点を考慮する必要があります。<block ref="640a0192f14cf6137ba20e6c02d1ae81" category="inline-link-rx"></block>。</block>
   <block id="31089fb1bcdba9204af0a200bd8dcfab" category="inline-link-macro">使用頻度の低いデータを低コストのオブジェクトストレージに階層化</block>
@@ -3722,4 +3721,5 @@
   <block id="fc4876ca61d1c336e1f17141c7227b6e" category="cell">既存のファイアウォールポリシーを使用する</block>
   <block id="7f6be0499fe67271d3c198bd726fe0c0" category="inline-link-macro">Cloud Volumes ONTAP のファイアウォールルールについて説明します</block>
   <block id="154e9c61180206ef2d8b605b639fb35f" category="cell">既存のファイアウォールポリシーを使用する場合は、必要なルールが含まれていることを確認してください。 <block ref="c3fbed15c1fb154b840fdb8b5504f098" category="inline-link-macro-rx"></block>。</block>
+  <block id="d84251a0fd530f03ffc5b24f87e0f907" category="list-text">AWS の階層化データのデフォルトのストレージクラスは _Standard_ です。アクセス頻度の低いデータがない場合は、ストレージクラスを次のいずれかに変更することで、ストレージコストを削減できます。_Intelligent Tiering _、_one-Zone低頻度アクセス_、_Standard -低頻度アクセス_、または_S3 Glacier Instant Retrieval。ストレージクラスを変更すると、アクセス頻度の低いデータは Standard ストレージクラスから始まり、 30 日経ってもアクセスされない場合は選択したストレージクラスに移行されます。</block>
 </blocks>
