@@ -78,7 +78,7 @@ Cloud Manager で作業環境を作成して、 GCP で Cloud Volumes ONTAP を�
 . [[subscribe] キャンバスページで、 * 作業環境の追加 * をクリックし、プロンプトに従います。
 . * 場所を選択 * ：「 * Google Cloud * 」と「 * Cloud Volumes ONTAP * 」を選択します。
 . プロンプトが表示されたら、 https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["コネクタを作成します"^]。
-. * 詳細と認証情報 * ：プロジェクトを選択し、クラスタ名を指定します。必要に応じてサービスアカウントを選択し、ラベルを追加し、クレデンシャルを指定することもできます。
+. *詳細と認証情報*：プロジェクトを選択し、クラスタ名を指定します。必要に応じてサービスアカウントを選択し、ラベルを追加し、クレデンシャルを指定することもできます。
 +
 次の表では、ガイダンスが必要なフィールドについて説明します。
 
@@ -119,10 +119,30 @@ NOTE: これは Cloud Manager 用に設定するサービスアカウントで�
 +
 video::video_subscribing_gcp.mp4[width=848,height=480]
 . * サービス * ：このシステムで使用するサービスを選択します。クラウドバックアップまたは階層化を選択するには、手順 3 でサービスアカウントを指定しておく必要があります。
-. * 場所と接続性 * ：場所を選択し、ファイアウォールポリシーを選択して、データ階層化のための Google Cloud ストレージへのネットワーク接続を確認するチェックボックスを選択します。
+. *場所と接続性*：場所を選択し、ファイアウォールポリシーを選択して、データ階層化のためのGoogle Cloudストレージへのネットワーク接続を確認します。
 +
-コールドデータを Google Cloud Storage バケットに階層化する場合は、 Cloud Volumes ONTAP が配置されているサブネットをプライベート Google アクセス用に構成する必要があります。手順については、を参照してください https://cloud.google.com/vpc/docs/configure-private-google-access["Google Cloud のドキュメント：「 Configuring Private Google Access"^]。
+次の表では、ガイダンスが必要なフィールドについて説明します。
 
++
+[cols="25,75"]
+|===
+| フィールド | 説明 
+
+
+| 接続の検証 | コールドデータをGoogle Cloud Storageバケットに階層化するには、Cloud Volumes ONTAP が配置されているサブネットをプライベートGoogleアクセス用に構成する必要があります。手順については、を参照してください https://cloud.google.com/vpc/docs/configure-private-google-access["Google Cloud のドキュメント：「 Configuring Private Google Access"^]。 
+
+
+| ファイアウォールポリシーが生成されました  a| 
+Cloud Managerでファイアウォールポリシーを生成するように設定した場合は、トラフィックを許可する方法を選択する必要があります。
+
+** 「* Selected VPC Only *」を選択した場合、インバウンドトラフィックのソースフィルタは、選択したVPCのサブネット範囲とコネクタが存在するVPCのサブネット範囲になります。これが推奨されるオプションです。
+** どのVPC *も選択した場合、インバウンドトラフィックのソースフィルタは0.0.0.0/0のIP範囲になります。
+
+
+
+
+| 既存のファイアウォールポリシーを使用する | 既存のファイアウォールポリシーを使用する場合は、必要なルールが含まれていることを確認してください。 link:reference-networking-gcp.html#firewall-rules-for-cloud-volumes-ontap["Cloud Volumes ONTAP のファイアウォールルールについて説明します"]。 
+|===
 . * 充電方法と NSS アカウント * ：このシステムで使用する充電オプションを指定し、ネットアップサポートサイトのアカウントを指定します。
 +
 ** link:concept-licensing.html["これらの充電方法について説明します"]。

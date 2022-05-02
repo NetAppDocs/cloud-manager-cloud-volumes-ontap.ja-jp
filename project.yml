@@ -96,8 +96,6 @@ sidebar:
         url: "/task-connect-lun.html"
       - title: FlexCache でデータアクセスを高速化
         url: "/task-accelerate-data-access.html"
-      - title: ONTAP を永続的ストレージとして使用する
-        url: "/task-connecting-kubernetes.html"
     - title: アグリゲートの管理
       entries:
       - title: アグリゲートを作成する

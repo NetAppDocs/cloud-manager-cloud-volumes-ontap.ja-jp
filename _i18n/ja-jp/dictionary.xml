@@ -449,9 +449,7 @@
   <block id="0b6a93a12e94b586f0634222ff996760" category="inline-link">Marketplace サブスクリプションと GCP クレデンシャルの関連付け</block>
   <block id="c6183bf47ae03a5fca3043b995daf4ad" category="paragraph">次のビデオでは、従量課金制の Marketplace サブスクリプションを GCP プロジェクトに関連付ける方法を説明します。または、の手順に従って、に登録します<block ref="1ca5652e3bd427104a4f5f3fa595cbd8" category="inline-link-rx"></block> セクション。</block>
   <block id="440dfcc60c7c21a1c797e881b2dd7646" category="list-text">* サービス * ：このシステムで使用するサービスを選択します。クラウドバックアップまたは階層化を選択するには、手順 3 でサービスアカウントを指定しておく必要があります。</block>
-  <block id="d97b17805dcf3cf9f4cf72ede32d7451" category="list-text">* 場所と接続性 * ：場所を選択し、ファイアウォールポリシーを選択して、データ階層化のための Google Cloud ストレージへのネットワーク接続を確認するチェックボックスを選択します。</block>
   <block id="2e5f3aa65f18453c5c51b5ffcf2214d5" category="inline-link">Google Cloud のドキュメント：「 Configuring Private Google Access</block>
-  <block id="0a95fced5ba38d44285304107ca13819" category="paragraph">コールドデータを Google Cloud Storage バケットに階層化する場合は、 Cloud Volumes ONTAP が配置されているサブネットをプライベート Google アクセス用に構成する必要があります。手順については、を参照してください<block ref="46bdb5a1fb51df5eb32e2147ea91e6d8" category="inline-link-rx"></block>。</block>
   <block id="189e842cd43a685a483fb378026a9caf" category="list-text"><block ref="3ab5a6c8f366a38af6d09759fc586206" category="inline-link-macro-rx"></block>。</block>
   <block id="c05ba15abbb9e0a060b98aa13dc7640d" category="paragraph"><block ref="c05ba15abbb9e0a060b98aa13dc7640d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f72d7e736d5c07e6650c7c59c1d4beae" category="list-text">* 基盤となるストレージリソース * ：初期アグリゲートの設定、つまりディスクタイプと各ディスクのサイズを選択します。</block>
@@ -942,7 +940,6 @@
   <block id="f085e7d5cf39e2e8b2d0e12e8784718b" category="list-text">Cloud Manager から、 API を使用して、キーを使用する Cloud Volumes ONTAP 作業環境を作成します。</block>
   <block id="25fb98f9fcb3127bfe7be5f0a105ca99" category="inline-link-macro">これらの手順の詳細については、こちらをご覧ください</block>
   <block id="750fb0c917d909f89ff3aa09a16d9e2e" category="paragraph"><block ref="a8a8a730877a18513c7f6dc517396422" category="inline-link-macro-rx"></block>。</block>
-  <block id="711dc2b1ebcdb25c5e47a2beba0748aa" category="section-title">2021 年 7 月 7 日（コネクタ 3.9.8 ）</block>
   <block id="438f6ef2e21494cd9b1748584c8803b6" category="section-title">新しい充電方法</block>
   <block id="561845a67258d27b2238c95a99e36fe6" category="paragraph">Cloud Volumes ONTAP では、新しい充電方法を利用できます。</block>
   <block id="e4641a8086323f3e0769020094c353cc" category="list-text">* 容量ベースの BYOL * ：容量ベースのライセンスでは、 TiB あたりの Cloud Volumes ONTAP 料金を支払うことができます。このライセンスはネットアップアカウントに関連付けられており、ライセンスで十分な容量が確保されていれば、複数の Cloud Volumes ONTAP システムを作成できるようになっています。容量ベースのライセンスは、 _Essentials_or_Professional_ のいずれかのパッケージ形式で提供されます。</block>
@@ -977,7 +974,6 @@
   <block id="46e869bc0f7a5fcdc09df010e1f48b25" category="paragraph">新しい Cloud Volumes ONTAP システムでは、 custom-4-16384 マシンタイプはサポートされなくなりました。</block>
   <block id="0e3cb01898d99d0091e2a6f5a7572390" category="paragraph">このタイプのマシンで既存のシステムを実行している場合は、引き続き使用できますが、 n2 標準 -4 マシンタイプに切り替えることをお勧めします。</block>
   <block id="346b156b62b438feb8aca3c528a7173c" category="inline-link">GCP で Cloud Volumes ONTAP のサポートされている構成を表示します</block>
-  <block id="6a1f13645a93d26a01a89ba45e08d6bb" category="section-title">2021 年 5 月 30 日（コネクタ 3.9.7 ）</block>
   <block id="29edc853696ed1638805579b54eb4028" category="section-title">AWS での新しいプロフェッショナルパッケージ</block>
   <block id="e7ef0d5bcd1ca0f8f5763e59e8a0fd1b" category="paragraph">新しいプロフェッショナルパッケージでは、 AWS Marketplace で毎年契約を締結し、 Cloud Volumes ONTAP と Cloud Backup Service をバンドルできます。支払いは TiB あたりです。このサブスクリプションでは、オンプレミスのデータをバックアップすることはできません。</block>
   <block id="1827d61b158ce26d89c3b3ae6638d1a7" category="paragraph">この支払いオプションを選択すると、 EBS ディスクを介して Cloud Volumes ONTAP システムあたり最大 2PiB をプロビジョニングし、 S3 オブジェクトストレージ（シングルノードまたは HA ）に階層化することができます。</block>
@@ -1001,7 +997,6 @@
   <block id="910d8975bd41857a0103e9a8657ea7d9" category="section-title">Cloud Volumes ONTAP 9.9.1</block>
   <block id="c863fcd8d7f3278495a83acff7ce4871" category="paragraph">Cloud Volumes ONTAP 9.9.9..1. を導入および管理できるようになりました。</block>
   <block id="ff5aef392e0c3c8d6643cf958981ad2c" category="paragraph"><block ref="85c91e5c6d1101b81071bd014b8bb2a2" category="inline-link-rx"></block>。</block>
-  <block id="4b9aaec4d7fc7a4db2b3d7d2ec4b06dd" category="section-title">2021 年 4 月 11 日（コネクタ 3.9.5 ）</block>
   <block id="6b1163e1ffd3116806b1ea3d6e5dd2a6" category="section-title">論理スペースのレポート</block>
   <block id="4a58d4cba9d6842c85d3f188f064f33b" category="paragraph">Cloud Manager で、 Cloud Volumes ONTAP 用に作成した最初の Storage VM の論理スペースのレポートを有効にするようになりました。</block>
   <block id="996cecdf052a5053c603e4964cacdc77" category="paragraph">スペースが論理的に報告されると、 ONTAP は、 Storage Efficiency 機能で削減されたすべての物理スペースが使用済みと報告するようにボリュームスペースを報告します。</block>
@@ -1013,7 +1008,6 @@
   <block id="46d98c0abb13a137de84cc92dabaf4ee" category="paragraph">Cloud Volumes ONTAP はコールド HDD （ sc1 ）ディスクをサポートしなくなりました。</block>
   <block id="bdbf3117384807375f6bdb241cc66adc" category="section-title">TLS 1.2 を使用して Azure ストレージアカウントを作成します</block>
   <block id="851eb27d4309b9464287beb296ce1020" category="paragraph">Cloud Manager が Azure for Cloud Volumes ONTAP でストレージアカウントを作成する際に、ストレージアカウントの TLS のバージョンが 1.2 になりました。</block>
-  <block id="6fd4f37978967bd89efab5f375c8fada" category="section-title">2021 年 3 月 8 日（コネクタ 3.9.4 ）</block>
   <block id="4e9e74671f654c298cca727d225f4898" category="section-title">Cloud Volumes ONTAP 9.9.</block>
   <block id="ab2fea55ae9697fcfeae223bb8d1a161" category="paragraph">Cloud Volumes ONTAP 9.9.9..0 を導入および管理できるようになりました。</block>
   <block id="b38d7682cd8a88f280fda1c1ba685832" category="paragraph"><block ref="c246253b93a97e012810d343101490b9" category="inline-link-rx"></block>。</block>
@@ -1036,7 +1030,6 @@
   <block id="933d399c3cb0f03992675d49630ab818" category="paragraph">Google Cloud で Cloud Volumes ONTAP HA ペアを導入する際に、 VPC -1 、 VPC -2 、および VPC -3 の共有 VPC を選択できるようになりました。以前は、 VPC を共有できるのは VPC のみでした。この変更は Cloud Volumes ONTAP 9.8 以降でサポートされています。</block>
   <block id="fcc0572bd798a75498f99e20a8093f04" category="inline-link-macro">Google Cloud のネットワーク要件の詳細については、こちらをご覧ください</block>
   <block id="99fa02269259e5dcef8a656b05035f0b" category="paragraph"><block ref="d1535c614e0b55f0efec64a1451d07fb" category="inline-link-macro-rx"></block>。</block>
-  <block id="8444e6334bc020a2ff837421babf8f42" category="section-title">2021 年 1 月 4 日（コネクタ 3.4.2 ）</block>
   <block id="712a05ea9972d967387ea5a160a19a21" category="section-title">AWS がアウトポスト</block>
   <block id="cfdb898195dcd98defc426026e35f8d1" category="paragraph">数カ月前に、 Cloud Volumes ONTAP が Amazon Web Services （ AWS ）の提供開始を宣言したことを発表しました。本日は、 AWS のアウトポストで Cloud Manager と Cloud Volumes ONTAP を検証しました。</block>
   <block id="996af92ade7f6e5af3be3c265f31fd2c" category="paragraph">AWS Outpost を使用している場合は、 Working Environment ウィザードで Outpost VPC を選択して、その Outpost に Cloud Volumes ONTAP を導入できます。エクスペリエンスは、 AWS に存在する他の VPC と同じです。最初に、 AWS Outpost にコネクタを導入する必要があります。</block>
@@ -1060,7 +1053,6 @@
   <block id="1ac4c5bf1cc05cf3d4aa859843ec87b4" category="list-text">N2 - 標準 -4 （ Explore ライセンスを含む、 BYOL を含む）</block>
   <block id="e73d4d7c476b6b18ed15adb41d3ea1b2" category="list-text">標準ライセンスを使用し、 BYOL を使用した N2-standard-8</block>
   <block id="08ce51aefda2c98505d3ef29ab430caf" category="list-text">N2 - Standard - 32 （ Premium ライセンスを使用、 BYOL を使用）</block>
-  <block id="97ac4a7ecac7dd41000ad4cf105adf24" category="section-title">2020 年 11 月 3 日（コネクタ 3.9.0 ）</block>
   <block id="d9bdad4a2680b0998135ed5fd46e50e3" category="section-title">Azure Private Link for Cloud Volumes ONTAP の略</block>
   <block id="5645ab0bc464340b6b63fb2195594856" category="paragraph">デフォルトでは、 Cloud Manager が Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間の Azure Private Link 接続を有効にするようになりました。プライベートリンクは、 Azure のエンドポイント間の接続を保護します。</block>
   <block id="8f7830ddfb4c3be4f076516f4856d257" category="inline-link">Azure プライベートリンクの詳細については、こちらをご覧ください</block>
@@ -1199,7 +1191,6 @@
   <block id="b50c158eaf466db16b58f00ceffdc6e1" category="cell">特定のアグリゲートにボリュームを作成します</block>
   <block id="90f1a1f2730a3abc2245b4a979df10f4" category="cell">アグリゲートを選択し、 * ボリュームの作成 * をクリックします。</block>
   <block id="ee1ffb740641bd768beada794d582fc1" category="cell">アグリゲートにディスクを追加します</block>
-  <block id="5f5aff78d8d23e3085886222de09d89c" category="list-text">アグリゲートを選択し、 * AWS ディスクの追加 * または * Azure ディスクの追加 * をクリックします。</block>
   <block id="b98fc1f56f56b03e2525b90a45df7e45" category="list-text">追加するディスクの数を選択し、 * 追加 * をクリックします。</block>
   <block id="8ce62ed0fdfe7abb736c3597956922c2" category="cell">アグリゲートを削除します</block>
   <block id="55acf40831b2a6bbebbb0948c51c7dad" category="list-text">ボリュームを含まないアグリゲートを選択し、 * Delete * をクリックします。</block>
@@ -1208,100 +1199,7 @@
   <block id="ae72beb81d5834d2f01cddc522f75aab" category="paragraph">Event Management System （ EMS ；イベント管理システム）は、 ONTAP システムで発生したイベントについて情報を収集して表示します。イベント通知を受信するには、イベントの宛先（電子メールアドレス、 SNMP トラップホスト、または syslog サーバ）とイベントのルートを特定のイベントの重大度に設定します。</block>
   <block id="46925fd4c2b4930c3863c62cca684413" category="inline-link">ONTAP のドキュメント： EMS の設定の概要</block>
   <block id="bdc1026c750da5883d7bee46c7156d32" category="paragraph">EMS は CLI を使用して設定できます。手順については、を参照してください<block ref="cfa65ffd4dc12651fc66d20e17906b5f" category="inline-link-rx"></block>。</block>
-  <block id="92ccf06142dc33dc8b3944ae9fcd513b" category="summary">Cloud Manager では、 Kubernetes クラスタへの NetApp Trident の導入を自動化できるため、 Cloud Volumes ONTAP をコンテナ用の永続的ストレージとして使用できます。</block>
-  <block id="181f8947596130f543a8812355a5a792" category="doc">Kubernetes 用の永続的ストレージとしての Cloud Volumes ONTAP の使用</block>
-  <block id="0cdf65a4b95cd749c412fd640f01dade" category="admonition">この機能は廃止予定で、今後のリリースで削除される予定です。高度なデータ管理のための作業環境として、管理対象 Kubernetes クラスタを Canvas に追加する機能に置き換えられました。<block ref="1738d64f5d1a42ad206025a23cfcf284" category="inline-link-rx"></block>。</block>
-  <block id="d202d8021b40bfbe11235a5a65c0fe8c" category="inline-link">Trident の詳細をご確認ください</block>
-  <block id="4272c70c15d6dbaad262853f7847bead" category="paragraph">Trident は、ネットアップが管理する、完全にサポートされているオープンソースプロジェクトです。Trident は、 Kubernetes と Persistent Volume フレームワークとネイティブに統合されており、ネットアップのストレージプラットフォームを任意に組み合わせて実行されるシステムからボリュームのプロビジョニングと管理をシームレスに行います。<block ref="8f1593831c6eb1f5af4cabdfeaa8b8ff" category="inline-link-rx"></block>。</block>
   <block id="06ad314b340900d226b1196e1fe289e9" category="section-title">クイックスタート</block>
-  <block id="2433628c53fed80ea9d352a1bcd9ce45" category="paragraph">これらの手順を実行してすぐに作業を開始するか、残りのセクションまでスクロールして詳細を確認してください。</block>
-  <block id="259ae55ab8dda4624f19d41ec0f1fb11" category="inline-xref">すべてのリストを参照してください</block>
-  <block id="862dc153087687c59f8f0e5557334a93" category="paragraph">Kubernetes クラスタと Cloud Volumes ONTAP の接続、 Kubernetes クラスタとコネクタの間の接続、 1.14 以上の Kubernetes バージョン、クラスタ内の少なくとも 1 つのワーカーノードなど、環境が前提条件を満たしていることを確認します。 <block ref="b4daa5ef39b091baf7fa2ac3acaf6a75" category="inline-xref-macro-rx"></block>。</block>
-  <block id="24e1cdb2e707aca4c4fb386a0f2584fd" category="paragraph">Cloud Manager で、 * K8s * をクリックしてクラウドプロバイダの管理サービスからクラスタを直接検出するか、または kubeconfig ファイルを指定してクラスタをインポートします。</block>
-  <block id="ed10e82b70c8870cbc66e299150d450b" category="paragraph">Kubernetes クラスタを追加したら、 * 作業環境への接続 * をクリックして、クラスタを 1 つ以上の Cloud Volumes ONTAP システムに接続します。</block>
-  <block id="c5ea1d5f2f35adec1d872ec686a8c040" category="paragraph">Kubernetes の標準のインターフェイスと構成要素を使用して、永続ボリュームを要求および管理できます。Cloud Manager では、 NFS ストレージクラスと iSCSI ストレージクラスが作成されます。このクラスは、永続的ボリュームのプロビジョニング時に使用できます。</block>
-  <block id="02cc5fd16c59479a0130566a88ade673" category="inline-link">Trident で最初のボリュームをプロビジョニングする方法をご確認ください Kubernetes</block>
-  <block id="b74e632fe213e6a2cd41d58fc6a3f9f4" category="paragraph"><block ref="d2c3102c16ee7ee6f7e5a01248fa7b5b" category="inline-link-rx"></block>。</block>
-  <block id="636fc171536ff74e5a90b2da701bb09c" category="section-title">前提条件の確認</block>
-  <block id="f698522e1acd0964c9baa1030aa59100" category="paragraph">開始する前に、 Kubernetes クラスタとコネクタが特定の要件を満たしていることを確認してください。</block>
-  <block id="722cdb9316b3fa8ce17714d9c3e2710c" category="section-title">Kubernetes クラスタの要件</block>
-  <block id="27a7f5bc233512b000e9c0890f8a0da7" category="list-text">Kubernetes クラスタとコネクタの間、および Kubernetes クラスタと Cloud Volumes ONTAP の間には、ネットワーク接続が必要です。</block>
-  <block id="69e0c439fc36ae7c7c9d2e14aaac95c1" category="paragraph">Connector と Cloud Volumes ONTAP の両方で Kubernetes API エンドポイントへの接続が必要です。</block>
-  <block id="9b0f7f6d454dc3a3fda124ad8c64ddae" category="list-text">管理対象クラスタの場合は、クラスタの VPC と、コネクタと Cloud Volumes ONTAP が存在する VPC の間にルートを設定します。</block>
-  <block id="f44a520984d104f448a4dfa65c732c6b" category="list-text">他のクラスタの場合は、プライマリノードまたはロードバランサの IP アドレス（ kubeconfig ファイルに一覧表示）にコネクタおよび Cloud Volumes ONTAP から到達可能で、有効な TLS 証明書を提供する必要があります。</block>
-  <block id="17c0f0477410148b22df11cc699e514d" category="list-text">Kubernetes クラスタは、上記のネットワーク接続を持つ任意の場所に配置できます。</block>
-  <block id="bdd9fcbc22d0c897febfda2780343126" category="list-text">Kubernetes クラスタで少なくともバージョン 1.14 が実行されている必要があります。</block>
-  <block id="22e5cf36be220d8185438465670c10a0" category="inline-link">サポートされる Kubernetes の最大バージョンについては、こちらをクリックしてください</block>
-  <block id="919344d59d5a54d3e0edd39f3ade1826" category="paragraph">サポートされる最大バージョンは Trident によって定義されています。<block ref="4364b9b5a569c1974ecbe79919415242" category="inline-link-rx"></block>。</block>
-  <block id="78568f626fe7e8947b59df3d51633e2a" category="list-text">Kubernetes クラスタには、少なくとも 1 つのワーカーノードが必要です。</block>
-  <block id="7b2aaa17eab1dc7832e079d7ff34fcaf" category="list-text">Amazon Elastic Kubernetes Service （ Amazon EKS ）で実行されているクラスタの場合、権限のエラーを解決するために、各クラスタに IAM ロールを追加する必要があります。クラスタの追加後、 Cloud Manager は、エラーを解決する eksctl コマンドでプロンプトを表示します。</block>
-  <block id="131e86a2d96d1eb234979b9344f13721" category="inline-link">IAM 権限の境界について説明します</block>
-  <block id="ebc07db5d40d8568356aa7f0703d09dd" category="paragraph"><block ref="77373c7491963fa088f4a02cadd051c0" category="inline-link-rx"></block>。</block>
-  <block id="b0c3cef04e70448818bc54ce1d6a7781" category="list-text">Azure Kubernetes Service （ AKS ）で実行されているクラスタには、これらのクラスタに _Azure Kubernetes Service RBAC Cluster Admin_role を割り当てる必要があります。これは、 Cloud Manager が Trident をインストールし、クラスタにストレージクラスを設定するために必要です。</block>
-  <block id="608448c2576128ccc8c2f959d59e20b4" category="section-title">コネクタの要件</block>
-  <block id="657016ad1736f3daa19cd41340165309" category="paragraph">コネクタに対する次の権限が設定されていることを確認します。</block>
-  <block id="ccfb5c2209f6688e8d0f7cbcdbf89f70" category="section-title">EKS クラスタを検出および管理するために必要な権限</block>
-  <block id="df0867f3b310e032813f995525ba12e6" category="paragraph">Connector は、 Amazon Elastic Kubernetes Service （ EKS ）で実行されている Kubernetes クラスタを検出して管理するために Admin 権限を必要とします。</block>
-  <block id="9dc5a9b1a6d7bcb89b68a5b8af2f3d9d" category="section-title">GKE クラスタの検出と管理に必要な権限</block>
-  <block id="94b91905ef6393459229709e2831b933" category="paragraph">Connector は、 Google Kubernetes Engine （ GKE ）で実行されている Kubernetes クラスタを検出して管理するために次の権限を必要とします。</block>
-  <block id="3ee2de4187bbc3464c963e80daa5d7c0" category="section-title">セットアップ例</block>
-  <block id="95d48eaf4f096975a232f030f62bb786" category="paragraph">次の図は、 Amazon Elastic Kubernetes Service （ Amazon EKS ）で実行されている Kubernetes クラスタとコネクタおよび Cloud Volumes ONTAP への接続の例を示しています。この例では、 VPC ピアリングによって、 EKS クラスタの VPC とコネクタおよび Cloud Volumes ONTAP の VPC 間の接続が確立されます。</block>
-  <block id="1547099886e6b7ac1281503829845612" category="inline-image-macro">AWS で実行されている Kubernetes クラスタのアーキテクチャ図と、 AWS で実行されているコネクタおよび Cloud Volumes ONTAP への接続</block>
-  <block id="87fe77f64de696c0dc8c282dc7e7e04c" category="paragraph"><block ref="87fe77f64de696c0dc8c282dc7e7e04c" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="63893b71ff0d8c47377febdd8dcc5da0" category="section-title">Kubernetes クラスタを追加しています</block>
-  <block id="9b7b2efefef41ff1632789719a7a7ac4" category="paragraph">クラウドプロバイダの管理対象の Kubernetes サービスで実行されているクラスタを検出するか、クラスタの kubeconfig ファイルをインポートして、 Kubernetes クラスタを Cloud Manager に追加します。</block>
-  <block id="4909cd680231b3ced986709e54382764" category="list-text">Cloud Manager の上部で、 * K8s * をクリックします。</block>
-  <block id="8ed2e6681098ba3e585ceb37b3ee1e15" category="list-text">[Add Cluster*] をクリックします。</block>
-  <block id="59772cd45fd7de7bdf8d9834ebca71e7" category="list-text">次のいずれかのオプションを選択します。</block>
-  <block id="e179189d03e54c4446ccc4f03c6ac563" category="list-text">[* クラスタの検出 * ] をクリックして、 Cloud Manager がコネクタに指定した権限に基づいてアクセスできる管理対象クラスタを検出します。</block>
-  <block id="4009608ddd522abfa96007d9d542ccb3" category="paragraph">たとえば、 Connector が Google Cloud で実行されている場合、 Cloud Manager は、 Connector のサービスアカウントの権限を使用して、 Google Kubernetes Engine （ GKE ）で実行されているクラスタを検出します。</block>
-  <block id="263232c5b7e9eb99df6b8475d43e1d45" category="list-text">* クラスタのインポート * をクリックして、 kubeconfig ファイルを使用してクラスタをインポートします。</block>
-  <block id="02aa04882d788b791f659f307169bfd8" category="paragraph">ファイルをアップロードすると、 Cloud Manager はクラスタへの接続を検証し、暗号化された kubeconfig ファイルのコピーを保存します。</block>
-  <block id="170a4a52938ac79f65200c3bf0e6b51d" category="paragraph">Cloud Manager によって Kubernetes クラスタが追加されます。これで、クラスタを Cloud Volumes ONTAP に接続できるようになります。</block>
-  <block id="e8f0429464762c99303852d0ee48f1b3" category="section-title">クラスタを Cloud Volumes ONTAP に接続しています</block>
-  <block id="f68c9a3a74a9fa83b27a0710eb1fafe6" category="paragraph">Kubernetes クラスタを Cloud Volumes ONTAP に接続し、 Cloud Volumes ONTAP をコンテナ用の永続的ストレージとして使用できるようにします。</block>
-  <block id="96ba100b561ad23be57aa3635bb7602b" category="list-text">追加したクラスタの [Connect to Working Environment] をクリックします。</block>
-  <block id="a3e58e2bca9be24eec570bef9d888cb1" category="inline-image-macro">Kubernetes クラスタのリストのスクリーンショット。作業環境に接続をクリックできます。</block>
-  <block id="006930634d18e565776e96ff250efdf8" category="paragraph"><block ref="006930634d18e565776e96ff250efdf8" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="a9d20280cbf615f86652a6adad41aa55" category="list-text">作業環境を選択し、 * 続行 * をクリックします。</block>
-  <block id="526684efa2ce983db145c21e9f793888" category="list-text">Kubernetes クラスタのデフォルトのストレージクラスとして使用するネットアップストレージクラスを選択し、「 * Continue * 」をクリックします。</block>
-  <block id="8f80c033c31a319fe853bbcc49c27274" category="paragraph">ユーザが永続ボリュームを作成すると、 Kubernetes クラスタはこのストレージクラスをデフォルトでバックエンドストレージとして使用できます。</block>
-  <block id="24df9f89b31b8b338f662e0c4cc03d09" category="list-text">デフォルトの自動エクスポートポリシーを使用するか、カスタムの CIDR ブロックを追加するかを選択します。</block>
-  <block id="63452910f38ddb716c4708b06e106754" category="inline-image-macro">確認ページのスクリーンショット。オプションを確認してエクスポートポリシーを設定します。</block>
-  <block id="36d07b5aa552d4c36c07ba7e9d1e47d2" category="paragraph"><block ref="36d07b5aa552d4c36c07ba7e9d1e47d2" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="aa8af91e5428a9ebec0674a12beb38a8" category="list-text">* 作業環境の追加 * をクリックします。</block>
-  <block id="5632ca30e37d3f1b4ef0b734696bb85f" category="paragraph">Cloud Manager によって作業環境がクラスタに接続されます。この処理には最大 15 分かかることがあります。</block>
-  <block id="2fe3de53fc0542a06cd444e7e344be33" category="section-title">クラスタの管理</block>
-  <block id="db8c0eeed2b6b581825366136b98d00f" category="paragraph">Cloud Manager では、 Kubernetes クラスタを管理するために、デフォルトのストレージクラスの変更、 Trident のアップグレードなどを行うことができます。</block>
-  <block id="afe72a6bd36ba1c83fc3766b009712a5" category="section-title">デフォルトのストレージクラスを変更する</block>
-  <block id="4b316065292525e254f85ac3cb9db3bd" category="paragraph">クラスタがバックエンドストレージとして Cloud Volumes ONTAP を使用するように、 Cloud Volumes ONTAP ストレージクラスをデフォルトのストレージクラスとして設定していることを確認します。</block>
-  <block id="8654d56365a2d6f47ae9ff5fe3d1b69b" category="list-text">Kubernetes クラスタの名前をクリックします。</block>
-  <block id="d2d9870f04bbe86aed068815b8e92d55" category="list-text">ストレージクラス * の表で、デフォルトとして設定するストレージクラスの右端にあるアクションメニューをクリックします。</block>
-  <block id="24bf9701de1dfdca35fbf35d5ffc17c8" category="inline-image-macro">ストレージクラステーブルのスクリーンショット。アクションメニューをクリックしてデフォルトに設定を選択します。</block>
-  <block id="a6736a58e0776f13ed249272461eb3ec" category="paragraph"><block ref="a6736a58e0776f13ed249272461eb3ec" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="29b1fd86a1f06a011446b6f139180d87" category="list-text">* デフォルトに設定 * をクリックします。</block>
-  <block id="3d7bae662f9623856b864b9abd8c6209" category="section-title">Trident のアップグレード</block>
-  <block id="a352215b3bd79d7212670c889f8a249b" category="paragraph">Trident の新しいバージョンが利用可能になったら、 Cloud Manager から Trident をアップグレードできます。</block>
-  <block id="70770d071d7d3de1517023000c04d130" category="list-text">新しいバージョンが利用可能な場合は、 Trident バージョンの横にある * アップグレード * をクリックします。</block>
-  <block id="1aae0005ec065145d40df2a8d0419b60" category="inline-image-macro">Trident バージョンの横に Upgrade ボタンが表示される Cluster Details ページのスクリーンショット</block>
-  <block id="c638f47ea43bc7f031634bbdee3e4698" category="paragraph"><block ref="c638f47ea43bc7f031634bbdee3e4698" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="c4324414a07d4ce4fb535de4690f73bc" category="section-title">kubeconfig ファイルを更新しています</block>
-  <block id="e717e40bc576bfd8f162b06a88d7c317" category="paragraph">クラスタを Cloud Manager に追加したときに kubeconfig ファイルをインポートすると、いつでも最新の kubeconfig ファイルを Cloud Manager にアップロードできます。この処理は、クレデンシャルを更新した場合、ユーザやロールを変更した場合、またはクラスタ、ユーザ、ネームスペース、認証に影響する変更を加えた場合に実行します。</block>
-  <block id="8fd4aa22d14532c76b8a6154e52df218" category="list-text">［ * Update Kubeconfig * ］ をクリックします。</block>
-  <block id="d58eb5e3571f6d5f008dac27a893fdd4" category="list-text">Web ブラウザからプロンプトが表示されたら、更新された kubeconfig ファイルを選択し、 * Open * をクリックします。</block>
-  <block id="4140cbb72b17c31e98eb9b6b9d0403bf" category="paragraph">Cloud Manager は、最新の kubeconfig ファイルに基づいて Kubernetes クラスタに関する情報を更新します。</block>
-  <block id="9f3764322ceddf8766334f86e8205f59" category="section-title">クラスタを切断しています</block>
-  <block id="f3baf7beaa9acfc76c643519adb50555" category="paragraph">クラスタを Cloud Volumes ONTAP から切断すると、その Cloud Volumes ONTAP システムをコンテナ用の永続的ストレージとして使用できなくなります。既存の永続ボリュームは削除されません。</block>
-  <block id="2e868662ef9beee6c1ee4282bb85af84" category="list-text">[* 作業環境 * （ Working Environments * ） ] テーブルで、切断する作業環境の右端にあるアクションメニューをクリックします。</block>
-  <block id="e2a1129a39f1ab16784a827a64ecdeaf" category="inline-image-macro">テーブルの右端にあるメニューをクリックすると、 [Disconnect] アクションが表示される作業環境テーブルのスクリーンショット。</block>
-  <block id="4010305b0fe8e3ef71301229c58c9c33" category="paragraph"><block ref="4010305b0fe8e3ef71301229c58c9c33" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="3a1413ccffadd023b736396892fc3e82" category="list-text">[ 切断（ Disconnect ） ] をクリックする。</block>
-  <block id="24ac0a83d210afd70856200fa1a3bf1b" category="paragraph">Cloud Manager によってクラスタが Cloud Volumes ONTAP システムから切断されます。</block>
-  <block id="563e32f468bf8948056b1be1d7251e20" category="section-title">クラスタを削除しています</block>
-  <block id="33537c19debe9015654dca47bd7ca179" category="paragraph">すべての作業環境をクラスタから切断したら、運用停止したクラスタを Cloud Manager から削除します。</block>
-  <block id="a7ab6ac831e4d397740d4a05915674a5" category="list-text">[ クラスタの削除 ] をクリックします。</block>
-  <block id="47475fc9b052eeb295cfa73500f8dc4f" category="inline-image-macro">クラスタの詳細ページの上部に表示されるクラスタの削除ボタンのスクリーンショット。</block>
-  <block id="a5db9739febaffad0d71bf0b522e2e63" category="paragraph"><block ref="a5db9739febaffad0d71bf0b522e2e63" category="inline-image-macro-rx" type="image"></block></block>
   <block id="627dbb600651aad7173ae13133dfe740" category="summary">ネットアップによるサポートは Cloud Volumes ONTAP PAYGO システムに含まれていますが、最初にシステムをネットアップに登録してサポートをアクティブ化する必要があります。</block>
   <block id="a37ea04c3e1568f7c0e8e6abc9104d40" category="doc">従量課金制システムの登録</block>
   <block id="969ea14c5bc8e5c519f2569d0b7e4ead" category="inline-link-macro">このページで説明します</block>
@@ -2437,7 +2335,6 @@
   <block id="a67c1e3fa166897e8cc4f860ff4aa0c5" category="paragraph"><block ref="a67c1e3fa166897e8cc4f860ff4aa0c5" category="inline-image-macro-rx" type="image"></block></block>
   <block id="dce5019f9c2e14a57d05767b06b4b81a" category="list-text">必要に応じて、ライセンスで許可された容量を追加で購入し、アカウントにライセンスを追加します。</block>
   <block id="b2dfe525c9a6bec7392826fba889fe07" category="section-title">購入済みライセンスをアカウントに追加します</block>
-  <block id="9b0a940130596000d45be341e6c1b0ec" category="paragraph">ネットアップアカウントのライセンスを購入したら、 Cloud Volumes ONTAP で容量を使用できるように、 Cloud Manager にライセンスを追加する必要があります。</block>
   <block id="a2426434bd2755150443a72dbf29878b" category="list-text">Cloud Manager にライセンスのシリアル番号またはライセンスファイルを指定する必要があります。</block>
   <block id="eb1c981bc4eb3233c26c34546542d338" category="inline-link">Cloud Manager にネットアップサポートサイトのアカウントを追加します</block>
   <block id="f16ff9a2f29f3126c120ed27df35ef94" category="list-text">シリアル番号を入力する場合は、最初にが必要です<block ref="c470c70606743035aa91358ee6f57b26" category="inline-link-rx"></block>。シリアル番号へのアクセスが許可されているネットアップサポートサイトのアカウントです。</block>
@@ -2910,7 +2807,6 @@
   <block id="3cc132ecf0523f86195d2baf263bfdba" category="paragraph">Essentials パッケージと Professional パッケージには、次の消費モデルがあります。</block>
   <block id="f0c74524bf1dcc2586975c7d2fab30aa" category="list-text">ネットアップから購入したライセンス（ BYOL ）。任意のクラウドプロバイダで Cloud Volumes ONTAP を導入する際に使用できます。</block>
   <block id="c603e0cd8afdb5636238d7d652481a08" category="paragraph">1 つのクラウドプロバイダに制限されることはありません。</block>
-  <block id="0a042d8bd5f070de6995ada78bbc5818" category="list-text">クラウドプロバイダのマーケットプレイスから毎年契約（ AWS と Google Cloud のみ）</block>
   <block id="f28f2c679b3208af9d5fe292ad6356b8" category="list-text">クラウドプロバイダの市場から 1 時間単位のサブスクリプション（ PAYGO ）が提供されます。</block>
   <block id="743cd9f94465042cc1367604dce1ec22" category="list-text">ネットアップからライセンスを購入した場合（ BYOL ）は、クラウドプロバイダが提供する PAYGO のサブスクリプションも必要です。</block>
   <block id="0956d25698d6ea6e452e1cd574ab1eea" category="paragraph">ライセンスは常に最初に請求されますが、次の場合は、マーケットプレイスで 1 時間ごとの料金が請求されます。</block>
@@ -3041,9 +2937,7 @@
   <block id="fe49f2913a4b13b0a1c8c251eba351ed" category="paragraph">Cloud Manager は、 Cloud Volumes ONTAP が正常に動作するために必要なインバウンドとアウトバウンドのルールを含む GCP ファイアウォールルールを作成します。テスト目的または独自のファイアウォールルールを使用する場合は、ポートを参照してください。</block>
   <block id="4907f0fb8777892173f7e34fa56bfcdb" category="paragraph">Cloud Volumes ONTAP のファイアウォールルールには、インバウンドとアウトバウンドの両方のルールが必要です。</block>
   <block id="bcf66fd73f27e271725271d68f4723a9" category="paragraph">HA 構成を導入する場合は、 VPC 0 の Cloud Volumes ONTAP のファイアウォールルールを以下に示します。</block>
-  <block id="1acde187c6f2fd217dac5eaa58444173" category="paragraph">定義済みファイアウォールのインバウンドルールのソースは 0.0.0.0/0 です。</block>
   <block id="1147a9bceab35dc98b14493a462a8f27" category="inline-link">Google Cloud ドキュメント：ロードバランサファイアウォールルール</block>
-  <block id="4922e003940e56d05842b6e74ae211fb" category="paragraph">独自のファイアウォールを作成するには、 Cloud Volumes ONTAP と通信する必要のあるすべてのネットワークを追加するとともに、内部の Google ロードバランサが正常に機能するように両方のアドレス範囲を追加する必要があります。これらのアドレスは 130.211.0.0/22 および 35.191.0.0/16 です。詳細については、を参照してください<block ref="ec02114a2c39456710780c7d788390e7" category="inline-link-rx"></block>。</block>
   <block id="1395d3dc336eac468612e7bbe8281f7a" category="cell">63001-63050</block>
   <block id="06fb5a0f91eb3d073524ac0c7e590c54" category="cell">プローブポートをロードバランシングして、どのノードが正常であるかを判断します （ HA ペアの場合のみ必要）</block>
   <block id="9fda35946418ee004d3cdc93c12473b4" category="section-title">VPC -1 、 VPC -2 、および VPC -3 のファイアウォールルール</block>
@@ -3051,12 +2945,6 @@
   <block id="8ab03e4616af1a81bd7e097e2a865c29" category="paragraph">GCP では、 4 つの VPC 間で HA 構成が導入されます。VPC -0 の HA 構成に必要なファイアウォールルール はです <block ref="6696339384f87dfedda2136f4a028ff0" category="inline-xref-macro-rx"></block>。</block>
   <block id="9b215825e4e7c346c52a957a68adf4cb" category="paragraph">一方、 Cloud Manager で VPC -1 、 VPC -2 、および VPC -3 のインスタンスに対して作成される事前定義されたファイアウォールルールによって、 _All_protocols とポートを介した入力通信が有効になります。これらのルールに従って、 HA ノード間の通信が可能になります。</block>
   <block id="e83b31d42852ca12480d330a3385214f" category="paragraph">HA ノードから HA メディエーターへの通信は、ポート 3260 （ iSCSI ）を介して行われます。</block>
-  <block id="1008a7e5067aee5eb98176fc494fab20" category="section-title">VPC 1 から 3 を含む独自のファイアウォールルールを使用</block>
-  <block id="77f479b49565633ac18fea920ecad0e6" category="paragraph">HA ペアを作成する場合、 Cloud Manager で事前定義されたファイアウォールルールを使用するか、 VPC ごとに既存のルールを使用するかを選択できます。VPC 1-3 に対して独自のファイアウォールルールを使用していて、複数の Google Cloud ゾーンに HA ペアを導入している場合は、ファイアウォールルールに対して _target tag_ を設定する必要があります。ターゲットタグを設定しないと、配置中にエラーが発生します。</block>
-  <block id="3a196fb0b8644eb4705060d601f3190f" category="list-text">Google Cloud でファイアウォールルールを作成する場合は、 [* Targets] フィールドに移動し、 [* 指定されたターゲットタグ *] を選択して、タグを入力します。</block>
-  <block id="ea2f0986a422e2e7716f25e393e93d2f" category="paragraph">値には任意のテキスト文字列を指定できます。</block>
-  <block id="f96a45994fa9c7f93941593f44593807" category="list-text">Cloud Manager で HA ペアを作成するときに、 * Connectivity * ページで既存のファイアウォールルールを選択します。</block>
-  <block id="7b8bae0470d950ff06ed48ecc057a3dd" category="paragraph">ファイアウォールルールが Cloud Volumes ONTAP に接続されると、ターゲットタグが Cloud Volumes ONTAP ノードに _network tags_. として自動的に追加されます。</block>
   <block id="fa6661c729382092acdf9b6930de105e" category="section-title">コネクタのファイアウォールルール</block>
   <block id="5ea521a799e1cf043cd101ec326044f6" category="paragraph">コネクタのファイアウォールルールには、インバウンドとアウトバウンドの両方のルールが必要です。</block>
   <block id="aa414a57d6f1347fc5212beb06655a8e" category="paragraph">コネクタの定義済みファイアウォールルールによって、すべてのアウトバウンドトラフィックが開かれます。これが可能な場合は、基本的なアウトバウンドルールに従います。より厳格なルールが必要な場合は、高度なアウトバウンドルールを使用します。</block>
@@ -3492,7 +3380,6 @@
   <block id="1c27e11c5e65b93611e6f5ce640f8184" category="sidebar">ボリュームを作成します</block>
   <block id="a30f8bec41e1f3d9a742515da10df16c" category="sidebar">アクセス頻度の低いデータをオブジェクトストレージに階層化します</block>
   <block id="70bcbcd32eaaac8441910e5d4e5f5a79" category="sidebar">FlexCache でデータアクセスを高速化</block>
-  <block id="a2dddf94fc6ecd8f3d07cc5247fc6781" category="sidebar">ONTAP を永続的ストレージとして使用する</block>
   <block id="ef30733ef9c11950550b941e42eb12ee" category="sidebar">アグリゲートの管理</block>
   <block id="a3b2fca1fd4e5f7a29fc618d28e362b5" category="sidebar">既存のアグリゲートを管理する</block>
   <block id="bf36a77b5166293d07ef75b2861c69ad" category="sidebar">Storage VM 管理</block>
@@ -3558,17 +3445,11 @@
   <block id="0f132f66e81cbab588044405a33dc058" category="section-title">WORM ストレージの充電</block>
   <block id="10142c9d88b9419ee393574e858e86c8" category="inline-link">WORM ストレージの価格設定については、こちらをご覧ください</block>
   <block id="074dbf8cc93ccd34e86e3e2e8f2a1e3a" category="paragraph"><block ref="38aefad2ca205e663da97b7fdd932dcf" category="inline-link-rx"></block>。</block>
-  <block id="32215461c426d2e6cd125109ca715d8f" category="section-title">2022 年 2 月 27 日（コネクタ 3.9.16 ）</block>
   <block id="1c6f86b67d4150db2b816bc084d4c069" category="paragraph"><block ref="525dd47105081fbda31ba7a2793ca879" category="inline-link-rx"></block>。</block>
   <block id="17fc50243c5a80f407e83d268bcab18e" category="section-title">2022 年 2 月 9 日</block>
   <block id="41fe6a9591d04d2b5dc40ba59fd15df9" category="paragraph"><block ref="e22d1e33878d70a72f20edc19056d016" category="inline-link-rx"></block>。</block>
   <block id="5c46bd67ae4b5c23f9c243b5f396c088" category="section-title">2022 年 2 月 6 日</block>
   <block id="e186d5095e3d6d1b5247bef6646ae005" category="paragraph"><block ref="ef3979f2f1932fd482bb464a3e7d984f" category="inline-link-rx"></block>。</block>
-  <block id="2b9fafb77808b816392633fe1036ceb4" category="section-title">2022 年 1 月 30 日（コネクタ 3.9.15 ）</block>
-  <block id="305f98fa0d49873a77484c14f71bfec4" category="section-title">2022 年 1 月 2 日（コネクタ 3.9.14 ）</block>
-  <block id="35e4cbbe7120f5a106048c84199b5c38" category="section-title">2021 年 11 月 28 日（コネクタ 3.9.13 ）</block>
-  <block id="01b6222a6fdfe753189cb7e0753ef51a" category="section-title">2021 年 10 月 4 日（コネクタ 3.9.11 ）</block>
-  <block id="2e88f3ae6e50f5f0bbc46ea8158b71ea" category="section-title">2021 年 9 月 2 日（コネクタ 3.9.10 ）</block>
   <block id="96ce026f2bc7496743369db3f0e33981" category="section-title">既存の Azure リソースグループを選択します</block>
   <block id="96b2257b99d74387ccf906445ab11df4" category="paragraph">NTP サーバは、 CIFS サーバを作成するときにのみ設定できます。CIFS サーバを作成したあとで設定することはできません。</block>
   <block id="ee095a2fd0990ba785c303c6524d8145" category="list-text">データ提供用の Storage VM （ SVM ）を追加する場合、追加のライセンスコストは発生しませんが、データ提供用 SVM ごとの容量は 4TiB になります。</block>
@@ -3745,4 +3626,100 @@
   <block id="6c6c472de3f0cea0f21c8e31be81490c" category="list-text">NAS データ LIF を作成します。</block>
   <block id="477dc9bfd99f5e3ed09c8dbdc76a2c7c" category="list-text">DNS 通信と SMB 通信を提供する iSCSI LIF を作成します。</block>
   <block id="1d690a933c240dda520f6527f56da475" category="paragraph">9.7 以降のリリースでは、特定の Cloud Volumes ONTAP 構成で複数の Storage VM を使用できます。にアクセスします<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 使用している Cloud Volumes ONTAP のバージョンでサポートされる Storage VM 数を確認してください。</block>
+  <block id="7c631216018c939fdeeed5e8807fc718" category="paragraph">HAペアの場合、事前定義されたファイアウォールポリシーのインバウンドトラフィックのソースフィルタは0.0.0.0/0です。</block>
+  <block id="cd2edcd7e3c4d8236b1a1ff235d1b803" category="paragraph">シングルノードシステムの場合は、導入時に事前定義されたファイアウォールポリシーのソースフィルタを選択できます。</block>
+  <block id="62978cf670cdcd284392400fa0cb70a9" category="list-text">*選択したVPCのみ*：インバウンドトラフィックのソースフィルタは、Cloud Volumes ONTAP システムのVPCのサブネット範囲、およびコネクタが存在するVPCのサブネット範囲です。これが推奨されるオプションです。</block>
+  <block id="ba2e1bf50371835f50d77c05a977d80c" category="list-text">*すべてのVPC *：インバウンドトラフィックのソースフィルタは0.0.0.0/0のIP範囲です。</block>
+  <block id="4fa4c5ae842db9adb7911d016ca19362" category="paragraph">独自のファイアウォールポリシーを使用する場合は、Cloud Volumes ONTAP と通信する必要のあるすべてのネットワークを追加し、内部のGoogleロードバランサが正常に機能するように両方のアドレス範囲を追加してください。これらのアドレスは 130.211.0.0/22 および 35.191.0.0/16 です。詳細については、を参照してください<block ref="ec02114a2c39456710780c7d788390e7" category="inline-link-rx"></block>。</block>
+  <block id="612b1fa388e719e990cb953520986784" category="list-text">クラウドプロバイダの市場から年間契約を獲得できます。</block>
+  <block id="7012cf86c42fb3eec6343900832f1d08" category="list-text">AWSでは、年間契約はAWS Marketplaceで公開されています。Cloud Volumes ONTAP 作業環境を導入する際には、Cloud Managerから登録を求められます。</block>
+  <block id="1ce7e5f92b8c11b96a7b6fea0435803d" category="list-text">Azureでは、ネットアップの営業担当者と協力して年間契約を購入する必要があります。この契約は、Azure Marketplaceでのプライベートオファーとして提供されます。</block>
+  <block id="51606c7b614cdc7ab9e0489981838dfa" category="paragraph">ネットアップがお客様とプライベートオファーを共有したあとは、Azure Marketplaceでの作業環境の作成時にサブスクリプションするときに、年間プランを選択できます。</block>
+  <block id="d3ef010be2a71bc188b8cf2beb05ac32" category="list-text">Google Cloudでは、年間契約を購入するには、ネットアップの営業担当者と協力する必要があります。この契約は、Google Cloud Marketplaceでのプライベートオファーとして利用できます。</block>
+  <block id="f96723ecb29e40ca9b9fb042ab6ff4ef" category="paragraph">ネットアップがプライベートオファーを共有した後は、作業環境の作成中にGoogle Cloud Marketplaceから登録するときに、年間プランを選択できます。</block>
+  <block id="49644953fd4e9612a9842d17bef5e79b" category="section-title">2022年5月2日</block>
+  <block id="e76164b285bb635d604e86db0ddefffb" category="paragraph">コネクタの3.9.18リリースでは、次の変更が加えられました。</block>
+  <block id="44521137c9499dbef6a006058d0d9127" category="section-title">Cloud Volumes ONTAP 9.11.0</block>
+  <block id="f5820273186d8dafc3fd2a4b4a00f3ab" category="paragraph">Cloud ManagerでCloud Volumes ONTAP 9.11.0の導入と管理が可能になりました。</block>
+  <block id="a0834297e8b28b9a51d59500441c7351" category="section-title">メディエーターのアップグレードに関する機能拡張</block>
+  <block id="b1001d52fd68a717e647b035c7ba64fe" category="paragraph">Cloud ManagerによってHAペアのメディエーターがアップグレードされると、ブートディスクを削除する前に新しいメディエーターイメージが使用可能であるかどうかが検証されるようになりました。この変更により、アップグレードプロセスが失敗した場合でもメディエーターは正常に動作し続けることができます。</block>
+  <block id="e6e5b99786bfefd88e32c940b7547ab3" category="section-title">K8sタブが削除されました</block>
+  <block id="6eb7d1343cce33ec7d31b57edd9f3aef" category="paragraph">K8sタブは以前のでは廃止されており、現在は削除されています。KubernetesとCloud Volumes ONTAP を併用する場合は、高度なデータ管理のための作業環境として、管理対象- Kubernetesクラスタをキャンバスに追加できます。</block>
+  <block id="75b200b4f9a63bca2792f985693a22c8" category="inline-link">Cloud ManagerでのKubernetesのデータ管理について説明します</block>
+  <block id="97bbe1f6bede29b64e2101d03c2362cb" category="paragraph"><block ref="97bbe1f6bede29b64e2101d03c2362cb" category="inline-link-rx"></block></block>
+  <block id="7475abfb4039c00bb03fd05d6d792b3d" category="section-title">Azureの年間契約</block>
+  <block id="52b398f13b1acf3e73584a9cb106e989" category="paragraph">EssentialsパッケージとProfessionalパッケージは、年間契約を通じてAzureで利用できるようになりました。年間契約を購入するには、ネットアップの営業担当者にお問い合わせください。この契約は、Azure Marketplaceでのプライベートオファーとして提供されます。</block>
+  <block id="ba089edca33f314482ad946ae680f1eb" category="inline-link">ライセンスの詳細については、こちらをご覧ください</block>
+  <block id="bd2a7f63a398b5af0c64c2d07409b38c" category="paragraph"><block ref="fa67dcc1253d6ef7da36dd244bfe620f" category="inline-link-rx"></block>。</block>
+  <block id="57ae56f77d278076fb394799067eb3ef" category="section-title">S3 Glacierのインスタント検索</block>
+  <block id="465771d8890531f2527e09ef3f1b4f68" category="paragraph">Amazon S3 Glacier Instant Retrievalストレージクラスに階層化データを格納できるようになりました。</block>
+  <block id="6d4822148bad6fb79e6d92864dde8771" category="inline-link">階層化データのストレージクラスを変更する方法について説明します</block>
+  <block id="e6eb181abe02ab22f2df966da6c0669d" category="paragraph"><block ref="5ae2503a0985d77718c9fe3da8dbc989" category="inline-link-rx"></block>。</block>
+  <block id="ef8e1d8f242a7ee4d109deb44db1b252" category="section-title">コネクタに新しいAWS権限が必要です</block>
+  <block id="bfd761a70b5f9cd277ef7c878344df38" category="paragraph">単一のAvailability Zone（AZ；アベイラビリティゾーン）にHAペアを導入する際にAWS分散配置グループを作成するためには、次の権限が必要です。</block>
+  <block id="0080f4096e51a12d4256890c125c5c46" category="paragraph">これらの権限は、Cloud Managerによる配置グループの作成方法を最適化するために必要になります。</block>
+  <block id="26dd25d183752a9f37249174f3d3ff89" category="paragraph">Cloud Managerに追加したAWSクレデンシャルの各セットに、これらの権限を必ず付与してください。最新の権限のリストは、で確認できます<block ref="0e92ab1ca454f31f07a6e5fba6519a3a" category="inline-link-rx"></block>。</block>
+  <block id="81ad4f0de90ee8a7305d0fd7751df796" category="section-title">新しいGoogle Cloudリージョンサポート</block>
+  <block id="6b071f4257d8badb0aeb96e6b0547800" category="paragraph">9.10.1リリース以降、Cloud Volumes ONTAP は次のGoogle Cloudリージョンでサポートされるようになりました。</block>
+  <block id="b11df59ba05c25c3a8734d54b7501ae7" category="list-text">デリー（アジア-サウス2）</block>
+  <block id="68fb6cfeb81e52feef062b88d7037b7e" category="list-text">メルボルン（オーストラリア-スモアカス2）</block>
+  <block id="986ef6cfb21ad2831a7ae053e3f0506e" category="list-text">Milan（Europe - west8）-シングルノードのみ</block>
+  <block id="00f803da9ac7d98ccbfd2178a95625ee" category="list-text">Santiago（southamerica-west1）-シングルノードのみ</block>
+  <block id="d1ce20099e22fd96c2217da218a20a9e" category="inline-link">Cloud Volumes ONTAP でサポートされるリージョンの完全なリストを表示します</block>
+  <block id="efb1786cdf88244f9480e15cb039f942" category="paragraph"><block ref="efb1786cdf88244f9480e15cb039f942" category="inline-link-rx"></block></block>
+  <block id="8184a89f6d67aafd228ddc002e159ce5" category="section-title">Google Cloudでのn2標準16のサポート</block>
+  <block id="86a3a073b385c5ae85e4523282be3124" category="paragraph">Google CloudのCloud Volumes ONTAP では、9.10.1リリース以降のn2標準-16マシンタイプがサポートされます。</block>
+  <block id="4994b2bf1bd5c0153c9dc0077a84b5a7" category="inline-link">Google CloudでCloud Volumes ONTAP がサポートされている構成を表示します</block>
+  <block id="528aaaafbacf255285f844e94403a43f" category="paragraph"><block ref="528aaaafbacf255285f844e94403a43f" category="inline-link-rx"></block></block>
+  <block id="291a5c22c8cb78fe8ec363d61830f63e" category="section-title">Google Cloudファイアウォールポリシーの機能強化</block>
+  <block id="73d44bfa5f20953f5799b7072e1f9dc7" category="list-text">Google CloudでCloud Volumes ONTAP HAペアを作成すると、VPC内の既存のすべてのファイアウォールポリシーがCloud Managerに表示されるようになりました。</block>
+  <block id="5e1082179426bea32e466fe447cc5f2e" category="paragraph">以前は、Cloud Managerでは、ターゲットタグのないVPC -1、VPC -2、またはVPC -3のポリシーは表示されませんでした。</block>
+  <block id="880f67f103405f29628ff848182ca330" category="list-text">Google CloudでCloud Volumes ONTAP シングルノードシステムを作成する際に、定義済みのファイアウォールポリシーで、選択したVPC内のトラフィックのみを許可するか（推奨）、すべてのVPC内のトラフィックを許可するかを選択できるようになりました。</block>
+  <block id="5c4a95a56d4b5bfef734aeab388618c0" category="section-title">Google Cloudサービスアカウントの機能強化</block>
+  <block id="06fa5bb865f711b645e1f86dd8711d63" category="paragraph">Cloud Volumes ONTAP で使用するGoogle Cloudサービスアカウントを選択すると、Cloud Managerに各サービスアカウントに関連付けられているEメールアドレスが表示されるようになりました。メールアドレスを表示すると、同じ名前を共有するサービスアカウントを区別しやすくなります。</block>
+  <block id="898d465c80c6b6783418f6fa71db0946" category="inline-image-macro">サービスアカウントフィールドのスクリーンショット</block>
+  <block id="92a991ca375ee56317f82c3a30f16fff" category="paragraph"><block ref="92a991ca375ee56317f82c3a30f16fff" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ba26e4556a0f160834687982b0479336" category="section-title">2022 年 2 月 27 日</block>
+  <block id="eb1bf021e05707d1f69722b4d550c310" category="paragraph">コネクタの3.9.16リリースでは、次の変更が加えられました。</block>
+  <block id="3ac47455b10c6fb4061a70a91fdbfde2" category="section-title">2022 年 1 月 30 日</block>
+  <block id="e1a7ea4670ce179c62807533bd08ccae" category="paragraph">コネクタの3.9.15リリースでは、次の変更が加えられました。</block>
+  <block id="586301717819197e24001cac47efdaaa" category="section-title">2022 年 1 月 2 日</block>
+  <block id="424543ac82fbe709685dcec8b007bf63" category="paragraph">コネクタの3.9.14リリースでは、次の変更が加えられました。</block>
+  <block id="f61163b681442ac500a8018c87241770" category="section-title">2021 年 11 月 28 日</block>
+  <block id="d10c1ac2edf70d0711330d4a227b70de" category="paragraph">コネクタの3.9.13リリースでは、次の変更が加えられました。</block>
+  <block id="d1c47d8bf748c203ff983262e6c108cb" category="section-title">2021 年 10 月 4 日</block>
+  <block id="190323ddb2d35098aa0adb62b3b4fb4c" category="paragraph">コネクタの3.9.11リリースでは、次の変更が加えられました。</block>
+  <block id="d798cbf5a08fbeb9fdd3652e5b00bb4c" category="section-title">2021 年 9 月 2 日</block>
+  <block id="d1ef4823428a4819165321552b0897ec" category="paragraph">コネクタの3.9.10リリースでは、次の変更が加えられました。</block>
+  <block id="916678dfdf53de83f6afdf8fca563fb3" category="section-title">2021 年 7 月 7 日</block>
+  <block id="5378cd3122f1a8d3bcbde490c71a0f72" category="paragraph">3.9.8リリースのコネクタには、次の変更が加えられています。</block>
+  <block id="84e52d98abcbe81e8699e5833406f2e8" category="section-title">2021年5月30日</block>
+  <block id="356b234ec5c21cc28a1a5ae1dd7d3d5f" category="paragraph">コネクタの3.9.7リリースでは、次の変更が加えられました。</block>
+  <block id="13c380d451c296cda1d1289b9dc25114" category="section-title">2021 年 4 月 11 日</block>
+  <block id="46a093bac120f76470b6d910e374e3fe" category="paragraph">コネクタの3.9.5リリースでは、次の変更が加えられました。</block>
+  <block id="1758589feb07955b2d0a7b0b09d739c8" category="section-title">2021 年 3 月 8 日</block>
+  <block id="2d1fda237e9c9e24215e9d1450991976" category="paragraph">コネクタの3.9.4リリースでは、次の変更が加えられました。</block>
+  <block id="450eec7ccd07d2edbfc01a9a848e5c25" category="section-title">2021年1月4日</block>
+  <block id="5a93c02f6d4fbb65f4f91aed3ecc5f9a" category="paragraph">コネクタの3.9.2リリースでは、次の変更が加えられています。</block>
+  <block id="998eefc7687a412e9a842ebf95b04347" category="section-title">2020年11月3日</block>
+  <block id="908acbbcae243fd1f200e44e637db120" category="paragraph">コネクタの3.9.0リリースでは、次の変更が加えられています。</block>
+  <block id="3b293ff829865b6388ad03ef6b96c846" category="cell">9.11.0</block>
+  <block id="331320477ecac4cca1b63e686d99f8d3" category="section-title">ライセンスをデジタルウォレットに追加する方法</block>
+  <block id="792eeb7f686f2ad37b664f6478d40bed" category="paragraph">ネットアップの営業担当者からライセンスを購入されると、ネットアップからシリアル番号と追加のライセンス情報を記載したEメールが送信されます。</block>
+  <block id="4e85798464067990a260920303c6ad56" category="paragraph">その間、Cloud Managerはネットアップのライセンスサービスを自動的に照会し、ネットアップサポートサイトのアカウントに関連付けられているライセンスに関する詳細を取得します。エラーがなければ、Cloud Managerはライセンスをデジタルウォレットに自動的に追加します。</block>
+  <block id="ad0be4bc913a8026a3f5e42fc7656d23" category="inline-xref">購入済みライセンスをアカウントに追加する方法について説明します</block>
+  <block id="7d2ae233484b0c37afe70cfe2db6a56b" category="paragraph">Cloud Managerでライセンスを追加できない場合は、手動でDigital Walletに追加する必要があります。 <block ref="2b377ff52574668221716136185f8476" category="inline-xref-macro-rx"></block>。</block>
+  <block id="59278e406900d98dfbf804d3447c186c" category="paragraph">購入したライセンスがデジタルウォレットに表示されない場合は、Cloud Managerにライセンスを追加して、容量をCloud Volumes ONTAP で使用できるようにする必要があります。</block>
+  <block id="0558557eddde3c400b73684dfb49fdbb" category="list-text">アグリゲートを選択し、*ディスクの追加*をクリックします。</block>
+  <block id="3e385957b42bff8380e99a914d474fb1" category="list-text">*詳細と認証情報*：プロジェクトを選択し、クラスタ名を指定します。必要に応じてサービスアカウントを選択し、ラベルを追加し、クレデンシャルを指定することもできます。</block>
+  <block id="1adb02ac235ed181f81480b00aa116f6" category="list-text">*場所と接続性*：場所を選択し、ファイアウォールポリシーを選択して、データ階層化のためのGoogle Cloudストレージへのネットワーク接続を確認します。</block>
+  <block id="3450bc9327f985ff43682b683cb1eee9" category="cell">接続の検証</block>
+  <block id="13b0618617ce48b8c5ef64094a5be02f" category="cell">コールドデータをGoogle Cloud Storageバケットに階層化するには、Cloud Volumes ONTAP が配置されているサブネットをプライベートGoogleアクセス用に構成する必要があります。手順については、を参照してください<block ref="46bdb5a1fb51df5eb32e2147ea91e6d8" category="inline-link-rx"></block>。</block>
+  <block id="433aa0e54183d61d7dbfe714eebbe532" category="cell">ファイアウォールポリシーが生成されました</block>
+  <block id="44b71ba9f3984ca3e3fbc4f874ed6e55" category="paragraph">Cloud Managerでファイアウォールポリシーを生成するように設定した場合は、トラフィックを許可する方法を選択する必要があります。</block>
+  <block id="537e6055fd3e93e23e2cb903ef1297e5" category="list-text">「* Selected VPC Only *」を選択した場合、インバウンドトラフィックのソースフィルタは、選択したVPCのサブネット範囲とコネクタが存在するVPCのサブネット範囲になります。これが推奨されるオプションです。</block>
+  <block id="32a5902f8095b03e8e2060198dc00577" category="list-text">どのVPC *も選択した場合、インバウンドトラフィックのソースフィルタは0.0.0.0/0のIP範囲になります。</block>
+  <block id="fc4876ca61d1c336e1f17141c7227b6e" category="cell">既存のファイアウォールポリシーを使用する</block>
+  <block id="7f6be0499fe67271d3c198bd726fe0c0" category="inline-link-macro">Cloud Volumes ONTAP のファイアウォールルールについて説明します</block>
+  <block id="154e9c61180206ef2d8b605b639fb35f" category="cell">既存のファイアウォールポリシーを使用する場合は、必要なルールが含まれていることを確認してください。 <block ref="c3fbed15c1fb154b840fdb8b5504f098" category="inline-link-macro-rx"></block>。</block>
 </blocks>
