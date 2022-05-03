@@ -643,8 +643,6 @@
 
 
 
-
-
           
         </li>
       </ul>
@@ -1211,8 +1209,6 @@
         LUN をホストに接続します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-accelerate-data-access.html">
         FlexCache でデータアクセスを高速化
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-connecting-kubernetes.html">
-        ONTAP を永続的ストレージとして使用する
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> アグリゲートの管理</div>
       </a>
@@ -1409,7 +1405,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-27 16:08:17 +0000">04/27/2022</time>
+    <time datetime="2022-05-03 00:00:14 +0000">05/03/2022</time>
     
   
 
@@ -1423,6 +1419,136 @@
 </div>
 <div class="paragraph">
 <p>このページで説明する機能拡張は、 Cloud Volumes ONTAP の管理を可能にする Cloud Manager の機能に固有のものです。Cloud Volumes ONTAP ソフトウェア自体の新機能については、 <a href="https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html" target="_blank" rel="noopener">"Cloud Volumes ONTAP のリリースノートに移動します"</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2022年5月2日">2022年5月2日</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>コネクタの3.9.18リリースでは、次の変更が加えられました。</p>
+</div>
+<div class="sect2">
+<h3 id="cloud-volumes-ontap-9-11-0">Cloud Volumes ONTAP 9.11.0</h3>
+<div class="paragraph">
+<p>Cloud ManagerでCloud Volumes ONTAP 9.11.0の導入と管理が可能になりました。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes" target="_blank" rel="noopener">"このリリースのに含まれる新機能について説明します Cloud Volumes ONTAP"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="メディエーターのアップグレードに関する機能拡張">メディエーターのアップグレードに関する機能拡張</h3>
+<div class="paragraph">
+<p>Cloud ManagerによってHAペアのメディエーターがアップグレードされると、ブートディスクを削除する前に新しいメディエーターイメージが使用可能であるかどうかが検証されるようになりました。この変更により、アップグレードプロセスが失敗した場合でもメディエーターは正常に動作し続けることができます。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="k8sタブが削除されました">K8sタブが削除されました</h3>
+<div class="paragraph">
+<p>K8sタブは以前のでは廃止されており、現在は削除されています。KubernetesとCloud Volumes ONTAP を併用する場合は、高度なデータ管理のための作業環境として、管理対象- Kubernetesクラスタをキャンバスに追加できます。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-kubernetes/concept-kubernetes.html" target="_blank" rel="noopener">"Cloud ManagerでのKubernetesのデータ管理について説明します"</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="azureの年間契約">Azureの年間契約</h3>
+<div class="paragraph">
+<p>EssentialsパッケージとProfessionalパッケージは、年間契約を通じてAzureで利用できるようになりました。年間契約を購入するには、ネットアップの営業担当者にお問い合わせください。この契約は、Azure Marketplaceでのプライベートオファーとして提供されます。</p>
+</div>
+<div class="paragraph">
+<p>ネットアップがお客様とプライベートオファーを共有したあとは、Azure Marketplaceでの作業環境の作成時にサブスクリプションするときに、年間プランを選択できます。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html">"ライセンスの詳細については、こちらをご覧ください"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="s3-glacierのインスタント検索">S3 Glacierのインスタント検索</h3>
+<div class="paragraph">
+<p>Amazon S3 Glacier Instant Retrievalストレージクラスに階層化データを格納できるようになりました。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-tiering.html#changing-the-storage-class-for-tiered-data">"階層化データのストレージクラスを変更する方法について説明します"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="コネクタに新しいaws権限が必要です">コネクタに新しいAWS権限が必要です</h3>
+<div class="paragraph">
+<p>単一のAvailability Zone（AZ；アベイラビリティゾーン）にHAペアを導入する際にAWS分散配置グループを作成するためには、次の権限が必要です。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">"ec2:DescribePlacementGroups",
+"iam:GetRolePolicy",</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>これらの権限は、Cloud Managerによる配置グループの作成方法を最適化するために必要になります。</p>
+</div>
+<div class="paragraph">
+<p>Cloud Managerに追加したAWSクレデンシャルの各セットに、これらの権限を必ず付与してください。最新の権限のリストは、で確認できます <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies" target="_blank" rel="noopener">"Cloud Manager のポリシーのページです"</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="新しいgoogle-cloudリージョンサポート">新しいGoogle Cloudリージョンサポート</h3>
+<div class="paragraph">
+<p>9.10.1リリース以降、Cloud Volumes ONTAP は次のGoogle Cloudリージョンでサポートされるようになりました。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>デリー（アジア-サウス2）</p>
+</li>
+<li>
+<p>メルボルン（オーストラリア-スモアカス2）</p>
+</li>
+<li>
+<p>Milan（Europe - west8）-シングルノードのみ</p>
+</li>
+<li>
+<p>Santiago（southamerica-west1）-シングルノードのみ</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank" rel="noopener">"Cloud Volumes ONTAP でサポートされるリージョンの完全なリストを表示します"</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="google-cloudでのn2標準16のサポート">Google Cloudでのn2標準16のサポート</h3>
+<div class="paragraph">
+<p>Google CloudのCloud Volumes ONTAP では、9.10.1リリース以降のn2標準-16マシンタイプがサポートされます。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html" target="_blank" rel="noopener">"Google CloudでCloud Volumes ONTAP がサポートされている構成を表示します"</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="google-cloudファイアウォールポリシーの機能強化">Google Cloudファイアウォールポリシーの機能強化</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Google CloudでCloud Volumes ONTAP HAペアを作成すると、VPC内の既存のすべてのファイアウォールポリシーがCloud Managerに表示されるようになりました。</p>
+<div class="paragraph">
+<p>以前は、Cloud Managerでは、ターゲットタグのないVPC -1、VPC -2、またはVPC -3のポリシーは表示されませんでした。</p>
+</div>
+</li>
+<li>
+<p>Google CloudでCloud Volumes ONTAP シングルノードシステムを作成する際に、定義済みのファイアウォールポリシーで、選択したVPC内のトラフィックのみを許可するか（推奨）、すべてのVPC内のトラフィックを許可するかを選択できるようになりました。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="google-cloudサービスアカウントの機能強化">Google Cloudサービスアカウントの機能強化</h3>
+<div class="paragraph">
+<p>Cloud Volumes ONTAP で使用するGoogle Cloudサービスアカウントを選択すると、Cloud Managerに各サービスアカウントに関連付けられているEメールアドレスが表示されるようになりました。メールアドレスを表示すると、同じ名前を共有するサービスアカウントを区別しやすくなります。</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/main/media/screenshot-google-cloud-service-account.png" alt="サービスアカウントフィールドのスクリーンショット"></span></p>
+</div>
 </div>
 </div>
 </div>
@@ -1450,8 +1576,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2022-年-2-月-27-日コネクタ-3-9-16">2022 年 2 月 27 日（コネクタ 3.9.16 ）</h2>
+<h2 id="2022-年-2-月-27-日">2022 年 2 月 27 日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>コネクタの3.9.16リリースでは、次の変更が加えられました。</p>
+</div>
 <div class="sect2">
 <h3 id="ボリュームウィザードの再設計">ボリュームウィザードの再設計</h3>
 <div class="paragraph">
@@ -1514,8 +1643,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2022-年-1-月-30-日コネクタ-3-9-15">2022 年 1 月 30 日（コネクタ 3.9.15 ）</h2>
+<h2 id="2022-年-1-月-30-日">2022 年 1 月 30 日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>コネクタの3.9.15リリースでは、次の変更が加えられました。</p>
+</div>
 <div class="sect2">
 <h3 id="ライセンスの選択を再設計">ライセンスの選択を再設計</h3>
 <div class="paragraph">
@@ -1546,8 +1678,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2022-年-1-月-2-日コネクタ-3-9-14">2022 年 1 月 2 日（コネクタ 3.9.14 ）</h2>
+<h2 id="2022-年-1-月-2-日">2022 年 1 月 2 日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>コネクタの3.9.14リリースでは、次の変更が加えられました。</p>
+</div>
 <div class="sect2">
 <h3 id="追加の-vm-タイプがサポートされます">追加の VM タイプがサポートされます</h3>
 <div class="paragraph">
@@ -1622,8 +1757,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2021-年-11-月-28-日コネクタ-3-9-13">2021 年 11 月 28 日（コネクタ 3.9.13 ）</h2>
+<h2 id="2021-年-11-月-28-日">2021 年 11 月 28 日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>コネクタの3.9.13リリースでは、次の変更が加えられました。</p>
+</div>
 <div class="sect2">
 <h3 id="cloud-volumes-ontap-9-10-1">Cloud Volumes ONTAP 9.10.1</h3>
 <div class="paragraph">
@@ -1673,8 +1811,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2021-年-10-月-4-日コネクタ-3-9-11">2021 年 10 月 4 日（コネクタ 3.9.11 ）</h2>
+<h2 id="2021-年-10-月-4-日">2021 年 10 月 4 日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>コネクタの3.9.11リリースでは、次の変更が加えられました。</p>
+</div>
 <div class="sect2">
 <h3 id="cloud-volumes-ontap-9-10-0">Cloud Volumes ONTAP 9.10.0</h3>
 <div class="paragraph">
@@ -1693,8 +1834,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2021-年-9-月-2-日コネクタ-3-9-10">2021 年 9 月 2 日（コネクタ 3.9.10 ）</h2>
+<h2 id="2021-年-9-月-2-日">2021 年 9 月 2 日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>コネクタの3.9.10リリースでは、次の変更が加えられました。</p>
+</div>
 <div class="sect2">
 <h3 id="azure-のお客様が管理する暗号化キー">Azure のお客様が管理する暗号化キー</h3>
 <div class="paragraph">
@@ -1717,8 +1861,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2021-年-7-月-7-日コネクタ-3-9-8">2021 年 7 月 7 日（コネクタ 3.9.8 ）</h2>
+<h2 id="2021-年-7-月-7-日">2021 年 7 月 7 日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>3.9.8リリースのコネクタには、次の変更が加えられています。</p>
+</div>
 <div class="sect2">
 <h3 id="新しい充電方法">新しい充電方法</h3>
 <div class="paragraph">
@@ -1822,8 +1969,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2021-年-5-月-30-日コネクタ-3-9-7">2021 年 5 月 30 日（コネクタ 3.9.7 ）</h2>
+<h2 id="2021年5月30日">2021年5月30日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>コネクタの3.9.7リリースでは、次の変更が加えられました。</p>
+</div>
 <div class="sect2">
 <h3 id="aws-での新しいプロフェッショナルパッケージ">AWS での新しいプロフェッショナルパッケージ</h3>
 <div class="paragraph">
@@ -1894,8 +2044,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2021-年-4-月-11-日コネクタ-3-9-5">2021 年 4 月 11 日（コネクタ 3.9.5 ）</h2>
+<h2 id="2021-年-4-月-11-日">2021 年 4 月 11 日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>コネクタの3.9.5リリースでは、次の変更が加えられました。</p>
+</div>
 <div class="sect2">
 <h3 id="論理スペースのレポート">論理スペースのレポート</h3>
 <div class="paragraph">
@@ -1929,8 +2082,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2021-年-3-月-8-日コネクタ-3-9-4">2021 年 3 月 8 日（コネクタ 3.9.4 ）</h2>
+<h2 id="2021-年-3-月-8-日">2021 年 3 月 8 日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>コネクタの3.9.4リリースでは、次の変更が加えられました。</p>
+</div>
 <div class="sect2">
 <h3 id="cloud-volumes-ontap-9-9">Cloud Volumes ONTAP 9.9.</h3>
 <div class="paragraph">
@@ -1988,8 +2144,11 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="2021-年-1-月-4-日コネクタ-3-4-2">2021 年 1 月 4 日（コネクタ 3.4.2 ）</h2>
+<h2 id="2021年1月4日">2021年1月4日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>コネクタの3.9.2リリースでは、次の変更が加えられています。</p>
+</div>
 <div class="sect2">
 <h3 id="aws-がアウトポスト">AWS がアウトポスト</h3>
 <div class="paragraph">
@@ -2073,8 +2232,11 @@ GCP の制限により、ディスクのみの場合の最大システム容量�
 </div>
 </div>
 <div class="sect1">
-<h2 id="2020-年-11-月-3-日コネクタ-3-9-0">2020 年 11 月 3 日（コネクタ 3.9.0 ）</h2>
+<h2 id="2020年11月3日">2020年11月3日</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>コネクタの3.9.0リリースでは、次の変更が加えられています。</p>
+</div>
 <div class="sect2">
 <h3 id="azure-private-link-for-cloud-volumes-ontap-の略">Azure Private Link for Cloud Volumes ONTAP の略</h3>
 <div class="paragraph">

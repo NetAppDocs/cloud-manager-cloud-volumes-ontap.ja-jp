@@ -643,8 +643,6 @@
 
 
 
-
-
           
         </li>
       </ul>
@@ -1211,8 +1209,6 @@
         LUN をホストに接続します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-accelerate-data-access.html">
         FlexCache でデータアクセスを高速化
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-connecting-kubernetes.html">
-        ONTAP を永続的ストレージとして使用する
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> アグリゲートの管理</div>
       </a>
@@ -1409,7 +1405,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-21 15:25:50 +0000">04/21/2022</time>
+    <time datetime="2022-05-03 00:00:14 +0000">05/03/2022</time>
     
   
 
@@ -1549,7 +1545,7 @@
 <p>プロンプトが表示されたら、 <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html" target="_blank" rel="noopener">"コネクタを作成します"</a>。</p>
 </li>
 <li>
-<p>* 詳細と認証情報 * ：プロジェクトを選択し、クラスタ名を指定します。必要に応じてサービスアカウントを選択し、ラベルを追加し、クレデンシャルを指定することもできます。</p>
+<p><strong>詳細と認証情報</strong>：プロジェクトを選択し、クラスタ名を指定します。必要に応じてサービスアカウントを選択し、ラベルを追加し、クレデンシャルを指定することもできます。</p>
 <div class="paragraph">
 <p>次の表では、ガイダンスが必要なフィールドについて説明します。</p>
 </div>
@@ -1625,10 +1621,48 @@ Your browser does not support the video tag.
 <p>* サービス * ：このシステムで使用するサービスを選択します。クラウドバックアップまたは階層化を選択するには、手順 3 でサービスアカウントを指定しておく必要があります。</p>
 </li>
 <li>
-<p>* 場所と接続性 * ：場所を選択し、ファイアウォールポリシーを選択して、データ階層化のための Google Cloud ストレージへのネットワーク接続を確認するチェックボックスを選択します。</p>
+<p><strong>場所と接続性</strong>：場所を選択し、ファイアウォールポリシーを選択して、データ階層化のためのGoogle Cloudストレージへのネットワーク接続を確認します。</p>
 <div class="paragraph">
-<p>コールドデータを Google Cloud Storage バケットに階層化する場合は、 Cloud Volumes ONTAP が配置されているサブネットをプライベート Google アクセス用に構成する必要があります。手順については、を参照してください <a href="https://cloud.google.com/vpc/docs/configure-private-google-access" target="_blank" rel="noopener">"Google Cloud のドキュメント：「 Configuring Private Google Access"</a>。</p>
+<p>次の表では、ガイダンスが必要なフィールドについて説明します。</p>
 </div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">フィールド</th>
+<th class="tableblock halign-left valign-top">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">接続の検証</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">コールドデータをGoogle Cloud Storageバケットに階層化するには、Cloud Volumes ONTAP が配置されているサブネットをプライベートGoogleアクセス用に構成する必要があります。手順については、を参照してください <a href="https://cloud.google.com/vpc/docs/configure-private-google-access" target="_blank" rel="noopener">"Google Cloud のドキュメント：「 Configuring Private Google Access"</a>。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ファイアウォールポリシーが生成されました</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Cloud Managerでファイアウォールポリシーを生成するように設定した場合は、トラフィックを許可する方法を選択する必要があります。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>「* Selected VPC Only *」を選択した場合、インバウンドトラフィックのソースフィルタは、選択したVPCのサブネット範囲とコネクタが存在するVPCのサブネット範囲になります。これが推奨されるオプションです。</p>
+</li>
+<li>
+<p>どのVPC *も選択した場合、インバウンドトラフィックのソースフィルタは0.0.0.0/0のIP範囲になります。</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">既存のファイアウォールポリシーを使用する</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">既存のファイアウォールポリシーを使用する場合は、必要なルールが含まれていることを確認してください。 <a href="reference-networking-gcp.html#firewall-rules-for-cloud-volumes-ontap">"Cloud Volumes ONTAP のファイアウォールルールについて説明します"</a>。</p></td>
+</tr>
+</tbody>
+</table>
 </li>
 <li>
 <p>* 充電方法と NSS アカウント * ：このシステムで使用する充電オプションを指定し、ネットアップサポートサイトのアカウントを指定します。</p>
