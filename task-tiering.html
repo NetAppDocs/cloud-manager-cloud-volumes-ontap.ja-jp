@@ -17,7 +17,7 @@
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="ホットデータ用の SSD または HDD の高パフォーマンス階層と、アクセス頻度の低いデータ用のオブジェクトストレージの大容量階層を組み合わせることで、 Cloud Volumes ONTAP のストレージコストを削減できます。データ階層化は、 FabricPool テクノロジによって実現されます。">
-  <meta name="keywords" content=" tier, tiering, cold data, hot data, storage tiering, data tiering, S3 tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store, azure tiering, blob tiering, azure blob, container, inactive, gcp, tiering in gcp, tiering requirements"><!-- Icons -->
+  <meta name="keywords" content=" tier, tiering, cold data, hot data, storage tiering, data tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store, blob tiering, container, inactive, tiering requirements"><!-- Icons -->
   <link rel="icon" href="/ja-jp/cloud-manager-cloud-volumes-ontap/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/ja-jp/cloud-manager-cloud-volumes-ontap/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[使用頻度の低いデータを低コストのオブジェクトストレージに階層化](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-tiering.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-tiering.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/task-tiering.html">
+  
+  <div class="custom-dropdown-select unselected" title="すべてのクラウドプロバイダ">
+    <label>クラウドプロバイダ</label>
+    <span>すべてのクラウドプロバイダ</span>
+    <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-tiering.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services の
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-tiering.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/gcp-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/task-tiering.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/azure-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[使用頻度の低いデータを低コストのオブジェクトストレージに階層化](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-tiering.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-tiering.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -1407,7 +1439,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:28:17 +0000">04/14/2022</time>
+    <time datetime="2022-05-09 15:40:08 +0000">05/09/2022</time>
     
   
 
@@ -1425,8 +1457,7 @@
 <div class="paragraph quick-margin-para">
 <p>ほとんどの構成がサポートされています。最新バージョンを実行している Cloud Volumes ONTAP システムがある場合は、に進んでください。 <a href="task-tiering.html#configurations-that-support-data-tiering">"詳細はこちら。"</a>。</p>
 </div>
-<div class="ulist">
-<div class="title">&lt;span class="image"&gt;&lt;img src="<a href="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"" class="bare">https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"</a> Alt="2"&gt;&lt;/span&gt; Cloud Volumes ONTAP とオブジェクトストレージ間の接続を確認します</div>
+<div class="ulist quick-margin-list">
 <ul>
 <li>
 <p>AWS では、 S3 への VPC エンドポイントが必要です。 <a href="#Requirements to tier cold data to AWS S3">詳細はこちら。</a>。</p>
@@ -1435,7 +1466,7 @@
 <p>Azure では、 Cloud Manager に必要な権限が付与されていれば何も実行する必要はありません。 <a href="#Requirements to tier cold data to Azure Blob storage">詳細はこちら。</a>。</p>
 </li>
 <li>
-<p>GCP の場合、プライベート Google アクセスのサブネットを設定し、サービスアカウントを設定する必要があります。 <a href="#Requirements to tier cold data to a Google Cloud Storage bucket">詳細はこちら。</a>。</p>
+<p>Google Cloudの場合は、プライベートGoogleアクセスのサブネットを設定し、サービスアカウントを設定する必要があります。 <a href="#Requirements to tier cold data to a Google Cloud Storage bucket">詳細はこちら。</a>。</p>
 </li>
 </ul>
 </div>
@@ -1469,7 +1500,7 @@
 <p>データの階層化を有効にするために機能ライセンスをインストールする必要はありません。</p>
 </li>
 <li>
-<p>大容量階層（ S3 バケット、 Azure BLOB コンテナ、 GCP バケット）を作成する必要はありません。クラウドマネージャーがそれを実現します。</p>
+<p>大容量階層用のオブジェクトストアを作成する必要はありません。クラウドマネージャーがそれを実現します。</p>
 </li>
 <li>
 <p>システムレベルでデータの階層化を有効にする必要はありません。</p>
@@ -1489,31 +1520,17 @@
 <h2 id="データ階層化をサポートする構成">データ階層化をサポートする構成</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>特定の構成と機能を使用する場合は、データ階層化を有効にできます。</p>
+<p>特定の構成や機能を使用する場合は、データの階層化を有効にすることができます。</p>
 </div>
+<div class="sect2">
+<h3 id="awsでのサポート">AWSでのサポート</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Cloud Volumes ONTAP では、次のバージョン以降でデータ階層化がサポートされます。</p>
-<div class="ulist">
-<ul>
-<li>
-<p>AWS でバージョン 9.2 を実行します</p>
+<p>Cloud Volumes ONTAP 9.2以降では、AWSでデータ階層化がサポートされます。</p>
 </li>
 <li>
-<p>Azure のシングルノードシステムの場合はバージョン 9.4</p>
-</li>
-<li>
-<p>Azure バージョン 9.6 （ HA ペアを使用）</p>
-</li>
-<li>
-<p>GCP のバージョン 9.6</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>AWS では、パフォーマンス階層には汎用 SSD （ GP3 または gp2 ）またはプロビジョニングされる IOPS SSD （ io1 ）を使用できます。</p>
+<p>パフォーマンス階層には、汎用 SSD （ GP3 または gp2 ）またはプロビジョニングされる IOPS SSD （ io1 ）を使用できます。</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1527,12 +1544,49 @@
 </table>
 </div>
 </li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="azure-でのサポート">Azure でのサポート</h3>
+<div class="ulist">
+<ul>
 <li>
-<p>Azure では、 Premium SSD Managed Disks 、 Standard SSD Managed Disks 、 Standard HDD Managed Disks のいずれかです。</p>
+<p>Azureでは、次のデータ階層化がサポートされています。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>シングルノードシステムの場合はバージョン9.4</p>
 </li>
 <li>
-<p>GCP では、 SSD 永続ディスク、分散型永続ディスク、または標準的な永続ディスクのいずれかを使用できます。</p>
+<p>HAペアではバージョン9.6</p>
 </li>
+</ul>
+</div>
+</li>
+<li>
+<p>高パフォーマンス階層には、Premium SSD Managed Disks、Standard SSD Managed Disks、Standard HDD Managed Disksがあります。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="google-cloudのサポート">Google Cloudのサポート</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Volumes ONTAP 9.6以降では、Google Cloudでデータ階層化がサポートされます。</p>
+</li>
+<li>
+<p>パフォーマンス階層には、 SSD 永続ディスク、分散型永続ディスク、標準の永続ディスクがあります。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="機能の相互運用性">機能の相互運用性</h3>
+<div class="ulist">
+<ul>
 <li>
 <p>データ階層化は暗号化テクノロジでサポートされています。</p>
 </li>
@@ -1540,6 +1594,7 @@
 <p>ボリュームでシンプロビジョニングを有効にする必要があります。</p>
 </li>
 </ul>
+</div>
 </div>
 </div>
 </div>

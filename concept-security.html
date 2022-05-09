@@ -17,7 +17,7 @@
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Cloud Volumes ONTAP は、データ暗号化をサポートし、ウィルスやランサムウェアからの保護を提供します。">
-  <meta name="keywords" content=" security, encryption, antivirus, concepts, key managers, safenet, kms, keys, vscan, encrypt, aws, key management service, cmk, customer master key, data at rest, data-at-rest, netapp storage encryption, certificate signing request, csr, certificate, ca certificate, virus, scan, virus scan, certificate authority, netapp volume encryption, nve, volume encryption, key management server, ransomware, fpolicy, snapshots"><!-- Icons -->
+  <meta name="keywords" content=" security, encryption, antivirus, concepts, key managers, safenet, kms, keys, vscan, encrypt, key management service, cmk, customer master key, data at rest, data-at-rest, netapp storage encryption, certificate signing request, csr, certificate, ca certificate, virus, scan, virus scan, certificate authority, netapp volume encryption, nve, volume encryption, key management server, ransomware, fpolicy, snapshots"><!-- Icons -->
   <link rel="icon" href="/ja-jp/cloud-manager-cloud-volumes-ontap/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/ja-jp/cloud-manager-cloud-volumes-ontap/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[セキュリティ](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/concept-security.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/concept-security.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/concept-security.html">
+  
+  <div class="custom-dropdown-select unselected" title="すべてのクラウドプロバイダ">
+    <label>クラウドプロバイダ</label>
+    <span>すべてのクラウドプロバイダ</span>
+    <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/concept-security.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services の
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-security.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/gcp-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/concept-security.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/azure-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[セキュリティ](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/concept-security.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/concept-security.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -1407,7 +1439,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:28:17 +0000">04/14/2022</time>
+    <time datetime="2022-05-09 15:40:08 +0000">05/09/2022</time>
     
   
 
@@ -1444,7 +1476,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>ネットアップの暗号化ソリューションは、 AWS 、 Azure 、 GCP のネイティブ暗号化と組み合わせて使用できます。この暗号化ソリューションでは、ハイパーバイザーレベルでデータが暗号化されます。これにより、機密性の高いデータには二重の暗号化が必要になる場合があります。暗号化されたデータにアクセスすると、暗号化されていないデータがハイパーバイザーレベルで 2 回（クラウドプロバイダのキーを使用）暗号化されてから、ネットアップの暗号化ソリューションを再度使用して（外部キー管理ツールのキーを使用）暗号化されます。</p>
+<p>ネットアップの暗号化ソリューションは、クラウドプロバイダがネイティブに暗号化することでハイパーバイザーレベルでデータを暗号化します。これにより、機密性の高いデータには二重の暗号化が必要になる場合があります。暗号化されたデータにアクセスすると、暗号化されていないデータがハイパーバイザーレベルで 2 回（クラウドプロバイダのキーを使用）暗号化されてから、ネットアップの暗号化ソリューションを再度使用して（外部キー管理ツールのキーを使用）暗号化されます。</p>
 </div>
 <div class="sect2">
 <h3 id="ネットアップの暗号化ソリューション-nve-および-nae">ネットアップの暗号化ソリューション（ NVE および NAE ）</h3>
@@ -1462,7 +1494,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>NVE と NAE はどちらも外部キー管理機能でサポートされています。NVE を使用する場合、 Azure Key Vault （ AKV ）または Google Cloud Key Management Service を使用して ONTAP 暗号化キーを保護することもできます。</p>
+<p>NVE と NAE はどちらも外部キー管理機能でサポートされています。</p>
 </div>
 <div class="paragraph">
 <p>新しいアグリゲートでは、外部キー管理ツールの設定後に NetApp Aggregate Encryption （ NAE ）がデフォルトで有効になります。NAE アグリゲートに含まれない新しいボリュームでは、 NetApp Volume Encryption （ NVE ）がデフォルトで有効になります（たとえば、外部キー管理ツールを設定する前に作成された既存のアグリゲートがある場合）。</p>

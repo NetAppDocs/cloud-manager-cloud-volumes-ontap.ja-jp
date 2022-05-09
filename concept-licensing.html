@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[Cloud Volumes ONTAP ライセンス](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/concept-licensing.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/concept-licensing.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/concept-licensing.html">
+  
+  <div class="custom-dropdown-select unselected" title="すべてのクラウドプロバイダ">
+    <label>クラウドプロバイダ</label>
+    <span>すべてのクラウドプロバイダ</span>
+    <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/concept-licensing.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services の
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-licensing.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/gcp-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/concept-licensing.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/azure-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[Cloud Volumes ONTAP ライセンス](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/concept-licensing.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/concept-licensing.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -1407,7 +1439,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-03 00:00:14 +0000">05/03/2022</time>
+    <time datetime="2022-05-09 15:40:08 +0000">05/09/2022</time>
     
   
 
@@ -1582,10 +1614,9 @@
 </li>
 <li>
 <p>クラウドプロバイダの市場から年間契約を獲得できます。</p>
-<div class="ulist">
-<ul>
+</li>
 <li>
-<p>AWSでは、年間契約はAWS Marketplaceで公開されています。Cloud Volumes ONTAP 作業環境を導入する際には、Cloud Managerから登録を求められます。</p>
+<p>AWSでは、年間契約はAWS Marketplaceで公開されています。Cloud Volumes ONTAP 作業環境の導入時に、Cloud Managerの詳細とクレデンシャルのページで登録を行うように求められます。</p>
 </li>
 <li>
 <p>Azureでは、ネットアップの営業担当者と協力して年間契約を購入する必要があります。この契約は、Azure Marketplaceでのプライベートオファーとして提供されます。</p>
@@ -1597,9 +1628,6 @@
 <p>Google Cloudでは、年間契約を購入するには、ネットアップの営業担当者と協力する必要があります。この契約は、Google Cloud Marketplaceでのプライベートオファーとして利用できます。</p>
 <div class="paragraph">
 <p>ネットアップがプライベートオファーを共有した後は、作業環境の作成中にGoogle Cloud Marketplaceから登録するときに、年間プランを選択できます。</p>
-</div>
-</li>
-</ul>
 </div>
 </li>
 </ul>
@@ -1640,19 +1668,13 @@
 <div class="sect2">
 <h3 id="無償トライアルを利用できます">無償トライアルを利用できます</h3>
 <div class="paragraph">
-<p>30 日間の無償トライアルをクラウドプロバイダのマーケットプレイスで従量課金制サブスクリプションで利用できます。無償トライアルには、 Cloud Volumes ONTAP とクラウドバックアップが含まれており、マーケットプレイスのリストに登録した時点から利用が開始されます。</p>
+<p>30 日間の無償トライアルをクラウドプロバイダのマーケットプレイスで従量課金制サブスクリプションで利用できます。無償トライアルには、Cloud Volumes ONTAP とクラウドバックアップが含まれています。トライアルは、市場で提供サービスに登録すると開始されます。</p>
 </div>
 <div class="paragraph">
-<p>たとえば、時間単位のソフトウェアライセンス料は発生しませんが、クラウドプロバイダからインフラ料金が請求されます。</p>
+<p>インスタンスや容量の制限はありません。Cloud Volumes ONTAP システムは必要な数だけ導入でき、必要な容量を30日間無償で割り当てることができます。無料トライアルは、30日後に1時間ごとの有料サブスクリプションに自動的に変換されます。</p>
 </div>
 <div class="paragraph">
-<p>無料トライアルは、有効期限が切れると、自動的に 1 時間単位の有料サブスクリプションに変換されます。時間制限内にインスタンスを終了した場合、展開した次のインスタンスは無料トライアルの一部ではありません（ 30 日以内に展開された場合でも）。</p>
-</div>
-<div class="paragraph">
-<p>Cloud Volumes ONTAP の 30 日間の無償トライアルを Cloud Manager から開始するには、支払い担当者のアカウントで最初の Cloud Volumes ONTAP システムを作成します。</p>
-</div>
-<div class="paragraph">
-<p>従量課金制の試用版はクラウドプロバイダから提供され、いかなる手段によっても拡張することはできません。</p>
+<p>Cloud Volumes ONTAP のソフトウェアライセンス料金は1時間ごとに発生しませんが、クラウドプロバイダからインフラ料金が請求されます。</p>
 </div>
 </div>
 <div class="sect2">
@@ -1714,12 +1736,16 @@
 <ul>
 <li>
 <p><a href="task-deploying-otc-aws.html">"AWS での Cloud Volumes ONTAP の起動"</a></p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p><a href="task-deploying-otc-azure.html">"Azure で Cloud Volumes ONTAP を起動します"</a></p>
 </li>
 <li>
 <p><a href="task-deploying-gcp.html">"Google Cloud で Cloud Volumes ONTAP を起動しています"</a></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -1775,12 +1801,16 @@
 <ul>
 <li>
 <p><a href="task-deploying-otc-aws.html">"AWS での Cloud Volumes ONTAP の起動"</a></p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p><a href="task-deploying-otc-azure.html">"Azure で Cloud Volumes ONTAP を起動します"</a></p>
 </li>
 <li>
 <p><a href="task-deploying-gcp.html">"Google Cloud で Cloud Volumes ONTAP を起動しています"</a></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>

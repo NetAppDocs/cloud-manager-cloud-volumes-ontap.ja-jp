@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head class="at-element-marker">
-  <title>Azure での Cloud Volumes ONTAP HA の CIFS ロックの無効化 | NetApp Documentation</title>
+  <title>AzureのCloud Volumes ONTAP HAペアでのCIFSロックの無効化 | NetApp Documentation</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Azure での Cloud Volumes ONTAP HA の CIFS ロックの無効化 | NetApp Documentation" />
+  <meta property="og:title" content="AzureのCloud Volumes ONTAP HAペアでのCIFSロックの無効化 | NetApp Documentation" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-overriding-cifs-locks.html" />
 	<meta property="og:description" content="アカウント管理者は、 Cloud Manager で設定を有効にして、 Azure メンテナンスイベント時の Cloud Volumes ONTAP ストレージギブバックの問題を回避できます。この設定を有効にすると、 Cloud Volumes ONTAP は CIFS ロックを拒否し、アクティブな CIFS セ..." />
@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[Azure での Cloud Volumes ONTAP HA の CIFS ロックの無効化](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-overriding-cifs-locks.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-overriding-cifs-locks.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/task-overriding-cifs-locks.html">
+  
+  <div class="custom-dropdown-select unselected" title="すべてのクラウドプロバイダ">
+    <label>クラウドプロバイダ</label>
+    <span>すべてのクラウドプロバイダ</span>
+    <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/aws">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services の
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/gcp-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/task-overriding-cifs-locks.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/azure-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[AzureのCloud Volumes ONTAP HAペアでのCIFSロックの無効化](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-overriding-cifs-locks.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-overriding-cifs-locks.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -1400,14 +1432,14 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Azure での Cloud Volumes ONTAP HA の CIFS ロックの無効化</h1>
+  <h1 class="n-doc__component-detail-heading">AzureのCloud Volumes ONTAP HAペアでのCIFSロックの無効化</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:28:17 +0000">04/14/2022</time>
+    <time datetime="2022-05-09 15:40:08 +0000">05/09/2022</time>
     
   
 

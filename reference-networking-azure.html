@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[Azure の Cloud Volumes ONTAP のネットワーク要件](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/reference-networking-azure.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/reference-networking-azure.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/reference-networking-azure.html">
+  
+  <div class="custom-dropdown-select unselected" title="すべてのクラウドプロバイダ">
+    <label>クラウドプロバイダ</label>
+    <span>すべてのクラウドプロバイダ</span>
+    <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/aws">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services の
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/gcp-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/reference-networking-azure.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/azure-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[Azure の Cloud Volumes ONTAP のネットワーク要件](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/reference-networking-azure.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/reference-networking-azure.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -1407,7 +1439,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:28:17 +0000">04/14/2022</time>
+    <time datetime="2022-05-09 15:40:08 +0000">05/09/2022</time>
     
   
 
@@ -1519,7 +1551,7 @@ LIF は、物理ポートに関連付けられた IP アドレスです。SnapCe
 <div class="sect2">
 <h3 id="他の-ontap-システムへの接続">他の ONTAP システムへの接続</h3>
 <div class="paragraph">
-<p>Azure の Cloud Volumes ONTAP システムと他のネットワークの ONTAP システムの間でデータをレプリケートするには、 Azure VNet と他のネットワーク（ AWS VPC や企業ネットワークなど）の間に VPN 接続が必要です。</p>
+<p>Azure内のCloud Volumes ONTAP システムと他のネットワーク内のONTAP システム間でデータをレプリケートするには、企業ネットワークなど、Azure VNetとその他のネットワーク間にVPN接続が必要です。</p>
 </div>
 <div class="paragraph">
 <p>手順については、を参照してください <a href="https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal" target="_blank" rel="noopener">"Microsoft Azure のドキュメント：「 Create a Site-to-Site connection in the Azure portal"</a>。</p>
@@ -2299,7 +2331,7 @@ source は、 Cloud Volumes ONTAP システムのインターフェイス（ IP 
 <td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">アウトバウンドインターネットおよび ONTAP クラスタ管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">API が AWS や ONTAP 、クラウドデータ検知、ランサムウェアサービス、ネットアップへの AutoSupport メッセージの送信を呼び出します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIがAzureとONTAP にコールし、クラウドデータを検知してランサムウェアサービスに感染し、AutoSupport メッセージをネットアップに送信</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>

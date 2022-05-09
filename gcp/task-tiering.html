@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head class="at-element-marker">
+  <title>使用頻度の低いデータを低コストのオブジェクトストレージに階層化 | NetApp Documentation</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="使用頻度の低いデータを低コストのオブジェクトストレージに階層化 | NetApp Documentation" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-tiering.html" />
+	<meta property="og:description" content="ホットデータ用の SSD または HDD の高パフォーマンス階層と、アクセス頻度の低いデータ用のオブジェクトストレージの大容量階層を組み合わせることで、 Cloud Volumes ONTAP のストレージコストを削減できます。データ階層化は、 FabricPool テクノロジによって実現されます。" />
+  <meta property="og:image" content="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="ホットデータ用の SSD または HDD の高パフォーマンス階層と、アクセス頻度の低いデータ用のオブジェクトストレージの大容量階層を組み合わせることで、 Cloud Volumes ONTAP のストレージコストを削減できます。データ階層化は、 FabricPool テクノロジによって実現されます。">
+  <meta name="keywords" content=" tier, tiering, cold data, hot data, storage tiering, data tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store, blob tiering, container, inactive, tiering requirements"><!-- Icons -->
+  <link rel="icon" href="/ja-jp/cloud-manager-cloud-volumes-ontap/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/ja-jp/cloud-manager-cloud-volumes-ontap/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Controls AsciiDoctor Admonition Blocks -->
+  <link rel="stylesheet" type="text/css" href="/ja-jp/cloud-manager-cloud-volumes-ontap/css/font-awesome.min.css">
+
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/ja-jp/cloud-manager-cloud-volumes-ontap/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel="stylesheet" type="text/css" href="/ja-jp/cloud-manager-cloud-volumes-ontap/css/netapp.css">
+
+  <!-- WWW CSS Content -->
+  <link rel="stylesheet" type="text/css" href="/ja-jp/cloud-manager-cloud-volumes-ontap/css/www-luci-dotcom.min.css">
+  <link rel="stylesheet" type="text/css" href="/ja-jp/cloud-manager-cloud-volumes-ontap/css/www-netapp-dotcom.css">
+  <link rel="stylesheet" href="/ja-jp/cloud-manager-cloud-volumes-ontap/css/www-netapp-library-critical.min.css" media="all" >
+  <link rel="stylesheet" href="/ja-jp/cloud-manager-cloud-volumes-ontap/css/www-netapp-library-non-critical.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="/ja-jp/cloud-manager-cloud-volumes-ontap/css/www-netapp-library-global-header-footer.min.css">
+
+  <!-- NetApp IE Customizations -->
+  <link rel="stylesheet" href='/ja-jp/cloud-manager-cloud-volumes-ontap/css/na-utility.css' type='text/css'>
+  <link rel="stylesheet" href='/ja-jp/cloud-manager-cloud-volumes-ontap/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/ja-jp/cloud-manager-cloud-volumes-ontap/css/clouddocs.css' type='text/css'>
+  <link rel='stylesheet' href='/ja-jp/cloud-manager-cloud-volumes-ontap/css/custom-dropdown.css' type='text/css'>
+  <link rel='stylesheet' href='/ja-jp/cloud-manager-cloud-volumes-ontap/css/na-pagenav.css' type='text/css'>
+
+  
+  <link rel="stylesheet" href="/ja-jp/cloud-manager-cloud-volumes-ontap/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/ja-jp/cloud-manager-cloud-volumes-ontap/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  
+    
+    <link rel="canonical" href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-tiering.html" />
+  <link rel='stylesheet' href='/ja-jp/cloud-manager-cloud-volumes-ontap/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    if (document.location.hostname === "docs.netapp.com") {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = "72570c5c-fe30-465f-b0e0-b77f7fb4ae34";
+      head.appendChild(onetrustScript);
+    }
+
+    function OptanonWrapper() { }
+
+    if (document.location.hostname === "docs.netapp.com") {
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
+      head.appendChild(adobe);
+
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id=UA-81697994-3";
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-81697994-3');
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/na-search.js'></script><script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/na-pagenav.js'></script><link rel='stylesheet' href='/ja-jp/cloud-manager-cloud-volumes-ontap/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/ja-jp/cloud-manager-cloud-volumes-ontap/css/prism-netapp.css' type='text/css'>
+
+
+  <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/na-utility.js'></script>
+  <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/clouddocs.js'></script>
+  <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/toc.js'></script>
+  <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/customscripts.js'></script><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/custom-dropdown.js'></script>
+  <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/FileSaver.min.js'></script>
+  <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/jszip-utils.min.js'></script>
+  <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/jszip.min.js'></script>
+  <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document" data-flavor="gcp">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/task-tiering.html">
+  
+  
+  <div class="custom-dropdown-select selected" title="Google Cloud">
+    <label>クラウドプロバイダ</label>
+    <div>Google Cloud</div>  
+    <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/filter.svg" class="custom-icon selected" alt="" />
+    <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/dismiss.svg" class="custom-icon selected" id="remove-flavor" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-tiering.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services の
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-tiering.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/gcp-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/task-tiering.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/azure-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[使用頻度の低いデータを低コストのオブジェクトストレージに階層化](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-tiering.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-tiering.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">このページ</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">製品とソリューション</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">サポートとトレーニング</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">コミュニティ</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">ブログ</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">ユーザ事例</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">お問い合わせ</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">お問い合わせ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/ja-jp/cloud-manager-cloud-volumes-ontap/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/ja-jp/cloud-manager-cloud-volumes-ontap/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/ja-jp/cloud-manager-cloud-volumes-ontap/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/ja-jp/cloud-manager-cloud-volumes-ontap/search.html"
+          data-type="widget" 
+          data-placeholder="ドキュメントを検索" 
+          data-no-results-found="{query}に該当する結果はありません" 
+          data-did-you-mean="{suggestion} を検索" 
+          data-no-results-found-did-you-mean="{query} に該当する結果はありません。{suggestion} の間違いではありませんか?" 
+          data-results-found="{hitCount} 件見つかりました"  
+          data-sk-es-pf-indexes=""
+          data-flavor="gcp"></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/cloud-manager-cloud-volumes-ontap/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
+      <div id="ie-i18n-menu">
+      <span class="ie-i18n-lang">日本語</span>
+        <button class="ie-i18n-icon-container" type="button">
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/cloud-manager-cloud-volumes-ontap/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
+        <div class="n-language-selector-menu">
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-tiering.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-tiering.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/task-tiering.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-tiering.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/task-tiering.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
+                </li></ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <script>
+    $(function(){
+        var currentLocalization = $('html').attr('lang');
+
+        var localizationsDictionary = {
+            "en-CA" : "https://www.netapp.com/search/index.aspx?for_cr=canada&",
+            "en-IN" : "https://www.netapp.com/search/index.aspx?for_cr=india&",
+            "nl-NL" : "https://www.netapp.com/search/index.aspx?for_cr=netherlands&",
+            "ru-RU" : "https://www.netapp.com/search/index.aspx?for_cr=russia&",
+            "sv-SE" : "https://www.netapp.com/search/index.aspx?for_cr=sweden&",
+            "it-IT" : "https://www.netapp.com/search/index.aspx?for_cr=italy&",
+            "he-IL" : "https://www.netapp.com/search/index.aspx?for_cr=israel&",
+            "ko-KR" : "https://www.netapp.com/search/index.aspx?for_cr=korea&",
+            "zh-TW" : "https://www.netapp.com/search/index.aspx?for_cr=taiwan&",
+            "en-GB" : "https://www.netapp.com/search/index.aspx?for_cr=unitedkingdom&",
+            "en-SG" : "https://www.netapp.com/search/index.aspx?for_cr=asean&",
+            "en-AU" : "https://www.netapp.com/search/index.aspx?for_cr=australia&",
+            "pt-BR" : "https://www.netapp.com/search/index.aspx?for_cr=brasil&",
+            "de-CH" : "https://www.netapp.com/search/index.aspx?for_cr=switzerland&",
+            "es-MX" : "https://www.netapp.com/search/index.aspx?for_cr=mexico&"
+        };
+
+        if($('html').hasClass('ntap-whitelisted') && localizationsDictionary.hasOwnProperty(currentLocalization)) {
+            $('.n-property-bar__property-link').attr('href', '/');
+        }
+    });
+  </script>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>利用可能なPDF<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
+        <a target="_blank" href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/fullsite-sidebar/Cloud_Volumes_ONTAP_のドキュメント.pdf" >
+          <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>このドキュメントサイトのPDF</a>
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/リリースノート.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            リリースノート
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/はじめに.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            はじめに
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/Amazon_Web_Services_の利用を開始しましょう.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            Amazon Web Services の利用を開始しましょう
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/ネットワークをセットアップします.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            ネットワークをセットアップします
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/Microsoft_Azure_で利用を開始しましょう.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            Microsoft Azure で利用を開始しましょう
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/Google_Cloud_で始めましょう.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            Google Cloud で始めましょう
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/Cloud_Volumes_ONTAP_を使用します.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            Cloud Volumes ONTAP を使用します
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/ライセンス管理.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            ライセンス管理
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/ボリュームと_LUN_の管理.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            ボリュームと LUN の管理
+          </a>
+          
+
+
+
+
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/pages/task-tiering.pdf" >
+    <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/アグリゲートの管理.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            アグリゲートの管理
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/Storage_VM_管理.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            Storage VM 管理
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/セキュリティとデータ暗号化.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            セキュリティとデータ暗号化
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/システム管理.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            システム管理
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/システムを追加_削除_または削除します.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            システムを追加、削除、または削除します
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/AWS_での管理.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            AWS での管理
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/Azure_での管理.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            Azure での管理
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/Google_Cloud_の管理.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            Google Cloud の管理
+          </a>
+          
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/システムの健全性とイベント.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            システムの健全性とイベント
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/概念.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            概念
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/ストレージ.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            ストレージ
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/ハイアベイラビリティペア.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            ハイアベイラビリティペア
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/知識とサポート.pdf" 
+            
+          >
+            <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+            知識とサポート
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf-zip.png" width="16" height="16"/>
+      <pre>個別のPDFドキュメントのコレクション<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="gcp/https://docs.netapp.com/us-en/cloud-manager-family">
+        Cloud Manager のすべてのドキュメント
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/index.html">
+        Cloud Volumes ONTAP のドキュメント
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> リリースノート</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/whats-new.html">
+        新機能
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/reference-limitations.html">
+        既知の制限
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/whats-new-ontap.html">
+        Cloud Volumes ONTAP リリースノート
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> はじめに</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-overview-cvo.html">
+        Cloud Volumes ONTAP の詳細をご覧ください
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Google Cloud で始めましょう</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-getting-started-gcp.html">
+        クイックスタート
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-planning-your-config-gcp.html">
+        構成を計画
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/reference-networking-gcp.html">
+        ネットワークをセットアップします
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/reference-vpc-service-controls-gcp.html">
+        VPC サービスコントロールを計画する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-creating-gcp-service-account.html">
+        サービスアカウントを作成します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-setting-up-gcp-encryption.html">
+        お客様が管理する暗号化キーを使用します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-deploying-gcp.html">
+        GCP でシステムを起動します
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Cloud Volumes ONTAP を使用します</div>
+      </a>
+      <ul><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> ライセンス管理</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-manage-capacity-licenses.html">
+        容量ベースのライセンスを管理します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-manage-keystone.html">
+        Keystone Flex Subscriptions を管理します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-manage-node-licenses.html">
+        ノードベースのライセンスを管理します
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> ボリュームと LUN の管理</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-create-volumes.html">
+        ボリュームを作成します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-manage-volumes.html">
+        既存のボリュームを管理
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-tiering.html">
+        アクセス頻度の低いデータをオブジェクトストレージに階層化します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-connect-lun.html">
+        LUN をホストに接続します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-accelerate-data-access.html">
+        FlexCache でデータアクセスを高速化
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> アグリゲートの管理</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-create-aggregates.html">
+        アグリゲートを作成する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-manage-aggregates.html">
+        既存のアグリゲートを管理する
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Storage VM 管理</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-managing-svms.html">
+        Cloud Manager で Storage VM を使用できます
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> セキュリティとデータ暗号化</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-encrypting-volumes.html">
+        ネットアップの暗号化機能でボリュームを暗号化
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-protecting-ransomware.html">
+        ランサムウェアからの保護を強化
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> システム管理</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-updating-ontap-cloud.html">
+        Cloud Volumes ONTAP をアップグレードします
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-registering.html">
+        従量課金制システムを登録
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-managing-state.html">
+        システムを停止して起動します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-sync-time.html">
+        システム時間を同期します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-modify-write-speed.html">
+        システムの書き込み速度を変更する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-change-password.html">
+        システムパスワードを変更します
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> システムを追加、削除、または削除します</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-adding-systems.html">
+        既存のシステムを追加します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-removing.html">
+        作業環境を削除します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-deleting-working-env.html">
+        システムを削除します
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Google Cloud の管理</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-change-gcp-machine.html">
+        マシンタイプを変更します
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-connecting-to-otc.html">
+        System Manager または CLI から管理を行う
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> システムの健全性とイベント</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-verify-autosupport.html">
+        AutoSupport のセットアップを確認します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-configure-ems.html">
+        EMS を設定します
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 概念</div>
+      </a>
+      <ul><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> ストレージ</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-client-protocols.html">
+        クライアントプロトコル
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-storage.html">
+        ディスクとアグリゲート
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-data-tiering.html">
+        データの階層化
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-storage-management.html">
+        ストレージ管理
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-write-speed.html">
+        書き込み速度
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-flash-cache.html">
+        Flash Cache
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-worm.html">
+        WORM ストレージ
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> ハイアベイラビリティペア</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-ha-google-cloud.html">
+        GCP の HA ペア
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-degraded-ha-pair.html">
+        ストレージテイクオーバー中の操作
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-licensing.html">
+        ライセンス
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-license-management.html">
+        ノードベースの BYOL の管理
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-security.html">
+        セキュリティ
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-performance.html">
+        パフォーマンス
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-active-iq.html">
+        AutoSupport と Active IQ デジタルアドバイザ
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/reference-default-configs.html">
+        デフォルト設定
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 知識とサポート</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-support-registration.html">
+        サポートに登録します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-get-help.html">
+        ヘルプを表示します
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/legal-notices.html">
+        法的通知
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content">
+      <div class="ie-utility">
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com/us-en/cloud/">Cloud Docs</a>
+        </li>
+        
+
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/ja-jp/cloud-manager-cloud-volumes-ontap/">Cloud&nbsp;Volumes&nbsp;ONTAP</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/ja-jp/cloud-manager-cloud-volumes-ontap/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> 日本語は機械翻訳による参考訳です。内容に矛盾や不一致があった場合には、英語の内容が優先されます。 </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">使用頻度の低いデータを低コストのオブジェクトストレージに階層化</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2022-05-09 15:40:08 +0000">05/09/2022</time>
+    
+  
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>ホットデータ用の SSD または HDD の高パフォーマンス階層と、アクセス頻度の低いデータ用のオブジェクトストレージの大容量階層を組み合わせることで、 Cloud Volumes ONTAP のストレージコストを削減できます。データ階層化は、 FabricPool テクノロジによって実現されます。概要については、を参照してください <a href="concept-data-tiering.html">"データ階層化の概要"</a>。</p>
+</div>
+<div class="paragraph">
+<p>データの階層化を設定するには、次の操作を実行する必要があります。</p>
+</div>
+<div class="paragraph quick-margin-para">
+<p>ほとんどの構成がサポートされています。最新バージョンを実行している Cloud Volumes ONTAP システムがある場合は、に進んでください。 <a href="task-tiering.html#configurations-that-support-data-tiering">"詳細はこちら。"</a>。</p>
+</div>
+<div class="ulist quick-margin-list">
+<ul>
+<li>
+<p>Google Cloudの場合は、プライベートGoogleアクセスのサブネットを設定し、サービスアカウントを設定する必要があります。 <a href="#Requirements to tier cold data to a Google Cloud Storage bucket">詳細はこちら。</a>。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph quick-margin-para">
+<p>ボリュームでデータ階層化を有効にするには、アグリゲートでデータ階層化が有効になっている必要があります。新しいボリュームと既存のボリュームの要件を確認しておく必要があります。 <a href="#Ensuring that tiering is enabled on aggregates">詳細はこちら。</a>。</p>
+</div>
+<div class="paragraph quick-margin-para">
+<p>ボリュームを作成、変更、またはレプリケートするときに、 Cloud Manager から階層化ポリシーを選択するよう求められます。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="task-tiering.html#tiering-data-from-read-write-volumes">"読み取り / 書き込みボリュームでのデータの階層化"</a></p>
+</li>
+<li>
+<p><a href="task-tiering.html#tiering-data-from-data-protection-volumes">"データ保護ボリューム上のデータの階層化"</a></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注記">
+</td>
+<td class="content">
+<div class="title">データ階層化に不要なもの</div>
+<div class="ulist">
+<ul>
+<li>
+<p>データの階層化を有効にするために機能ライセンスをインストールする必要はありません。</p>
+</li>
+<li>
+<p>大容量階層用のオブジェクトストアを作成する必要はありません。クラウドマネージャーがそれを実現します。</p>
+</li>
+<li>
+<p>システムレベルでデータの階層化を有効にする必要はありません。</p>
+<div class="paragraph">
+<p>Cloud Manager は、システム作成時にコールドデータ用のオブジェクトストアを作成し、 <a href="#Enabling data tiering after implementing the requirements">接続または権限に問題がないことが必要です</a>。その後は、ボリューム（および場合によっては、 <a href="#Ensuring that tiering is enabled on aggregates">アグリゲート</a>）。</p>
+</div>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="データ階層化をサポートする構成">データ階層化をサポートする構成</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>特定の構成や機能を使用する場合は、データの階層化を有効にすることができます。</p>
+</div>
+<div class="sect2">
+<h3 id="google-cloudのサポート">Google Cloudのサポート</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Volumes ONTAP 9.6以降では、Google Cloudでデータ階層化がサポートされます。</p>
+</li>
+<li>
+<p>パフォーマンス階層には、 SSD 永続ディスク、分散型永続ディスク、標準の永続ディスクがあります。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="機能の相互運用性">機能の相互運用性</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>データ階層化は暗号化テクノロジでサポートされています。</p>
+</li>
+<li>
+<p>ボリュームでシンプロビジョニングを有効にする必要があります。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="要件">要件</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>クラウドプロバイダに応じて、 Cloud Volumes ONTAP がコールドデータをオブジェクトストレージに階層化できるように、特定の接続と権限を設定する必要があります。</p>
+</div>
+<div class="sect2">
+<h3 id="コールドデータを-google-cloud-storage-に階層化するための要件-バケット">コールドデータを Google Cloud Storage に階層化するための要件 バケット</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Volumes ONTAP が存在するサブネットは、プライベート Google アクセス用に設定する必要があります。手順については、を参照してください <a href="https://cloud.google.com/vpc/docs/configure-private-google-access" target="_blank" rel="noopener">"Google Cloud のドキュメント：「 Configuring Private Google Access"</a>。</p>
+</li>
+<li>
+<p>次の要件を満たすサービスアカウントが必要です。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>事前に定義された Storage Admin ロールが必要です。</p>
+</li>
+<li>
+<p>Connector サービスアカウントは、この階層化サービスアカウントの _ サービスアカウント User_ である必要があります。</p>
+<div class="paragraph">
+<p><a href="task-creating-gcp-service-account.html">"サービスアカウントの設定方法について説明します"</a>。</p>
+</div>
+</li>
+<li>
+<p>バケットをお客様が管理する暗号化キーで暗号化するには、 Google Cloud ストレージバケットでキーを使用できるようにします。</p>
+<div class="paragraph">
+<p><a href="task-setting-up-gcp-encryption.html">"お客様が管理する暗号化キーを Cloud Volumes ONTAP で使用する方法について説明します"</a>。</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="要件の実装後にデータ階層化を有効化">要件の実装後にデータ階層化を有効化</h3>
+<div class="paragraph">
+<p>接続や権限に問題がなければ、 Cloud Manager はシステムの作成時にコールドデータ用のオブジェクトストアを作成します。システムを作成するまで上記の要件を満たしていない場合は、階層化を手動で有効にする必要があります。これにより、オブジェクトストアが作成されます。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p><a href="#Requirements">すべての要件を満たしていることを確認します</a>。</p>
+</li>
+<li>
+<p>キャンバスページで、 Cloud Volumes ONTAP インスタンスの名前をダブルクリックします。</p>
+</li>
+<li>
+<p>メニューアイコンをクリックし、 * 容量階層化を有効にする * を選択します。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_enable_capacity_tiering.gif" alt="Cloud Manager がデータ階層化を有効にしようとしたときに問題が発生した場合に、作業環境のメニューから使用できる容量階層化を有効にするオプションのスクリーンショット。"></span></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注記">
+</td>
+<td class="content">
+このオプションが表示されるのは、 Cloud Manager システムの作成時にデータの階層化を有効にできなかった場合のみです。
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Enable * をクリックします。これにより、この Cloud Volumes ONTAP システムで階層化データに使用するオブジェクトストアが Cloud Manager で作成されます。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="アグリゲートで階層化が有効になっていることを確認してください">アグリゲートで階層化が有効になっていることを確認してください</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ボリュームでデータ階層化を有効にするには、アグリゲートでデータ階層化が有効になっている必要があります。新しいボリュームと既存のボリュームの要件を確認しておく必要があります。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>* 新しいボリューム *</p>
+<div class="paragraph">
+<p>新しいボリュームでデータ階層化を有効にする場合、アグリゲートでデータ階層化を有効にする必要はありません。Cloud Manager では、階層化が有効になっている既存のアグリゲートにボリュームが作成されます。データ階層化が有効になっているアグリゲートがない場合は、ボリューム用の新しいアグリゲートが作成されます。</p>
+</div>
+</li>
+<li>
+<p>* 既存のボリューム *</p>
+<div class="paragraph">
+<p>既存のボリュームでデータ階層化を有効にする場合は、基盤となるアグリゲートでデータ階層化を有効にする必要があります。既存のアグリゲートでデータ階層化が有効になっていない場合は、 System Manager を使用して、既存のアグリゲートをオブジェクトストアに接続する必要があります。</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">アグリゲートで階層化が有効になっているかどうかを確認する手順</div>
+<ol class="arabic">
+<li>
+<p>Cloud Manager で作業環境を開きます。</p>
+</li>
+<li>
+<p>メニューアイコンをクリックし、 * 詳細設定 * をクリックして、 * 詳細設定 * をクリックします。</p>
+</li>
+<li>
+<p>アグリゲートで階層化が有効になっているか無効になっているかを確認します。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_aggr_tiering.gif" alt="Cloud Manager のアグリゲートに関する情報を示すスクリーンショットで、階層化のステータスも表示されます。"></span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">アグリゲートで階層化を有効にする手順</div>
+<ol class="arabic">
+<li>
+<p>System Manager で、 * Storage &gt; Tiers * をクリックします。</p>
+</li>
+<li>
+<p>アグリゲートの操作メニューをクリックし、 * クラウド階層の接続 * を選択します。</p>
+</li>
+<li>
+<p>接続するクラウド階層を選択し、 * 保存 * をクリックします。</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>次のセクションで説明するように、新規および既存のボリュームでデータ階層化を有効にできます。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="読み取り-書き込みボリュームのデータの階層化">読み取り / 書き込みボリュームのデータの階層化</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Volumes ONTAP は、読み書き可能なボリューム上にあるアクセス頻度の低いデータを対費用効果の高いオブジェクトストレージに階層化して、ホットデータ用に高パフォーマンス階層を解放できます。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>作業環境で、新しいボリュームを作成するか、既存のボリュームの階層を変更します。</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">タスク</th>
+<th class="tableblock halign-left valign-top">アクション</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">新しいボリュームを作成します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[ 新しいボリュームの追加 ] をクリックします。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">既存のボリュームを変更します</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ボリュームを選択し、 * ディスクタイプと階層化ポリシーの変更 * をクリックします。</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>階層化ポリシーを選択します。</p>
+<div class="paragraph">
+<p>これらのポリシーの説明については、を参照してください <a href="concept-data-tiering.html">"データ階層化の概要"</a>。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>例 *</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_tiered_storage.gif" alt="オブジェクトストレージへの階層化を有効にするアイコンを示すスクリーンショット。"></span></p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>データ階層化対応のアグリゲートがまだ存在しない場合、 Cloud Manager はボリュームの新しいアグリゲートを作成します。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="データ保護ボリュームのデータを階層化する">データ保護ボリュームのデータを階層化する</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Volumes ONTAP では、データ保護ボリュームから容量階層にデータを階層化できます。デスティネーションボリュームをアクティブにすると、データは読み取られた時点でパフォーマンス階層に徐々に移動します。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>キャンバスページで、ソースボリュームを含む作業環境を選択し、ボリュームを複製する作業環境にドラッグします。</p>
+</li>
+<li>
+<p>画面の指示に従って、階層化ページに移動し、オブジェクトストレージへのデータ階層化を有効にします。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>例 *</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_replication_tiering.gif" alt="ボリュームのレプリケーション時の S3 階層化オプションを示すスクリーンショット。"></span></p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>データの複製については、を参照してください <a href="https://docs.netapp.com/us-en/cloud-manager-replication/task-replicating-data.html" target="_blank" rel="noopener">"クラウドとの間でデータをレプリケートする"</a>。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="階層化データのストレージクラスを変更する">階層化データのストレージクラスを変更する</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Volumes ONTAP を導入したら、アクセスされていないアクセス頻度の低いデータのストレージクラスを 30 日間変更することで、ストレージコストを削減できます。データにアクセスするとアクセスコストが高くなるため、ストレージクラスを変更する前にこの点を考慮する必要があります。</p>
+</div>
+<div class="paragraph">
+<p>階層化データのストレージクラスはシステム全体に適用され、ボリュームごとにではないものに限られます。</p>
+</div>
+<div class="paragraph">
+<p>サポートされているストレージクラスについては、を参照してください <a href="concept-data-tiering.html">"データ階層化の概要"</a>。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>作業環境で、メニューアイコンをクリックし、 * ストレージクラス * または * BLOB ストレージの階層化 * をクリックします。</p>
+</li>
+<li>
+<p>ストレージクラスを選択して、「 * 保存」をクリックします。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="データ階層化の空きスペース率を変更する">データ階層化の空きスペース率を変更する</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>データ階層化の空きスペース率は、オブジェクトストレージへのデータの階層化時に Cloud Volumes ONTAP SSD / HDD で必要な空きスペースの量を定義します。デフォルトの設定は 10% の空きスペースですが、必要に応じて設定を調整できます。</p>
+</div>
+<div class="paragraph">
+<p>たとえば、購入容量を確実に使用するために、空きスペースを 10% 未満にすることができます。その後、追加の容量が必要になったときに（アグリゲートのディスクの上限に達するまで）、 Cloud Manager で追加のディスクを購入できます。</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/caution.svg" alt="注意">
+</td>
+<td class="content">
+十分なスペースがないと、 Cloud Volumes ONTAP はデータを移動できず、パフォーマンスが低下する可能性があります。変更は慎重に行ってください。不明な点がある場合は、ネットアップサポートにお問い合わせください。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>この比率はディザスタリカバリシナリオで重要になります。オブジェクトストレージからデータが読み取られると、 Cloud Volumes ONTAP はパフォーマンスを向上させるためにデータを SSD / HDD に移動するためです。十分なスペースがないと、 Cloud Volumes ONTAP はデータを移動できません。この比率を変更する際は、ビジネス要件を満たすためにこの点を考慮してください。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>Cloud Manager コンソールの右上にある * Settings * アイコンをクリックし、 * Connector Settings * を選択します。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_settings_icon.gif" alt="Cloud Manager コンソールの右上にある設定アイコンを示すスクリーンショット。"></span></p>
+</div>
+</li>
+<li>
+<p>容量 * で、アグリゲート容量しきい値 - データ階層化の空きスペース率 * をクリックします。</p>
+</li>
+<li>
+<p>必要に応じて空き領域の比率を変更し、 [ 保存（ Save ） ] をクリックします。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="auto-階層化ポリシーのクーリング期間を変更します">auto 階層化ポリシーのクーリング期間を変更します</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>_auto_tiering ポリシーを使用して Cloud Volumes ONTAP ボリュームのデータ階層化を有効にした場合は、ビジネスニーズに基づいてデフォルトのクーリング期間を調整できます。このアクションは API のみを使用してサポートされます。</p>
+</div>
+<div class="paragraph">
+<p>クーリング期間とは、ボリューム内のユーザデータが「コールド」とみなされてオブジェクトストレージに移動されるまでの期間です。</p>
+</div>
+<div class="paragraph">
+<p>auto 階層化ポリシーのデフォルトのクーリング期間は 31 日です。冷却期間は次のように変更できます。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>9.8 以降： 2 日 ～ 183 日</p>
+</li>
+<li>
+<p>9.7 以前： 2 日から 63 日</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">ステップ</div>
+<ol class="arabic">
+<li>
+<p>ボリュームの作成時や既存のボリュームの変更時に、 API 要求で <em>minimumCoolingDays</em> パラメータを使用します。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">利用条件</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">プライバシー ポリシー</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">クッキー ポリシー</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">クッキーの設定</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <span class="n-footer__fine-print">Web サイトについてのフィードバックを</span>
+              <a target="_self" href="javascript:netapp_mailto()">お寄せください</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://docs.netapp.com/ja-jp/announcements/">お知らせ</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/cloud-manager-cloud-volumes-ontap/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/cloud-manager-cloud-volumes-ontap/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/cloud-manager-cloud-volumes-ontap/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/cloud-manager-cloud-volumes-ontap/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/cloud-manager-cloud-volumes-ontap/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/cloud-manager-cloud-volumes-ontap/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/ja-jp/cloud-manager-cloud-volumes-ontap/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/prism.js'></script>
+      <script type="text/javascript" src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/www-ntap.js'></script>
+    <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/tabbed-blocks.js'></script>
+  </body></html>

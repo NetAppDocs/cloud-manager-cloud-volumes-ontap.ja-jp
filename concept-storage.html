@@ -17,7 +17,7 @@
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Cloud Volumes ONTAP でのクラウドストレージの使用方法を理解することで、ストレージコストを把握することができます。">
-  <meta name="keywords" content=" storage, capacity, volumes, aggregates, raw capacity, usable capacity, aws, azure"><!-- Icons -->
+  <meta name="keywords" content=" storage, capacity, volumes, aggregates, raw capacity, usable capacity"><!-- Icons -->
   <link rel="icon" href="/ja-jp/cloud-manager-cloud-volumes-ontap/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/ja-jp/cloud-manager-cloud-volumes-ontap/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[ディスクとアグリゲート](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/concept-storage.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/concept-storage.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/concept-storage.html">
+  
+  <div class="custom-dropdown-select unselected" title="すべてのクラウドプロバイダ">
+    <label>クラウドプロバイダ</label>
+    <span>すべてのクラウドプロバイダ</span>
+    <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/concept-storage.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services の
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-storage.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/gcp-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/concept-storage.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/azure-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[ディスクとアグリゲート](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/concept-storage.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/concept-storage.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -1407,7 +1439,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:28:17 +0000">04/14/2022</time>
+    <time datetime="2022-05-09 15:40:08 +0000">05/09/2022</time>
     
   
 
@@ -1580,10 +1612,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="gcp-ストレージ">GCP ストレージ</h2>
+<h2 id="google-cloudストレージ">Google Cloudストレージ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>GCP では、アグリゲートに同じサイズのディスクを 6 本まで含めることができます。最大ディスクサイズは 64TiB です。</p>
+<p>Google Cloudでは、アグリゲートに同じサイズのディスクを6本まで含めることができます。最大ディスクサイズは 64TiB です。</p>
 </div>
 <div class="paragraph">
 <p>ディスクタイプは、 _Zonal SSD persistent disks _ 、 _Zonal Balanced persistent disks _ 、または _Zonal standard persistent disks _ のいずれかです。永続ディスクを Google Storage バケットとペアリングできます からに <a href="concept-data-tiering.html">"使用頻度の低いデータを低コストのオブジェクトストレージに階層化します"</a>。</p>
@@ -1594,10 +1626,10 @@
 <p>関連リンク *</p>
 </li>
 <li>
-<p><a href="https://cloud.google.com/compute/docs/disks/" target="_blank" rel="noopener">"Google Cloud Platform のドキュメント：「ストレージオプション"</a></p>
+<p><a href="https://cloud.google.com/compute/docs/disks/" target="_blank" rel="noopener">"Google Cloudのドキュメント：「Storage Options"</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-gcp.html" target="_blank" rel="noopener">"GCP で Cloud Volumes ONTAP のストレージの制限を確認する"</a></p>
+<p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-gcp.html" target="_blank" rel="noopener">"Google CloudでのCloud Volumes ONTAP のストレージ制限を確認します"</a></p>
 </li>
 </ul>
 </div>

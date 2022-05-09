@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[新機能](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/whats-new.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/whats-new.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/whats-new.html">
+  
+  <div class="custom-dropdown-select unselected" title="すべてのクラウドプロバイダ">
+    <label>クラウドプロバイダ</label>
+    <span>すべてのクラウドプロバイダ</span>
+    <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/whats-new.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services の
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/whats-new.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/gcp-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/whats-new.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/azure-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[新機能](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/whats-new.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/whats-new.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -1407,7 +1439,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-03 00:00:14 +0000">05/03/2022</time>
+    <time datetime="2022-05-09 15:40:08 +0000">05/09/2022</time>
     
   
 
@@ -1602,7 +1634,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Essentials パッケージと Professional パッケージが AWS と Google Cloud Marketplace で利用できるようになりました。</p>
+<p>EssentialsパッケージとProfessionalパッケージは、すべてのクラウドプロバイダマーケットプレイスで利用できるようになりました。</p>
 <div class="paragraph">
 <p>容量単位の課金方法では、時間単位での支払いや、年間契約の購入をクラウドプロバイダから直接行うことができます。容量単位のライセンスは、ネットアップから直接購入することもできます。</p>
 </div>
@@ -1614,7 +1646,7 @@
 </div>
 </li>
 <li>
-<p>AWS と Google Cloud Marketplace を使用したノード単位のライセンスは廃止され、新しいユーザには提供されなくなりました。これには、年間契約と時間単位のサブスクリプション（ Explore 、 Standard 、 Premium ）が含まれます。</p>
+<p>すべてのクラウドプロバイダマーケットプレイスからのノード単位のライセンスが廃止され、新しいユーザには提供されなくなりました。これには、年間契約と時間単位のサブスクリプション（ Explore 、 Standard 、 Premium ）が含まれます。</p>
 <div class="paragraph">
 <p>この充電方法は、有効なサブスクリプションをお持ちの既存のお客様には引き続きご利用いただけます。</p>
 </div>
@@ -1686,7 +1718,7 @@
 <p>コネクタの3.9.14リリースでは、次の変更が加えられました。</p>
 </div>
 <div class="sect2">
-<h3 id="追加の-vm-タイプがサポートされます">追加の VM タイプがサポートされます</h3>
+<h3 id="追加のazure-vmタイプがサポートされます">追加のAzure VMタイプがサポートされます</h3>
 <div class="paragraph">
 <p>Cloud Volumes ONTAP は、 9.10.1 リリース以降、 Microsoft Azure で次の VM タイプでサポートされるようになりました。</p>
 </div>
@@ -1827,12 +1859,6 @@
 <p><a href="https://docs.netapp.com/us-en/cloud-volumes-ontap-9100-relnotes" target="_blank" rel="noopener">"このリリースのに含まれる新機能について説明します Cloud Volumes ONTAP"</a>。</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="導入時間を短縮">導入時間を短縮</h3>
-<div class="paragraph">
-<p>通常の書き込み速度が有効な場合、 Microsoft Azure または Google Cloud で Cloud Volumes ONTAP 作業環境を導入するための時間を短縮しました。導入時間が平均して 3~4 分短縮されます。</p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -1884,7 +1910,7 @@
 <p><a href="concept-licensing.html">"これらのライセンスオプションの詳細については、こちらをご覧ください"</a>。</p>
 </div>
 <div class="paragraph">
-<p>次に、 Azure に新しい Cloud Volumes ONTAP システムを導入する際に選択できる充電方法の例を示します。</p>
+<p>以下に、充電方法の例を示します。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_cvo_charging_methods.png" alt="Cloud Volumes ONTAP 作業環境ウィザードのスクリーンショット。充電方法を選択できます。"></span></p>

@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[ストレージ管理](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/concept-storage-management.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/concept-storage-management.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/concept-storage-management.html">
+  
+  <div class="custom-dropdown-select unselected" title="すべてのクラウドプロバイダ">
+    <label>クラウドプロバイダ</label>
+    <span>すべてのクラウドプロバイダ</span>
+    <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/concept-storage-management.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services の
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-storage-management.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/gcp-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/concept-storage-management.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/azure-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[ストレージ管理](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/concept-storage-management.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/concept-storage-management.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -1407,7 +1439,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:28:17 +0000">04/14/2022</time>
+    <time datetime="2022-05-09 15:40:08 +0000">05/09/2022</time>
     
   
 
@@ -1544,18 +1576,18 @@
 <div class="ulist">
 <ul>
 <li>
-<p>EBS ディスクが 5 台以下のアグリゲートが容量のしきい値に達すると、 Cloud Manager はそのアグリゲートの新しいディスクを自動的に購入し、ボリュームを継続して拡張できるようにします。</p>
+<p>アグリゲートが容量のしきい値に達してディスクの空き容量が増えた場合、Cloud Managerはそのアグリゲート用の新しいディスクを自動的に購入し、ボリュームを継続して拡張できるようにします。</p>
 <div class="paragraph">
 <p>Cloud Manager は 15 分ごとに空きスペースの比率をチェックして、ディスクの追加購入が必要かどうかを判断します。</p>
 </div>
 </li>
 <li>
-<p>12 個の Azure ディスクを持つアグリゲートが容量のしきい値に達すると、 Cloud Manager は、ボリュームをそのアグリゲートから使用可能な容量を持つアグリゲートまたは新しいアグリゲートに自動的に移動します。</p>
+<p>アグリゲートが容量のしきい値に達し、かつそれ以上ディスクをサポートできない場合、Cloud Managerは、そのアグリゲートから使用可能な容量を持つアグリゲートまたは新しいアグリゲートにボリュームを自動的に移動します。</p>
 <div class="paragraph">
 <p>ボリュームに新しいアグリゲートを作成すると、 Cloud Manager はそのボリュームのサイズに対応するディスクサイズを選択します。</p>
 </div>
 <div class="paragraph">
-<p>元のアグリゲートに空きスペースがあることに注意してください。既存のボリュームまたは新しいボリュームでは、そのスペースを使用できます。このシナリオでは、 AWS 、 Azure 、 GCP にスペースを戻すことはできません。</p>
+<p>元のアグリゲートに空きスペースがあることに注意してください。既存のボリュームまたは新しいボリュームでは、そのスペースを使用できます。このシナリオでは、スペースをクラウドプロバンスに戻すことはできません。</p>
 </div>
 </li>
 <li>

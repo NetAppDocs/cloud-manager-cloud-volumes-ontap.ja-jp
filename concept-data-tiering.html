@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[データ階層化の概要](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/concept-data-tiering.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/concept-data-tiering.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/concept-data-tiering.html">
+  
+  <div class="custom-dropdown-select unselected" title="すべてのクラウドプロバイダ">
+    <label>クラウドプロバイダ</label>
+    <span>すべてのクラウドプロバイダ</span>
+    <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/concept-data-tiering.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services の
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/concept-data-tiering.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/gcp-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Google Cloud
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/concept-data-tiering.html">
+      <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/azure-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[データ階層化の概要](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/concept-data-tiering.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/concept-data-tiering.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -1407,7 +1439,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-03 00:03:40 +0000">05/03/2022</time>
+    <time datetime="2022-05-09 15:40:08 +0000">05/09/2022</time>
     
   
 
@@ -1423,7 +1455,7 @@
 <p><span class="image"><img src="./media/diagram_data_tiering.png" alt="この概念図は、 EBS ストレージに移動中のホットデータと S3 ストレージに移動中の非アクティブデータを示しています。"></span></p>
 </div>
 <div class="paragraph">
-<p>Cloud Volumes ONTAP は、 AWS 、 Azure 、 Google Cloud Platform のデータ階層化をサポートしています。データ階層化は、 FabricPool テクノロジによって実現されます。</p>
+<p>データ階層化は、 FabricPool テクノロジによって実現されます。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1562,10 +1594,10 @@ Cloud Manager は、 Cloud Volumes ONTAP 作業環境ごとに 1 つのコンテ
 </div>
 </div>
 <div class="sect1">
-<h2 id="gcp-でのデータ階層化">GCP でのデータ階層化</h2>
+<h2 id="google-cloudのデータ階層化">Google Cloudのデータ階層化</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>GCP でデータ階層化を有効にすると、 Cloud Volumes ONTAP はホットデータのパフォーマンス階層として永続的ディスクを使用し、アクセス頻度の低いデータの大容量階層として Google Cloud Storage バケットを使用します。</p>
+<p>Google Cloudでデータ階層化を有効にすると、Cloud Volumes ONTAP はホットデータのパフォーマンス階層として永続的ディスクを使用し、アクセス頻度の低いデータの大容量階層としてGoogle Cloud Storageバケットを使用します。</p>
 </div>
 <div class="dlist">
 <dl>
