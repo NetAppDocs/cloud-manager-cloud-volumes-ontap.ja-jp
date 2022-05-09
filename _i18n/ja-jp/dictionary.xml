@@ -3,29 +3,21 @@
   <block id="29e5950813e59366056c85a091ad2206" category="summary">NTP サーバを指定すると、ネットワーク内のシステム間で時刻が同期されるため、時刻の違いによる問題の回避に役立ちます。</block>
   <block id="8b3aeec8c25c17c966b0b882195c6050" category="doc">NTP を使用してシステム時刻を同期します</block>
   <block id="339d2db752bad623389940365590a650" category="inline-link">Cloud Manager 自動化に関するドキュメント</block>
-  <block id="09c2d588c3e592f299dad8547672e4db" category="paragraph">たとえば、 AWS のシングルノードシステム用の API は次のようになります。</block>
-  <block id="ed7ec64f50d9b2deb6fa30e3baa1c74a" category="inline-image-macro">NTP API 呼び出しを表示する Swagger インターフェイスのスクリーンショット。</block>
-  <block id="4e5cb490ddc195f42366f47cba576aa2" category="paragraph"><block ref="4e5cb490ddc195f42366f47cba576aa2" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1f1f850efa98e498783a03f31030e23a" category="summary">パフォーマンスの結果を確認して、 Cloud Volumes ONTAP に適したワークロードを決定できます。</block>
   <block id="9446a98ad14416153cc4d45ab8b531bf" category="doc">パフォーマンス</block>
   <block id="ca44b259d90e5dbd104777ac11dfa9a8" category="section-title">パフォーマンスに関するテクニカルレポート</block>
   <block id="096f3522cfa2f31de45d052b740adc65" category="list-text">Cloud Volumes ONTAP for AWS</block>
   <block id="c7d741925ef81824617c6a2975104e27" category="inline-link">NetApp テクニカルレポート 4383 ：アプリケーションワークロードを使用した Amazon Web Services における Cloud Volumes ONTAP のパフォーマンス特性</block>
-  <block id="7a80bf5b2ad235a1fa417d51ec23e0d8" category="paragraph"><block ref="f424e41eea4394dc755ac33b3bb98e9f" category="inline-link-rx"></block>。</block>
   <block id="9722c69e4736d9b151d70e30b917a4e1" category="list-text">Cloud Volumes ONTAP for Microsoft Azure</block>
   <block id="dea0a299a92726d85320173a8e85d3c2" category="inline-link">NetApp テクニカルレポート 4671 ：アプリケーションワークロードを使用した Azure における Cloud Volumes ONTAP のパフォーマンス特性評価</block>
-  <block id="bfb948cd6be9e0effd54795069127a83" category="paragraph"><block ref="077140c1baeb52c8d13f5022a867186c" category="inline-link-rx"></block>。</block>
   <block id="f540a08b090d18fa948ca4ade8ceb7ff" category="list-text">Cloud Volumes ONTAP for Google Cloud の略</block>
   <block id="c6494942ad72ddd238ad771dbecc683a" category="inline-link">ネットアップテクニカルレポート 4816 ：『 Performance Characterization of Cloud Volumes ONTAP for Google Cloud 』</block>
-  <block id="ace4187d3276dbf6f4c690091be94953" category="paragraph"><block ref="a14ca8046d4e179694151285831aea3e" category="inline-link-rx"></block>。</block>
   <block id="16c8fef9e1f442be470b2e3dce341293" category="section-title">CPU パフォーマンス</block>
   <block id="3a16d1001bab9c4cc22a6ccd110b53f8" category="paragraph">Cloud Volumes ONTAP ノードは、クラウドプロバイダの監視ツールから高い利用率（ 90% 超）を示します。これは、 ONTAP が仮想マシンに提供されているすべての vCPU を、必要に応じて使用できるようにリザーブするためです。</block>
   <block id="5b7b2c5f58cd7916d32c63bd33686c46" category="inline-link">Cloud Volumes ONTAP のパフォーマンスを監視する方法について説明します</block>
   <block id="771c7e9b34be7feb4bb80719b7f2825f" category="inline-link">CLI を使用して ONTAP CPU 利用率を監視する方法に関するネットアップの技術情報アーティクルを参照してください</block>
-  <block id="b18cc9c46fd7244d0fe5886e56fac9a8" category="paragraph"><block ref="25bfb2a1b38927b210cdacfb32d95253" category="inline-link-rx"></block>をクリックしてください<block ref="07e6a6e4814dabc1a0870a10a70c4b44" category="inline-link-rx"></block>。</block>
   <block id="94dba3bf084a8e9cedc6cba5acc5c984" category="summary">Cloud Manager では、 Cloud Volumes ONTAP に対して通常または高速の書き込み速度を選択できます。書き込み速度を選択する前に、高速書き込みを使用する場合の標準設定と高設定の違い、およびリスクと推奨事項を理解しておく必要があります。</block>
   <block id="ace49222b6f2457f3fc2fda71e68f70a" category="doc">書き込み速度</block>
-  <block id="ea8c79ec2cc1431327b84936a3ea5bf2" category="paragraph">高速の書き込み速度は、すべてのタイプのシングルノードシステムでサポートされています。特定のインスタンスまたは VM タイプを使用している場合は、 AWS と Azure の HA ペアでもサポートされます（サポートされるインスタンスと VM タイプの一覧については、以下のセクションを参照してください）。GCP の HA ペアでは、高速の書き込み速度はサポートされていません。</block>
   <block id="bc5eaee29cdf4e59099d1683d6c2fda9" category="section-title">通常の書き込み速度</block>
   <block id="eba8af5fecc52b3110d6e0351a52fc04" category="paragraph">通常の書き込み速度を選択した場合、データはディスクに直接書き込まれます。データをディスクに直接書き込んだ場合、計画外のシステム停止が発生した場合や、計画外のシステム停止が発生した場合のデータ損失の可能性を低減します（ HA ペアのみ）。</block>
   <block id="580072061b96a8ed47eae124495bd66d" category="paragraph">デフォルトでは、通常の書き込み速度が使用されます。</block>
@@ -373,12 +365,10 @@
   <block id="fcba7bd474eb1fdf49705827bbb6f28c" category="list-text">AWS Key Management Service の略</block>
   <block id="7630e1f6ebde3d280c53fd350ed9e414" category="list-text">Azure Storage Service Encryption の略</block>
   <block id="d988a92cb3f4d22d80f5a79f6d0df13d" category="list-text">Google Cloud Platform のデフォルトの暗号化</block>
-  <block id="b7a3bda3153971ee545b95d816cda35b" category="paragraph">ネットアップの暗号化ソリューションは、 AWS 、 Azure 、 GCP のネイティブ暗号化と組み合わせて使用できます。この暗号化ソリューションでは、ハイパーバイザーレベルでデータが暗号化されます。これにより、機密性の高いデータには二重の暗号化が必要になる場合があります。暗号化されたデータにアクセスすると、暗号化されていないデータがハイパーバイザーレベルで 2 回（クラウドプロバイダのキーを使用）暗号化されてから、ネットアップの暗号化ソリューションを再度使用して（外部キー管理ツールのキーを使用）暗号化されます。</block>
   <block id="1948af9c9d5426628760bb0ef4a35cdf" category="inline-link">NetApp Volume Encryption （ NVE ）および NetApp Aggregate Encryption （ NAE ）</block>
   <block id="ea345086090743ba32da6aae6c9b6998" category="paragraph">Cloud Volumes ONTAP はをサポートします<block ref="ae505195628dd60ca701666c408297af" category="inline-link-rx"></block>。NVE と NAE は、（ FIPS ） 140-2 に準拠したボリュームの保管データ暗号化を可能にするソフトウェアベースのソリューションです。NVE と NAE はいずれも AES 256 ビット暗号化を使用します。</block>
   <block id="0bf3330853877ab4b76b4f1e00d3ace2" category="list-text">NVE は、一度に 1 ボリュームずつ保管データを暗号化する。各データボリュームには、一意の暗号化キーがあります。</block>
   <block id="988d5e992ea371904581e6f8ad13bac7" category="list-text">NAE は NVE の拡張機能です。 NVE は各ボリュームのデータを暗号化し、ボリュームはアグリゲート全体でキーを共有します。NAE では、アグリゲート内のすべてのボリュームの共通ブロックも重複排除できます。</block>
-  <block id="1765253659755616128a4a511a28a1aa" category="paragraph">NVE と NAE はどちらも外部キー管理機能でサポートされています。NVE を使用する場合、 Azure Key Vault （ AKV ）または Google Cloud Key Management Service を使用して ONTAP 暗号化キーを保護することもできます。</block>
   <block id="e1bf87c98edd3bee07d170ae8b118aeb" category="paragraph">新しいアグリゲートでは、外部キー管理ツールの設定後に NetApp Aggregate Encryption （ NAE ）がデフォルトで有効になります。NAE アグリゲートに含まれない新しいボリュームでは、 NetApp Volume Encryption （ NVE ）がデフォルトで有効になります（たとえば、外部キー管理ツールを設定する前に作成された既存のアグリゲートがある場合）。</block>
   <block id="7d0e2e1d7651a009804fe72f40cbe851" category="inline-link-macro">ネットアップの暗号化ソリューションによるボリュームの暗号化</block>
   <block id="c72ccd5a97e66dfed845a067416a28fe" category="paragraph">サポートされているキー管理ツールをセットアップするだけで済みます。セットアップ手順については、を参照してください <block ref="c1c73aa6d8632695e64032f90002d60a" category="inline-link-macro-rx"></block>。</block>
@@ -537,11 +527,8 @@
   <block id="f2be69b635c39988351f6636a52c66bd" category="section-title">自動容量管理</block>
   <block id="f40e552fce5b2f183c035526f1c7bde9" category="paragraph">容量管理モードは、デフォルトで自動に設定されています。このモードでは、 Cloud Volumes ONTAP インスタンスで追加の容量が必要になると、 Cloud Manager によって新しいディスクが自動的に購入されます。また、未使用のディスクセット（アグリゲート）の削除、必要に応じてアグリゲート間でのボリュームの移動、ディスクの障害状態の解除を試行します。</block>
   <block id="4ecae3c28a5b318997a02fa69a0d0950" category="paragraph">次の例は、このモードの動作を示しています。</block>
-  <block id="b9a0a060823358e4de2e17d513c2d5f1" category="list-text">EBS ディスクが 5 台以下のアグリゲートが容量のしきい値に達すると、 Cloud Manager はそのアグリゲートの新しいディスクを自動的に購入し、ボリュームを継続して拡張できるようにします。</block>
   <block id="a20e1a4e1efd183f6300a3740c0c3eb0" category="paragraph">Cloud Manager は 15 分ごとに空きスペースの比率をチェックして、ディスクの追加購入が必要かどうかを判断します。</block>
-  <block id="6239a184a077c59710d5e85fab90a45a" category="list-text">12 個の Azure ディスクを持つアグリゲートが容量のしきい値に達すると、 Cloud Manager は、ボリュームをそのアグリゲートから使用可能な容量を持つアグリゲートまたは新しいアグリゲートに自動的に移動します。</block>
   <block id="a9ee697b6d93a839a3a30ec02880bc9e" category="paragraph">ボリュームに新しいアグリゲートを作成すると、 Cloud Manager はそのボリュームのサイズに対応するディスクサイズを選択します。</block>
-  <block id="b08b56dad8b9b9e16fc49b8eb7450ccd" category="paragraph">元のアグリゲートに空きスペースがあることに注意してください。既存のボリュームまたは新しいボリュームでは、そのスペースを使用できます。このシナリオでは、 AWS 、 Azure 、 GCP にスペースを戻すことはできません。</block>
   <block id="2ee8d56c90fa6d065ba86f18734c40c0" category="list-text">アグリゲートに 12 時間を超えるボリュームが含まれていない場合は、 Cloud Manager によって削除されます。</block>
   <block id="20610cb7f9c01ec73f383961d032fd84" category="section-title">容量の自動管理による LUN の管理</block>
   <block id="65c5ae165221da8578100e41af72a46e" category="paragraph">Cloud Manager の自動容量管理は、 LUN には適用されません。Cloud Manager で LUN を作成すると自動拡張機能が無効になります。</block>
@@ -606,7 +593,6 @@
   <block id="8ec18a80b08142a9ee538b8ce4350b54" category="summary">ストレージニーズの変化に合わせて Cloud Volumes ONTAP システム構成の変更が必要になる場合があります。たとえば、従量課金制構成の変更、インスタンスや VM のタイプの変更などが可能です。</block>
   <block id="c2c088d1045cc3d76d132b248c4445c1" category="doc">システムの書き込み速度を変更する</block>
   <block id="943ca59639840c47d866964287bbae5d" category="paragraph">Cloud Manager では、 Cloud Volumes ONTAP に対して通常または高速の書き込み速度を選択できます。デフォルトの書き込み速度は normal です。ワークロードで高速書き込みパフォーマンスが必要な場合は、高速書き込み速度に変更できます。</block>
-  <block id="58a44ed5e23f3838a4097a7234a6cd19" category="inline-link">詳細については、 Cloud Volumes ONTAP のリリースノートを参照してください</block>
   <block id="8334ca2b5f457a41a987d1633cb5c214" category="inline-link-macro">通常の設定と高い設定の違いを理解する</block>
   <block id="69e28a1ba6bc5233cc60dd248c362636" category="paragraph">書き込み速度を変更する前に、次のことを確認してください <block ref="eb987e41d6a04bba64a9af2bb235fccb" category="inline-link-macro-rx"></block>。</block>
   <block id="d9072539538ac46d98e04043ff27fe64" category="list-text">ボリュームやアグリゲートの作成などの処理が実行中でないことを確認してください。</block>
@@ -739,7 +725,6 @@
   <block id="6bae86404dcdff12b92e86fb565c56ad" category="list-text">ボリュームがクローンである。</block>
   <block id="3d2b3a316b76de6e0b4311cc7dc68551" category="list-text">ボリュームがクローンの親です。</block>
   <block id="2b1724ccc5e367363c4e5562d52553a9" category="list-text">ソースアグリゲートまたはデスティネーションアグリゲートには、スループットが最適化された HDD （ st1 ）が 1 本含まれています。</block>
-  <block id="b807612132b68ed39065852a3774cce6" category="list-text">Cloud Volumes ONTAP システムが AWS にあり、 1 つのアグリゲートがオブジェクトに古い命名規則を使用します。両方のアグリゲートで同じ名前形式を使用する必要があります。</block>
   <block id="1f915dfbd24690493e88bba198489b22" category="paragraph">9.4 リリース以前のアグリゲートでデータの階層化が有効になっている場合は、古い命名規則が使用されます。</block>
   <block id="0d8954008e65f8f6647d559d1376e080" category="list-text">暗号化設定がソースアグリゲートとデスティネーションアグリゲートで一致しないか、キーの変更を実行中です。</block>
   <block id="b71ed75241f297eae2cc9775c726010d" category="list-text">階層化ポリシーを変更するためにボリューム移動で -tiering-policy _ オプションが指定されています。</block>
@@ -867,11 +852,9 @@
   <block id="dd787088b52e69b3d8bf590e16c8413c" category="paragraph">特定のアグリゲートに * Advanced allocation * オプションからボリュームを作成するときに、新しいボリューム作成ウィザードを使用できるようになりました。</block>
   <block id="c4abca012bce01614c5a65c5b0e6ecd6" category="inline-link-macro">特定のアグリゲートにボリュームを作成する方法について説明します</block>
   <block id="b1894f3de88322c422613dce3ce8f4cd" category="section-title">市場の最新情報</block>
-  <block id="376dea476fe87cb9b0aae288d191c1cc" category="list-text">Essentials パッケージと Professional パッケージが AWS と Google Cloud Marketplace で利用できるようになりました。</block>
   <block id="8b5bbca61d06a4ab0106010904673191" category="paragraph">容量単位の課金方法では、時間単位での支払いや、年間契約の購入をクラウドプロバイダから直接行うことができます。容量単位のライセンスは、ネットアップから直接購入することもできます。</block>
   <block id="110339077b8549e028924c27d4eee889" category="paragraph">クラウドマーケットプレイスで既存のサブスクリプションがある場合は、それらの新しいサービスにも自動的にサブスクライブされます。新しい Cloud Volumes ONTAP 作業環境の導入時に、容量単位の課金を選択できます。</block>
   <block id="941041b0490626a7d2a15321ebfea99b" category="paragraph">新規のお客様の場合、 Cloud Manager は新しい作業環境の作成時に登録を求めるプロンプトを表示します。</block>
-  <block id="0395ddea3013558664b640709c4005e0" category="list-text">AWS と Google Cloud Marketplace を使用したノード単位のライセンスは廃止され、新しいユーザには提供されなくなりました。これには、年間契約と時間単位のサブスクリプション（ Explore 、 Standard 、 Premium ）が含まれます。</block>
   <block id="b353203eeb0af0c192ef9706121d7227" category="paragraph">この充電方法は、有効なサブスクリプションをお持ちの既存のお客様には引き続きご利用いただけます。</block>
   <block id="ad66e158a2e414eee17bb2c5185f011a" category="inline-link-macro">Cloud Volumes ONTAP のライセンスオプションの詳細については、こちらをご覧ください</block>
   <block id="089a91d1490be155439f7062afd61de6" category="section-title">未割り当ての Exchange ライセンス</block>
@@ -887,7 +870,6 @@
   <block id="5908d4e5a438659ba844464125f51abe" category="paragraph">a_system_に は、 HA ペアまたはシングルノードシステムを指定します。たとえば、 2 つの Cloud Volumes ONTAP HA ペアと 2 つのシングルノードシステムがある場合、合計 4 つのシステムがあり、アカウントに 16 のシステムを追加で配置できます。</block>
   <block id="a259bb127cd2a1cd02edf6a3a2484f33" category="paragraph">ご質問がある場合は、アカウント担当者または営業チームにお問い合わせください。</block>
   <block id="fc2be74c7bf9f46e12967c2298a899ba" category="inline-link-macro">ネットアップアカウントの詳細については、こちらをご覧ください</block>
-  <block id="2a1a89ba5e012b27da809d07c186942f" category="section-title">追加の VM タイプがサポートされます</block>
   <block id="bbbee7961ccb9cea5bdfe8ab78e43452" category="paragraph">Cloud Volumes ONTAP は、 9.10.1 リリース以降、 Microsoft Azure で次の VM タイプでサポートされるようになりました。</block>
   <block id="aafab9b991240605f56b3df780360449" category="list-text">E4ds_v4</block>
   <block id="47518ea66849dbbe24f40b9d9b33f828" category="list-text">E8ds_v4</block>
@@ -932,8 +914,6 @@
   <block id="1217a2d42a5d039798ff2ec7be351708" category="section-title">Cloud Volumes ONTAP 9.10.0</block>
   <block id="9626d137fffc72f724082f7d85bf9865" category="paragraph">Cloud Manager で Cloud Volumes ONTAP 9.10.0 の導入と管理が可能になりました。</block>
   <block id="32f35594134f3fdc6f434e91ec798f50" category="paragraph"><block ref="adde97be46da5fda88041fd113726d44" category="inline-link-rx"></block>。</block>
-  <block id="9cc2b6cdaf0b50459353a2d67c0baa80" category="section-title">導入時間を短縮</block>
-  <block id="66d5639668d7c3e585771304940a252b" category="paragraph">通常の書き込み速度が有効な場合、 Microsoft Azure または Google Cloud で Cloud Volumes ONTAP 作業環境を導入するための時間を短縮しました。導入時間が平均して 3~4 分短縮されます。</block>
   <block id="e272f662e26b78ec82fb7603aa62b559" category="section-title">Azure のお客様が管理する暗号化キー</block>
   <block id="aee0c7bd7ef514bde14e9b9748f71cdb" category="paragraph">データは、を使用して Azure の Cloud Volumes ONTAP で自動的に暗号化されます<block ref="7c6c7ca9180a9433e704ac02b33a8ed3" category="inline-link-rx"></block> Microsoft が管理するキーを使用する場合：ただし、次の手順を実行する代わりに、お客様が管理する独自の暗号化キーを使用できるようになりました。</block>
   <block id="a89c0ff0556e15cdcfdad2e0435e60a8" category="list-text">Azure で、キーヴォールトを作成し、そのヴォールトでキーを生成します。</block>
@@ -946,7 +926,6 @@
   <block id="794ff88d91d60d6c7c8089b797c4efab" category="list-text">* Freemium offering * ： Freemium により、ネットアップのすべての Cloud Volumes ONTAP 機能を無償で使用できます（クラウドプロバイダの料金は引き続き適用されます）。システムあたりのプロビジョニング可能な容量は 500 GiB に制限されており、サポート契約はありません。最大 10 個の Freemium システムを使用できます。</block>
   <block id="deb56fb5a824215375b16e72749e2aa3" category="inline-link-macro">これらのライセンスオプションの詳細については、こちらをご覧ください</block>
   <block id="f619cb0af0d910dc9836a2eeea1c4c42" category="paragraph"><block ref="e30d9edd7d67fb82e83e4ea28733a605" category="inline-link-macro-rx"></block>。</block>
-  <block id="3f7f3f90222db4e349c5c332eec7671c" category="paragraph">次に、 Azure に新しい Cloud Volumes ONTAP システムを導入する際に選択できる充電方法の例を示します。</block>
   <block id="4853efbb2b727a5aba913f4d5af01238" category="inline-image-macro">Cloud Volumes ONTAP 作業環境ウィザードのスクリーンショット。充電方法を選択できます。</block>
   <block id="eb9dddcd99cc29507919af3f1df0b693" category="paragraph"><block ref="eb9dddcd99cc29507919af3f1df0b693" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0d08c6672a3ded9e146134693ab6b223" category="section-title">一般的に使用できる WORM ストレージ</block>
@@ -1136,7 +1115,6 @@
   <block id="28d2f8881980acfa41f5165ad6aa423c" category="inline-link-macro">AWS でのシステムのサイジング</block>
   <block id="f64204a2336539d9a8e0dc0a2e1a572b" category="list-text"><block ref="f64204a2336539d9a8e0dc0a2e1a572b" category="inline-link-macro-rx"></block></block>
   <block id="e1b3c31cb34daed9344cfbb51e1e4263" category="list-text"><block ref="e1b3c31cb34daed9344cfbb51e1e4263" category="inline-link-macro-rx"></block></block>
-  <block id="648252a904437aee014f01faec9e87c4" category="list-text"><block ref="648252a904437aee014f01faec9e87c4" category="inline-link-macro-rx"></block></block>
   <block id="e86e31922d4442d8a8d924c40e14eef7" category="inline-link-macro">ボリューム階層化ポリシー</block>
   <block id="13aa0c9cafb05f7d1436239215621d90" category="list-text">* 使用状況プロファイルと階層化ポリシー * ：ボリュームで Storage Efficiency 機能を有効にするか無効にするかを選択し、を選択します <block ref="45393a767ab360c2ba9e7110c6cbc830" category="inline-link-macro-rx"></block>。</block>
   <block id="1fd2dba2020c106a2c49da0e6ad7e868" category="paragraph">ONTAP には、必要なストレージの合計容量を削減できるストレージ効率化機能がいくつか搭載されています。NetApp Storage Efficiency 機能には、次のようなメリットがあります。</block>
@@ -1223,7 +1201,6 @@
   <block id="a3203a051e5a85d3cb527a2c606eeda2" category="paragraph">System Manager コンソールがロードされます。これで、 Cloud Volumes ONTAP の管理に使用できるようになりました。</block>
   <block id="ef51c06afbfb97dceda87a3df6d89d3e" category="section-title">Cloud Volumes ONTAP CLI に接続しています</block>
   <block id="ce526ab58111a5389fb309107879b9a8" category="paragraph">Cloud Volumes ONTAP CLI では、すべての管理コマンドを実行できます。高度なタスクを実行する場合や、 CLI を使い慣れている場合は、 CLI の使用を推奨します。Secure Shell （ SSH ）を使用して CLI に接続できます。</block>
-  <block id="49d26f71560dbc23cb50ccd6a151fd98" category="paragraph">SSH を使用して Cloud Volumes に接続するホスト ONTAP は、 Cloud Volumes ONTAP にネットワーク接続している必要があります。たとえば、 AWS または Azure の Jump ホストから SSH を使用する必要がある場合があります。</block>
   <block id="3b1f07734e1995c8bb4477cd9ebabf4d" category="admonition">複数の AZS に導入されている場合、 Cloud Volumes ONTAP HA 構成では、クラスタ管理インターフェイスにフローティング IP アドレスが使用されます。これは、外部ルーティングが使用できないことを意味します。同じルーティングドメインの一部であるホストから接続する必要があります。</block>
   <block id="6ad94be4e63b3d4783fdd1f854b7bbdf" category="list-text">Cloud Manager で、クラスタ管理インターフェイスの IP アドレスを特定します。</block>
   <block id="e6b7edb7f596f295f9c100c953e813f1" category="list-text">キャンバスページで、 Cloud Volumes ONTAP システムを選択します。</block>
@@ -1333,7 +1310,6 @@
   <block id="c1b0fccfdff9ac3307a1dde73fefce36" category="paragraph">使用頻度の低いデータを低コストのオブジェクトストレージに自動的に階層化できるため、ストレージコストを削減できます。アクティブなデータはハイパフォーマンスの SSD または HDD に残り、非アクティブなデータは低コストのオブジェクトストレージに階層化されます。これにより、プライマリストレージのスペースを再利用し、セカンダリストレージを縮小できます。</block>
   <block id="4a399275f88e7ce2505e96b9b7f521b9" category="inline-image-macro">この概念図は、 EBS ストレージに移動中のホットデータと S3 ストレージに移動中の非アクティブデータを示しています。</block>
   <block id="3d3b4afad1ee8976c0e2861a36e95c05" category="paragraph"><block ref="3d3b4afad1ee8976c0e2861a36e95c05" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="5309da63caa08cde5151775bbd2b8a69" category="paragraph">Cloud Volumes ONTAP は、 AWS 、 Azure 、 Google Cloud Platform のデータ階層化をサポートしています。データ階層化は、 FabricPool テクノロジによって実現されます。</block>
   <block id="79a1ac94d3a1278dbc40ff2a430fa52a" category="admonition">データの階層化（ FabricPool ）を有効にするために機能ライセンスをインストールする必要はありません。</block>
   <block id="e452e8c25e7bc8d94f88ce5a25cbbf4a" category="section-title">AWS でのデータ階層化</block>
   <block id="d6a11de1ddf26c52daac1219f9ab237d" category="paragraph">AWS でデータ階層化を有効にすると、 Cloud Volumes ONTAP はホットデータのパフォーマンス階層として EBS 、アクセス頻度の低いデータの大容量階層として AWS S3 を使用します。</block>
@@ -1360,8 +1336,6 @@
   <block id="68fe4c8de4747fa77a5d46c70cf18294" category="paragraph">データにアクセスするとアクセスコストが高くなるため、ストレージ階層を変更する前にこの点を考慮する必要があります。<block ref="b972df3be971ae20a5e41fb28c27dcfc" category="inline-link-rx"></block>。</block>
   <block id="98fdd008687283335edf23e9e287cb83" category="paragraph">作業環境の作成時にストレージ階層を選択し、あとでいつでも変更できます。ストレージ階層の変更の詳細については、を参照してください <block ref="4fbc08218411ffa53189962e6368b39b" category="inline-link-macro-rx"></block>。</block>
   <block id="a38b9b490932e9d5b5db3e24784ec656" category="paragraph">データ階層化のためのストレージアクセス階層は、システム全体に適用されます。ボリューム単位ではありません。</block>
-  <block id="67bb9b1ae51debf6306c756af119d12f" category="section-title">GCP でのデータ階層化</block>
-  <block id="10e9afcef9567db72f87cb8e9a95cc21" category="paragraph">GCP でデータ階層化を有効にすると、 Cloud Volumes ONTAP はホットデータのパフォーマンス階層として永続的ディスクを使用し、アクセス頻度の低いデータの大容量階層として Google Cloud Storage バケットを使用します。</block>
   <block id="3b8940895816a07ee6f7b4cd2d7353e3" category="list-text">パフォーマンス階層には、 SSD 永続ディスク、分散型永続ディスク、標準の永続ディスクがあります。</block>
   <block id="b15506ba0795b6263dd1128d8ab2f4b9" category="list-text">Cloud Volumes ONTAP システムは、 _Regional _storage クラスを使用して、アクセス頻度の低いデータを 1 つの Google Cloud Storage バケットに階層化します。</block>
   <block id="ce0ff5d3338a785151c757f957271280" category="admonition">Cloud Manager は、作業環境ごとに 1 つのバケットを作成し、 fabric-pool-_cluster unique identifier_ という名前を付けます。ボリュームごとに異なるバケットが作成されることはありません。</block>
@@ -1549,8 +1523,6 @@
   <block id="a5061c073213535809d187195725e86c" category="paragraph"><block ref="a5061c073213535809d187195725e86c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="987e6a12f4054c7d2b4fb12b670fd3e2" category="summary">Cloud Volumes ONTAP がデフォルトでどのように設定されているかを理解すると、システムのセットアップと管理に役立ちます。特に、 ONTAP に精通している場合は、 Cloud Volumes ONTAP のデフォルト設定は ONTAP とは異なるためです。</block>
   <block id="f280b5a5c0eeaf41d31a8a2661b341cb" category="doc">Cloud Volumes ONTAP のデフォルト設定</block>
-  <block id="0aabf727ab0a83c5f5d078e8b18445e0" category="section-title">デフォルト値です</block>
-  <block id="0040523271efdec884071c51c97d9cc3" category="list-text">Cloud Volumes ONTAP は、シングルノードシステムとして、また AWS 、 Azure 、 GCP の HA ペアとして利用できます。</block>
   <block id="bd87106622bcf823ab94ad8e03ed23db" category="inline-link-macro">Storage VM の管理に関する詳細情報</block>
   <block id="f6b2929b0251dad856882d34633fefe7" category="list-text">Cloud Manager は、 Cloud Volumes ONTAP の導入時にデータを提供する Storage VM を 1 つ作成します。追加の Storage VM をサポートする構成もあります。 <block ref="a7cc00a0b341c53959a0ff9bb9ec925b" category="inline-link-macro-rx"></block>。</block>
   <block id="2fb8d688ae8a35350cd71275dbf499a6" category="paragraph">Cloud Manager 3.9.5 リリース以降では、最初の Storage VM で論理スペースのレポートが有効になります。スペースが論理的に報告されると、 ONTAP は、 Storage Efficiency 機能で削減されたすべての物理スペースが使用済みと報告するようにボリュームスペースを報告します。</block>
@@ -1564,11 +1536,8 @@
   <block id="53d08e213d276105d6d3e9c61205b163" category="list-text">デフォルトでは、いくつかのネットワークインターフェイスが作成されます。</block>
   <block id="818a08f5f66a43cc2e4a30afa67087f5" category="list-text">クラスタ管理 LIF</block>
   <block id="24b9f71baa2900d2012ac1aae73c5b0a" category="list-text">クラスタ間 LIF</block>
-  <block id="83ceb20e0dbc3487e7cbfb03bedaa059" category="list-text">Azure および GCP の HA システム、 AWS のシングルノードシステム、および複数の AWS アベイラビリティゾーンの HA システム上の SVM 管理 LIF （オプション）</block>
-  <block id="a33f839390390b572d3c94aff410f01c" category="list-text">ノード管理 LIF （ GCP では、この LIF がクラスタ間 LIF と結合されます）</block>
   <block id="a7bc162978ef4e3f1dc9043f2f3e0ae5" category="list-text">iSCSI データ LIF</block>
   <block id="0514cf4d8c2c69285ce20b665b1dd21a" category="list-text">CIFS および NFS データ LIF</block>
-  <block id="b106903667b8e51597e3f36aea93f720" category="admonition">EC2 の要件により、 Cloud Volumes ONTAP の LIF フェイルオーバーはデフォルトで無効になっています。LIF を別のポートに移行すると、インスタンス上の IP アドレスとネットワークインターフェイス間の外部マッピングが解除され、 LIF にアクセスできなくなります。</block>
   <block id="1e9a2ffff1b9836e04946d054d997a8b" category="list-text">Cloud Volumes ONTAP は、 HTTPS を使用してコネクタに構成バックアップを送信します。</block>
   <block id="15f4924ddb95a7cea86fd079534398ae" category="paragraph">バックアップにはからアクセスできます<block ref="9e29fb2723605a4325a47b2dd7ceaffe" category="inline-link-rx"></block> ここで、 _ipaddress_ はコネクタホストの IP アドレスです。</block>
   <block id="1c6428c80515e51fc2f1cfeeb90ab774" category="list-text">Cloud Manager は、他の管理ツール（ System Manager や CLI など）とは異なるボリューム属性をいくつか設定します。</block>
@@ -1628,8 +1597,6 @@
   <block id="8f925aa11878655feada99044d98fe08" category="list-text">システム構成とログを含むルートデータは、 aggr0 にあります。</block>
   <block id="7f025a91fb00bb0c9525dbad509366bd" category="list-text">Storage Virtual Machine （ SVM ）ルートボリュームは aggr1 にあります。</block>
   <block id="f1ff33b1bdbf816203ee716386af3578" category="list-text">データボリュームも aggr1 にあります。</block>
-  <block id="d7f2615c71a1567cc13cf3a7f7de0aea" category="section-title">暗号化</block>
-  <block id="6ecf79946955ce65b8ff9f21b25e76e0" category="paragraph">ブートディスクとルートディスクは、これらのクラウドプロバイダではデフォルトで暗号化が有効になるため、 Azure と Google Cloud Platform では常に暗号化されます。</block>
   <block id="8d4073fa4a8e186f65d9241d17413d18" category="paragraph">キー管理サービス（ KMS ）を使用して AWS でデータ暗号化を有効にすると、 Cloud Volumes ONTAP のブートディスクとルートディスクも暗号化されます。これには、 HA ペアのメディエーターインスタンスのブートディスクが含まれます。ディスクは、作業環境の作成時に選択した CMK を使用して暗号化されます。</block>
   <block id="c98e385ff0cb29fa72690e7823e1bc3c" category="summary">標準の AWS リージョンと同様に、 AWS Commercial クラウドサービス（ C2S ）環境で Cloud Manager を使用して Cloud Volumes ONTAP を導入できます。 C2S はクラウドストレージにエンタープライズクラスの機能を提供します。AWS C2S は米国に固有の閉じたリージョンですIntelligence Community 。このページの手順は、 AWS C2S リージョンユーザにのみ該当します。</block>
   <block id="ac46f2b5d78e0710ebb1765d7e4ba12a" category="doc">AWS C2S で Cloud Volumes ONTAP を使用する方法を確認します 環境</block>
@@ -1814,21 +1781,9 @@
   <block id="c24475390eff056757a0e12aa5fe5e9f" category="cell">すべてのトラフィック</block>
   <block id="e6929ac62766d022cca32bd1a5705a2a" category="cell">HA メディエータと HA ノード間の通信</block>
   <block id="c9ff61dbb68bf63fc7a40ac1d8f9a2cd" category="paragraph">定義済みのセキュリティグループには、次の発信ルールが含まれます。</block>
-  <block id="2079bc33153a98975920a0db7f19f315" category="summary">AWS および Azure の一部の Cloud Volumes ONTAP 構成にはローカルの NVMe ストレージが含まれています。このストレージは、 Cloud Volumes ONTAP がパフォーマンスを向上させるために Flash Cache として使用します。</block>
   <block id="5fbc523d8d2ad241522a15100f23bef2" category="doc">Flash Cache</block>
-  <block id="f1826d507ec43590779916360d0985cf" category="paragraph">AWS および Azure の一部の Cloud Volumes ONTAP 構成にはローカルの NVMe ストレージが含まれています。このストレージは、 Cloud Volumes ONTAP でパフォーマンスを向上させるために _Flash Cache _ として使用されます。</block>
   <block id="e0c8b3ee252e2f32575e8c863dbc2dd2" category="section-title">Flash Cache とは</block>
   <block id="3a36e6b466e0265c25d241c486f64e02" category="paragraph">Flash Cache は、最近読み取られたユーザデータとネットアップのメタデータをリアルタイムでインテリジェントにキャッシングすることで、データへのアクセスを高速化します。データベース、 E メール、ファイルサービスなど、ランダムリードが大量に発生するワークロードに効果的です。</block>
-  <block id="6cfcb94c758c3cb2f0daca06a93d0312" category="section-title">AWS でサポートされるインスタンス</block>
-  <block id="cb9e3f8f6cb940e28841b92208cae9c3" category="paragraph">新規または既存の Cloud Volumes ONTAP Premium または BYOL システムがある EC2 インスタンスタイプを選択します。</block>
-  <block id="55b122095d7b69d814bc6849b383e4df" category="list-text">c5d.csi</block>
-  <block id="7f9623c09f1541aea407df05491c9ac4" category="list-text">c5d.9xlarge</block>
-  <block id="754828c9b88626872a73b65943afe305" category="list-text">c5d.18 x ラージ</block>
-  <block id="3bf5113b1c70942177a6ee64a8200ded" category="list-text">m5d.8xlarge</block>
-  <block id="3953e14134095c5c41a5bdde5d817581" category="list-text">m5d.12xlarge</block>
-  <block id="779e6562c3768b528bec3198ecdd790e" category="list-text">r5d.2xlarge</block>
-  <block id="c5e3f1de6611d4fa36031eaf5abeae59" category="section-title">Azure でサポートされている VM タイプです</block>
-  <block id="e426cf6347b874ab75273a1d36117278" category="paragraph">Azure で、単一ノードの Cloud Volumes ONTAP BYOL システムを使用した Standard_L8s_v2 VM タイプを選択します。</block>
   <block id="341cc964e0c52fec40f9705182116dda" category="list-text">Flash Cache のパフォーマンス向上を利用するには、すべてのボリュームで圧縮を無効にする必要があります。</block>
   <block id="405cb575e50b611a22ec99d1abb3f202" category="inline-link">CLI を使用してデータ圧縮を無効にします</block>
   <block id="7080d319b79b651f109b17eb0402a567" category="paragraph">Cloud Manager からボリュームを作成するときに Storage Efficiency を使用しないようにするか、ボリュームを作成してから実行するように選択します<block ref="41233aab48d70287f1bbc60d78ce6eab" category="inline-link-rx"></block>。</block>
@@ -1908,7 +1863,6 @@
   <block id="796c258d3cfe94e30ef75a753c2128b0" category="paragraph">問題が発生した場合は、を参照してください<block ref="133eaae00ad88e811386070963e01d00" category="inline-link-rx"></block></block>
   <block id="5cde4cca9b7e853dbf42e3287b5a1a5a" category="section-title">ONTAP システムへの接続</block>
   <block id="086ab2b368ea23adc1a3ab0056be740a" category="inline-link">AWS ドキュメント：「 Setting Up an AWS VPN Connection</block>
-  <block id="580ce8c8868fbd0e69c8fd7c74398dfc" category="paragraph">AWS の Cloud Volumes ONTAP システムと他のネットワークの ONTAP システムの間でデータをレプリケートするには、 AWS VPC と他のネットワーク（ Azure VNet や企業ネットワークなど）の間に VPN 接続が必要です。手順については、を参照してください<block ref="c51e953b17de89205c1bdc018e56b9ee" category="inline-link-rx"></block>。</block>
   <block id="9de235dbbff5d1a1744379b0e19a090c" category="section-title">CIFS 用の DNS と Active Directory</block>
   <block id="6c2cb081b1161ce73c770ac95d951118" category="paragraph">CIFS ストレージをプロビジョニングする場合は、 AWS で DNS と Active Directory をセットアップするか、オンプレミスセットアップを AWS に拡張する必要があります。</block>
   <block id="3264b3c2c9f6a32009744275b9eaf225" category="paragraph">DNS サーバは、 Active Directory 環境に名前解決サービスを提供する必要があります。デフォルトの EC2 DNS サーバを使用するように DHCP オプションセットを設定できます。このサーバは、 Active Directory 環境で使用される DNS サーバであってはなりません。</block>
@@ -1987,10 +1941,6 @@
   <block id="86a342f075ca5d85dc5033d1092f71cd" category="list-text"><block ref="86a342f075ca5d85dc5033d1092f71cd" category="inline-link-rx"></block></block>
   <block id="d973a667e3de5eb61f931fdb2637403e" category="inline-link">Cloud Manager が AWS 権限を使用して実行する処理</block>
   <block id="765b45ee186cc8b058fcb43896ff3625" category="list-text"><block ref="765b45ee186cc8b058fcb43896ff3625" category="inline-link-rx"></block></block>
-  <block id="632a949f82f24a1bef6198578b571c9d" category="summary">Cloud Volumes ONTAP のハイアベイラビリティ構成は、ノンストップオペレーションとフォールトトレランスを実現します。Google Cloud Platform では、 2 つのノード間でデータが同期ミラーリングされます。</block>
-  <block id="10c9dcad0ea90531457334169c01fa5f" category="doc">Google Cloud Platform のハイアベイラビリティペア</block>
-  <block id="5f0e19149b88c1307f6e3590d418282f" category="paragraph">Cloud Volumes ONTAP High Availability （ HA ）構成は、無停止の運用と耐障害性を提供します。Google Cloud Platform では、 2 つのノード間でデータが同期ミラーリングされます。</block>
-  <block id="13d6620184b61a788c95b0d20fdccb44" category="paragraph">GCP の Cloud Volumes ONTAP HA 構成には、次のコンポーネントが含まれます。</block>
   <block id="027dae3b418c53f12cff1ce4f431fcbc" category="paragraph">メディエーターは、 F1 マイクロインスタンス上で Linux オペレーティングシステムを実行し、それぞれ 10 GB の標準永続ディスクを 2 つ使用します。</block>
   <block id="fb60cc8b1c07b3747a72dcf7ce2f2f58" category="list-text">1 つまたは 3 つのゾーン（推奨）。</block>
   <block id="0f3118cdf0606432dbda8dd0e39d7d10" category="paragraph">3 つのゾーンを選択すると、 2 つのノードとメディエーターが別々の Google Cloud ゾーンに配置されます。</block>
@@ -2066,7 +2016,6 @@
   <block id="8aec6a2bcfb78af1fffa4f2c52dfe49d" category="inline-link">Active IQ デジタルアドバイザのドキュメント</block>
   <block id="e778b936b44de5bd4765be37fb61b14b" category="paragraph">を参照してください<block ref="6b8a787f5f28cd8a65ef0852e940136e" category="inline-link-rx"></block> を参照してください。</block>
   <block id="d519204d103498f85acf3f17d4b76b10" category="summary">アカウント管理者は、 Cloud Manager で設定を有効にして、 Azure メンテナンスイベント時の Cloud Volumes ONTAP ストレージギブバックの問題を回避できます。この設定を有効にすると、 Cloud Volumes ONTAP は CIFS ロックを拒否し、アクティブな CIFS セッションをリセットします。</block>
-  <block id="f4a01c7db872f224fcaeb34081b91f62" category="doc">Azure での Cloud Volumes ONTAP HA の CIFS ロックの無効化</block>
   <block id="f0186be0ddaae2816f6d38932fcc74bb" category="paragraph">Microsoft Azure では、仮想マシンに対して定期的なメンテナンスイベントをスケジュールします。Cloud Volumes ONTAP HA ペアでメンテナンスイベントが発生すると、 HA ペアでストレージのテイクオーバーが開始されます。このメンテナンスイベントの間にアクティブな CIFS セッションがあると、 CIFS ファイルがロックされてストレージのギブバックができなくなる可能性があります。</block>
   <block id="b41beec6b021aed8f5f64bcce68ec5c9" category="paragraph">この設定を有効にすると、 Cloud Volumes ONTAP でロックが拒否され、アクティブな CIFS セッションがリセットされます。その結果、これらのメンテナンスイベントの間も HA ペアでストレージのギブバックが完了します。</block>
   <block id="7dcc83de27613f9409a84f38ee5d345e" category="admonition">このプロセスは、 CIFS クライアントの処理を中断する可能性があります。CIFS クライアントからコミットされていないデータは失われる可能性があります。</block>
@@ -2113,7 +2062,6 @@
   <block id="1d4a4bd5e79a1d078c7cb5902a3481e8" category="inline-link-macro">PAYGO システムは手動で登録</block>
   <block id="a683dcc97e9a8443ac38b6298ea937aa" category="paragraph">このページで説明されているいずれかの方法でソフトウェアをアップグレードするには、 Cloud Volumes ONTAP をネットアップサポートに登録する必要があります。PAYGO と BYOL の両方に該当します。必要なのは、です <block ref="f7029dacbf10b8aa72bca74845a64729" category="inline-link-macro-rx"></block>、 BYOL システムはデフォルトで登録されます。</block>
   <block id="aae82a5812996f78df0dae81c1668bcd" category="section-title">HA メディエーターのアップグレード</block>
-  <block id="096cea9f7f146a83cbfb35bb9481def8" category="paragraph">AWS または Google Cloud の HA システムの場合、 Cloud Volumes ONTAP のアップグレードプロセス中に、必要に応じてメディエーターインスタンスも更新されます。</block>
   <block id="82107b1d3adefdea392b36f7697a120d" category="section-title">アップグレードを準備</block>
   <block id="911cf4ff3ccc51b692025e8025561572" category="paragraph">アップグレードを実行する前に、システムの準備ができていることを確認し、必要な設定の変更を行ってください。</block>
   <block id="8cb3d6d9219c4a29b8a4245af22fce83" category="list-text"><block ref="77bf80d7e5e3c1260cb33452614e9fb4" category="inline-xref-macro-rx"></block></block>
@@ -2255,20 +2203,13 @@
   <block id="54239851395044f4ec26756a8da66c66" category="inline-link-macro">でディスクタイプとディスクサイズを選択する方法について説明します Azure の既存のシステムを</block>
   <block id="97c5e7276e2eb176107d121083f55cb9" category="list-text"><block ref="97c5e7276e2eb176107d121083f55cb9" category="inline-link-macro-rx"></block></block>
   <block id="7d190e1289a34549215a87ba75ca22b3" category="inline-link">Azure での Cloud Volumes ONTAP のストレージの制限を確認します</block>
-  <block id="006edaa900ad651a7dd0c1eb38b6614d" category="section-title">GCP ストレージ</block>
-  <block id="fc39c40aef519fc5c54be48ccdf0826d" category="paragraph">GCP では、アグリゲートに同じサイズのディスクを 6 本まで含めることができます。最大ディスクサイズは 64TiB です。</block>
   <block id="e261e4463ca8a8d53b2ed70156b40345" category="paragraph">ディスクタイプは、 _Zonal SSD persistent disks _ 、 _Zonal Balanced persistent disks _ 、または _Zonal standard persistent disks _ のいずれかです。永続ディスクを Google Storage バケットとペアリングできます からに <block ref="767b2bdd82880da72a9a5d87e1fd40da" category="inline-link-macro-rx"></block>。</block>
-  <block id="0416ce495febee3cb703076585799d35" category="inline-link">Google Cloud Platform のドキュメント：「ストレージオプション</block>
-  <block id="9070b67413002bc5263a680bd85ea608" category="list-text"><block ref="9070b67413002bc5263a680bd85ea608" category="inline-link-rx"></block></block>
-  <block id="e46688fddd94642d62f18d83f9d39b65" category="inline-link">GCP で Cloud Volumes ONTAP のストレージの制限を確認する</block>
   <block id="6371ae3dff33e72574b28de08b0185ce" category="section-title">RAID タイプ</block>
   <block id="1eba71d64e6c5e410e558530711e835b" category="summary">既知の制限事項は、このリリースの製品でサポートされていないプラットフォーム、デバイス、機能、または製品と正しく相互運用できない機能を特定します。これらの制限事項を慎重に確認してください</block>
   <block id="482723983a4f2af954e36ff41e567451" category="doc">既知の制限</block>
   <block id="ffaadeb23249c6bcd3f9798d9d77ceed" category="section-title">Cloud Manager は FlexGroup ボリュームをサポートしていません</block>
   <block id="454141982f16f1a99dd6d00bdd4ad62c" category="paragraph">Cloud Volumes ONTAP では FlexGroup ボリュームがサポートされますが、 Cloud Manager ではサポートされません。System Manager または CLI から FlexGroup ボリュームを作成する場合は、 Cloud Manager の容量管理モードを手動に設定する必要があります。FlexGroup ボリュームで自動モードが適切に機能しない可能性があります。</block>
-  <block id="bad6c02700d31ece20defc3ac35d1492" category="section-title">Cloud Manager は ONTAP S3 をサポートしていません</block>
   <block id="53a519b7a61b6af057f2717112606b16" category="inline-link">S3 構成パワーガイド</block>
-  <block id="4243a5dbf12019d6d2f3c44c07bc42c1" category="paragraph">Azure の Cloud Volumes ONTAP は S3 を使用するオブジェクトをサポートしていますが、 Cloud Manager はこの機能の管理機能を提供しません。CLI を使用することが、 Cloud Volumes ONTAP からの S3 クライアントアクセスを設定するためのベストプラクティスです。詳細については、を参照してください<block ref="49e8fee748cd4c8d6f01bdb03113fc2a" category="inline-link-rx"></block>。</block>
   <block id="283c7714806a25ab511b7cd3bf4622a0" category="section-title">Cloud Manager では、 Storage VM のディザスタリカバリはサポートされていません</block>
   <block id="6d44008242ba7ea63431fdc2a35e3bfd" category="summary">Azure で Cloud Volumes ONTAP を導入する場合は、ワークロード要件に一致する事前設定済みのシステムを選択するか、または独自の設定を作成できます。独自の設定を選択する場合は、使用可能なオプションを理解しておく必要があります。</block>
   <block id="4735ad3a3627a06b0af62dc5a9601e18" category="doc">Azure での Cloud Volumes ONTAP 構成の計画</block>
@@ -2590,8 +2531,6 @@
   <block id="4fa494f1ae1d15d791b8daf53f3d2a55" category="cell">AWS API サービス</block>
   <block id="fa1cddc8ac392ea41880d5f31e86fbf3" category="cell">ストレージのフェイルオーバーを支援します</block>
   <block id="1e56718e9810cd52e22fd292a9b32245" category="admonition">ポート 443 および 53 を開く代わりに、ターゲットサブネットから AWS EC2 サービスへのインターフェイス VPC エンドポイントを作成できます。</block>
-  <block id="d247724dddfd80545c4d538f3ff75220" category="section-title">HA Mediator 内部セキュリティグループのルール</block>
-  <block id="57f5ff662cf6867242593170914c2a4e" category="paragraph">Cloud Volumes ONTAP HA Mediator 用に事前定義された内部セキュリティグループには、次のルールが含まれています。Cloud Manager は常にこのセキュリティグループを作成します。独自のオプションはありません。</block>
   <block id="75fb76c71939b7f9f3ee363c4aec2044" category="section-title">コネクタのルール</block>
   <block id="e41468f89241b53dc9a8cebeff010b25" category="cell">クライアント Web ブラウザからローカルユーザインターフェイスへの HTTP アクセス、および Cloud Data Sense からの接続を提供します</block>
   <block id="dff8e9c2ac33381546d96deea9922999" category="cell">3128</block>
@@ -2679,7 +2618,6 @@
   <block id="b91716a078dd589477b99935ea53a9b0" category="section-title">プライベートエンドポイント</block>
   <block id="a56bcaf1bc0c36eb9ba172b30e0301c3" category="paragraph">デフォルトでは、 Cloud Manager は Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間の Azure Private Link 接続を有効にします。プライベートリンクは Azure のエンドポイント間の接続を保護し、パフォーマンスを向上させます。ほとんどの場合、実行する必要はありません。 Cloud Manager は Azure Private Link を管理します。ただし、 Azure プライベート DNS を使用している場合は、構成ファイルを編集する必要があります。必要に応じて、プライベートリンク接続を無効にすることもできます。</block>
   <block id="87b7d9ff8a42dbb6c0bcd13ae09f6010" category="section-title">他の ONTAP システムへの接続</block>
-  <block id="7462551755425ea40a2d2f03e792eca6" category="paragraph">Azure の Cloud Volumes ONTAP システムと他のネットワークの ONTAP システムの間でデータをレプリケートするには、 Azure VNet と他のネットワーク（ AWS VPC や企業ネットワークなど）の間に VPN 接続が必要です。</block>
   <block id="29a865e45adc910f0644ded74b229df8" category="inline-link">Microsoft Azure のドキュメント：「 Create a Site-to-Site connection in the Azure portal</block>
   <block id="81acf7ceaf81844868547b75b3cbad05" category="paragraph">手順については、を参照してください<block ref="58f617c37f2c96a9d814e3cfdc48d6c4" category="inline-link-rx"></block>。</block>
   <block id="90774d454107088c74b299bc5dd683d3" category="section-title">HA インターコネクトのポート</block>
@@ -2816,11 +2754,6 @@
   <block id="49fc376ed35249f3841846ede4dab884" category="inline-link">NetApp Cloud Central</block>
   <block id="48ad756d03abbc6e0fe01e9831a6e964" category="paragraph">価格設定の詳細については、を参照してください<block ref="073c3927129b02897890200010eee524" category="inline-link-rx"></block>。</block>
   <block id="25b035aed2fdd6599b8102a76363fdec" category="section-title">無償トライアルを利用できます</block>
-  <block id="33d5706170e3b14a39e3a949fb3d1ea4" category="paragraph">30 日間の無償トライアルをクラウドプロバイダのマーケットプレイスで従量課金制サブスクリプションで利用できます。無償トライアルには、 Cloud Volumes ONTAP とクラウドバックアップが含まれており、マーケットプレイスのリストに登録した時点から利用が開始されます。</block>
-  <block id="2f6de72cbf1a20ae28f0ecb7f67442cc" category="paragraph">たとえば、時間単位のソフトウェアライセンス料は発生しませんが、クラウドプロバイダからインフラ料金が請求されます。</block>
-  <block id="b699152a7dc0147566cf5d4a54e7af89" category="paragraph">無料トライアルは、有効期限が切れると、自動的に 1 時間単位の有料サブスクリプションに変換されます。時間制限内にインスタンスを終了した場合、展開した次のインスタンスは無料トライアルの一部ではありません（ 30 日以内に展開された場合でも）。</block>
-  <block id="fce1a93d81ea8b79481e4dea03cf7dee" category="paragraph">Cloud Volumes ONTAP の 30 日間の無償トライアルを Cloud Manager から開始するには、支払い担当者のアカウントで最初の Cloud Volumes ONTAP システムを作成します。</block>
-  <block id="cd48c2333fa4df56febc08e8e277024b" category="paragraph">従量課金制の試用版はクラウドプロバイダから提供され、いかなる手段によっても拡張することはできません。</block>
   <block id="1f0b82560627b660c6c6958a1df834b8" category="section-title">サポートされている構成</block>
   <block id="4e4c431843fe55f93c074808800bf7d0" category="paragraph">容量ベースのライセンスパッケージは Cloud Volumes ONTAP 9.7 以降で利用できます。</block>
   <block id="37040d43404231d8205705e4353af733" category="section-title">容量制限</block>
@@ -2967,10 +2900,8 @@
   <block id="5448b18116123f634a8085197accad95" category="paragraph">ホットデータ用の SSD または HDD の高パフォーマンス階層と、アクセス頻度の低いデータ用のオブジェクトストレージの大容量階層を組み合わせることで、 Cloud Volumes ONTAP のストレージコストを削減できます。データ階層化は、 FabricPool テクノロジによって実現されます。概要については、を参照してください <block ref="69d3706831f999336fb27703356dae22" category="inline-link-macro-rx"></block>。</block>
   <block id="10647b0244486006c8ce3cf5b113d377" category="paragraph">データの階層化を設定するには、次の操作を実行する必要があります。</block>
   <block id="eedf7a90f83b839be9d663986598ee79" category="paragraph">ほとんどの構成がサポートされています。最新バージョンを実行している Cloud Volumes ONTAP システムがある場合は、に進んでください。 <block ref="f2e6a88e181ee9519c72412b23fc6e17" category="inline-link-macro-rx"></block>。</block>
-  <block id="71e4aacc14f9453a22fc7452bff48bf5" category="list-title">&lt;span class="image"&gt;&lt;img src=<block ref="c9bdd0fd7d7224adcf67691b15f15281" category="inline-link-rx"></block> Alt="2"&gt;&lt;/span&gt; Cloud Volumes ONTAP とオブジェクトストレージ間の接続を確認します</block>
   <block id="dfa5ec33cd56c8ec3ba7043cbe7164b5" category="list-text">AWS では、 S3 への VPC エンドポイントが必要です。 <block ref="8bf18368a4d50e7d264c6ce0821cc35b" category="inline-xref-macro-rx"></block>。</block>
   <block id="551809d438dbf4c69bd03236f59465cb" category="list-text">Azure では、 Cloud Manager に必要な権限が付与されていれば何も実行する必要はありません。 <block ref="b95ed179d0a0b66246f2db10d9eda033" category="inline-xref-macro-rx"></block>。</block>
-  <block id="b14188d12bf71a82c40e0277be844f22" category="list-text">GCP の場合、プライベート Google アクセスのサブネットを設定し、サービスアカウントを設定する必要があります。 <block ref="ae7c1d949803baa5d291fbd909b9d2e1" category="inline-xref-macro-rx"></block>。</block>
   <block id="25453bf6b2947d3c7240ce0195e6caa6" category="paragraph">ボリュームでデータ階層化を有効にするには、アグリゲートでデータ階層化が有効になっている必要があります。新しいボリュームと既存のボリュームの要件を確認しておく必要があります。 <block ref="7beee552935977f4dc8f9885d22b65a0" category="inline-xref-macro-rx"></block>。</block>
   <block id="1a9e931f53a32cc1b5ceeebef21b8880" category="paragraph">ボリュームを作成、変更、またはレプリケートするときに、 Cloud Manager から階層化ポリシーを選択するよう求められます。</block>
   <block id="aee34f99cc65679272b711e8a3804b3b" category="inline-link-macro">読み取り / 書き込みボリュームでのデータの階層化</block>
@@ -2979,21 +2910,11 @@
   <block id="636600dd8361a686945e40209210c08d" category="list-text"><block ref="636600dd8361a686945e40209210c08d" category="inline-link-macro-rx"></block></block>
   <block id="f0748d2b3c79aade269f96a17e18f4fe" category="admonition-title">データ階層化に不要なもの</block>
   <block id="e0100d926b1dfa84ed63e121de10aa0a" category="list-text">データの階層化を有効にするために機能ライセンスをインストールする必要はありません。</block>
-  <block id="6ffcbfd95596c9649517d33272928d23" category="list-text">大容量階層（ S3 バケット、 Azure BLOB コンテナ、 GCP バケット）を作成する必要はありません。クラウドマネージャーがそれを実現します。</block>
   <block id="5f374bdc53d71d737ae05bfa630d37cd" category="list-text">システムレベルでデータの階層化を有効にする必要はありません。</block>
   <block id="1eb88bd7697f637f1bda926f7690d92d" category="inline-xref">接続または権限に問題がないことが必要です</block>
   <block id="1dceabc3e0ef3a66ec4c5a100bb166c2" category="inline-xref">アグリゲート</block>
   <block id="29b088d2c7933895d246cc3ae1cc5836" category="paragraph">Cloud Manager は、システム作成時にコールドデータ用のオブジェクトストアを作成し、 <block ref="dbb78a2cc39acf14e084217f8235322a" category="inline-xref-macro-rx"></block>。その後は、ボリューム（および場合によっては、 <block ref="7f499208f2ff911432bf2cd70bde52dd" category="inline-xref-macro-rx"></block>）。</block>
   <block id="a34ba0327bb6f5e052aa4d47c9024cd7" category="section-title">データ階層化をサポートする構成</block>
-  <block id="bd4ce61b7987d7375ff4df18058da43f" category="paragraph">特定の構成と機能を使用する場合は、データ階層化を有効にできます。</block>
-  <block id="7a398b78e816349884ed533f9efc8912" category="list-text">Cloud Volumes ONTAP では、次のバージョン以降でデータ階層化がサポートされます。</block>
-  <block id="6472b7beec166813e38066733d60355f" category="list-text">AWS でバージョン 9.2 を実行します</block>
-  <block id="f820336cce0e98c6fb3fbe8b655f5f24" category="list-text">Azure のシングルノードシステムの場合はバージョン 9.4</block>
-  <block id="61afbe0183db509dd6a803dfb97da583" category="list-text">Azure バージョン 9.6 （ HA ペアを使用）</block>
-  <block id="251808a2657fa34dab47f2ebb5ffabb6" category="list-text">GCP のバージョン 9.6</block>
-  <block id="9dc8ff50dbb94a0b64f7a0dca97de54b" category="list-text">AWS では、パフォーマンス階層には汎用 SSD （ GP3 または gp2 ）またはプロビジョニングされる IOPS SSD （ io1 ）を使用できます。</block>
-  <block id="d38d73dc18aa4f6923ad85cea33ee67e" category="list-text">Azure では、 Premium SSD Managed Disks 、 Standard SSD Managed Disks 、 Standard HDD Managed Disks のいずれかです。</block>
-  <block id="dfb364a407860635efac63905962c37a" category="list-text">GCP では、 SSD 永続ディスク、分散型永続ディスク、または標準的な永続ディスクのいずれかを使用できます。</block>
   <block id="c1b52ad9b725f31f29df47c75d8f2bdd" category="list-text">データ階層化は暗号化テクノロジでサポートされています。</block>
   <block id="957637726d55a9a54b3163fb3c7e8f1b" category="list-text">ボリュームでシンプロビジョニングを有効にする必要があります。</block>
   <block id="5a2ebfb8baa378cfcfcba58bbb1380c2" category="section-title">要件</block>
@@ -3454,16 +3375,13 @@
   <block id="ee095a2fd0990ba785c303c6524d8145" category="list-text">データ提供用の Storage VM （ SVM ）を追加する場合、追加のライセンスコストは発生しませんが、データ提供用 SVM ごとの容量は 4TiB になります。</block>
   <block id="cc331a0f761602982769cdbb99e71272" category="list-text">ディザスタリカバリ用 SVM は、プロビジョニングされた容量に基づいて料金が発生します。</block>
   <block id="ebf12fa39becba02eecf5cb8886fab60" category="inline-link-macro">CIFS サーバを作成</block>
-  <block id="dc845b28338320935ddb2744e8c6e97b" category="paragraph">を使用して NTP サーバを指定します<block ref="bdf6617265a65c254cce57819a969697" category="inline-link-rx"></block> または、ユーザインターフェイスからアクセスできます <block ref="f63e013edf4f3da2f43cd797b99d909b" category="inline-link-macro-rx"></block>。</block>
   <block id="21793edfa155319a271d33a5dc984cb2" category="paragraph"><block ref="a158a044b7464112e4aeefe5eeacf9f9" category="inline-link-rx"></block>。</block>
   <block id="19efe5a9cd2387e8587c05321062a095" category="paragraph">HA ペアを使用する場合、 Cloud Volumes ONTAP では 9.8 リリース以降、複数の種類の VM で高速の書き込み速度がサポートされます。にアクセスします<block ref="2c91cb4d7bbd40d1a3efe8602ebb4273" category="inline-link-rx"></block> をクリックして、高速の書き込み速度をサポートする VM タイプを確認します。</block>
   <block id="f3e658b45576241d792ccaccc236fc48" category="paragraph"><block ref="a8ee7ccc97f8f155aa3297d287b2257a" category="inline-link-rx"></block>。</block>
   <block id="b64442e22e4baecde15d6214c922aa65" category="paragraph">ディスク制限によって、ディスクだけを使用することで容量制限に達することがないことに注意してください。を使用すると、ディスク制限を超えることができます <block ref="c80d06c6bbd06cbbb7b267be96c5b90c" category="inline-link-macro-rx"></block>。ディスクの制限については、を参照してください<block ref="02f1a1c120ffb5f37ea9d7c14b5f1158" category="inline-link-rx"></block>。</block>
   <block id="9402e8f13b9c1b7b1bbcad4d4c4eb4a9" category="paragraph"><block ref="9402e8f13b9c1b7b1bbcad4d4c4eb4a9" category="inline-link-rx"></block></block>
   <block id="2dcb300e9b01e5d98962a7e0c6eee87e" category="paragraph"><block ref="2dcb300e9b01e5d98962a7e0c6eee87e" category="inline-link-rx"></block></block>
-  <block id="ea03e008412c5794c43fdb2384bcb567" category="paragraph">高速の書き込み速度は、すべてのタイプのシングルノードシステムでサポートされています。特定のインスタンスまたは VM タイプを使用する場合は、 AWS と Azure の HA ペアでもサポートされます。GCP の HA ペアでは、高速の書き込み速度はサポートされていません。<block ref="af635009e2e9e5e8e83bc1e8e043f24c" category="inline-link-rx"></block>。</block>
   <block id="506e74c9262ca17fcd45f9fc1bb03b87" category="paragraph">ボリュームのサイズを変更する必要がある場合は、を使用して変更できます<block ref="bfb8b856b98909d9b8eda9fe0698d61f" category="inline-link-rx"></block>。ボリュームのサイズを変更する際は、システムの容量制限を考慮してください。にアクセスします<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 詳細：</block>
-  <block id="3a08b0ef34be7d1bdbd1691c198e8824" category="paragraph">特定の構成の Cloud Volumes ONTAP では、 AWS および Azure で複数の Storage VM がサポートされます。にアクセスします<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 使用している Cloud Volumes ONTAP のバージョンでサポートされる Storage VM 数を確認してください。</block>
   <block id="06c86f2b2f40c7b5ae916f820dace6f3" category="inline-link">Cloud Volumes ONTAP のリリースノートに移動します</block>
   <block id="65e42190c099391692bcdbf38f75b3dc" category="paragraph">このページで説明する機能拡張は、 Cloud Volumes ONTAP の管理を可能にする Cloud Manager の機能に固有のものです。Cloud Volumes ONTAP ソフトウェア自体の新機能については、<block ref="708e09e3f2783926556b9c6d77f63a27" category="inline-link-rx"></block></block>
   <block id="e0109745edea3dd07561e6ef24e031b3" category="paragraph"><block ref="e0109745edea3dd07561e6ef24e031b3" category="inline-link-rx"></block></block>
@@ -3477,7 +3395,6 @@
   <block id="96e9eb313ea17571fd2fc456a82b6862" category="list-text"><block ref="96e9eb313ea17571fd2fc456a82b6862" category="inline-link-rx"></block></block>
   <block id="ff9c48728746d281c6db8cc1fcc3bbc0" category="list-text"><block ref="ff9c48728746d281c6db8cc1fcc3bbc0" category="inline-link-rx"></block></block>
   <block id="b40a553e51c475509749f5fbf966ca80" category="list-text"><block ref="b40a553e51c475509749f5fbf966ca80" category="inline-link-rx"></block></block>
-  <block id="0e042c43c721f1712a7e25ff5c262262" category="list-text"><block ref="0e042c43c721f1712a7e25ff5c262262" category="inline-link-rx"></block></block>
   <block id="95cb432951e690caaf3364033a849ac6" category="paragraph">これらの制限は、 Cloud Manager での Cloud Volumes ONTAP の管理に固有のものです。Cloud Volumes ONTAP ソフトウェア自体の制限を確認するには、次の手順を実行します。<block ref="70a3d165b5204ef94ef3f2d7b3d098d2" category="inline-link-rx"></block></block>
   <block id="374b69ed8baae6c10fc401a5f23dfabf" category="paragraph"><block ref="374b69ed8baae6c10fc401a5f23dfabf" category="inline-link-rx"></block></block>
   <block id="ce3a671f0219e5e11c7063a6ad822e79" category="paragraph"><block ref="ce3a671f0219e5e11c7063a6ad822e79" category="inline-link-rx"></block></block>
@@ -3508,8 +3425,6 @@
   <block id="b4fdd997b1f33e0d4c6964444c2bf399" category="section-title">SMB</block>
   <block id="11b07e87cde6233c7e410399ad203deb" category="paragraph">SMB は、 Windows システム向けの従来のファイルアクセスプロトコルです。クライアントは、 SMB 2.0 、 SMB 2.1 、 SMB 3.0 、および SMB 3.1.1 の各プロトコルを使用して ONTAP ボリューム内のファイルにアクセスできます。NFS と同様に、複数の形式の権限の組み合わせがサポートされています。</block>
   <block id="e2ab7c65b21ed8cc1c3b642b5e36429e" category="section-title">S3</block>
-  <block id="97d123cf781865da390957834e7dec4a" category="paragraph">Cloud Volumes ONTAP は、 Microsoft Azure のスケールアウトストレージ用のオプションとして S3 をサポートしています。S3 プロトコルをサポートすると、 SVM のバケットに格納されたオブジェクトへの S3 クライアントアクセスを設定できるようになります。</block>
-  <block id="ba36d0b77efc9f46158b78a4e8ec9019" category="paragraph">現時点では、 AWS の Cloud Volumes ONTAP や Google Cloud では S3 プロトコルはサポートされていません。</block>
   <block id="6958464059ef304c59d06fcb948ccafd" category="inline-link">ONTAP で S3 オブジェクトストレージサービスを設定および管理する方法について説明します</block>
   <block id="75081fb4982f7b843e702079b35f0ed4" category="paragraph"><block ref="3fe75f10a35597997861eca633c30fa7" category="inline-link-rx"></block>。</block>
   <block id="cad02caeb4ee636c87f28b0bb1263080" category="inline-link-macro">サポートされるクライアントプロトコルおよびバージョンについて説明します</block>
@@ -3573,7 +3488,6 @@
   <block id="c6889b0f09506ef266562788f0e045c4" category="list-text">Azure AD ドメインサービスを Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=AADDC computers * 」または「 * OU=AADDC Users * 」と入力します。<block ref="c77116dc5056757dacd34253f40507d7" category="inline-link-rx"></block></block>
   <block id="dd1469e83233ef1220eabf5ed3052e71" category="inline-link">Google Cloud ドキュメント：「 Organizational Units in Google Managed Microsoft AD</block>
   <block id="574cb50e267b71a9b98541218b0def7d" category="list-text">Google Managed Microsoft AD を Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=computers 、 OU=Cloud 」と入力します。<block ref="8e7507132642e39310c024b1b990cf52" category="inline-link-rx"></block></block>
-  <block id="74fcd5478f5518e9bba0d4231bc72033" category="cell">CIFS サーバの名前解決を提供する DNS サーバの IP アドレス。リストされた DNS サーバには、 CIFS サーバが参加するドメインの Active Directory LDAP サーバとドメインコントローラの検索に必要なサービスロケーションレコード（ SRV ）が含まれている必要があります。Google Managed Active Directory を設定している場合は、デフォルトで 169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.x.x の IP アドレスを使用して AD にアクセスできます。</block>
   <block id="61406b1bdfba5a7d3fd5d0089edfe238" category="cell">CIFS サーバの名前解決を提供する DNS サーバの IP アドレス。リストされた DNS サーバには、 CIFS サーバが参加するドメインの Active Directory LDAP サーバとドメインコントローラの検索に必要なサービスロケーションレコード（ SRV ）が含まれている必要があります。Google Managed Active Directory を設定している場合は、デフォルトで 169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.x.x の IP アドレスを使用して AD にアクセスできます。</block>
   <block id="40bf45be09da9df22806f3324816106f" category="cell">CIFS サーバに関連付ける AD ドメイン内の組織単位。デフォルトは CN=Computers です。Google Managed Microsoft AD を Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=computers 、 OU=Cloud 」と入力します。<block ref="8e7507132642e39310c024b1b990cf52" category="inline-link-rx"></block></block>
   <block id="e4db2787e7af2ca8c09486148b05c8e4" category="list-text">デスティネーションシステムから System Manager にログインします。</block>
@@ -3631,7 +3545,6 @@
   <block id="ba2e1bf50371835f50d77c05a977d80c" category="list-text">*すべてのVPC *：インバウンドトラフィックのソースフィルタは0.0.0.0/0のIP範囲です。</block>
   <block id="4fa4c5ae842db9adb7911d016ca19362" category="paragraph">独自のファイアウォールポリシーを使用する場合は、Cloud Volumes ONTAP と通信する必要のあるすべてのネットワークを追加し、内部のGoogleロードバランサが正常に機能するように両方のアドレス範囲を追加してください。これらのアドレスは 130.211.0.0/22 および 35.191.0.0/16 です。詳細については、を参照してください<block ref="ec02114a2c39456710780c7d788390e7" category="inline-link-rx"></block>。</block>
   <block id="612b1fa388e719e990cb953520986784" category="list-text">クラウドプロバイダの市場から年間契約を獲得できます。</block>
-  <block id="7012cf86c42fb3eec6343900832f1d08" category="list-text">AWSでは、年間契約はAWS Marketplaceで公開されています。Cloud Volumes ONTAP 作業環境を導入する際には、Cloud Managerから登録を求められます。</block>
   <block id="1ce7e5f92b8c11b96a7b6fea0435803d" category="list-text">Azureでは、ネットアップの営業担当者と協力して年間契約を購入する必要があります。この契約は、Azure Marketplaceでのプライベートオファーとして提供されます。</block>
   <block id="51606c7b614cdc7ab9e0489981838dfa" category="paragraph">ネットアップがお客様とプライベートオファーを共有したあとは、Azure Marketplaceでの作業環境の作成時にサブスクリプションするときに、年間プランを選択できます。</block>
   <block id="d3ef010be2a71bc188b8cf2beb05ac32" category="list-text">Google Cloudでは、年間契約を購入するには、ネットアップの営業担当者と協力する必要があります。この契約は、Google Cloud Marketplaceでのプライベートオファーとして利用できます。</block>
@@ -3707,7 +3620,6 @@
   <block id="792eeb7f686f2ad37b664f6478d40bed" category="paragraph">ネットアップの営業担当者からライセンスを購入されると、ネットアップからシリアル番号と追加のライセンス情報を記載したEメールが送信されます。</block>
   <block id="4e85798464067990a260920303c6ad56" category="paragraph">その間、Cloud Managerはネットアップのライセンスサービスを自動的に照会し、ネットアップサポートサイトのアカウントに関連付けられているライセンスに関する詳細を取得します。エラーがなければ、Cloud Managerはライセンスをデジタルウォレットに自動的に追加します。</block>
   <block id="ad0be4bc913a8026a3f5e42fc7656d23" category="inline-xref">購入済みライセンスをアカウントに追加する方法について説明します</block>
-  <block id="7d2ae233484b0c37afe70cfe2db6a56b" category="paragraph">Cloud Managerでライセンスを追加できない場合は、手動でDigital Walletに追加する必要があります。 <block ref="2b377ff52574668221716136185f8476" category="inline-xref-macro-rx"></block>。</block>
   <block id="59278e406900d98dfbf804d3447c186c" category="paragraph">購入したライセンスがデジタルウォレットに表示されない場合は、Cloud Managerにライセンスを追加して、容量をCloud Volumes ONTAP で使用できるようにする必要があります。</block>
   <block id="0558557eddde3c400b73684dfb49fdbb" category="list-text">アグリゲートを選択し、*ディスクの追加*をクリックします。</block>
   <block id="3e385957b42bff8380e99a914d474fb1" category="list-text">*詳細と認証情報*：プロジェクトを選択し、クラスタ名を指定します。必要に応じてサービスアカウントを選択し、ラベルを追加し、クレデンシャルを指定することもできます。</block>
@@ -3722,4 +3634,91 @@
   <block id="7f6be0499fe67271d3c198bd726fe0c0" category="inline-link-macro">Cloud Volumes ONTAP のファイアウォールルールについて説明します</block>
   <block id="154e9c61180206ef2d8b605b639fb35f" category="cell">既存のファイアウォールポリシーを使用する場合は、必要なルールが含まれていることを確認してください。 <block ref="c3fbed15c1fb154b840fdb8b5504f098" category="inline-link-macro-rx"></block>。</block>
   <block id="d84251a0fd530f03ffc5b24f87e0f907" category="list-text">AWS の階層化データのデフォルトのストレージクラスは _Standard_ です。アクセス頻度の低いデータがない場合は、ストレージクラスを次のいずれかに変更することで、ストレージコストを削減できます。_Intelligent Tiering _、_one-Zone低頻度アクセス_、_Standard -低頻度アクセス_、または_S3 Glacier Instant Retrieval。ストレージクラスを変更すると、アクセス頻度の低いデータは Standard ストレージクラスから始まり、 30 日経ってもアクセスされない場合は選択したストレージクラスに移行されます。</block>
+  <block id="ba6a8b64123c5bbe5d7d30c1bd941cc0" category="section-title">デフォルトのセットアップ</block>
+  <block id="aa98b7df0a0a0f2af69cbff3dcbe620e" category="list-text">AzureのHAシステム上のSVM管理LIF</block>
+  <block id="97c3d7abfc75b002edd7cf58c0502788" category="list-text">Google CloudのHAシステム上のSVM管理LIFです</block>
+  <block id="11ec0bb07b34b28693ac7788a1724c9a" category="list-text">AWSのシングルノードシステム上のSVM管理LIF</block>
+  <block id="381853e687018dffdeac4977fce24c2f" category="list-text">ノード管理 LIF</block>
+  <block id="2095bd4fb8c9a4c7b89de9f25bf6d2eb" category="paragraph">+ Google Cloudでは、このLIFがクラスタ間LIFと結合されます。</block>
+  <block id="64c34a93514ace72caf896ffdaafe9bf" category="admonition">クラウドプロバイダの要件により、Cloud Volumes ONTAP のLIFフェイルオーバーはデフォルトで無効になっています。LIF を別のポートに移行すると、インスタンス上の IP アドレスとネットワークインターフェイス間の外部マッピングが解除され、 LIF にアクセスできなくなります。</block>
+  <block id="afc2bcf9d9f0f3858a7501974f43c094" category="list-text">ブートディスクとルートディスクはデフォルトで暗号化されています。</block>
+  <block id="81cc31df8f1cfdded8f19bde6b378f31" category="section-title">HA構成の内部セキュリティグループに関するルール</block>
+  <block id="7893e453f8f5e33915b2a7890867e098" category="paragraph">Cloud Volumes ONTAP HA構成用に事前定義された内部セキュリティグループには、次のルールが含まれています。このセキュリティグループを使用すると、HAノード間、メディエーターとノード間の通信が可能になります。</block>
+  <block id="de8d226ccf961047fb15438e3b193cf9" category="paragraph">Cloud Manager は常にこのセキュリティグループを作成します。独自のオプションはありません。</block>
+  <block id="52bb55c8099e551b91ec50d983141e9a" category="paragraph">Azure内のCloud Volumes ONTAP システムと他のネットワーク内のONTAP システム間でデータをレプリケートするには、企業ネットワークなど、Azure VNetとその他のネットワーク間にVPN接続が必要です。</block>
+  <block id="d17764ffa4b2b993f35778d5e7c1f22e" category="cell">APIがAzureとONTAP にコールし、クラウドデータを検知してランサムウェアサービスに感染し、AutoSupport メッセージをネットアップに送信</block>
+  <block id="8f23c8ca55e3e29c38b4fac911f21ca3" category="section-title">Cloud Managerは、Cloud Volumes ONTAP ではS3をサポートしていません</block>
+  <block id="110086729f911e16d70d94da266beb1c" category="paragraph">一部のクラウドプロバイダでは、Cloud Volumes ONTAP がS3をスケールアウトストレージのオプションとしてサポートしていますが、Cloud Managerはこの機能の管理機能を提供していません。CLI を使用することが、 Cloud Volumes ONTAP からの S3 クライアントアクセスを設定するためのベストプラクティスです。詳細については、を参照してください<block ref="49e8fee748cd4c8d6f01bdb03113fc2a" category="inline-link-rx"></block>。</block>
+  <block id="aa73f4eb582c3e0e9bca433f741e8a12" category="inline-link-macro">S3およびその他のクライアントプロトコルに対するCloud Volumes ONTAP のサポートに関する詳細を確認できます</block>
+  <block id="b19dcb5d79169da5722547be25d81a05" category="paragraph"><block ref="2b5ab7e81cd6465f0e4fd342fda67520" category="inline-link-macro-rx"></block>。</block>
+  <block id="2f2289dc4d144dd69a1fd73eaab183e0" category="summary">一部のCloud Volumes ONTAP 構成にはローカルのNVMeストレージが含まれており、Cloud Volumes ONTAP はパフォーマンスを向上させるためにFlash Cacheとして使用します。</block>
+  <block id="712cc6bb6749aa390ea026f9c60a15ec" category="paragraph">一部のCloud Volumes ONTAP 構成にはローカルのNVMeストレージが含まれており、Cloud Volumes ONTAP はパフォーマンスを向上させるために_Flash Cache _として使用します。</block>
+  <block id="b208585c8517e02e2edf44f36a9bbb44" category="paragraph">Flash Cacheは、特定のCloud Volumes ONTAP 構成でサポートされています。でサポートされている構成を表示します<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block></block>
+  <block id="e9ce6ae29a2619019cac23f8015bb188" category="paragraph">Cloud Volumes ONTAP では、Microsoft AzureでのみS3をスケールアウトストレージのオプションとしてサポートしています。S3 プロトコルをサポートすると、 SVM のバケットに格納されたオブジェクトへの S3 クライアントアクセスを設定できるようになります。</block>
+  <block id="409e6786522e4428d2517478280ecf40" category="section-title">Google Cloudストレージ</block>
+  <block id="e289128f5466f0eacab7fa58b05c8169" category="paragraph">Google Cloudでは、アグリゲートに同じサイズのディスクを6本まで含めることができます。最大ディスクサイズは 64TiB です。</block>
+  <block id="76cede1efa6255431fb1182712250d63" category="inline-link">Google Cloudのドキュメント：「Storage Options</block>
+  <block id="b7ed79b872561b49bacf1c02f4cd93bb" category="list-text"><block ref="b7ed79b872561b49bacf1c02f4cd93bb" category="inline-link-rx"></block></block>
+  <block id="f28d5328ff2f04ce708846be616a8a21" category="inline-link">Google CloudでのCloud Volumes ONTAP のストレージ制限を確認します</block>
+  <block id="36d40a83da5a7828d24fdd8619bdd95d" category="list-text"><block ref="36d40a83da5a7828d24fdd8619bdd95d" category="inline-link-rx"></block></block>
+  <block id="c64a8243194a73e3972f291aa54a6a53" category="list-text">Google Cloudの場合は、プライベートGoogleアクセスのサブネットを設定し、サービスアカウントを設定する必要があります。 <block ref="ae7c1d949803baa5d291fbd909b9d2e1" category="inline-xref-macro-rx"></block>。</block>
+  <block id="3c2dd3677e7b7f504a3c2dfd5c72195c" category="list-text">大容量階層用のオブジェクトストアを作成する必要はありません。クラウドマネージャーがそれを実現します。</block>
+  <block id="aac3150f303991246792d1b76e543f1f" category="paragraph">特定の構成や機能を使用する場合は、データの階層化を有効にすることができます。</block>
+  <block id="ec4c1907e0b1b3ab9bfe34d9898d0723" category="section-title">AWSでのサポート</block>
+  <block id="9a546a1baaebd3e2af69af4e1f807ea9" category="list-text">Cloud Volumes ONTAP 9.2以降では、AWSでデータ階層化がサポートされます。</block>
+  <block id="049a56718afb4bc754cebf8a5567c3c8" category="section-title">Azure でのサポート</block>
+  <block id="f16872b2bf28c8dcda252e8197cc1a5e" category="list-text">Azureでは、次のデータ階層化がサポートされています。</block>
+  <block id="c7f6ec5d95cafd0132e2322cbdca7f47" category="list-text">シングルノードシステムの場合はバージョン9.4</block>
+  <block id="146aae59b5e422bc518402fc01301883" category="list-text">HAペアではバージョン9.6</block>
+  <block id="c22e6c8e140bb405c574c67bff9bd946" category="list-text">高パフォーマンス階層には、Premium SSD Managed Disks、Standard SSD Managed Disks、Standard HDD Managed Disksがあります。</block>
+  <block id="783e44882ef395447a1b422181ebb3d4" category="section-title">Google Cloudのサポート</block>
+  <block id="c0a92ff7cf6e8a1570f1775a4a7c563d" category="list-text">Cloud Volumes ONTAP 9.6以降では、Google Cloudでデータ階層化がサポートされます。</block>
+  <block id="0285440088a9a63b47028bcc1bccb076" category="section-title">機能の相互運用性</block>
+  <block id="f655439fd5ae0223d994fa349e01c42b" category="list-text">AWSでは、年間契約はAWS Marketplaceで公開されています。Cloud Volumes ONTAP 作業環境の導入時に、Cloud Managerの詳細とクレデンシャルのページで登録を行うように求められます。</block>
+  <block id="656d282ec4da3b613132f8e29d6cb90e" category="paragraph">30 日間の無償トライアルをクラウドプロバイダのマーケットプレイスで従量課金制サブスクリプションで利用できます。無償トライアルには、Cloud Volumes ONTAP とクラウドバックアップが含まれています。トライアルは、市場で提供サービスに登録すると開始されます。</block>
+  <block id="2986f3edb85e34a7556b412028be57fb" category="paragraph">インスタンスや容量の制限はありません。Cloud Volumes ONTAP システムは必要な数だけ導入でき、必要な容量を30日間無償で割り当てることができます。無料トライアルは、30日後に1時間ごとの有料サブスクリプションに自動的に変換されます。</block>
+  <block id="631556a144b10d5d5f19603b18176e32" category="paragraph">Cloud Volumes ONTAP のソフトウェアライセンス料金は1時間ごとに発生しませんが、クラウドプロバイダからインフラ料金が請求されます。</block>
+  <block id="0fc39380a79b9b90f383fcccff782087" category="cell">CIFS サーバの名前解決を提供する DNS サーバの IP アドレス。リストされた DNS サーバには、 CIFS サーバが参加するドメインの Active Directory LDAP サーバとドメインコントローラの検索に必要なサービスロケーションレコード（ SRV ）が含まれている必要があります。ifdef::gCP[] Google Managed Active Directoryを設定している場合、デフォルトでは、169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.6254のIPアドレスでADにアクセスできます。endif：GCP []</block>
+  <block id="6c30ec25f9c157f6acd5cb63a6abee29" category="list-text">いずれかのアグリゲートでオブジェクトに古い命名規則が使用されています。両方のアグリゲートで同じ名前形式を使用する必要があります。</block>
+  <block id="0d9f3205d7845ee81efb858dcc1bafbf" category="list-text">アグリゲートが容量のしきい値に達してディスクの空き容量が増えた場合、Cloud Managerはそのアグリゲート用の新しいディスクを自動的に購入し、ボリュームを継続して拡張できるようにします。</block>
+  <block id="d8afffcd757225ed70092edb36ab574f" category="list-text">アグリゲートが容量のしきい値に達し、かつそれ以上ディスクをサポートできない場合、Cloud Managerは、そのアグリゲートから使用可能な容量を持つアグリゲートまたは新しいアグリゲートにボリュームを自動的に移動します。</block>
+  <block id="ea17490349895c296964a806a4f6a8d1" category="paragraph">元のアグリゲートに空きスペースがあることに注意してください。既存のボリュームまたは新しいボリュームでは、そのスペースを使用できます。このシナリオでは、スペースをクラウドプロバンスに戻すことはできません。</block>
+  <block id="181e3299a212253d089ee23c58a37a10" category="list-text">EssentialsパッケージとProfessionalパッケージは、すべてのクラウドプロバイダマーケットプレイスで利用できるようになりました。</block>
+  <block id="e399fe858ae4c467e1c830b512b1718c" category="list-text">すべてのクラウドプロバイダマーケットプレイスからのノード単位のライセンスが廃止され、新しいユーザには提供されなくなりました。これには、年間契約と時間単位のサブスクリプション（ Explore 、 Standard 、 Premium ）が含まれます。</block>
+  <block id="73af9e90d6d077cf277e49f829259963" category="section-title">追加のAzure VMタイプがサポートされます</block>
+  <block id="2322c1ee122a6f508293dfcafb34cbb8" category="paragraph">以下に、充電方法の例を示します。</block>
+  <block id="a40c8d86140223c6d5c726e1b060450c" category="paragraph">また、Cloud Volumes ONTAP のアップグレードプロセス中に、必要に応じてメディエーターインスタンスも更新されます。</block>
+  <block id="e20ba128225042bdf16f10b77900f04c" category="paragraph">Cloud Managerでライセンスを追加できない場合は、手動でDigital Walletに追加する必要があります。たとえば、インターネットにアクセスできない場所にConnectorがインストールされている場合は、ライセンスを自分で追加する必要があります。 <block ref="2b377ff52574668221716136185f8476" category="inline-xref-macro-rx"></block>。</block>
+  <block id="a37467cf4bce3dba72f93fb0b699e4c0" category="paragraph">AWSのCloud Volumes ONTAP システムと他のネットワークのONTAP システムの間でデータをレプリケートするには、AWS VPCと他のネットワーク（社内ネットワークなど）の間にVPN接続が必要です。手順については、を参照してください<block ref="c51e953b17de89205c1bdc018e56b9ee" category="inline-link-rx"></block>。</block>
+  <block id="f424e41eea4394dc755ac33b3bb98e9f" category="paragraph"><block ref="f424e41eea4394dc755ac33b3bb98e9f" category="inline-link-rx"></block></block>
+  <block id="077140c1baeb52c8d13f5022a867186c" category="paragraph"><block ref="077140c1baeb52c8d13f5022a867186c" category="inline-link-rx"></block></block>
+  <block id="a14ca8046d4e179694151285831aea3e" category="paragraph"><block ref="a14ca8046d4e179694151285831aea3e" category="inline-link-rx"></block></block>
+  <block id="991e115331806030a3326fcb2c55e2a7" category="paragraph"><block ref="25bfb2a1b38927b210cdacfb32d95253" category="inline-link-rx"></block>をクリックしてください<block ref="07e6a6e4814dabc1a0870a10a70c4b44" category="inline-link-rx"></block></block>
+  <block id="7a023e7d56fe92fdfa3e74151ef7e333" category="paragraph">SSH を使用して Cloud Volumes に接続するホスト ONTAP は、 Cloud Volumes ONTAP にネットワーク接続している必要があります。たとえば、クラウドプロバイダネットワーク内のジャンプホストからSSHを使用する場合などです。</block>
+  <block id="b601391468380c0a701bcce2d4ca49cc" category="paragraph">を使用して NTP サーバを指定します<block ref="ecfd5c228c18c8387cb70ef18bee20f9" category="inline-link-rx"></block> または、ユーザインターフェイスからアクセスできます <block ref="f63e013edf4f3da2f43cd797b99d909b" category="inline-link-macro-rx"></block>。</block>
+  <block id="85ec9558f558eed2eff28acdf93d0e5d" category="paragraph">ネットアップの暗号化ソリューションは、クラウドプロバイダがネイティブに暗号化することでハイパーバイザーレベルでデータを暗号化します。これにより、機密性の高いデータには二重の暗号化が必要になる場合があります。暗号化されたデータにアクセスすると、暗号化されていないデータがハイパーバイザーレベルで 2 回（クラウドプロバイダのキーを使用）暗号化されてから、ネットアップの暗号化ソリューションを再度使用して（外部キー管理ツールのキーを使用）暗号化されます。</block>
+  <block id="154811f59111df605f6aebc9999a1135" category="paragraph">NVE と NAE はどちらも外部キー管理機能でサポートされています。</block>
+  <block id="f6ff5ec319049af5e46c8b306858252c" category="doc">AzureのCloud Volumes ONTAP HAペアでのCIFSロックの無効化</block>
+  <block id="d7f3b0a003c7b0fa058047d5df76abae" category="summary">Cloud Volumes ONTAP のハイアベイラビリティ構成は、ノンストップオペレーションとフォールトトレランスを実現します。Google Cloudでは、2つのノード間でデータが同期ミラーリングされます。</block>
+  <block id="d17c4281542937487475a76b3afea508" category="doc">Google Cloud のハイアベイラビリティペア</block>
+  <block id="36b2e0baf475c546a7d804d50bd41be4" category="paragraph">Cloud Volumes ONTAP High Availability （ HA ）構成は、無停止の運用と耐障害性を提供します。Google Cloudでは、2つのノード間でデータが同期ミラーリングされます。</block>
+  <block id="f406c9d6eeead7db4c0d7c4436e4365f" category="paragraph">Google CloudのCloud Volumes ONTAP HA構成には、次のコンポーネントが含まれています。</block>
+  <block id="89f3aa2399b6fb2684acf4e64a1b95ad" category="paragraph">データ階層化は、 FabricPool テクノロジによって実現されます。</block>
+  <block id="3844834e9306a66948e49d6149c5a299" category="section-title">Google Cloudのデータ階層化</block>
+  <block id="f6535844f45781691afa19e3fe67a627" category="paragraph">Google Cloudでデータ階層化を有効にすると、Cloud Volumes ONTAP はホットデータのパフォーマンス階層として永続的ディスクを使用し、アクセス頻度の低いデータの大容量階層としてGoogle Cloud Storageバケットを使用します。</block>
+  <block id="2bae3f4058e112cc703c4dc74dc72501" category="paragraph">高速の書き込み速度は、すべてのタイプのシングルノードシステムと一部のHAペア構成でサポートされています。でサポートされている構成を表示します<block ref="d080347ff89205e9b3e508b1fee0c025" category="inline-link-rx"></block></block>
+  <block id="b9e47318c64f441113d2cf3c3a5e232c" category="paragraph">一部の構成では複数のStorage VMがサポートされます。にアクセスします<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 使用している Cloud Volumes ONTAP のバージョンでサポートされる Storage VM 数を確認してください。</block>
+  <block id="5ad76df23e699cc23f2f4dbb30b952c4" category="paragraph">Cloud Managerでは、ほとんどのCloud Volumes ONTAP 構成に対して通常または高速の書き込み速度を選択できます。書き込み速度を選択する前に、高速書き込みを使用する場合の標準設定と高設定の違い、およびリスクと推奨事項を理解しておく必要があります。</block>
+  <block id="bd5b6b1e8df08d280868ec77d4700777" category="inline-link-macro">Google Cloudでのシステムのサイジング</block>
+  <block id="d149bf4b730fbae097705dc422facd68" category="list-text"><block ref="d149bf4b730fbae097705dc422facd68" category="inline-link-macro-rx"></block></block>
+  <block id="e29d7c0b36af68edd13ebac84f15b44b" category="sidebar">クラウドプロバイダ</block>
+  <block id="46aef2e5080a5347df1ce7546e1be1df" category="sidebar">すべてのクラウドプロバイダ</block>
+  <block id="6beccc67ff905f7da0b29dece26b0485" category="sidebar">Amazon Web Services の</block>
+  <block id="1668ca1bd914c1d847f23b491319ac91" category="sidebar">Microsoft Azure</block>
+  <block id="b010c7530103ef9947582474d65ff9a3" category="paragraph">ifdef::azure[]</block>
+  <block id="879701946bb2bc7241d0f85fd843455a" category="paragraph">endif::azure[]</block>
+  <block id="6e1e9c83b80f4d22d34cbdf60a71383b" category="paragraph">ifdef::gcp[]</block>
+  <block id="310c228207a0f8446bbe4c5d16978cb7" category="paragraph">endif::gcp[]</block>
+  <block id="5a81378cdc7edd9ea960cf02d6ca78d2" category="paragraph">ifdef::aws[]</block>
+  <block id="6beb2fa01dc121194547db1bfbe03408" category="paragraph">endif::aws[]</block>
 </blocks>

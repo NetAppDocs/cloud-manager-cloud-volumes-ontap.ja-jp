@@ -32,8 +32,14 @@ Cloud Manager では、いくつかの方法で新しいボリュームを作成
 
 * iSCSI ボリュームを作成すると、 Cloud Manager によって自動的に LUN が作成されます。ボリュームごとに 1 つの LUN だけを作成することでシンプルになり、管理は不要になります。ボリュームを作成したら、 <<Connect a LUN to a host,IQN を使用して、から LUN に接続します ホスト>>。
 * LUN は、 System Manager または CLI を使用して追加で作成できます。
+
+
+ifdef::aws[]
+
 * AWS で CIFS を使用する場合は、 DNS と Active Directory を設定しておく必要があります。詳細については、を参照してください link:reference-networking-aws.html["Cloud Volumes ONTAP for AWS のネットワーク要件"]。
 
+
+endif::aws[]
 
 
 
@@ -110,21 +116,42 @@ Access Control の略:: クライアントがボリュームを使用できる�
 DNS プライマリおよびセカンダリ IP アドレス:: CIFS サーバの名前解決を提供する DNS サーバの IP アドレス。リストされた DNS サーバには、 CIFS サーバが参加するドメインの Active Directory LDAP サーバとドメインコントローラの検索に必要なサービスロケーションレコード（ SRV ）が含まれている必要があります。
 +
 --
-Google Managed Active Directory を設定している場合は、デフォルトで 169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.x.x の IP アドレスを使用して AD にアクセスできます。
+ifdef::gcp[]
 
 --
+
+
+Google Managed Active Directory を設定している場合は、デフォルトで 169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.169.254.x.x の IP アドレスを使用して AD にアクセスできます。
+
+endif::gcp[]
+
 参加する Active Directory ドメイン:: CIFS サーバを参加させる Active Directory （ AD ）ドメインの FQDN 。
 ドメインへの参加を許可されたクレデンシャル:: AD ドメイン内の指定した組織単位（ OU ）にコンピュータを追加するための十分な権限を持つ Windows アカウントの名前とパスワード。
 CIFS サーバの NetBIOS 名:: AD ドメイン内で一意の CIFS サーバ名。
 組織単位:: CIFS サーバに関連付ける AD ドメイン内の組織単位。デフォルトは CN=Computers です。
-+
---
+
+
+ifdef::aws[]
+
 *** AWS Managed Microsoft AD を Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=computers 、 OU=corp * 」と入力します。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
 *** Azure AD ドメインサービスを Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=AADDC computers * 」または「 * OU=AADDC Users * 」と入力します。https://docs.microsoft.com/en-us/azure/active-directory-domain-services/create-ou["Azure のドキュメント：「 Create an Organizational Unit （ OU ；組織単位） in an Azure AD Domain Services managed domain"^]
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
 *** Google Managed Microsoft AD を Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=computers 、 OU=Cloud 」と入力します。https://cloud.google.com/managed-microsoft-ad/docs/manage-active-directory-objects#organizational_units["Google Cloud ドキュメント：「 Organizational Units in Google Managed Microsoft AD"^]
 
 
---
+endif::gcp[]
+
 DNS ドメイン:: Cloud Volumes ONTAP Storage Virtual Machine （ SVM ）の DNS ドメイン。ほとんどの場合、ドメインは AD ドメインと同じです。
 NTP サーバ:: Active Directory DNS を使用して NTP サーバを設定するには、「 Active Directory ドメインを使用」を選択します。別のアドレスを使用して NTP サーバを設定する必要がある場合は、 API を使用してください。を参照してください https://docs.netapp.com/us-en/cloud-manager-automation/index.html["Cloud Manager 自動化に関するドキュメント"^] を参照してください。
 +
@@ -146,12 +173,33 @@ LUN:: iSCSI ストレージターゲットは LUN （論理ユニット）と呼
 ====
 .. * ディスクタイプ * ：パフォーマンスのニーズとコストの要件に基づいて、ボリュームの基盤となるディスクタイプを選択します。
 +
+ifdef::aws[]
+
++
 *** link:task-planning-your-config.html#sizing-your-system-in-aws["AWS でのシステムのサイジング"]
-*** link:task-planning-your-config-azure.html#sizing-your-system-in-azure["Azure でのシステムのサイジング"]
-*** link:task-planning-your-config-gcp.html#sizing-your-system-in-gcp["GCP でシステムのサイジングを行う"]
 
 
-.. * 使用状況プロファイルと階層化ポリシー * ：ボリュームで Storage Efficiency 機能を有効にするか無効にするかを選択し、を選択します link:concept-data-tiering.html["ボリューム階層化ポリシー"]。
+
+
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* link:task-planning-your-config-azure.html#sizing-your-system-in-azure["Azure でのシステムのサイジング"]
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* link:task-planning-your-config-gcp.html#sizing-your-system-in-gcp["Google Cloudでのシステムのサイジング"]
+
+
+endif::gcp[]
+
+. * 使用状況プロファイルと階層化ポリシー * ：ボリュームで Storage Efficiency 機能を有効にするか無効にするかを選択し、を選択します link:concept-data-tiering.html["ボリューム階層化ポリシー"]。
 +
 ONTAP には、必要なストレージの合計容量を削減できるストレージ効率化機能がいくつか搭載されています。NetApp Storage Efficiency 機能には、次のようなメリットがあります。
 
@@ -161,9 +209,7 @@ ONTAP には、必要なストレージの合計容量を削減できるスト�
 圧縮:: プライマリ、セカンダリ、アーカイブストレージ上のボリューム内のデータを圧縮することで、データの格納に必要な物理容量を削減します。
 
 
-.. * レビュー * ：ボリュームの詳細を確認して、 * 追加 * をクリックします。
-
-
+. * レビュー * ：ボリュームの詳細を確認して、 * 追加 * をクリックします。
 
 
 Cloud Manager によって、 Cloud Volumes ONTAP システムにボリュームが作成されます。
@@ -237,8 +283,12 @@ image:screenshot_template_creating_resource_cvo.png["テンプレートから新
 
 Cloud Manager によって、 HA ペアの 2 つ目のノードにボリュームが作成されます。
 
+ifdef::aws[]
+
 
 TIP: 複数の AWS アベイラビリティゾーンに HA ペアを導入する場合は、ボリュームが配置されているノードのフローティング IP アドレスを使用してボリュームをクライアントにマウントする必要があります。
+
+endif::aws[]
 
 
 

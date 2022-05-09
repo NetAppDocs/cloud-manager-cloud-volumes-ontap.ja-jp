@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-storage.html 
-keywords: storage, capacity, volumes, aggregates, raw capacity, usable capacity, aws, azure 
+keywords: storage, capacity, volumes, aggregates, raw capacity, usable capacity 
 summary: Cloud Volumes ONTAP でのクラウドストレージの使用方法を理解することで、ストレージコストを把握することができます。 
 ---
 = ディスクとアグリゲート
@@ -32,6 +32,8 @@ image:diagram_storage.png["この図は、ディスクで構成されるアグ�
 
 TIP: クラウドプロバイダから購入したストレージの総容量は、 _raw 容量です。約 12~14% は Cloud Volumes ONTAP 用に予約されたオーバーヘッドであるため、使用可能な容量はこれより少なくなります。たとえば、 Cloud Manager が 500 GiB のアグリゲートを作成した場合、使用可能な容量は 442.94 GiB になります。
 
+ifdef::aws[]
+
 
 
 == AWS ストレージ
@@ -57,6 +59,10 @@ NOTE: スループット最適化 HDD （ st1 ）を使用している場合、�
 * https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-aws.html["AWS での Cloud Volumes ONTAP のストレージの制限を確認します"^]
 * http://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html["AWS で Cloud Volumes ONTAP がサポートされている構成を確認します"^]
 
+
+endif::aws[]
+
+ifdef::azure[]
 
 
 
@@ -90,19 +96,25 @@ HA ペア:: HA ペアでは、最大ディスクサイズが 8TiB の Premium �
 * https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-azure.html["Azure での Cloud Volumes ONTAP のストレージの制限を確認します"^]
 
 
+endif::azure[]
+
+ifdef::gcp[]
 
 
-== GCP ストレージ
 
-GCP では、アグリゲートに同じサイズのディスクを 6 本まで含めることができます。最大ディスクサイズは 64TiB です。
+== Google Cloudストレージ
+
+Google Cloudでは、アグリゲートに同じサイズのディスクを6本まで含めることができます。最大ディスクサイズは 64TiB です。
 
 ディスクタイプは、 _Zonal SSD persistent disks _ 、 _Zonal Balanced persistent disks _ 、または _Zonal standard persistent disks _ のいずれかです。永続ディスクを Google Storage バケットとペアリングできます からに link:concept-data-tiering.html["使用頻度の低いデータを低コストのオブジェクトストレージに階層化します"]。
 
 * 関連リンク *
 
-* https://cloud.google.com/compute/docs/disks/["Google Cloud Platform のドキュメント：「ストレージオプション"^]
-* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-gcp.html["GCP で Cloud Volumes ONTAP のストレージの制限を確認する"^]
+* https://cloud.google.com/compute/docs/disks/["Google Cloudのドキュメント：「Storage Options"^]
+* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-gcp.html["Google CloudでのCloud Volumes ONTAP のストレージ制限を確認します"^]
 
+
+endif::gcp[]
 
 
 

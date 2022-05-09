@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-tiering.html 
-keywords: tier, tiering, cold data, hot data, storage tiering, data tiering, S3 tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store, azure tiering, blob tiering, azure blob, container, inactive, gcp, tiering in gcp, tiering requirements 
+keywords: tier, tiering, cold data, hot data, storage tiering, data tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store, blob tiering, container, inactive, tiering requirements 
 summary: ホットデータ用の SSD または HDD の高パフォーマンス階層と、アクセス頻度の低いデータ用のオブジェクトストレージの大容量階層を組み合わせることで、 Cloud Volumes ONTAP のストレージコストを削減できます。データ階層化は、 FabricPool テクノロジによって実現されます。 
 ---
 = 使用頻度の低いデータを低コストのオブジェクトストレージに階層化
@@ -21,11 +21,27 @@ summary: ホットデータ用の SSD または HDD の高パフォーマンス�
 [role="quick-margin-para"]
 ほとんどの構成がサポートされています。最新バージョンを実行している Cloud Volumes ONTAP システムがある場合は、に進んでください。 link:task-tiering.html#configurations-that-support-data-tiering["詳細はこちら。"]。
 
-.<span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"[] Alt="2"></span> Cloud Volumes ONTAP とオブジェクトストレージ間の接続を確認します
-* AWS では、 S3 への VPC エンドポイントが必要です。 <<Requirements to tier cold data to AWS S3,詳細はこちら。>>。
-* Azure では、 Cloud Manager に必要な権限が付与されていれば何も実行する必要はありません。 <<Requirements to tier cold data to Azure Blob storage,詳細はこちら。>>。
-* GCP の場合、プライベート Google アクセスのサブネットを設定し、サービスアカウントを設定する必要があります。 <<Requirements to tier cold data to a Google Cloud Storage bucket,詳細はこちら。>>。
+[role="quick-margin-list"]
+ifdef::aws[]
 
+* AWS では、 S3 への VPC エンドポイントが必要です。 <<Requirements to tier cold data to AWS S3,詳細はこちら。>>。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* Azure では、 Cloud Manager に必要な権限が付与されていれば何も実行する必要はありません。 <<Requirements to tier cold data to Azure Blob storage,詳細はこちら。>>。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* Google Cloudの場合は、プライベートGoogleアクセスのサブネットを設定し、サービスアカウントを設定する必要があります。 <<Requirements to tier cold data to a Google Cloud Storage bucket,詳細はこちら。>>。
+
+
+endif::gcp[]
 
 [role="quick-margin-para"]
 ボリュームでデータ階層化を有効にするには、アグリゲートでデータ階層化が有効になっている必要があります。新しいボリュームと既存のボリュームの要件を確認しておく必要があります。 <<Ensuring that tiering is enabled on aggregates,詳細はこちら。>>。
@@ -41,7 +57,7 @@ summary: ホットデータ用の SSD または HDD の高パフォーマンス�
 .データ階層化に不要なもの
 ====
 * データの階層化を有効にするために機能ライセンスをインストールする必要はありません。
-* 大容量階層（ S3 バケット、 Azure BLOB コンテナ、 GCP バケット）を作成する必要はありません。クラウドマネージャーがそれを実現します。
+* 大容量階層用のオブジェクトストアを作成する必要はありません。クラウドマネージャーがそれを実現します。
 * システムレベルでデータの階層化を有効にする必要はありません。
 +
 Cloud Manager は、システム作成時にコールドデータ用のオブジェクトストアを作成し、 <<Enabling data tiering after implementing the requirements,接続または権限に問題がないことが必要です>>。その後は、ボリューム（および場合によっては、 <<Ensuring that tiering is enabled on aggregates,アグリゲート>>）。
@@ -53,23 +69,57 @@ Cloud Manager は、システム作成時にコールドデータ用のオブジ
 
 == データ階層化をサポートする構成
 
-特定の構成と機能を使用する場合は、データ階層化を有効にできます。
+特定の構成や機能を使用する場合は、データの階層化を有効にすることができます。
 
-* Cloud Volumes ONTAP では、次のバージョン以降でデータ階層化がサポートされます。
-+
-** AWS でバージョン 9.2 を実行します
-** Azure のシングルノードシステムの場合はバージョン 9.4
-** Azure バージョン 9.6 （ HA ペアを使用）
-** GCP のバージョン 9.6
+ifdef::aws[]
 
 
-* AWS では、パフォーマンス階層には汎用 SSD （ GP3 または gp2 ）またはプロビジョニングされる IOPS SSD （ io1 ）を使用できます。
+
+=== AWSでのサポート
+
+* Cloud Volumes ONTAP 9.2以降では、AWSでデータ階層化がサポートされます。
+* パフォーマンス階層には、汎用 SSD （ GP3 または gp2 ）またはプロビジョニングされる IOPS SSD （ io1 ）を使用できます。
 +
 
 NOTE: スループット最適化 HDD （ st1 ）を使用している場合、オブジェクトストレージへのデータの階層化は推奨されません。
 
-* Azure では、 Premium SSD Managed Disks 、 Standard SSD Managed Disks 、 Standard HDD Managed Disks のいずれかです。
-* GCP では、 SSD 永続ディスク、分散型永続ディスク、または標準的な永続ディスクのいずれかを使用できます。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+
+
+=== Azure でのサポート
+
+* Azureでは、次のデータ階層化がサポートされています。
++
+** シングルノードシステムの場合はバージョン9.4
+** HAペアではバージョン9.6
+
+
+* 高パフォーマンス階層には、Premium SSD Managed Disks、Standard SSD Managed Disks、Standard HDD Managed Disksがあります。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+
+
+=== Google Cloudのサポート
+
+* Cloud Volumes ONTAP 9.6以降では、Google Cloudでデータ階層化がサポートされます。
+* パフォーマンス階層には、 SSD 永続ディスク、分散型永続ディスク、標準の永続ディスクがあります。
+
+
+endif::gcp[]
+
+
+
+=== 機能の相互運用性
+
 * データ階層化は暗号化テクノロジでサポートされています。
 * ボリュームでシンプロビジョニングを有効にする必要があります。
 
@@ -80,6 +130,8 @@ NOTE: スループット最適化 HDD （ st1 ）を使用している場合、�
 
 クラウドプロバイダに応じて、 Cloud Volumes ONTAP がコールドデータをオブジェクトストレージに階層化できるように、特定の接続と権限を設定する必要があります。
 
+ifdef::aws[]
+
 
 
 === コールドデータを AWS S3 に階層化するための要件
@@ -89,6 +141,10 @@ Cloud Volumes ONTAP が S3 に接続されていることを確認します。�
 vPC エンドポイントを作成するときは、 Cloud Volumes ONTAP インスタンスに対応するリージョン、 vPC 、およびルートテーブルを必ず選択してください。S3 エンドポイントへのトラフィックを有効にする発信 HTTPS ルールを追加するには、セキュリティグループも変更する必要があります。そうしないと、 Cloud Volumes ONTAP は S3 サービスに接続できません。
 
 問題が発生した場合は、を参照してください https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/["AWS のサポートナレッジセンター：ゲートウェイ VPC エンドポイントを使用して S3 バケットに接続できないのはなぜですか。"^]。
+
+endif::aws[]
+
+ifdef::azure[]
 
 
 
@@ -102,6 +158,10 @@ vPC エンドポイントを作成するときは、 Cloud Volumes ONTAP イン�
 "Microsoft.Network/routeTables/join/action",
 ----
 権限は最新のに含まれています https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager ポリシー"]。
+
+endif::azure[]
+
+ifdef::gcp[]
 
 
 
@@ -122,6 +182,8 @@ link:task-setting-up-gcp-encryption.html["お客様が管理する暗号化キ�
 
 
 
+
+endif::gcp[]
 
 
 

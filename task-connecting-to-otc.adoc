@@ -23,8 +23,12 @@ Cloud Volumes ONTAP の高度な管理を実行する必要がある場合は、
 
 Cloud Manager にアクセスするコンピュータは、 Cloud Volumes ONTAP にネットワーク接続している必要があります。たとえば、クラウドプロバイダネットワークにあるジャンプホストから Cloud Manager へのログインが必要になることがあります。
 
+ifdef::aws[]
+
 
 NOTE: 複数の AWS 可用性ゾーンに導入されている場合、 Cloud Volumes ONTAP HA 構成では、クラスタ管理インターフェイスにフローティング IP アドレスが使用されます。つまり、外部ルーティングは使用できません。同じルーティングドメインの一部であるホストから接続する必要があります。
+
+endif::aws[]
 
 .手順
 . キャンバスから Cloud Volumes ONTAP 作業環境を選択します。
@@ -44,10 +48,14 @@ System Manager コンソールがロードされます。これで、 Cloud Volu
 
 Cloud Volumes ONTAP CLI では、すべての管理コマンドを実行できます。高度なタスクを実行する場合や、 CLI を使い慣れている場合は、 CLI の使用を推奨します。Secure Shell （ SSH ）を使用して CLI に接続できます。
 
-SSH を使用して Cloud Volumes に接続するホスト ONTAP は、 Cloud Volumes ONTAP にネットワーク接続している必要があります。たとえば、 AWS または Azure の Jump ホストから SSH を使用する必要がある場合があります。
+SSH を使用して Cloud Volumes に接続するホスト ONTAP は、 Cloud Volumes ONTAP にネットワーク接続している必要があります。たとえば、クラウドプロバイダネットワーク内のジャンプホストからSSHを使用する場合などです。
+
+ifdef::aws[]
 
 
 NOTE: 複数の AZS に導入されている場合、 Cloud Volumes ONTAP HA 構成では、クラスタ管理インターフェイスにフローティング IP アドレスが使用されます。これは、外部ルーティングが使用できないことを意味します。同じルーティングドメインの一部であるホストから接続する必要があります。
+
+endif::aws[]
 
 .手順
 . Cloud Manager で、クラスタ管理インターフェイスの IP アドレスを特定します。

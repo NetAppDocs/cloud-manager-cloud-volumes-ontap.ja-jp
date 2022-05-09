@@ -18,10 +18,12 @@ summary: コールドデータを低コストのオブジェクトストレー�
 
 image:diagram_data_tiering.png["この概念図は、 EBS ストレージに移動中のホットデータと S3 ストレージに移動中の非アクティブデータを示しています。"]
 
-Cloud Volumes ONTAP は、 AWS 、 Azure 、 Google Cloud Platform のデータ階層化をサポートしています。データ階層化は、 FabricPool テクノロジによって実現されます。
+データ階層化は、 FabricPool テクノロジによって実現されます。
 
 
 NOTE: データの階層化（ FabricPool ）を有効にするために機能ライセンスをインストールする必要はありません。
+
+ifdef::aws[]
 
 
 
@@ -55,6 +57,10 @@ NOTE: Cloud Manager は、作業環境ごとに 1 つの S3 バケットを作�
 --
 
 
+endif::aws[]
+
+ifdef::azure[]
+
 
 
 == Azure のデータ階層化
@@ -81,11 +87,15 @@ NOTE: Cloud Manager は、 Cloud Volumes ONTAP 作業環境ごとに 1 つのコ
 --
 
 
+endif::azure[]
+
+ifdef::gcp[]
 
 
-== GCP でのデータ階層化
 
-GCP でデータ階層化を有効にすると、 Cloud Volumes ONTAP はホットデータのパフォーマンス階層として永続的ディスクを使用し、アクセス頻度の低いデータの大容量階層として Google Cloud Storage バケットを使用します。
+== Google Cloudのデータ階層化
+
+Google Cloudでデータ階層化を有効にすると、Cloud Volumes ONTAP はホットデータのパフォーマンス階層として永続的ディスクを使用し、アクセス頻度の低いデータの大容量階層としてGoogle Cloud Storageバケットを使用します。
 
 高パフォーマンス階層:: パフォーマンス階層には、 SSD 永続ディスク、分散型永続ディスク、標準の永続ディスクがあります。
 大容量階層:: Cloud Volumes ONTAP システムは、 _Regional _storage クラスを使用して、アクセス頻度の低いデータを 1 つの Google Cloud Storage バケットに階層化します。
@@ -106,6 +116,8 @@ NOTE: Cloud Manager は、作業環境ごとに 1 つのバケットを作成し
 
 --
 
+
+endif::gcp[]
 
 
 

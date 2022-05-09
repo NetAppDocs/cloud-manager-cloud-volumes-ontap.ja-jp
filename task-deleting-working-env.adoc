@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-deleting-working-env.html 
-keywords: terminate, delete, working environment, remove, cloudformation, terminate working environment, terminate instance, delete cloud volumes ontap, delete instance, delete working environment, delete backups 
+keywords: terminate, delete, working environment, remove, terminate working environment, terminate instance, delete cloud volumes ontap, delete instance, delete working environment, delete backups 
 summary: Cloud Volumes ONTAP システムは、クラウドプロバイダのコンソールからではなく、必ず Cloud Manager から削除してください。たとえば、クラウドプロバイダからライセンスが有効な Cloud Volumes ONTAP インスタンスを終了すると、別のインスタンスでこのライセンスキーを使用できなくなります。ライセンスをリリースするには、作業環境を Cloud Manager から削除する必要があります。 
 ---
 = Cloud Volumes ONTAP システムを削除する

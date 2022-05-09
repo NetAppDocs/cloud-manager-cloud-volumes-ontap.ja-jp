@@ -123,7 +123,7 @@ TIP: サポートに登録されていないシステムにも、新しいバー
 
 === HA メディエーターのアップグレード
 
-AWS または Google Cloud の HA システムの場合、 Cloud Volumes ONTAP のアップグレードプロセス中に、必要に応じてメディエーターインスタンスも更新されます。
+また、Cloud Volumes ONTAP のアップグレードプロセス中に、必要に応じてメディエーターインスタンスも更新されます。
 
 
 
@@ -279,6 +279,8 @@ Cloud Manager がソフトウェアの更新を開始します。ソフトウェ
 
 SnapMirror 転送を一時停止した場合は、 System Manager を使用して転送を再開します。
 
+ifdef::gcp[]
+
 
 
 == Google Cloud NAT ゲートウェイを使用しているときのダウンロードエラーを修正します
@@ -300,3 +302,5 @@ _maxDownloadSessions_ の値は 1 または 1 より大きい任意の整数で�
 32 は値の例です。使用する値は、 NAT の設定と同時に使用できるセッションの数によって異なります。
 
 https://docs.netapp.com/us-en/cloud-manager-automation/cm/api_ref_resources.html#occmconfig["/occm/config API 呼び出しの詳細を確認してください"^]。
+
+endif::gcp[]

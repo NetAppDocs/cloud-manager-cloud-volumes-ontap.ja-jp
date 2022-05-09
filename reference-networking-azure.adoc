@@ -86,7 +86,7 @@ link:task-enabling-private-link.html["Azure プライベートリンクとクラ
 
 === 他の ONTAP システムへの接続
 
-Azure の Cloud Volumes ONTAP システムと他のネットワークの ONTAP システムの間でデータをレプリケートするには、 Azure VNet と他のネットワーク（ AWS VPC や企業ネットワークなど）の間に VPN 接続が必要です。
+Azure内のCloud Volumes ONTAP システムと他のネットワーク内のONTAP システム間でデータをレプリケートするには、企業ネットワークなど、Azure VNetとその他のネットワーク間にVPN接続が必要です。
 
 手順については、を参照してください https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal["Microsoft Azure のドキュメント：「 Create a Site-to-Site connection in the Azure portal"^]。
 
@@ -465,7 +465,7 @@ NOTE: 送信元 IP アドレスは、コネクタホストです。
 | サービス | ポート | プロトコル | 宛先 | 目的 
 
 
-| API コールと AutoSupport | 443 | HTTPS | アウトバウンドインターネットおよび ONTAP クラスタ管理 LIF | API が AWS や ONTAP 、クラウドデータ検知、ランサムウェアサービス、ネットアップへの AutoSupport メッセージの送信を呼び出します 
+| API コールと AutoSupport | 443 | HTTPS | アウトバウンドインターネットおよび ONTAP クラスタ管理 LIF | APIがAzureとONTAP にコールし、クラウドデータを検知してランサムウェアサービスに感染し、AutoSupport メッセージをネットアップに送信 
 
 
 | DNS | 53 | UDP | DNS | Cloud Manager による DNS 解決に使用されます 

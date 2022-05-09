@@ -7,6 +7,19 @@ settings:
   prod:
     pdf_enabled: true
     harmony_enabled: false
+  filter:
+    label: クラウドプロバイダ
+    default: すべてのクラウドプロバイダ
+    options:
+    - name: Amazon Web Services の
+      alias: AWS
+      id: aws
+    - name: Google Cloud
+      alias: Google Cloud
+      id: gcp
+    - name: Microsoft Azure
+      alias: Azure
+      id: azure
   langs: ja-jp,us-en,zh-cn,zh-tw,ko-kr
 sidebar:
   entries:
@@ -27,6 +40,7 @@ sidebar:
     - title: Cloud Volumes ONTAP の詳細をご覧ください
       url: "/concept-overview-cvo.html"
     - title: Amazon Web Services の利用を開始しましょう
+      flavor: aws
       entries:
       - title: クイックスタート
         url: "/task-getting-started-aws.html"
@@ -47,6 +61,7 @@ sidebar:
       - title: AWS C2S で作業を開始する
         url: "/task-getting-started-aws-c2s.html"
     - title: Microsoft Azure で利用を開始しましょう
+      flavor: azure
       entries:
       - title: クイックスタート
         url: "/task-getting-started-azure.html"
@@ -59,6 +74,7 @@ sidebar:
       - title: Azure でシステムを起動します
         url: "/task-deploying-otc-azure.html"
     - title: Google Cloud で始めましょう
+      flavor: gcp
       entries:
       - title: クイックスタート
         url: "/task-getting-started-gcp.html"
@@ -107,8 +123,10 @@ sidebar:
       - title: Cloud Manager で Storage VM を使用できます
         url: "/task-managing-svms.html"
       - title: AWS で Storage VM を作成します
+        flavor: aws
         url: "/task-managing-svms-aws.html"
       - title: Azure で Storage VM を作成します
+        flavor: azure
         url: "/task-managing-svms-azure.html"
     - title: セキュリティとデータ暗号化
       entries:
@@ -139,6 +157,7 @@ sidebar:
         - title: システムを削除します
           url: "/task-deleting-working-env.html"
       - title: AWS での管理
+        flavor: aws
         entries:
         - title: EC2 インスタンスタイプを変更します
           url: "/task-change-ec2-instance.html"
@@ -147,6 +166,7 @@ sidebar:
         - title: AWS のコストを監視
           url: "/task-monitoring-costs.html"
       - title: Azure での管理
+        flavor: azure
         entries:
         - title: Azure VM タイプを変更します
           url: "/task-change-azure-vm.html"
@@ -155,6 +175,7 @@ sidebar:
         - title: Azure プライベートリンクを使用する
           url: "/task-enabling-private-link.html"
       - title: Google Cloud の管理
+        flavor: gcp
         entries:
         - title: マシンタイプを変更します
           url: "/task-change-gcp-machine.html"
@@ -187,10 +208,13 @@ sidebar:
     - title: ハイアベイラビリティペア
       entries:
       - title: AWS の HA ペア
+        flavor: aws
         url: "/concept-ha.html"
       - title: Azure の HA ペア
+        flavor: azure
         url: "/concept-ha-azure.html"
       - title: GCP の HA ペア
+        flavor: gcp
         url: "/concept-ha-google-cloud.html"
       - title: ストレージテイクオーバー中の操作
         url: "/concept-degraded-ha-pair.html"
@@ -222,10 +246,13 @@ homepage:
       url: concept-overview-cvo.html
     - title: AWS でのクイックスタート
       url: task-getting-started-aws.html
+      flavor: aws
     - title: Azure のクイックスタート
       url: task-getting-started-azure.html
+      flavor: azure
     - title: Google Cloud のクイックスタート
       url: task-getting-started-gcp.html
+      flavor: gcp
   - title: ライセンス
     links:
     - title: ライセンスの概要

@@ -30,7 +30,7 @@ link:concept-licensing.html["Cloud Volumes ONTAP ライセンスの詳細につ�
 
 その間、Cloud Managerはネットアップのライセンスサービスを自動的に照会し、ネットアップサポートサイトのアカウントに関連付けられているライセンスに関する詳細を取得します。エラーがなければ、Cloud Managerはライセンスをデジタルウォレットに自動的に追加します。
 
-Cloud Managerでライセンスを追加できない場合は、手動でDigital Walletに追加する必要があります。 <<Add purchased licenses to your account,購入済みライセンスをアカウントに追加する方法について説明します>>。
+Cloud Managerでライセンスを追加できない場合は、手動でDigital Walletに追加する必要があります。たとえば、インターネットにアクセスできない場所にConnectorがインストールされている場合は、ライセンスを自分で追加する必要があります。 <<Add purchased licenses to your account,購入済みライセンスをアカウントに追加する方法について説明します>>。
 
 
 

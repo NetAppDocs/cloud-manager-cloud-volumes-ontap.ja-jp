@@ -14,9 +14,7 @@ summary: Cloud Manager では、 Cloud Volumes ONTAP に対して通常または
 
 
 [role="lead"]
-Cloud Manager では、 Cloud Volumes ONTAP に対して通常または高速の書き込み速度を選択できます。書き込み速度を選択する前に、高速書き込みを使用する場合の標準設定と高設定の違い、およびリスクと推奨事項を理解しておく必要があります。
-
-高速の書き込み速度は、すべてのタイプのシングルノードシステムでサポートされています。特定のインスタンスまたは VM タイプを使用している場合は、 AWS と Azure の HA ペアでもサポートされます（サポートされるインスタンスと VM タイプの一覧については、以下のセクションを参照してください）。GCP の HA ペアでは、高速の書き込み速度はサポートされていません。
+Cloud Managerでは、ほとんどのCloud Volumes ONTAP 構成に対して通常または高速の書き込み速度を選択できます。書き込み速度を選択する前に、高速書き込みを使用する場合の標準設定と高設定の違い、およびリスクと推奨事項を理解しておく必要があります。
 
 
 
@@ -46,6 +44,8 @@ Cloud Manager では、 Cloud Volumes ONTAP に対して通常または高速の
 
 高速の書き込み速度を有効にする場合は、アプリケーションレイヤでの書き込み保護を確保するか、またはデータ損失が発生した場合にアプリケーションで許容されるようにする必要があります。
 
+ifdef::aws[]
+
 
 
 === AWS で HA ペアを使用した場合の高速の書き込み速度
@@ -54,11 +54,15 @@ AWS の HA ペアで高速の書き込み速度を有効にする場合は、複
 
 link:concept-ha.html["AWS の HA ペアについて詳しくは、こちらをご覧ください"]。
 
+endif::aws[]
+
 
 
 === 高速の書き込み速度をサポートする構成
 
 すべての Cloud Volumes ONTAP 構成で高速書き込みがサポートされるわけではありません。デフォルトでは、これらの構成では通常の書き込み速度が使用されます。
+
+ifdef::aws[]
 
 
 
@@ -70,6 +74,10 @@ link:concept-ha.html["AWS の HA ペアについて詳しくは、こちらを�
 
 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html["Cloud Volume が提供する Amazon EC2 インスタンスの詳細については、こちらをご覧ください ONTAP はをサポートします"^]。
 
+endif::aws[]
+
+ifdef::azure[]
+
 
 
 ==== Azure
@@ -77,6 +85,10 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws
 シングルノードシステムを使用する場合、 Cloud Volumes ONTAP では、すべての種類の VM で高速な書き込み速度がサポートされます。
 
 HA ペアを使用する場合、 Cloud Volumes ONTAP では 9.8 リリース以降、複数の種類の VM で高速の書き込み速度がサポートされます。にアクセスします https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["Cloud Volumes ONTAP リリースノート"^] をクリックして、高速の書き込み速度をサポートする VM タイプを確認します。
+
+endif::azure[]
+
+ifdef::gcp[]
 
 
 
@@ -87,6 +99,8 @@ HA ペアを使用する場合、 Cloud Volumes ONTAP では 9.8 リリース以
 Cloud Volumes ONTAP では、 Google Cloud の HA ペアでの高速書き込みはサポートされていません。
 
 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["Cloud の Google Cloud マシンタイプの詳細をご覧ください Volume ONTAP はをサポートします"^]。
+
+endif::gcp[]
 
 
 

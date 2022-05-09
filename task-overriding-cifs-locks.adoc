@@ -4,7 +4,7 @@ permalink: task-overriding-cifs-locks.html
 keywords: CIFS locks, azure maintenance, maintenance events, cifs sessions, storage failover, storage giveback, giveback 
 summary: アカウント管理者は、 Cloud Manager で設定を有効にして、 Azure メンテナンスイベント時の Cloud Volumes ONTAP ストレージギブバックの問題を回避できます。この設定を有効にすると、 Cloud Volumes ONTAP は CIFS ロックを拒否し、アクティブな CIFS セッションをリセットします。 
 ---
-= Azure での Cloud Volumes ONTAP HA の CIFS ロックの無効化
+= AzureのCloud Volumes ONTAP HAペアでのCIFSロックの無効化
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

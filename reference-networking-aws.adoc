@@ -170,7 +170,7 @@ vPC エンドポイントを作成するときは、 Cloud Volumes ONTAP イン�
 
 === ONTAP システムへの接続
 
-AWS の Cloud Volumes ONTAP システムと他のネットワークの ONTAP システムの間でデータをレプリケートするには、 AWS VPC と他のネットワーク（ Azure VNet や企業ネットワークなど）の間に VPN 接続が必要です。手順については、を参照してください https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/SetUpVPNConnections.html["AWS ドキュメント：「 Setting Up an AWS VPN Connection"^]。
+AWSのCloud Volumes ONTAP システムと他のネットワークのONTAP システムの間でデータをレプリケートするには、AWS VPCと他のネットワーク（社内ネットワークなど）の間にVPN接続が必要です。手順については、を参照してください https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/SetUpVPNConnections.html["AWS ドキュメント：「 Setting Up an AWS VPN Connection"^]。
 
 
 

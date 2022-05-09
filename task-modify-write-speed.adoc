@@ -16,7 +16,7 @@ summary: ストレージニーズの変化に合わせて Cloud Volumes ONTAP �
 [role="lead"]
 Cloud Manager では、 Cloud Volumes ONTAP に対して通常または高速の書き込み速度を選択できます。デフォルトの書き込み速度は normal です。ワークロードで高速書き込みパフォーマンスが必要な場合は、高速書き込み速度に変更できます。
 
-高速の書き込み速度は、すべてのタイプのシングルノードシステムでサポートされています。特定のインスタンスまたは VM タイプを使用する場合は、 AWS と Azure の HA ペアでもサポートされます。GCP の HA ペアでは、高速の書き込み速度はサポートされていません。 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/["詳細については、 Cloud Volumes ONTAP のリリースノートを参照してください"^]。
+高速の書き込み速度は、すべてのタイプのシングルノードシステムと一部のHAペア構成でサポートされています。でサポートされている構成を表示します https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/["Cloud Volumes ONTAP リリースノート"^]
 
 書き込み速度を変更する前に、次のことを確認してください link:concept-write-speed.html["通常の設定と高い設定の違いを理解する"]。
 

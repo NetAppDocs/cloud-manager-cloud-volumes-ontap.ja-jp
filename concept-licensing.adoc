@@ -50,10 +50,26 @@ Cloud Volumes ONTAP のすべての機能をネットアップから無償で提
 
 Freemium 製品の使用を開始するには、新しい Cloud Volumes ONTAP 作業環境を作成し、充電方法の選択を求めるプロンプトが表示されたら「 * Freemium * 」を選択します。
 
+ifdef::aws[]
+
 * link:task-deploying-otc-aws.html["AWS での Cloud Volumes ONTAP の起動"]
+
+
+endif::aws[]
+
+ifdef::azure[]
+
 * link:task-deploying-otc-azure.html["Azure で Cloud Volumes ONTAP を起動します"]
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
 * link:task-deploying-gcp.html["Google Cloud で Cloud Volumes ONTAP を起動しています"]
 
+
+endif::gcp[]
 
 
 
@@ -101,19 +117,34 @@ Essentials パッケージと Professional パッケージには、次の消費�
 
 * クラウドプロバイダの市場から 1 時間単位のサブスクリプション（ PAYGO ）が提供されます。
 * クラウドプロバイダの市場から年間契約を獲得できます。
-+
-** AWSでは、年間契約はAWS Marketplaceで公開されています。Cloud Volumes ONTAP 作業環境を導入する際には、Cloud Managerから登録を求められます。
-** Azureでは、ネットアップの営業担当者と協力して年間契約を購入する必要があります。この契約は、Azure Marketplaceでのプライベートオファーとして提供されます。
+
+
+ifdef::aws[]
+
+* AWSでは、年間契約はAWS Marketplaceで公開されています。Cloud Volumes ONTAP 作業環境の導入時に、Cloud Managerの詳細とクレデンシャルのページで登録を行うように求められます。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* Azureでは、ネットアップの営業担当者と協力して年間契約を購入する必要があります。この契約は、Azure Marketplaceでのプライベートオファーとして提供されます。
 +
 ネットアップがお客様とプライベートオファーを共有したあとは、Azure Marketplaceでの作業環境の作成時にサブスクリプションするときに、年間プランを選択できます。
 
-** Google Cloudでは、年間契約を購入するには、ネットアップの営業担当者と協力する必要があります。この契約は、Google Cloud Marketplaceでのプライベートオファーとして利用できます。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* Google Cloudでは、年間契約を購入するには、ネットアップの営業担当者と協力する必要があります。この契約は、Google Cloud Marketplaceでのプライベートオファーとして利用できます。
 +
 ネットアップがプライベートオファーを共有した後は、作業環境の作成中にGoogle Cloud Marketplaceから登録するときに、年間プランを選択できます。
 
 
 
-
+endif::gcp[]
 
 次の点に注意してください。
 
@@ -139,15 +170,11 @@ Essentials パッケージと Professional パッケージには、次の消費�
 
 === 無償トライアルを利用できます
 
-30 日間の無償トライアルをクラウドプロバイダのマーケットプレイスで従量課金制サブスクリプションで利用できます。無償トライアルには、 Cloud Volumes ONTAP とクラウドバックアップが含まれており、マーケットプレイスのリストに登録した時点から利用が開始されます。
+30 日間の無償トライアルをクラウドプロバイダのマーケットプレイスで従量課金制サブスクリプションで利用できます。無償トライアルには、Cloud Volumes ONTAP とクラウドバックアップが含まれています。トライアルは、市場で提供サービスに登録すると開始されます。
 
-たとえば、時間単位のソフトウェアライセンス料は発生しませんが、クラウドプロバイダからインフラ料金が請求されます。
+インスタンスや容量の制限はありません。Cloud Volumes ONTAP システムは必要な数だけ導入でき、必要な容量を30日間無償で割り当てることができます。無料トライアルは、30日後に1時間ごとの有料サブスクリプションに自動的に変換されます。
 
-無料トライアルは、有効期限が切れると、自動的に 1 時間単位の有料サブスクリプションに変換されます。時間制限内にインスタンスを終了した場合、展開した次のインスタンスは無料トライアルの一部ではありません（ 30 日以内に展開された場合でも）。
-
-Cloud Volumes ONTAP の 30 日間の無償トライアルを Cloud Manager から開始するには、支払い担当者のアカウントで最初の Cloud Volumes ONTAP システムを作成します。
-
-従量課金制の試用版はクラウドプロバイダから提供され、いかなる手段によっても拡張することはできません。
+Cloud Volumes ONTAP のソフトウェアライセンス料金は1時間ごとに発生しませんが、クラウドプロバイダからインフラ料金が請求されます。
 
 
 
@@ -184,12 +211,29 @@ Cloud Volumes ONTAP の 30 日間の無償トライアルを Cloud Manager か�
 . link:task-manage-capacity-licenses.html["Cloud Manager にライセンスを追加します"]
 . Cloud Volumes ONTAP システムの作成時に、容量ベースの BYOL 課金方式を選択します
 +
+ifdef::aws[]
+
++
 ** link:task-deploying-otc-aws.html["AWS での Cloud Volumes ONTAP の起動"]
-** link:task-deploying-otc-azure.html["Azure で Cloud Volumes ONTAP を起動します"]
-** link:task-deploying-gcp.html["Google Cloud で Cloud Volumes ONTAP を起動しています"]
 
 
 
+
+endif::aws[]
+
+ifdef::azure[]
+
+* link:task-deploying-otc-azure.html["Azure で Cloud Volumes ONTAP を起動します"]
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* link:task-deploying-gcp.html["Google Cloud で Cloud Volumes ONTAP を起動しています"]
+
+
+endif::gcp[]
 
 
 
@@ -224,12 +268,29 @@ Keystone Flex Subscriptions は、 HA ペアでサポートされます。現時
 . ネットアップがお客様のアカウントを許可したあと、 link:task-manage-keystone.html#link-a-subscription["Cloud Volumes ONTAP で使用するサブスクリプションをリンクします"]。
 . Cloud Volumes ONTAP システムを作成するときに、 Keystone Flex サブスクリプションの課金方法を選択します。
 +
+ifdef::aws[]
+
++
 ** link:task-deploying-otc-aws.html["AWS での Cloud Volumes ONTAP の起動"]
-** link:task-deploying-otc-azure.html["Azure で Cloud Volumes ONTAP を起動します"]
-** link:task-deploying-gcp.html["Google Cloud で Cloud Volumes ONTAP を起動しています"]
 
 
 
+
+endif::aws[]
+
+ifdef::azure[]
+
+* link:task-deploying-otc-azure.html["Azure で Cloud Volumes ONTAP を起動します"]
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* link:task-deploying-gcp.html["Google Cloud で Cloud Volumes ONTAP を起動しています"]
+
+
+endif::gcp[]
 
 
 

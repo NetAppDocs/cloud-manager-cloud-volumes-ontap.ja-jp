@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-security.html 
-keywords: security, encryption, antivirus, concepts, key managers, safenet, kms, keys, vscan, encrypt, aws, key management service, cmk, customer master key, data at rest, data-at-rest, netapp storage encryption, certificate signing request, csr, certificate, ca certificate, virus, scan, virus scan, certificate authority, netapp volume encryption, nve, volume encryption, key management server, ransomware, fpolicy, snapshots 
+keywords: security, encryption, antivirus, concepts, key managers, safenet, kms, keys, vscan, encrypt, key management service, cmk, customer master key, data at rest, data-at-rest, netapp storage encryption, certificate signing request, csr, certificate, ca certificate, virus, scan, virus scan, certificate authority, netapp volume encryption, nve, volume encryption, key management server, ransomware, fpolicy, snapshots 
 summary: Cloud Volumes ONTAP は、データ暗号化をサポートし、ウィルスやランサムウェアからの保護を提供します。 
 ---
 = セキュリティ
@@ -23,12 +23,30 @@ Cloud Volumes ONTAP は、データ暗号化をサポートし、ウィルスや
 Cloud Volumes ONTAP は、次の暗号化テクノロジをサポートしています。
 
 * ネットアップの暗号化ソリューション（ NVE および NAE ）
+
+
+ifdef::aws[]
+
 * AWS Key Management Service の略
+
+
+endif::aws[]
+
+ifdef::azure[]
+
 * Azure Storage Service Encryption の略
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
 * Google Cloud Platform のデフォルトの暗号化
 
 
-ネットアップの暗号化ソリューションは、 AWS 、 Azure 、 GCP のネイティブ暗号化と組み合わせて使用できます。この暗号化ソリューションでは、ハイパーバイザーレベルでデータが暗号化されます。これにより、機密性の高いデータには二重の暗号化が必要になる場合があります。暗号化されたデータにアクセスすると、暗号化されていないデータがハイパーバイザーレベルで 2 回（クラウドプロバイダのキーを使用）暗号化されてから、ネットアップの暗号化ソリューションを再度使用して（外部キー管理ツールのキーを使用）暗号化されます。
+endif::gcp[]
+
+ネットアップの暗号化ソリューションは、クラウドプロバイダがネイティブに暗号化することでハイパーバイザーレベルでデータを暗号化します。これにより、機密性の高いデータには二重の暗号化が必要になる場合があります。暗号化されたデータにアクセスすると、暗号化されていないデータがハイパーバイザーレベルで 2 回（クラウドプロバイダのキーを使用）暗号化されてから、ネットアップの暗号化ソリューションを再度使用して（外部キー管理ツールのキーを使用）暗号化されます。
 
 
 
@@ -40,11 +58,21 @@ Cloud Volumes ONTAP はをサポートします https://www.netapp.com/us/media/
 * NAE は NVE の拡張機能です。 NVE は各ボリュームのデータを暗号化し、ボリュームはアグリゲート全体でキーを共有します。NAE では、アグリゲート内のすべてのボリュームの共通ブロックも重複排除できます。
 
 
-NVE と NAE はどちらも外部キー管理機能でサポートされています。NVE を使用する場合、 Azure Key Vault （ AKV ）または Google Cloud Key Management Service を使用して ONTAP 暗号化キーを保護することもできます。
+NVE と NAE はどちらも外部キー管理機能でサポートされています。
+
+ifdef::azure[]
+
+endif::azure[]
+
+ifdef::gcp[]
+
+endif::gcp[]
 
 新しいアグリゲートでは、外部キー管理ツールの設定後に NetApp Aggregate Encryption （ NAE ）がデフォルトで有効になります。NAE アグリゲートに含まれない新しいボリュームでは、 NetApp Volume Encryption （ NVE ）がデフォルトで有効になります（たとえば、外部キー管理ツールを設定する前に作成された既存のアグリゲートがある場合）。
 
 サポートされているキー管理ツールをセットアップするだけで済みます。セットアップ手順については、を参照してください link:task-encrypting-volumes.html["ネットアップの暗号化ソリューションによるボリュームの暗号化"]。
+
+ifdef::aws[]
 
 
 
@@ -57,6 +85,10 @@ TIP: Cloud Volumes ONTAP システムの作成後に AWS のデータ暗号化�
 
 この暗号化オプションを使用する場合は、 AWS KMS が適切に設定されていることを確認する必要があります。詳細については、を参照してください link:task-setting-up-kms.html["AWS KMS のセットアップ"]。
 
+endif::aws[]
+
+ifdef::azure[]
+
 
 
 === Azure Storage Service Encryption の略
@@ -65,6 +97,10 @@ TIP: Cloud Volumes ONTAP システムの作成後に AWS のデータ暗号化�
 
 必要に応じて、独自の暗号化キーを使用できます。 link:task-set-up-azure-encryption.html["Azure でお客様が管理するキーを使用するように Cloud Volumes ONTAP を設定する方法について説明します"]。
 
+endif::azure[]
+
+ifdef::gcp[]
+
 
 
 === Google Cloud Platform のデフォルトの暗号化
@@ -72,6 +108,8 @@ TIP: Cloud Volumes ONTAP システムの作成後に AWS のデータ暗号化�
 https://cloud.google.com/security/encryption-at-rest/["Google Cloud Platform の保存データ暗号化機能"^] Cloud Volumes ONTAP ではデフォルトで有効になっています。セットアップは必要ありません。
 
 Google Cloud Storage では常にデータが暗号化されてからディスクに書き込まれますが、 Cloud Manager API を使用して、 _cuser-managed 暗号化キー _ を使用する Cloud Volumes ONTAP システムを作成できます。これらは、 Cloud Key Management Service を使用して GCP で生成および管理するキーです。 link:task-setting-up-gcp-encryption.html["詳細はこちら。"]。
+
+endif::gcp[]
 
 
 

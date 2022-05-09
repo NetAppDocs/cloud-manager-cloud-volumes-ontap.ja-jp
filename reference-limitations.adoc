@@ -26,9 +26,11 @@ Cloud Volumes ONTAP では FlexGroup ボリュームがサポートされます�
 
 
 
-== Cloud Manager は ONTAP S3 をサポートしていません
+== Cloud Managerは、Cloud Volumes ONTAP ではS3をサポートしていません
 
-Azure の Cloud Volumes ONTAP は S3 を使用するオブジェクトをサポートしていますが、 Cloud Manager はこの機能の管理機能を提供しません。CLI を使用することが、 Cloud Volumes ONTAP からの S3 クライアントアクセスを設定するためのベストプラクティスです。詳細については、を参照してください http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-s3-cg/home.html["S3 構成パワーガイド"^]。
+一部のクラウドプロバイダでは、Cloud Volumes ONTAP がS3をスケールアウトストレージのオプションとしてサポートしていますが、Cloud Managerはこの機能の管理機能を提供していません。CLI を使用することが、 Cloud Volumes ONTAP からの S3 クライアントアクセスを設定するためのベストプラクティスです。詳細については、を参照してください http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-s3-cg/home.html["S3 構成パワーガイド"^]。
+
+link:concept-client-protocols.html["S3およびその他のクライアントプロトコルに対するCloud Volumes ONTAP のサポートに関する詳細を確認できます"]。
 
 
 

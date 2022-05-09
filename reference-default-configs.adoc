@@ -18,9 +18,8 @@ Cloud Volumes ONTAP がデフォルトでどのように設定されているか
 
 
 
-== デフォルト値です
+== デフォルトのセットアップ
 
-* Cloud Volumes ONTAP は、シングルノードシステムとして、また AWS 、 Azure 、 GCP の HA ペアとして利用できます。
 * Cloud Manager は、 Cloud Volumes ONTAP の導入時にデータを提供する Storage VM を 1 つ作成します。追加の Storage VM をサポートする構成もあります。 link:task-managing-svms.html["Storage VM の管理に関する詳細情報"]。
 +
 Cloud Manager 3.9.5 リリース以降では、最初の Storage VM で論理スペースのレポートが有効になります。スペースが論理的に報告されると、 ONTAP は、 Storage Efficiency 機能で削減されたすべての物理スペースが使用済みと報告するようにボリュームスペースを報告します。
@@ -42,21 +41,52 @@ Cloud Manager 3.9.5 リリース以降では、最初の Storage VM で論理ス
 +
 ** クラスタ管理 LIF
 ** クラスタ間 LIF
-** Azure および GCP の HA システム、 AWS のシングルノードシステム、および複数の AWS アベイラビリティゾーンの HA システム上の SVM 管理 LIF （オプション）
-** ノード管理 LIF （ GCP では、この LIF がクラスタ間 LIF と結合されます）
-** iSCSI データ LIF
-** CIFS および NFS データ LIF
+
+
+
+
+ifdef::azure[]
+
+* AzureのHAシステム上のSVM管理LIF
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* Google CloudのHAシステム上のSVM管理LIFです
+
+
+endif::gcp[]
+
+ifdef::aws[]
+
+* AWSのシングルノードシステム上のSVM管理LIF
+
+
+endif::aws[]
+
+* ノード管理 LIF
+
+
+ifdef::gcp[]
+
++ Google Cloudでは、このLIFがクラスタ間LIFと結合されます。
+
+endif::gcp[]
+
+* iSCSI データ LIF
+* CIFS および NFS データ LIF
 +
 
-NOTE: EC2 の要件により、 Cloud Volumes ONTAP の LIF フェイルオーバーはデフォルトで無効になっています。LIF を別のポートに移行すると、インスタンス上の IP アドレスとネットワークインターフェイス間の外部マッピングが解除され、 LIF にアクセスできなくなります。
+NOTE: クラウドプロバイダの要件により、Cloud Volumes ONTAP のLIFフェイルオーバーはデフォルトで無効になっています。LIF を別のポートに移行すると、インスタンス上の IP アドレスとネットワークインターフェイス間の外部マッピングが解除され、 LIF にアクセスできなくなります。
 
-
-
-* Cloud Volumes ONTAP は、 HTTPS を使用してコネクタに構成バックアップを送信します。
++
+** Cloud Volumes ONTAP は、 HTTPS を使用してコネクタに構成バックアップを送信します。
 +
 バックアップにはからアクセスできます https://ipaddress/occm/offboxconfig/[] ここで、 _ipaddress_ はコネクタホストの IP アドレスです。
 
-* Cloud Manager は、他の管理ツール（ System Manager や CLI など）とは異なるボリューム属性をいくつか設定します。
+** Cloud Manager は、他の管理ツール（ System Manager や CLI など）とは異なるボリューム属性をいくつか設定します。
 +
 次の表に、 Cloud Manager がデフォルトとは異なる設定にしたボリューム属性を示します。
 
@@ -92,9 +122,13 @@ NOTE: アカウント管理者は、 [ 設定 ] ページからこの値を変�
 
 
 
+
+
 == システムデータ用の内蔵ディスク
 
 ユーザデータ用のストレージに加えて、 Cloud Manager はシステムデータ用のクラウドストレージも購入します。
+
+ifdef::aws[]
 
 
 
@@ -109,10 +143,15 @@ NOTE: アカウント管理者は、 [ 設定 ] ページからこの値を変�
 
 * ブートディスクとルートディスクごとに 1 つの EBS スナップショット
 * HA ペアの場合は、メディエーターインスタンス用の EBS ボリュームが 1 つで、約 8GiB です
+* キー管理サービス（ KMS ）を使用して AWS でデータ暗号化を有効にすると、 Cloud Volumes ONTAP のブートディスクとルートディスクも暗号化されます。これには、 HA ペアのメディエーターインスタンスのブートディスクが含まれます。ディスクは、作業環境の作成時に選択した CMK を使用して暗号化されます。
 
 
 
 TIP: AWS では、 NVRAM はブートディスクにあります。
+
+endif::aws[]
+
+ifdef::azure[]
 
 
 
@@ -130,6 +169,7 @@ Cloud Volumes ONTAP 用に選択した仮想マシンでウルトラ SSD がサ�
 
 * コアを節約するために 1024 GiB の標準 HDD ディスクを 1 台
 * 各ブートディスクとルートディスクに 1 つの Azure Snapshot
+* ブートディスクとルートディスクはデフォルトで暗号化されています。
 
 
 
@@ -141,7 +181,12 @@ Cloud Volumes ONTAP 用に選択した仮想マシンでウルトラ SSD がサ�
 * コアを節約するために 1024 GiB の標準 HDD ディスク 2 台 （ノードごとに 1 つ）
 * NVRAM 用 512GiB Premium SSD ディスク × 2 （各ノードに 1 つ）
 * 各ブートディスクとルートディスクに 1 つの Azure Snapshot
+* ブートディスクとルートディスクはデフォルトで暗号化されています。
 
+
+endif::azure[]
+
+ifdef::gcp[]
 
 
 
@@ -152,6 +197,7 @@ Cloud Volumes ONTAP 用に選択した仮想マシンでウルトラ SSD がサ�
 * NVRAM 用に 500GiB SSD 永続ディスクが 1 本
 * コアを節約するための 315 GiB 標準永続ディスク 1 台
 * ブートデータとルートデータ用の Snapshot
+* ブートディスクとルートディスクはデフォルトで暗号化されています。
 
 
 
@@ -164,7 +210,10 @@ Cloud Volumes ONTAP 用に選択した仮想マシンでウルトラ SSD がサ�
 * コアを節約するための 2 つの 315 GiB 標準パーシステントディスク
 * メディエーターデータ用の 10GiB 標準永続ディスクが 1 本
 * ブートデータとルートデータ用の Snapshot
+* ブートディスクとルートディスクはデフォルトで暗号化されています。
 
+
+endif::gcp[]
 
 
 
@@ -180,11 +229,3 @@ Cloud Manager は次のようにストレージを配置します。
 * Storage Virtual Machine （ SVM ）ルートボリュームは aggr1 にあります。
 * データボリュームも aggr1 にあります。
 
-
-
-
-=== 暗号化
-
-ブートディスクとルートディスクは、これらのクラウドプロバイダではデフォルトで暗号化が有効になるため、 Azure と Google Cloud Platform では常に暗号化されます。
-
-キー管理サービス（ KMS ）を使用して AWS でデータ暗号化を有効にすると、 Cloud Volumes ONTAP のブートディスクとルートディスクも暗号化されます。これには、 HA ペアのメディエーターインスタンスのブートディスクが含まれます。ディスクは、作業環境の作成時に選択した CMK を使用して暗号化されます。

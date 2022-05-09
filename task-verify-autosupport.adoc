@@ -20,9 +20,25 @@ AutoSupport は、システムの健常性をプロアクティブに監視し�
 
 必要な設定手順は、 Cloud Volumes ONTAP インスタンスまたは環境のプロキシサービスを介してアウトバウンドのインターネット接続を確立することだけです。詳細については、クラウドプロバイダのネットワーク要件を参照してください。
 
+ifdef::aws[]
+
 * link:reference-networking-aws.html["AWS ネットワークの要件"]
+
+
+endif::aws[]
+
+ifdef::azure[]
+
 * link:reference-networking-azure.html["Azure ネットワークの要件"]
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
 * link:reference-networking-gcp.html["Google Cloud のネットワーク要件"]
 
+
+endif::gcp[]
 
 アウトバウンドのインターネットアクセスが使用可能であることを確認したら、 AutoSupport をテストしてメッセージを送信できることを確認します。手順については、を参照してください https://docs.netapp.com/us-en/ontap/system-admin/setup-autosupport-task.html["ONTAP のドキュメント：「 AutoSupport のセットアップ"^]。
