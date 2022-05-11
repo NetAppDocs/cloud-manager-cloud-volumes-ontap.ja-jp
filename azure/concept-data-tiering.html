@@ -1385,7 +1385,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-09 15:40:08 +0000">05/09/2022</time>
+    <time datetime="2022-05-11 22:54:54 +0000">05/11/2022</time>
     
   
 
@@ -1431,29 +1431,54 @@
 </dd>
 <dt class="hdlist1">大容量階層</dt>
 <dd>
-<p>Cloud Volumes ONTAP システムは、 azure_hot_storage 階層を使用して、アクセス頻度の低いデータを単一の BLOB コンテナに階層化します。ホット階層は、アクセス頻度の高いデータに最適です。</p>
+<p>Cloud Volumes ONTAP システムは、アクセス頻度の低いデータを単一のBLOBコンテナに階層化します。</p>
 <div class="openblock">
 <div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注記">
-</td>
-<td class="content">
-Cloud Manager は、 Cloud Volumes ONTAP 作業環境ごとに 1 つのコンテナを持つ新しいストレージアカウントを作成します。ストレージアカウントの名前はランダムです。ボリュームごとに異なるコンテナは作成されません。
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>Cloud Managerは、Cloud Volumes ONTAP 作業環境ごとにコンテナを含む新しいストレージアカウントを作成します。ストレージアカウントの名前はランダムです。ボリュームごとに異なるコンテナは作成されません。</p>
+</div>
+<div class="paragraph">
+<p>Cloud Managerは、次の設定でストレージアカウントを作成します。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>アクセス層：ホット</p>
+</li>
+<li>
+<p>パフォーマンス：標準</p>
+</li>
+<li>
+<p>冗長性：ローカル冗長ストレージ（LRS）</p>
+</li>
+<li>
+<p>アカウント：StorageV2（汎用v2）</p>
+</li>
+<li>
+<p>REST API処理にはセキュアな転送が必要：有効</p>
+</li>
+<li>
+<p>ストレージアカウントキーへのアクセス：有効</p>
+</li>
+<li>
+<p>TLSの最小バージョン：バージョン1.2</p>
+</li>
+<li>
+<p>インフラストラクチャの暗号化:無効</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </dd>
 <dt class="hdlist1">ストレージアクセス階層</dt>
 <dd>
-<p>Azure の階層化データのデフォルトのストレージアクセス階層は、 _hot_tier です。アクセス頻度の低いデータにアクセスしない場合は、 _cool ストレージ階層に変更することでストレージコストを削減できます。ストレージ階層を変更すると、アクセス頻度の低いデータは最初はホットストレージ階層に配置され、アクセス日数が 30 日を超えない場合はアクセス頻度の低いストレージ階層に移行されます。</p>
+<p>Azure の階層化データのデフォルトのストレージアクセス階層は、 _hot_tier です。ホット階層は、アクセス頻度の高いデータに最適です。</p>
 <div class="openblock">
 <div class="content">
+<div class="paragraph">
+<p>アクセス頻度の低いデータにアクセスしない場合は、 _cool ストレージ階層に変更することでストレージコストを削減できます。ストレージ階層を変更すると、アクセス頻度の低いデータは最初はホットストレージ階層に配置され、アクセス日数が 30 日を超えない場合はアクセス頻度の低いストレージ階層に移行されます。</p>
+</div>
 <div class="paragraph">
 <p>データにアクセスするとアクセスコストが高くなるため、ストレージ階層を変更する前にこの点を考慮する必要があります。 <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers" target="_blank" rel="noopener">"Azure BLOB ストレージのアクセス階層の詳細については、こちらを参照してください"</a>。</p>
 </div>

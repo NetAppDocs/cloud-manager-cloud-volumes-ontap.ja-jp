@@ -1439,7 +1439,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-09 15:40:08 +0000">05/09/2022</time>
+    <time datetime="2022-05-11 22:54:54 +0000">05/11/2022</time>
     
   
 
@@ -1484,46 +1484,56 @@
 <p>パフォーマンス階層には、汎用 SSD （ GP3 または gp2 ）またはプロビジョニングされる IOPS SSD （ io1 ）を使用できます。</p>
 <div class="openblock">
 <div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注記">
-</td>
-<td class="content">
-スループット最適化 HDD （ st1 ）を使用している場合、オブジェクトストレージへのデータの階層化は推奨されません。
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>スループット最適化 HDD （ st1 ）を使用している場合、オブジェクトストレージへのデータの階層化は推奨されません。</p>
 </div>
 </div>
 </div>
 </dd>
 <dt class="hdlist1">大容量階層</dt>
 <dd>
-<p>Cloud Volumes ONTAP システムは、 _Standard_storage クラスを使用して、アクセス頻度の低いデータを 1 つの S3 バケットに階層化します。Standard は、複数の可用性ゾーンにまたがって保存された頻繁にアクセスされるデータに最適です。</p>
+<p>Cloud Volumes ONTAP システムは、アクセス頻度の低いデータを1つのS3バケットに階層化します。</p>
 <div class="openblock">
 <div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注記">
-</td>
-<td class="content">
-Cloud Manager は、作業環境ごとに 1 つの S3 バケットを作成して、 fabric-pool-<em>cluster unique identifier</em> という名前を付けます。ボリュームごとに異なる S3 バケットが作成されることはありません。
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>Cloud Manager は、作業環境ごとに 1 つの S3 バケットを作成して、 fabric-pool-<em>cluster unique identifier</em> という名前を付けます。ボリュームごとに異なる S3 バケットが作成されることはありません。</p>
+</div>
+<div class="paragraph">
+<p>Cloud Managerは、S3バケットを作成する際に次のデフォルト設定を使用します。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ストレージクラス：Standard</p>
+</li>
+<li>
+<p>デフォルトの暗号化：無効</p>
+</li>
+<li>
+<p>Block public access：すべてのパブリックアクセスをブロックします</p>
+</li>
+<li>
+<p>オブジェクトの所有権：ACLが有効</p>
+</li>
+<li>
+<p>バケットのバージョン管理：無効</p>
+</li>
+<li>
+<p>オブジェクトロック：無効</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </dd>
 <dt class="hdlist1">ストレージクラス</dt>
 <dd>
-<p>AWS の階層化データのデフォルトのストレージクラスは <em>Standard</em> です。アクセス頻度の低いデータがない場合は、ストレージクラスを次のいずれかに変更することで、ストレージコストを削減できます。<em>Intelligent Tiering _、_one-Zone低頻度アクセス</em>、<em>Standard -低頻度アクセス</em>、または_S3 Glacier Instant Retrieval。ストレージクラスを変更すると、アクセス頻度の低いデータは Standard ストレージクラスから始まり、 30 日経ってもアクセスされない場合は選択したストレージクラスに移行されます。</p>
+<p>AWS の階層化データのデフォルトのストレージクラスは <em>Standard</em> です。Standard は、複数の可用性ゾーンにまたがって保存された頻繁にアクセスされるデータに最適です。</p>
 <div class="openblock">
 <div class="content">
+<div class="paragraph">
+<p>アクセス頻度の低いデータがない場合は、ストレージクラスを次のいずれかに変更することで、ストレージコストを削減できます。<em>Intelligent Tiering _、_one-Zone低頻度アクセス</em>、<em>Standard -低頻度アクセス</em>、または_S3 Glacier Instant Retrieval。ストレージクラスを変更すると、アクセス頻度の低いデータは Standard ストレージクラスから始まり、 30 日経ってもアクセスされない場合は選択したストレージクラスに移行されます。</p>
+</div>
 <div class="paragraph">
 <p>データにアクセスするとアクセスコストが高くなるため、ストレージクラスを変更する前にこの点を考慮する必要があります。 <a href="https://aws.amazon.com/s3/storage-classes" target="_blank" rel="noopener">"Amazon S3 ストレージクラスに関する詳細情報"</a>。</p>
 </div>
@@ -1554,29 +1564,54 @@ Cloud Manager は、作業環境ごとに 1 つの S3 バケットを作成し�
 </dd>
 <dt class="hdlist1">大容量階層</dt>
 <dd>
-<p>Cloud Volumes ONTAP システムは、 azure_hot_storage 階層を使用して、アクセス頻度の低いデータを単一の BLOB コンテナに階層化します。ホット階層は、アクセス頻度の高いデータに最適です。</p>
+<p>Cloud Volumes ONTAP システムは、アクセス頻度の低いデータを単一のBLOBコンテナに階層化します。</p>
 <div class="openblock">
 <div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注記">
-</td>
-<td class="content">
-Cloud Manager は、 Cloud Volumes ONTAP 作業環境ごとに 1 つのコンテナを持つ新しいストレージアカウントを作成します。ストレージアカウントの名前はランダムです。ボリュームごとに異なるコンテナは作成されません。
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>Cloud Managerは、Cloud Volumes ONTAP 作業環境ごとにコンテナを含む新しいストレージアカウントを作成します。ストレージアカウントの名前はランダムです。ボリュームごとに異なるコンテナは作成されません。</p>
+</div>
+<div class="paragraph">
+<p>Cloud Managerは、次の設定でストレージアカウントを作成します。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>アクセス層：ホット</p>
+</li>
+<li>
+<p>パフォーマンス：標準</p>
+</li>
+<li>
+<p>冗長性：ローカル冗長ストレージ（LRS）</p>
+</li>
+<li>
+<p>アカウント：StorageV2（汎用v2）</p>
+</li>
+<li>
+<p>REST API処理にはセキュアな転送が必要：有効</p>
+</li>
+<li>
+<p>ストレージアカウントキーへのアクセス：有効</p>
+</li>
+<li>
+<p>TLSの最小バージョン：バージョン1.2</p>
+</li>
+<li>
+<p>インフラストラクチャの暗号化:無効</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </dd>
 <dt class="hdlist1">ストレージアクセス階層</dt>
 <dd>
-<p>Azure の階層化データのデフォルトのストレージアクセス階層は、 _hot_tier です。アクセス頻度の低いデータにアクセスしない場合は、 _cool ストレージ階層に変更することでストレージコストを削減できます。ストレージ階層を変更すると、アクセス頻度の低いデータは最初はホットストレージ階層に配置され、アクセス日数が 30 日を超えない場合はアクセス頻度の低いストレージ階層に移行されます。</p>
+<p>Azure の階層化データのデフォルトのストレージアクセス階層は、 _hot_tier です。ホット階層は、アクセス頻度の高いデータに最適です。</p>
 <div class="openblock">
 <div class="content">
+<div class="paragraph">
+<p>アクセス頻度の低いデータにアクセスしない場合は、 _cool ストレージ階層に変更することでストレージコストを削減できます。ストレージ階層を変更すると、アクセス頻度の低いデータは最初はホットストレージ階層に配置され、アクセス日数が 30 日を超えない場合はアクセス頻度の低いストレージ階層に移行されます。</p>
+</div>
 <div class="paragraph">
 <p>データにアクセスするとアクセスコストが高くなるため、ストレージ階層を変更する前にこの点を考慮する必要があります。 <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers" target="_blank" rel="noopener">"Azure BLOB ストレージのアクセス階層の詳細については、こちらを参照してください"</a>。</p>
 </div>
@@ -1607,20 +1642,36 @@ Cloud Manager は、 Cloud Volumes ONTAP 作業環境ごとに 1 つのコンテ
 </dd>
 <dt class="hdlist1">大容量階層</dt>
 <dd>
-<p>Cloud Volumes ONTAP システムは、 _Regional _storage クラスを使用して、アクセス頻度の低いデータを 1 つの Google Cloud Storage バケットに階層化します。</p>
+<p>Cloud Volumes ONTAP システムは、アクセス頻度の低いデータを1つのGoogle Cloud Storageバケットに階層化します。</p>
 <div class="openblock">
 <div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注記">
-</td>
-<td class="content">
-Cloud Manager は、作業環境ごとに 1 つのバケットを作成し、 fabric-pool-<em>cluster unique identifier</em> という名前を付けます。ボリュームごとに異なるバケットが作成されることはありません。
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>Cloud Managerは、作業環境ごとにバケットを作成し、fabric-pool-_cluster unique identifier_という名前を付けます。ボリュームごとに異なるバケットが作成されることはありません。</p>
+</div>
+<div class="paragraph">
+<p>Cloud Managerは、バケットを作成する際に次のデフォルト設定を使用します。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>場所の種類：地域</p>
+</li>
+<li>
+<p>ストレージクラス：Standard</p>
+</li>
+<li>
+<p>public access：オブジェクトACLに依存します</p>
+</li>
+<li>
+<p>アクセスコントロール：きめ細かな設定</p>
+</li>
+<li>
+<p>保護：なし</p>
+</li>
+<li>
+<p>データの暗号化：Googleで管理されるキー</p>
+</li>
+</ul>
 </div>
 </div>
 </div>

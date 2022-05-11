@@ -1383,7 +1383,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-09 15:40:08 +0000">05/09/2022</time>
+    <time datetime="2022-05-11 22:54:54 +0000">05/11/2022</time>
     
   
 
@@ -1429,20 +1429,36 @@
 </dd>
 <dt class="hdlist1">大容量階層</dt>
 <dd>
-<p>Cloud Volumes ONTAP システムは、 _Regional _storage クラスを使用して、アクセス頻度の低いデータを 1 つの Google Cloud Storage バケットに階層化します。</p>
+<p>Cloud Volumes ONTAP システムは、アクセス頻度の低いデータを1つのGoogle Cloud Storageバケットに階層化します。</p>
 <div class="openblock">
 <div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注記">
-</td>
-<td class="content">
-Cloud Manager は、作業環境ごとに 1 つのバケットを作成し、 fabric-pool-<em>cluster unique identifier</em> という名前を付けます。ボリュームごとに異なるバケットが作成されることはありません。
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>Cloud Managerは、作業環境ごとにバケットを作成し、fabric-pool-_cluster unique identifier_という名前を付けます。ボリュームごとに異なるバケットが作成されることはありません。</p>
+</div>
+<div class="paragraph">
+<p>Cloud Managerは、バケットを作成する際に次のデフォルト設定を使用します。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>場所の種類：地域</p>
+</li>
+<li>
+<p>ストレージクラス：Standard</p>
+</li>
+<li>
+<p>public access：オブジェクトACLに依存します</p>
+</li>
+<li>
+<p>アクセスコントロール：きめ細かな設定</p>
+</li>
+<li>
+<p>保護：なし</p>
+</li>
+<li>
+<p>データの暗号化：Googleで管理されるキー</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
