@@ -1317,7 +1317,6 @@
   <block id="aaf6f41e4241a55e6a363b9c414d4feb" category="list-text">パフォーマンス階層には、汎用 SSD （ GP3 または gp2 ）またはプロビジョニングされる IOPS SSD （ io1 ）を使用できます。</block>
   <block id="907c78338365697be8fd8d4a130503c8" category="admonition">スループット最適化 HDD （ st1 ）を使用している場合、オブジェクトストレージへのデータの階層化は推奨されません。</block>
   <block id="f7c94a9d0c1e0feee8c2687a0f8fa5ad" category="list-text">大容量階層</block>
-  <block id="25ecc9395604e745b655dbcb6eed23bc" category="list-text">Cloud Volumes ONTAP システムは、 _Standard_storage クラスを使用して、アクセス頻度の低いデータを 1 つの S3 バケットに階層化します。Standard は、複数の可用性ゾーンにまたがって保存された頻繁にアクセスされるデータに最適です。</block>
   <block id="b162acd76f83f99ac24045020f8e1c25" category="admonition">Cloud Manager は、作業環境ごとに 1 つの S3 バケットを作成して、 fabric-pool-_cluster unique identifier_ という名前を付けます。ボリュームごとに異なる S3 バケットが作成されることはありません。</block>
   <block id="7672a092783c4348b96b40ea2dcf6681" category="list-text">ストレージクラス</block>
   <block id="20831024dd0b150380212ea26b281613" category="inline-link">Amazon S3 ストレージクラスに関する詳細情報</block>
@@ -1328,17 +1327,12 @@
   <block id="176cd61977ca55fd13eff7c7ba3659f5" category="section-title">Azure のデータ階層化</block>
   <block id="9f5e7587dc37b317df0faf00f072c5b5" category="paragraph">Azure でデータ階層化を有効にすると、 Cloud Volumes ONTAP は、ホットデータ用のパフォーマンス階層として Azure で管理されているディスクを、アクセス頻度の低いデータ用の大容量階層として Azure Blob Storage を使用します。</block>
   <block id="567479f8818b026e7e5b2c6b0656e651" category="list-text">高パフォーマンス階層には SSD と HDD があります。</block>
-  <block id="92e2e0d1f9d0c33f6291e87d9139fd1a" category="list-text">Cloud Volumes ONTAP システムは、 azure_hot_storage 階層を使用して、アクセス頻度の低いデータを単一の BLOB コンテナに階層化します。ホット階層は、アクセス頻度の高いデータに最適です。</block>
-  <block id="e7f09232d4ae69ba91d69de18e74a87c" category="admonition">Cloud Manager は、 Cloud Volumes ONTAP 作業環境ごとに 1 つのコンテナを持つ新しいストレージアカウントを作成します。ストレージアカウントの名前はランダムです。ボリュームごとに異なるコンテナは作成されません。</block>
   <block id="11b35c3a4f0107e2f78651baa7b32bd0" category="list-text">ストレージアクセス階層</block>
-  <block id="dc879879343c48a51de170640097bfd2" category="list-text">Azure の階層化データのデフォルトのストレージアクセス階層は、 _hot_tier です。アクセス頻度の低いデータにアクセスしない場合は、 _cool ストレージ階層に変更することでストレージコストを削減できます。ストレージ階層を変更すると、アクセス頻度の低いデータは最初はホットストレージ階層に配置され、アクセス日数が 30 日を超えない場合はアクセス頻度の低いストレージ階層に移行されます。</block>
   <block id="8b2d7f1ae50962ecff6863b4b3359c61" category="inline-link">Azure BLOB ストレージのアクセス階層の詳細については、こちらを参照してください</block>
   <block id="68fe4c8de4747fa77a5d46c70cf18294" category="paragraph">データにアクセスするとアクセスコストが高くなるため、ストレージ階層を変更する前にこの点を考慮する必要があります。<block ref="b972df3be971ae20a5e41fb28c27dcfc" category="inline-link-rx"></block>。</block>
   <block id="98fdd008687283335edf23e9e287cb83" category="paragraph">作業環境の作成時にストレージ階層を選択し、あとでいつでも変更できます。ストレージ階層の変更の詳細については、を参照してください <block ref="4fbc08218411ffa53189962e6368b39b" category="inline-link-macro-rx"></block>。</block>
   <block id="a38b9b490932e9d5b5db3e24784ec656" category="paragraph">データ階層化のためのストレージアクセス階層は、システム全体に適用されます。ボリューム単位ではありません。</block>
   <block id="3b8940895816a07ee6f7b4cd2d7353e3" category="list-text">パフォーマンス階層には、 SSD 永続ディスク、分散型永続ディスク、標準の永続ディスクがあります。</block>
-  <block id="b15506ba0795b6263dd1128d8ab2f4b9" category="list-text">Cloud Volumes ONTAP システムは、 _Regional _storage クラスを使用して、アクセス頻度の低いデータを 1 つの Google Cloud Storage バケットに階層化します。</block>
-  <block id="ce0ff5d3338a785151c757f957271280" category="admonition">Cloud Manager は、作業環境ごとに 1 つのバケットを作成し、 fabric-pool-_cluster unique identifier_ という名前を付けます。ボリュームごとに異なるバケットが作成されることはありません。</block>
   <block id="56fcb51b5b1e4760266f6a808fa6396a" category="list-text">階層化データのデフォルトのストレージクラスは、 _Standard Storage_class です。データへのアクセス頻度が低い場合は、 _Nearline Storage_or_Coldline Storage_ に変更することでストレージコストを削減できます。ストレージクラスを変更すると、アクセス頻度の低いデータは Standard Storage クラスから始まり、 30 日経ってもアクセスされない場合は選択したストレージクラスに移行されます。</block>
   <block id="5097a121ff5ccfae7cb78986b23616f8" category="inline-link">Google Cloud Storage のストレージクラスの詳細については、こちらをご覧ください</block>
   <block id="3f1b0a674f5325ee098ce0196eda6d56" category="paragraph">データにアクセスするとアクセスコストが高くなるため、ストレージクラスを変更する前にこの点を考慮する必要があります。<block ref="12bb21ea227f99e4e5df122704c6f379" category="inline-link-rx"></block>。</block>
@@ -3633,7 +3627,6 @@
   <block id="fc4876ca61d1c336e1f17141c7227b6e" category="cell">既存のファイアウォールポリシーを使用する</block>
   <block id="7f6be0499fe67271d3c198bd726fe0c0" category="inline-link-macro">Cloud Volumes ONTAP のファイアウォールルールについて説明します</block>
   <block id="154e9c61180206ef2d8b605b639fb35f" category="cell">既存のファイアウォールポリシーを使用する場合は、必要なルールが含まれていることを確認してください。 <block ref="c3fbed15c1fb154b840fdb8b5504f098" category="inline-link-macro-rx"></block>。</block>
-  <block id="d84251a0fd530f03ffc5b24f87e0f907" category="list-text">AWS の階層化データのデフォルトのストレージクラスは _Standard_ です。アクセス頻度の低いデータがない場合は、ストレージクラスを次のいずれかに変更することで、ストレージコストを削減できます。_Intelligent Tiering _、_one-Zone低頻度アクセス_、_Standard -低頻度アクセス_、または_S3 Glacier Instant Retrieval。ストレージクラスを変更すると、アクセス頻度の低いデータは Standard ストレージクラスから始まり、 30 日経ってもアクセスされない場合は選択したストレージクラスに移行されます。</block>
   <block id="ba6a8b64123c5bbe5d7d30c1bd941cc0" category="section-title">デフォルトのセットアップ</block>
   <block id="aa98b7df0a0a0f2af69cbff3dcbe620e" category="list-text">AzureのHAシステム上のSVM管理LIF</block>
   <block id="97c3d7abfc75b002edd7cf58c0502788" category="list-text">Google CloudのHAシステム上のSVM管理LIFです</block>
@@ -3721,4 +3714,35 @@
   <block id="310c228207a0f8446bbe4c5d16978cb7" category="paragraph">endif::gcp[]</block>
   <block id="5a81378cdc7edd9ea960cf02d6ca78d2" category="paragraph">ifdef::aws[]</block>
   <block id="6beb2fa01dc121194547db1bfbe03408" category="paragraph">endif::aws[]</block>
+  <block id="f231e5c51143720c4b3e48ce40d467d4" category="list-text">Cloud Volumes ONTAP システムは、アクセス頻度の低いデータを1つのS3バケットに階層化します。</block>
+  <block id="572f86fb369e26ce9ca46b6d18b46c21" category="paragraph">Cloud Managerは、S3バケットを作成する際に次のデフォルト設定を使用します。</block>
+  <block id="2d29df35288e7a898c064fc1c04fd451" category="list-text">ストレージクラス：Standard</block>
+  <block id="804c8e3fcbb38fef4b1f66be12d7a74f" category="list-text">デフォルトの暗号化：無効</block>
+  <block id="dd0ae3a0377d592bbcaeba23fcd7e7ff" category="list-text">Block public access：すべてのパブリックアクセスをブロックします</block>
+  <block id="a4f41197b4619463f389cc696d0ea81b" category="list-text">オブジェクトの所有権：ACLが有効</block>
+  <block id="873465357929232f09ebfe53751fc108" category="list-text">バケットのバージョン管理：無効</block>
+  <block id="b788a91f4e53009b26bcc89d69b0482f" category="list-text">オブジェクトロック：無効</block>
+  <block id="ed08534aa63de5b03527a0bbb1320085" category="list-text">AWS の階層化データのデフォルトのストレージクラスは _Standard_ です。Standard は、複数の可用性ゾーンにまたがって保存された頻繁にアクセスされるデータに最適です。</block>
+  <block id="12a66087f2f58411b20b387be417b6af" category="paragraph">アクセス頻度の低いデータがない場合は、ストレージクラスを次のいずれかに変更することで、ストレージコストを削減できます。_Intelligent Tiering _、_one-Zone低頻度アクセス_、_Standard -低頻度アクセス_、または_S3 Glacier Instant Retrieval。ストレージクラスを変更すると、アクセス頻度の低いデータは Standard ストレージクラスから始まり、 30 日経ってもアクセスされない場合は選択したストレージクラスに移行されます。</block>
+  <block id="98084fb337b1b2cf4cb9e5af0b0ef9b1" category="list-text">Cloud Volumes ONTAP システムは、アクセス頻度の低いデータを単一のBLOBコンテナに階層化します。</block>
+  <block id="6fc2bc840d9eab00fcc83925bc6de35b" category="paragraph">Cloud Managerは、Cloud Volumes ONTAP 作業環境ごとにコンテナを含む新しいストレージアカウントを作成します。ストレージアカウントの名前はランダムです。ボリュームごとに異なるコンテナは作成されません。</block>
+  <block id="def3a5d7bc75bdc76a426a74d092179f" category="paragraph">Cloud Managerは、次の設定でストレージアカウントを作成します。</block>
+  <block id="f7c5c3f829ba75eb23b7c60381fd4f74" category="list-text">アクセス層：ホット</block>
+  <block id="c89729007f1266a456e5a1133a9f58e9" category="list-text">パフォーマンス：標準</block>
+  <block id="dc4d23da133e198d425564262ad6976b" category="list-text">冗長性：ローカル冗長ストレージ（LRS）</block>
+  <block id="2f546189dda4bc24c6d8f6ed71c57a36" category="list-text">アカウント：StorageV2（汎用v2）</block>
+  <block id="e0d679a04a2c140c65cff67ffbfd8444" category="list-text">REST API処理にはセキュアな転送が必要：有効</block>
+  <block id="4fbd5770a6fd5de01bbbcf2a407118d7" category="list-text">ストレージアカウントキーへのアクセス：有効</block>
+  <block id="c826704ed8ef326581305fef2036bfb6" category="list-text">TLSの最小バージョン：バージョン1.2</block>
+  <block id="276a9219319519ae3ee8b320e4458068" category="list-text">インフラストラクチャの暗号化:無効</block>
+  <block id="fb3bd9a69b565a8866ad383666b98f8c" category="list-text">Azure の階層化データのデフォルトのストレージアクセス階層は、 _hot_tier です。ホット階層は、アクセス頻度の高いデータに最適です。</block>
+  <block id="45c06cdb409b9857a0b2089bf2cff7a0" category="paragraph">アクセス頻度の低いデータにアクセスしない場合は、 _cool ストレージ階層に変更することでストレージコストを削減できます。ストレージ階層を変更すると、アクセス頻度の低いデータは最初はホットストレージ階層に配置され、アクセス日数が 30 日を超えない場合はアクセス頻度の低いストレージ階層に移行されます。</block>
+  <block id="f2bc66356d174d95b97b4e9b8b873540" category="list-text">Cloud Volumes ONTAP システムは、アクセス頻度の低いデータを1つのGoogle Cloud Storageバケットに階層化します。</block>
+  <block id="be7745616b03b282d0a3277eb8d1298c" category="paragraph">Cloud Managerは、作業環境ごとにバケットを作成し、fabric-pool-_cluster unique identifier_という名前を付けます。ボリュームごとに異なるバケットが作成されることはありません。</block>
+  <block id="8017782df4a8330f5df324c1dfbeaf59" category="paragraph">Cloud Managerは、バケットを作成する際に次のデフォルト設定を使用します。</block>
+  <block id="bd15f9947281cda8b8713ff72eb007f8" category="list-text">場所の種類：地域</block>
+  <block id="95e66c145ec5a9c6db0940e3c8b89f10" category="list-text">public access：オブジェクトACLに依存します</block>
+  <block id="ed2bfa2a7df130888132e9df08fe91a7" category="list-text">アクセスコントロール：きめ細かな設定</block>
+  <block id="59ec9a96a05b9ff668ebee36565638b7" category="list-text">保護：なし</block>
+  <block id="77d680745644d1c19a022cc0a306f88b" category="list-text">データの暗号化：Googleで管理されるキー</block>
 </blocks>
