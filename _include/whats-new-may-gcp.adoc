@@ -1,0 +1,44 @@
+= 新しいGoogle Cloudリージョンサポート
+:allow-uri-read: 
+
+
+
+
+=== 新しいGoogle Cloudリージョンサポート
+
+9.10.1リリース以降、Cloud Volumes ONTAP は次のGoogle Cloudリージョンでサポートされるようになりました。
+
+* デリー（アジア-サウス2）
+* メルボルン（オーストラリア-スモアカス2）
+* Milan（Europe - west8）-シングルノードのみ
+* Santiago（southamerica-west1）-シングルノードのみ
+
+
+https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP でサポートされるリージョンの完全なリストを表示します"^]
+
+
+
+=== Google Cloudでのn2標準16のサポート
+
+Google CloudのCloud Volumes ONTAP では、9.10.1リリース以降のn2標準-16マシンタイプがサポートされます。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["Google CloudでCloud Volumes ONTAP がサポートされている構成を表示します"^]
+
+
+
+=== Google Cloudファイアウォールポリシーの機能強化
+
+* Google CloudでCloud Volumes ONTAP HAペアを作成すると、VPC内の既存のすべてのファイアウォールポリシーがCloud Managerに表示されるようになりました。
++
+以前は、Cloud Managerでは、ターゲットタグのないVPC -1、VPC -2、またはVPC -3のポリシーは表示されませんでした。
+
+* Google CloudでCloud Volumes ONTAP シングルノードシステムを作成する際に、定義済みのファイアウォールポリシーで、選択したVPC内のトラフィックのみを許可するか（推奨）、すべてのVPC内のトラフィックを許可するかを選択できるようになりました。
+
+
+
+
+=== Google Cloudサービスアカウントの機能強化
+
+Cloud Volumes ONTAP で使用するGoogle Cloudサービスアカウントを選択すると、Cloud Managerに各サービスアカウントに関連付けられているEメールアドレスが表示されるようになりました。メールアドレスを表示すると、同じ名前を共有するサービスアカウントを区別しやすくなります。
+
+image:https://raw.githubusercontent.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/main/media/screenshot-google-cloud-service-account.png["サービスアカウントフィールドのスクリーンショット"]

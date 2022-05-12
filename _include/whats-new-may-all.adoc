@@ -1,0 +1,25 @@
+= Cloud Volumes ONTAP 9.11.0
+:allow-uri-read: 
+
+
+
+
+=== Cloud Volumes ONTAP 9.11.0
+
+Cloud ManagerでCloud Volumes ONTAP 9.11.0の導入と管理が可能になりました。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes["このリリースのに含まれる新機能について説明します Cloud Volumes ONTAP"^]。
+
+
+
+=== メディエーターのアップグレードに関する機能拡張
+
+Cloud ManagerによってHAペアのメディエーターがアップグレードされると、ブートディスクを削除する前に新しいメディエーターイメージが使用可能であるかどうかが検証されるようになりました。この変更により、アップグレードプロセスが失敗した場合でもメディエーターは正常に動作し続けることができます。
+
+
+
+=== K8sタブが削除されました
+
+K8sタブは以前のでは廃止されており、現在は削除されています。KubernetesとCloud Volumes ONTAP を併用する場合は、高度なデータ管理のための作業環境として、管理対象- Kubernetesクラスタをキャンバスに追加できます。
+
+https://docs.netapp.com/us-en/cloud-manager-kubernetes/concept-kubernetes.html["Cloud ManagerでのKubernetesのデータ管理について説明します"^]

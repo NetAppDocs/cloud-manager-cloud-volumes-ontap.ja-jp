@@ -1,0 +1,26 @@
+= S3 Glacierのインスタント検索
+:allow-uri-read: 
+
+
+
+
+=== S3 Glacierのインスタント検索
+
+Amazon S3 Glacier Instant Retrievalストレージクラスに階層化データを格納できるようになりました。
+
+https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-tiering.html#changing-the-storage-class-for-tiered-data["階層化データのストレージクラスを変更する方法について説明します"]。
+
+
+
+=== コネクタに新しいAWS権限が必要です
+
+単一のAvailability Zone（AZ；アベイラビリティゾーン）にHAペアを導入する際にAWS分散配置グループを作成するためには、次の権限が必要です。
+
+[source, json]
+----
+"ec2:DescribePlacementGroups",
+"iam:GetRolePolicy",
+----
+これらの権限は、Cloud Managerによる配置グループの作成方法を最適化するために必要になります。
+
+Cloud Managerに追加したAWSクレデンシャルの各セットに、これらの権限を必ず付与してください。最新の権限のリストは、で確認できます https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager のポリシーのページです"^]。
