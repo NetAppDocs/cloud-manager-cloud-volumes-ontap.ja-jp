@@ -112,7 +112,8 @@ HA ペア::
 ----
 最新の権限のリストは、で確認できます https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager のポリシーのページです"^]。
 
-これらの権限は HA ペアには必要ありません。
+
+NOTE: 最初の3つの権限はHAペアには必要ありません。
 
 .手順
 . 次の Cloud Manager API 呼び出しを使用して、 Azure サブスクリプション内の主要なバックアップのリストを取得します。

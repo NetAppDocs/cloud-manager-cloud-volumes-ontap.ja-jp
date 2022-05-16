@@ -4,7 +4,7 @@ permalink: task-planning-your-config.html
 keywords: license, disk, ebs, storage, size, write speed, volume usage, ec2, capacity, limit, configurations, virtual machine, vm, regions, supported disks, disk types, general purpose, gp2 provisioned IOPS, piops, throughput optimized, cold, SSD, HDD, st1, use profile, thin provisioning, deduplication, compression, shared instance, dedicated instance, write speed, high write speed, normal write speed, network information, worksheet, limit, limits, storage limits, volume limit, aggregate limit, maximum volume size, maximum aggregate size, supported instances, instances, instances supported, supported ec2 instances, supported instance, aws outpost, outpost, outposts, deploy in outpost, deploy in aws outpost 
 summary: AWS に Cloud Volumes ONTAP を導入する場合は、ワークロードの要件に応じて事前設定されたシステムを選択するか、または独自の設定を作成できます。独自の設定を選択する場合は、使用可能なオプションを理解しておく必要があります。 
 ---
-= AWS での Cloud Volumes ONTAP 構成の計画
+= AWSでCloud Volumes ONTAP 構成を計画
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -18,7 +18,17 @@ AWS に Cloud Volumes ONTAP を導入する場合は、ワークロードの要�
 
 
 
-== サポートされているリージョンの表示
+== Cloud Volumes ONTAP ライセンスを選択します
+
+Cloud Volumes ONTAP には、いくつかのライセンスオプションがあります。それぞれのオプションで、ニーズに合った消費モデルを選択できます。
+
+* link:concept-licensing.html["Cloud Volumes ONTAP のライセンスオプションについて説明します"]
+* link:task-set-up-licensing-aws.html["ライセンスの設定方法について説明します"]
+
+
+
+
+== サポートされているリージョンを選択します
 
 Cloud Volumes ONTAP はほとんどの AWS リージョンでサポートされています。 https://cloud.netapp.com/cloud-volumes-global-regions["サポートされているリージョンの完全なリストを表示します"^]。
 
@@ -26,13 +36,7 @@ Cloud Volumes ONTAP はほとんどの AWS リージョンでサポートされ�
 
 
 
-== ライセンスを選択する
-
-Cloud Volumes ONTAP には、いくつかのライセンスオプションがあります。それぞれのオプションで、ニーズに合った消費モデルを選択できます。 link:concept-licensing.html["Cloud Volumes ONTAP のライセンスオプションについて説明します"]。
-
-
-
-== サポートされているインスタンスを選択する
+== サポートされているインスタンスを選択します
 
 Cloud Volumes ONTAP では、選択したライセンスタイプに応じて、複数のインスタンスタイプがサポートされます。
 
@@ -40,13 +44,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws
 
 
 
-== Flash Cache をサポートする構成を選択しています
-
-AWS の一部の Cloud Volumes ONTAP 構成にはローカルの NVMe ストレージが含まれており、 Cloud Volumes ONTAP はパフォーマンスを向上させるために _Flash Cache _ として使用します。 link:concept-flash-cache.html["Flash Cache の詳細については、こちらをご覧ください"]。
-
-
-
-== ストレージの制限を理解する
+== ストレージの制限を確認
 
 Cloud Volumes ONTAP システムの未フォーマット時の容量制限は、ライセンスに関連付けられています。追加の制限は、アグリゲートとボリュームのサイズに影響します。設定を計画する際には、これらの制限に注意する必要があります。
 
@@ -54,7 +52,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-aws.
 
 
 
-== AWS でのシステムのサイジング
+== AWSでシステムのサイズを設定します
 
 Cloud Volumes ONTAP システムのサイジングを行うことで、パフォーマンスと容量の要件を満たすのに役立ちます。インスタンスタイプ、ディスクタイプ、およびディスクサイズを選択する際には、次の点に注意する必要があります。
 
@@ -109,7 +107,7 @@ AWS での Cloud Volumes ONTAP システムのサイジングに関する詳細�
 video::GELcXmOuYPw[youtube, width=848,height=480]
 
 
-== デフォルトのシステムディスクを表示しています
+== デフォルトのシステムディスクを表示します
 
 ユーザデータ用のストレージに加えて、 Cloud Manager は Cloud Volumes ONTAP システムデータ（ブートデータ、ルートデータ、コアデータ、 NVRAM ）用のクラウドストレージも購入します。計画を立てる場合は、 Cloud Volumes ONTAP を導入する前にこれらの詳細を確認すると役立つ場合があります。
 
@@ -120,7 +118,7 @@ TIP: コネクタにはシステムディスクも必要です。 https://docs.n
 
 
 
-== AWS Outpost に Cloud Volumes ONTAP を導入する準備をしています
+== AWSアウトポストにCloud Volumes ONTAP を導入する準備をします
 
 AWS Outpost を使用している場合は、 Working Environment ウィザードで Outpost VPC を選択して、その Outpost に Cloud Volumes ONTAP を導入できます。エクスペリエンスは、 AWS に存在する他の VPC と同じです。最初に、 AWS Outpost にコネクタを導入する必要があります。
 
@@ -133,13 +131,13 @@ AWS Outpost を使用している場合は、 Working Environment ウィザー�
 
 
 
-== AWS ネットワーク情報ワークシート
+== ネットワーク情報を収集
 
 AWS で Cloud Volumes ONTAP を起動する場合は、 VPC ネットワークの詳細を指定する必要があります。ワークシートを使用して、管理者から情報を収集できます。
 
 
 
-=== Cloud Volumes ONTAP のネットワーク情報
+=== 単一のAZにおける単一のノードまたはHAペア
 
 [cols="30,70"]
 |===
@@ -159,7 +157,7 @@ AWS で Cloud Volumes ONTAP を起動する場合は、 VPC ネットワーク�
 |===
 
 
-=== 複数の AZS 内の HA ペアのネットワーク情報
+=== 複数のAZにまたがるHAペアを作成します
 
 [cols="30,70"]
 |===
@@ -209,13 +207,13 @@ AWS で Cloud Volumes ONTAP を起動する場合は、 VPC ネットワーク�
 |===
 
 
-== 書き込み速度の選択
+== 書き込み速度を選択します
 
 Cloud Manager では、 Cloud Volumes ONTAP の書き込み速度を選択できます。書き込み速度を選択する前に、高速書き込みを使用する場合の標準設定と高設定の違い、およびリスクと推奨事項を理解しておく必要があります。 link:concept-write-speed.html["書き込み速度の詳細については、こちらをご覧ください。"]。
 
 
 
-== ボリューム使用プロファイルの選択
+== ボリュームの使用プロファイルを選択してください
 
 ONTAP には、必要なストレージの合計容量を削減できるストレージ効率化機能がいくつか搭載されています。Cloud Manager でボリュームを作成する場合は、これらの機能を有効にするプロファイルを選択するか、無効にするプロファイルを選択できます。これらの機能の詳細については、使用するプロファイルを決定する際に役立ちます。
 

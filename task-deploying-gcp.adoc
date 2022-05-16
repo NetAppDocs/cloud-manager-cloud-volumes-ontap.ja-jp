@@ -34,29 +34,10 @@ Cloud Volumes ONTAP は、シングルノード構成または Google Cloud Plat
 +
 設定を選択し、管理者から GCP ネットワーク情報を取得して準備を完了しておく必要があります。詳細については、を参照してください link:task-planning-your-config-gcp.html["Cloud Volumes ONTAP 構成を計画"]。
 
-* 作業環境の追加ウィザードで特定のライセンスオプションを選択するために必要な事項について説明します。 link:concept-licensing.html["Cloud Volumes ONTAP ライセンスの詳細については、こちらをご覧ください"]。
+* Cloud Volumes ONTAP のライセンスを設定するために必要な事項を理解する。
 +
-[cols="20,40,40"]
-|===
-| ライセンスオプション | 要件 | 要件を満たす方法 
+link:task-set-up-licensing-gcp.html["ライセンスの設定方法について説明します"]。
 
-
-| フリーミアム | Marketplace サブスクリプションまたはネットアップサポートサイト（ NSS ）アカウントが必要です。 | クラウドプロバイダのマーケットプレイスに登録するには、 * Details & Credentials * ページを選択します。NSS アカウントは、「 * 充電方法」および「 NSS アカウント * 」ページで入力できます。 
-
-
-| Professional または Essential パッケージ | Marketplace のサブスクリプションまたは容量ベースのライセンス（ BYOL ）が必要です。有効な容量ベースのライセンスがない場合や、プロビジョニングされた容量がライセンス容量を超えた場合は、容量ベースの課金が推奨されます。 | クラウドプロバイダのマーケットプレイスに登録するには、 * Details & Credentials * ページを選択します。ネットアップから購入した容量ベースのライセンス（ BYOL ）を使用する場合は、最初にそのライセンスを * Digital Wallet * に追加する必要があります。 link:task-manage-capacity-licenses.html["容量ベースの BYOL ライセンスを追加する方法について説明します"]。 
-
-
-| Keystone Flex サブスクリプション | アカウントが承認され、 Cloud Volumes ONTAP で使用できるようにサブスクリプションが有効になっている必要があります。  a| 
-.. mailto ： ng-keystone-success@netapp.com [ ネットアップにお問い合わせください ] 1 つ以上の Keystone Flex Subscriptions で Cloud Manager のユーザアカウントを承認します。
-.. ネットアップがお客様のアカウントを許可したあと、 link:task-manage-keystone.html#link-a-subscription["Cloud Volumes ONTAP で使用するサブスクリプションをリンクします"]。
-.. Cloud Volumes ONTAP HA ペアを作成するときに、 Keystone Flex サブスクリプションの課金方法を選択します。
-
-
-
-
-| ノード単位のライセンス | Marketplace サブスクリプションが必要です。または、お客様所有のライセンスを使用（ BYOL ）する必要があります。このオプションは、既存のサブスクリプションまたは既存のライセンスをお持ちのお客様にご利用いただけます。新規のお客様にはご利用いただけません。 | ネットアップから購入したノードベースのライセンス（ BYOL ）を使用する場合は、最初にそのライセンスを * Digital Wallet * に追加する必要があります。 link:task-manage-node-licenses.html#obtain-a-system-license-file["ノードベースの BYOL ライセンスを追加する方法について説明します"]。NSS アカウントは、「 * 充電方法」および「 NSS アカウント * 」ページで入力できます。 
-|===
 * Google Cloud API はとする必要があります https://cloud.google.com/apis/docs/getting-started#enabling_apis["プロジェクトで有効にします"^]：
 +
 ** Cloud Deployment Manager V2 API
@@ -145,8 +126,8 @@ Cloud Managerでファイアウォールポリシーを生成するように設�
 |===
 . * 充電方法と NSS アカウント * ：このシステムで使用する充電オプションを指定し、ネットアップサポートサイトのアカウントを指定します。
 +
-** link:concept-licensing.html["これらの充電方法について説明します"]。
-** link:task-deploying-gcp.html#licensing["使用するライセンス方式に応じたウィザードの要件について説明します"]。
+** link:concept-licensing.html["Cloud Volumes ONTAP のライセンスオプションについて説明します"]。
+** link:task-set-up-licensing-gcp.html["ライセンスの設定方法について説明します"]。
 
 
 . * 構成済みパッケージ * ： Cloud Volumes ONTAP システムを迅速に導入するパッケージを 1 つ選択するか、 * 独自の構成を作成 * をクリックします。
@@ -352,8 +333,8 @@ link:reference-networking-gcp.html["ネットワーク要件の詳細につい�
 
 . * 充電方法と NSS アカウント * ：このシステムで使用する充電オプションを指定し、ネットアップサポートサイトのアカウントを指定します。
 +
-** link:concept-licensing.html["これらの充電方法について説明します"]。
-** link:task-deploying-gcp.html#licensing["使用するライセンス方式に応じたウィザードの要件について説明します"]。
+** link:concept-licensing.html["Cloud Volumes ONTAP のライセンスオプションについて説明します"]。
+** link:task-set-up-licensing-gcp.html["ライセンスの設定方法について説明します"]。
 
 
 . * 構成済みパッケージ * ： Cloud Volumes ONTAP システムを迅速に導入するパッケージを 1 つ選択するか、 * 独自の構成を作成 * をクリックします。

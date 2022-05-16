@@ -48,25 +48,25 @@ Cloud Volumes ONTAP のすべての機能をネットアップから無償で提
 
 
 
-Freemium 製品の使用を開始するには、新しい Cloud Volumes ONTAP 作業環境を作成し、充電方法の選択を求めるプロンプトが表示されたら「 * Freemium * 」を選択します。
+Freemium製品の導入方法をご確認ください。
 
 ifdef::aws[]
 
-* link:task-deploying-otc-aws.html["AWS での Cloud Volumes ONTAP の起動"]
+* link:task-set-up-licensing-aws.html["AWSでCloud Volumes ONTAP のライセンスを設定"]
 
 
 endif::aws[]
 
 ifdef::azure[]
 
-* link:task-deploying-otc-azure.html["Azure で Cloud Volumes ONTAP を起動します"]
+* link:task-set-up-licensing-aws.html["AzureでCloud Volumes ONTAP のライセンスをセットアップする"]
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* link:task-deploying-gcp.html["Google Cloud で Cloud Volumes ONTAP を起動しています"]
+* link:task-set-up-licensing-aws.html["Google CloudでCloud Volumes ONTAP のライセンスを設定します"]
 
 
 endif::gcp[]
@@ -119,33 +119,6 @@ Essentials パッケージと Professional パッケージには、次の消費�
 * クラウドプロバイダの市場から年間契約を獲得できます。
 
 
-ifdef::aws[]
-
-* AWSでは、年間契約はAWS Marketplaceで公開されています。Cloud Volumes ONTAP 作業環境の導入時に、Cloud Managerの詳細とクレデンシャルのページで登録を行うように求められます。
-
-
-endif::aws[]
-
-ifdef::azure[]
-
-* Azureでは、ネットアップの営業担当者と協力して年間契約を購入する必要があります。この契約は、Azure Marketplaceでのプライベートオファーとして提供されます。
-+
-ネットアップがお客様とプライベートオファーを共有したあとは、Azure Marketplaceでの作業環境の作成時にサブスクリプションするときに、年間プランを選択できます。
-
-
-
-endif::azure[]
-
-ifdef::gcp[]
-
-* Google Cloudでは、年間契約を購入するには、ネットアップの営業担当者と協力する必要があります。この契約は、Google Cloud Marketplaceでのプライベートオファーとして利用できます。
-+
-ネットアップがプライベートオファーを共有した後は、作業環境の作成中にGoogle Cloud Marketplaceから登録するときに、年間プランを選択できます。
-
-
-
-endif::gcp[]
-
 次の点に注意してください。
 
 * ネットアップからライセンスを購入した場合（ BYOL ）は、クラウドプロバイダが提供する PAYGO のサブスクリプションも必要です。
@@ -175,6 +148,9 @@ endif::gcp[]
 インスタンスや容量の制限はありません。Cloud Volumes ONTAP システムは必要な数だけ導入でき、必要な容量を30日間無償で割り当てることができます。無料トライアルは、30日後に1時間ごとの有料サブスクリプションに自動的に変換されます。
 
 Cloud Volumes ONTAP のソフトウェアライセンス料金は1時間ごとに発生しませんが、クラウドプロバイダからインフラ料金が請求されます。
+
+
+TIP: Cloud Managerには、無償トライアルが開始されたとき、7日が残ったとき、および1日が残っているときに通知が送信されます。例：image:screenshot-free-trial-notification.png["Cloud Managerインターフェイスの通知のスクリーンショット。無償トライアルの残りの日数は7日です。"]
 
 
 
@@ -207,30 +183,25 @@ Cloud Volumes ONTAP のソフトウェアライセンス料金は1時間ごと�
 
 === 開始方法
 
-. https://cloud.netapp.com/contact-cds["ライセンスの取得については、ネットアップの営業部門にお問い合わせください"^]
-. link:task-manage-capacity-licenses.html["Cloud Manager にライセンスを追加します"]
-. Cloud Volumes ONTAP システムの作成時に、容量ベースの BYOL 課金方式を選択します
-+
+容量単位のライセンスの取得方法については、以下をご覧ください。
+
 ifdef::aws[]
 
-+
-** link:task-deploying-otc-aws.html["AWS での Cloud Volumes ONTAP の起動"]
-
-
+* link:task-set-up-licensing-aws.html["AWSでCloud Volumes ONTAP のライセンスを設定"]
 
 
 endif::aws[]
 
 ifdef::azure[]
 
-* link:task-deploying-otc-azure.html["Azure で Cloud Volumes ONTAP を起動します"]
+* link:task-set-up-licensing-aws.html["AzureでCloud Volumes ONTAP のライセンスをセットアップする"]
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* link:task-deploying-gcp.html["Google Cloud で Cloud Volumes ONTAP を起動しています"]
+* link:task-set-up-licensing-aws.html["Google CloudでCloud Volumes ONTAP のライセンスを設定します"]
 
 
 endif::gcp[]
@@ -263,31 +234,25 @@ Keystone Flex Subscriptions は、 HA ペアでサポートされます。現時
 
 === 開始方法
 
-. まだサブスクリプションをお持ちでない場合は、 https://www.netapp.com/forms/keystone-sales-contact/["ネットアップにお問い合わせください"^]。
-. mailto ： ng-keystone-success@netapp.com [ ネットアップにお問い合わせください ] 1 つ以上の Keystone Flex Subscriptions で Cloud Manager のユーザアカウントを承認します。
-. ネットアップがお客様のアカウントを許可したあと、 link:task-manage-keystone.html#link-a-subscription["Cloud Volumes ONTAP で使用するサブスクリプションをリンクします"]。
-. Cloud Volumes ONTAP システムを作成するときに、 Keystone Flex サブスクリプションの課金方法を選択します。
-+
+Keystone Flexサブスクリプションの概要については、以下をご覧ください。
+
 ifdef::aws[]
 
-+
-** link:task-deploying-otc-aws.html["AWS での Cloud Volumes ONTAP の起動"]
-
-
+* link:task-set-up-licensing-aws.html["AWSでCloud Volumes ONTAP のライセンスを設定"]
 
 
 endif::aws[]
 
 ifdef::azure[]
 
-* link:task-deploying-otc-azure.html["Azure で Cloud Volumes ONTAP を起動します"]
+* link:task-set-up-licensing-aws.html["AzureでCloud Volumes ONTAP のライセンスをセットアップする"]
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* link:task-deploying-gcp.html["Google Cloud で Cloud Volumes ONTAP を起動しています"]
+* link:task-set-up-licensing-aws.html["Google CloudでCloud Volumes ONTAP のライセンスを設定します"]
 
 
 endif::gcp[]

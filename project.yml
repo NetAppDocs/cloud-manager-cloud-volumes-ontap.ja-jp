@@ -56,7 +56,9 @@ sidebar:
           url: "/reference-security-groups.html"
       - title: AWS KMS を設定します
         url: "/task-setting-up-kms.html"
-      - title: AWS でシステムを起動します
+      - title: ライセンスをセットアップする
+        url: "/task-set-up-licensing-aws.html"
+      - title: AWS で Cloud Volumes ONTAP を起動します
         url: "/task-deploying-otc-aws.html"
       - title: AWS C2S で作業を開始する
         url: "/task-getting-started-aws-c2s.html"
@@ -71,7 +73,9 @@ sidebar:
         url: "/reference-networking-azure.html"
       - title: キーを使用して暗号化を設定します
         url: "/task-set-up-azure-encryption.html"
-      - title: Azure でシステムを起動します
+      - title: ライセンスをセットアップする
+        url: "/task-set-up-licensing-azure.html"
+      - title: Azure で Cloud Volumes ONTAP を起動します
         url: "/task-deploying-otc-azure.html"
     - title: Google Cloud で始めましょう
       flavor: gcp
@@ -88,7 +92,9 @@ sidebar:
         url: "/task-creating-gcp-service-account.html"
       - title: お客様が管理する暗号化キーを使用します
         url: "/task-setting-up-gcp-encryption.html"
-      - title: GCP でシステムを起動します
+      - title: ライセンスをセットアップする
+        url: "/task-set-up-licensing-google.html"
+      - title: Google CloudでCloud Volumes ONTAP を起動します
         url: "/task-deploying-gcp.html"
   - title: Cloud Volumes ONTAP を使用します
     entries:
@@ -189,6 +195,8 @@ sidebar:
         url: "/task-configure-ems.html"
   - title: 概念
     entries:
+    - title: ライセンス
+      url: "/concept-licensing.html"
     - title: ストレージ
       entries:
       - title: クライアントプロトコル
@@ -218,14 +226,12 @@ sidebar:
         url: "/concept-ha-google-cloud.html"
       - title: ストレージテイクオーバー中の操作
         url: "/concept-degraded-ha-pair.html"
-    - title: ライセンス
-      url: "/concept-licensing.html"
-    - title: ノードベースの BYOL の管理
-      url: "/concept-license-management.html"
     - title: セキュリティ
       url: "/concept-security.html"
     - title: パフォーマンス
       url: "/concept-performance.html"
+    - title: ノードベースの BYOL の管理
+      url: "/concept-license-management.html"
     - title: AutoSupport と Active IQ デジタルアドバイザ
       url: "/concept-active-iq.html"
     - title: デフォルト設定
@@ -311,4 +317,6 @@ homepage:
       url: https://cloud.netapp.com/blog/topic/cloud-volumes-ontap
     - title: クラウドに関する Web セミナー
       url: https://cloud.netapp.com/events
-product-family: {}
+product-family:
+  name: Cloud Manager
+  repo: cloud-manager-family
