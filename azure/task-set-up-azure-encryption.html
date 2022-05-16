@@ -508,6 +508,8 @@
 
 
 
+
+
           
         </li>
       </ul>
@@ -552,6 +554,8 @@
 
 
 
+
+
           
         </li>
       </ul>
@@ -576,6 +580,8 @@
             Google Cloud で始めましょう
           </a>
           
+
+
 
 
 
@@ -993,6 +999,8 @@
           </a>
           
 
+
+
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
@@ -1062,8 +1070,6 @@
     
 
   
-
-
 
 
 
@@ -1182,8 +1188,10 @@
         ネットワークをセットアップします
       </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/task-set-up-azure-encryption.html">
         キーを使用して暗号化を設定します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/task-set-up-licensing-azure.html">
+        ライセンスをセットアップする
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/task-deploying-otc-azure.html">
-        Azure でシステムを起動します
+        Azure で Cloud Volumes ONTAP を起動します
       </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> Cloud Volumes ONTAP を使用します</div>
       </a>
@@ -1275,7 +1283,9 @@
       </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 概念</div>
       </a>
-      <ul><li class="subfolders "><a href="#">
+      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/concept-licensing.html">
+        ライセンス
+      </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> ストレージ</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/concept-client-protocols.html">
@@ -1299,14 +1309,12 @@
         Azure の HA ペア
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/concept-degraded-ha-pair.html">
         ストレージテイクオーバー中の操作
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/concept-licensing.html">
-        ライセンス
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/concept-license-management.html">
-        ノードベースの BYOL の管理
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/concept-security.html">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/concept-security.html">
         セキュリティ
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/concept-performance.html">
         パフォーマンス
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/concept-license-management.html">
+        ノードベースの BYOL の管理
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/concept-active-iq.html">
         AutoSupport と Active IQ デジタルアドバイザ
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/reference-default-configs.html">
@@ -1352,6 +1360,10 @@
         
 
         
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com/ja-jp/cloud-manager-family/">Cloud Manager</a>
+        </li>
+        
 
         <li class="n-breadcrumb__list-item">
           <a href="/ja-jp/cloud-manager-cloud-volumes-ontap/">Cloud&nbsp;Volumes&nbsp;ONTAP</a>
@@ -1385,7 +1397,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:28:17 +0000">04/14/2022</time>
+    <time datetime="2022-05-16 16:59:42 +0000">05/16/2022</time>
     
   
 
@@ -1556,8 +1568,17 @@
 <div class="paragraph">
 <p>最新の権限のリストは、で確認できます <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies" target="_blank" rel="noopener">"Cloud Manager のポリシーのページです"</a>。</p>
 </div>
-<div class="paragraph">
-<p>これらの権限は HA ペアには必要ありません。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注記">
+</td>
+<td class="content">
+最初の3つの権限はHAペアには必要ありません。
+</td>
+</tr>
+</table>
 </div>
 <div class="olist arabic">
 <div class="title">手順</div>
