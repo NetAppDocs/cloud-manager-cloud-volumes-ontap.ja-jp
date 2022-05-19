@@ -409,22 +409,22 @@ NOTE: source は、 Cloud Volumes ONTAP システムのインターフェイス�
 | クラスタ | すべてのトラフィック | すべてのトラフィック | 1 つのノード上のすべての LIF | もう一方のノードのすべての LIF | クラスタ間通信（ Cloud Volumes ONTAP HA のみ） 
 
 
-| UDP | 68 | ノード管理 LIF | DHCP | 初回セットアップ用の DHCP クライアント | DHCP 
+| DHCP | UDP | 68 | ノード管理 LIF | DHCP | 初回セットアップ用の DHCP クライアント 
 
 
-| UDP | 67 | ノード管理 LIF | DHCP | DHCP サーバ | DNS 
+| DHCP | UDP | 67 | ノード管理 LIF | DHCP | DHCP サーバ 
 
 
-| UDP | 53 | ノード管理 LIF とデータ LIF （ NFS 、 CIFS ） | DNS | DNS | NDMP 
+| DNS | UDP | 53 | ノード管理 LIF とデータ LIF （ NFS 、 CIFS ） | DNS | DNS 
 
 
-| TCP | 18600 ～ 18699 | ノード管理 LIF | 宛先サーバ | NDMP コピー | SMTP 
+| NDMP | TCP | 18600 ～ 18699 | ノード管理 LIF | 宛先サーバ | NDMP コピー 
 
 
-| TCP | 25 | ノード管理 LIF | メールサーバ | SMTP アラート。 AutoSupport に使用できます .4+| SNMP 
+| SMTP | TCP | 25 | ノード管理 LIF | メールサーバ | SMTP アラート。 AutoSupport に使用できます 
 
 
-| TCP | 161 | ノード管理 LIF | サーバを監視します | SNMP トラップによる監視 
+.4+| SNMP | TCP | 161 | ノード管理 LIF | サーバを監視します | SNMP トラップによる監視 
 
 
 | UDP | 161 | ノード管理 LIF | サーバを監視します | SNMP トラップによる監視 
@@ -433,13 +433,16 @@ NOTE: source は、 Cloud Volumes ONTAP システムのインターフェイス�
 | TCP | 162 | ノード管理 LIF | サーバを監視します | SNMP トラップによる監視 
 
 
-| UDP | 162 | ノード管理 LIF | サーバを監視します | SNMP トラップによる監視 .2+| SnapMirror 
+| UDP | 162 | ノード管理 LIF | サーバを監視します | SNMP トラップによる監視 
 
 
-| TCP | 11104 | クラスタ間 LIF | ONTAP クラスタ間 LIF | SnapMirror のクラスタ間通信セッションの管理 
+.2+| SnapMirror | TCP | 11104 | クラスタ間 LIF | ONTAP クラスタ間 LIF | SnapMirror のクラスタ間通信セッションの管理 
 
 
-| TCP | 11105 | クラスタ間 LIF | ONTAP クラスタ間 LIF | SnapMirror によるデータ転送 | syslog 
+| TCP | 11105 | クラスタ間 LIF | ONTAP クラスタ間 LIF | SnapMirror によるデータ転送 
+
+
+| syslog | UDP | 514 | ノード管理 LIF | syslog サーバ | syslog 転送メッセージ 
 |===
 
 
