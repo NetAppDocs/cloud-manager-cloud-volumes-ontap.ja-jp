@@ -1455,7 +1455,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-03 00:00:14 +0000">05/03/2022</time>
+    <time datetime="2022-05-19 13:00:25 +0000">05/19/2022</time>
     
   
 
@@ -2217,46 +2217,47 @@ source は、 Cloud Volumes ONTAP システムのインターフェイス（ IP 
 <td class="tableblock halign-left valign-top"><p class="tableblock">クラスタ間通信（ Cloud Volumes ONTAP HA のみ）</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DHCP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">68</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DHCP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">初回セットアップ用の DHCP クライアント</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DHCP</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DHCP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">67</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DHCP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DHCP サーバ</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF とデータ LIF （ NFS 、 CIFS ）</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NDMP</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NDMP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">18600 ～ 18699</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">宛先サーバ</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">NDMP コピー</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SMTP</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SMTP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">25</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">メールサーバ</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SMTP アラート。 AutoSupport に使用できます</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">SNMP</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">161</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
@@ -2283,9 +2284,9 @@ source は、 Cloud Volumes ONTAP システムのインターフェイス（ IP 
 <td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">サーバを監視します</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SNMP トラップによる監視</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">SnapMirror</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">11104</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">クラスタ間 LIF</p></td>
@@ -2298,7 +2299,14 @@ source は、 Cloud Volumes ONTAP システムのインターフェイス（ IP 
 <td class="tableblock halign-left valign-top"><p class="tableblock">クラスタ間 LIF</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP クラスタ間 LIF</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SnapMirror によるデータ転送</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">syslog</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">514</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">syslog サーバ</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">syslog 転送メッセージ</p></td>
 </tr>
 </tbody>
 </table>
