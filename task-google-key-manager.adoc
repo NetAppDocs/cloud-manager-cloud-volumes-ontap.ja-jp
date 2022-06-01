@@ -64,4 +64,8 @@ gcloud iam roles create kmsCustomRole
 
 == トラブルシューティングを行う
 
-トラブルシューティングが必要な場合は、上記の最後の2つの手順でREST APIのrawログをテールできます。「set d`」。「systemshell -node _node」コマンドtail -f /mroot/etc/log/mlog/kmip2_client.log
+トラブルシューティングが必要な場合は、上記の最後の2つの手順でREST APIのrawログをテールできます。
+
+. 「set d`」
+. 「systemshell -node _node」コマンドtail -f /mroot/etc/log/mlog/kmip2_client.log
+

@@ -21,7 +21,7 @@ AKVを使用する場合、デフォルトではクラウドキー管理エン�
 
 .前提条件
 * Cloud Volumes ONTAP でバージョン9.10.1以降が実行されている必要があります
-* Volume Encryption（VE）ライセンスがインストールされている（ネットアップサポートに登録されている各Cloud Volumes ONTAP システムにNetApp Volume Encryptionライセンスが自動的にインストールされます）。
+* Volume Encryption（VE）ライセンスがインストールされている（ネットアップサポートに登録されている各Cloud Volumes ONTAP システムにNetApp Volume Encryptionライセンスが自動的にインストールされる）
 * Multi-tenant Encryption Key Management （ MTEKM ）ライセンスがインストールされています
 * クラスタ管理者またはSVMの管理者である必要があります
 * アクティブなAzureサブスクリプション
@@ -35,7 +35,15 @@ AKVを使用する場合、デフォルトではクラウドキー管理エン�
 
 == 設定プロセス
 
-AzureにCloud Volumes ONTAP 構成を登録する方法と、Azure Key Vaultとキーを作成する方法を概説しています。これらの手順をすでに完了している場合は、特に、で正しい設定を行っていることを確認してください <<create-akv>>をクリックし、に進みます <<ontap>>。* <<azure-app>>* <<secret>>* <<create-akv>>* <<key>>* <<AAD>>* <<ontap>>
+AzureにCloud Volumes ONTAP 構成を登録する方法と、Azure Key Vaultとキーを作成する方法を概説しています。これらの手順をすでに完了している場合は、特に、で正しい設定を行っていることを確認してください <<create-akv>>をクリックし、に進みます <<ontap>>。
+
+* <<azure-app>>
+* <<secret>>
+* <<create-akv>>
+* <<key>>
+* <<AAD>>
+* <<ontap>>
+
 
 [[azure-app]]
 .Azureアプリケーション登録
@@ -140,8 +148,7 @@ Category: kms_wrapped_key_status
 「SERVICE_Reachability」ステータスが「OK」でない場合、SVMは必要なすべての接続および権限を使用してAzure Key Vaultサービスに到達できません。初期構成で'kms _ wrapped _key_status'は'unknown'を報告します最初のボリュームが暗号化されると'ステータスはOKに変わります
 
 . オプション：テストボリュームを作成してAKVの機能を確認します。vol create -vserver_svm_name_-volume_name_-aggregate _aggr_size_state online -policy default’
-
-
++
 正しく設定されていれば、Cloud Volumes ONTAP でボリュームが自動的に作成され、ボリューム暗号化が有効になります。
 
 . ボリュームが正しく作成および暗号化されたことを確認します。その場合、「-is-encrypted」パラメータは「true」と表示されます。vol show -vserver_svm_name_-fields is-cencryptedです

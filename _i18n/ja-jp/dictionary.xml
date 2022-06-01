@@ -3833,12 +3833,7 @@
   <block id="53521a13e927a2d5286f3433c692ed71" category="list-text">プロンプトが表示されたら、GCPアカウントのJSONキーを入力します。</block>
   <block id="b20c482c85ecfd221cc2a8a8ac33d883" category="list-text">有効なプロセスが成功したことを確認します。「security key-manager external GCP check -vserver _svm_name _」</block>
   <block id="d60c463bb4096f3ed4bd1618626dfe10" category="section-title">トラブルシューティングを行う</block>
-  <block id="6a81e96ba72f086fbc1fce60f448b1bb" category="paragraph">トラブルシューティングが必要な場合は、上記の最後の2つの手順でREST APIのrawログをテールできます。「set d`」。「systemshell -node _node」コマンドtail -f /mroot/etc/log/mlog/kmip2_client.log</block>
-  <block id="90ffa83e68ae5e0cbf95a61d80d4f2bc" category="sidebar">Azure Key Vaultを有効にします</block>
-  <block id="ea549d1febacd44f10ba966e5d89a261" category="sidebar">Google Cloud Key Manager Serviceを有効にします</block>
   <block id="46653d32d1199a88497ad4000ed4e7b3" category="paragraph">AKVは保護に使用できます <block ref="8531e852e621158c599cbd603b309c10" category="inline-link-macro-rx"></block> データSVMの場合のみ。</block>
-  <block id="0ea3f714b377b93b473407aa072f783d" category="list-text">Volume Encryption（VE）ライセンスがインストールされている（ネットアップサポートに登録されている各Cloud Volumes ONTAP システムにNetApp Volume Encryptionライセンスが自動的にインストールされます）。</block>
-  <block id="92d7c08c21ef73fa595de6c26658ae13" category="paragraph">AzureにCloud Volumes ONTAP 構成を登録する方法と、Azure Key Vaultとキーを作成する方法を概説しています。これらの手順をすでに完了している場合は、特に、で正しい設定を行っていることを確認してください <block ref="b6cee0c01f8bf1f1cd6348c49fbde2b0" category="inline-xref-macro-rx"></block>をクリックし、に進みます <block ref="0d835ce531ec9eb78a13d9e8f120db62" category="inline-xref-macro-rx"></block>。* <block ref="cdef42bd73f4820f7c1e1f3c23ba776b" category="inline-xref-macro-rx"></block>* <block ref="2a43cfee4c27fd40bae74d4018b95bd1" category="inline-xref-macro-rx"></block>* <block ref="b6cee0c01f8bf1f1cd6348c49fbde2b0" category="inline-xref-macro-rx"></block>* <block ref="eef1aa206d5a44d4bc4f9df01004949c" category="inline-xref-macro-rx"></block>* <block ref="dc960527a9d200faf5b1d4aabb43c442" category="inline-xref-macro-rx"></block>* <block ref="0d835ce531ec9eb78a13d9e8f120db62" category="inline-xref-macro-rx"></block></block>
   <block id="0e62debe1968d8a9992becc4fb3a303b" category="list-title">Azureアプリケーション登録</block>
   <block id="7f7d612d5f09a474aa8522e2022e503d" category="list-text">Cloud Volumes ONTAP からAzure Key Vaultへのアクセスに使用するAzureサブスクリプションにアプリケーションを登録しておく必要があります。Azureポータルで、**アプリケーション登録**を選択します。</block>
   <block id="fe03672d5cebda78f425cc339ac0425f" category="list-text">**新規登録**を選択します。</block>
@@ -3900,5 +3895,16 @@
   <block id="a8e451d7a52ebee36c6527d684d09cd7" category="list-text"><block ref="a8e451d7a52ebee36c6527d684d09cd7" category="inline-link-macro-rx"></block></block>
   <block id="f0daa22edb6ee8b88bae0e5a21b552ec" category="inline-link-macro">Google Cloud Key Management Serviceの略</block>
   <block id="7cf27d24396a294ecbe07a4a35a715e6" category="list-text"><block ref="7cf27d24396a294ecbe07a4a35a715e6" category="inline-link-macro-rx"></block></block>
-  <block id="bce3985c06cad9c2c4fca6ec2afb69c3" category="sidebar">Google Cloud Key Manager Serviceを使用してキーを管理します</block>
+  <block id="8c01e5151cb74437e444454be784333c" category="list-text">Volume Encryption（VE）ライセンスがインストールされている（ネットアップサポートに登録されている各Cloud Volumes ONTAP システムにNetApp Volume Encryptionライセンスが自動的にインストールされる）</block>
+  <block id="8c2e4fec68d3b8906dcb334bbfe418bf" category="paragraph">AzureにCloud Volumes ONTAP 構成を登録する方法と、Azure Key Vaultとキーを作成する方法を概説しています。これらの手順をすでに完了している場合は、特に、で正しい設定を行っていることを確認してください <block ref="b6cee0c01f8bf1f1cd6348c49fbde2b0" category="inline-xref-macro-rx"></block>をクリックし、に進みます <block ref="0d835ce531ec9eb78a13d9e8f120db62" category="inline-xref-macro-rx"></block>。</block>
+  <block id="04b2bf8e8c9915aa61da3721f209d407" category="list-text"><block ref="cdef42bd73f4820f7c1e1f3c23ba776b" category="inline-xref-macro-rx"></block></block>
+  <block id="8d21503e09c6059c51a0f4e1bbf19622" category="list-text"><block ref="2a43cfee4c27fd40bae74d4018b95bd1" category="inline-xref-macro-rx"></block></block>
+  <block id="17a5af936da60d900f5414c57549845c" category="list-text"><block ref="b6cee0c01f8bf1f1cd6348c49fbde2b0" category="inline-xref-macro-rx"></block></block>
+  <block id="6ef7ba6caa8df5a2d98f31ec9bcee6a9" category="list-text"><block ref="eef1aa206d5a44d4bc4f9df01004949c" category="inline-xref-macro-rx"></block></block>
+  <block id="bf239af651be1f2e2d8c6d9c36aa28ad" category="list-text"><block ref="dc960527a9d200faf5b1d4aabb43c442" category="inline-xref-macro-rx"></block></block>
+  <block id="1ee5f64602b6b550966ffda0ef455a60" category="list-text"><block ref="0d835ce531ec9eb78a13d9e8f120db62" category="inline-xref-macro-rx"></block></block>
+  <block id="006b2aa0002e5883e312baeb8fee588e" category="paragraph">トラブルシューティングが必要な場合は、上記の最後の2つの手順でREST APIのrawログをテールできます。</block>
+  <block id="54d3d71e00eff1d12a7498874b5be642" category="list-text">「set d`」</block>
+  <block id="c616900ae748d4dd41ba80df7406dd9b" category="list-text">「systemshell -node _node」コマンドtail -f /mroot/etc/log/mlog/kmip2_client.log</block>
+  <block id="397841d9dc0e87fae94bd33b988bf92f" category="sidebar">Google Cloud KMSを使用してキーを管理します</block>
 </blocks>
