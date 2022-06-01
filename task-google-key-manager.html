@@ -182,7 +182,7 @@
   <ul class="custom-dropdown-menu">
     
     
-    <li data-value="aws" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-google-key-manager.html">
+    <li data-value="aws" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/aws">
       <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services の
     </li>
     
@@ -194,7 +194,7 @@
     
     
     
-    <li data-value="azure" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/task-google-key-manager.html">
+    <li data-value="azure" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/azure">
       <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/azure-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
     </li>
     
@@ -762,6 +762,19 @@
 
 
 
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/pages/task-google-key-manager.pdf" >
+    <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
+
+
+
+
 
 
     <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
@@ -1280,6 +1293,10 @@
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-encrypting-volumes.html">
         ネットアップの暗号化機能でボリュームを暗号化
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-azure-key-vault.html">
+        Azure Key Vaultを使用してキーを管理します
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-google-key-manager.html">
+        Google Cloud Key Manager Serviceを使用してキーを管理します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-protecting-ransomware.html">
         ランサムウェアからの保護を強化
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-azure-key-vault.html">
@@ -1463,7 +1480,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-01 15:28:57 +0000">06/01/2022</time>
+    <time datetime="2022-06-01 16:15:21 +0000">06/01/2022</time>
     
   
 
@@ -1476,7 +1493,7 @@
 <p>を使用できます <a href="https://cloud.google.com/kms/docs" target="_blank" rel="noopener">"Google Cloud Platform のキー管理サービス（ Cloud KMS ）"</a> Google Cloud Platform導入アプリケーションでONTAP 暗号化キーを保護します。</p>
 </div>
 <div class="paragraph">
-<p>キー管理Cloud KMSは、CLIまたはONTAP REST APIを使用して有効にすることができます。Cloud Volumes ONTAP 用にCloud KMSを設定するには、まず必要があります</p>
+<p>Cloud KMSを使用したキー管理は、CLIまたはONTAP REST APIを使用して有効にすることができます。</p>
 </div>
 <div class="paragraph">
 <p>Cloud KMSを使用する際は、デフォルトでデータSVM LIFがクラウドキー管理エンドポイントとの通信に使用されることに注意してください。ノード管理ネットワークは、クラウドプロバイダの認証サービス（oauth2.googleapis.com）との通信に使用されます。クラスタネットワークが正しく設定されていないと、クラスタでキー管理サービスが適切に利用されません。</p>
@@ -1485,7 +1502,7 @@
 <div class="title">前提条件</div>
 <ul>
 <li>
-<p>Cloud Volumes ONTAP クラスタのノードでNVEがサポートされている必要があります</p>
+<p>Cloud Volumes ONTAP でバージョン9.10.1以降が実行されている必要があります</p>
 </li>
 <li>
 <p>Volume Encryption （ VE ）ライセンスがインストールされている</p>
@@ -1496,59 +1513,62 @@
 <li>
 <p>クラスタ管理者またはSVMの管理者である必要があります</p>
 </li>
+<li>
+<p>アクティブなGoogle Cloud Platformサブスクリプション</p>
+</li>
 </ul>
 </div>
 <div class="ulist">
 <div class="title">制限</div>
 <ul>
 <li>
-<p>Cloud Volumes ONTAP でバージョン9.10.1以降が実行されている必要があります</p>
-</li>
-<li>
-<p>クラウドKMSはNSEとNAEには利用できません。</p>
-</li>
-<li>
-<p>MetroCluster 構成では、クラウドKMSは利用できません。</p>
-</li>
-<li>
 <p>クラウドKMSはデータSVMでのみ設定できます</p>
-</li>
-<li>
-<p>アクティブなGoogle Cloud Platformサブスクリプション</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="設定">設定</h2>
+<div class="sectionbody">
 <div class="olist arabic">
-<div class="title">&#8201;&#8212;&#8201;有効にします</div>
+<div class="title">Google Cloud</div>
 <ol class="arabic">
 <li>
-<p>Google Cloud環境の場合：</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>対称GCPキーリングとキーを作成します。</p>
+<p>Google Cloud環境では、 <a href="https://cloud.google.com/kms/docs/creating-keys" target="_blank" rel="noopener">"対称GCPキーリングとキーを作成します"</a>。</p>
 </li>
 <li>
-<p>Cloud Volumes ONTAP サービスアカウント用のカスタムロールを作成します。「gcloud iam roles create kmsCustomRole&#8201;&#8212;&#8201;project=<em>project_id</em>--title=<em>tks_custom_role_name</em>--description=ks.cryptoKeyVersionsGet、kms.cryptoKeyVersions.get、kms.cryptoKeyVersions.list、cloudkms.cryptoKeyVersions.useToDecrypt,cloudkms.cryptoKeyVersions.useToEncrypt,cloudkms.cryptoKeys.get,cloudkms.keyRings.get,cloudkms.locations.get,cloudkms.locations.list,resourcemanager.projects.get -stage /ga/ga/ga/ga?-stage</p>
+<p>Cloud Volumes ONTAP サービスアカウント用のカスタムロールを作成します。</p>
+<div class="listingblock">
+<div class="content">
+<pre>gcloud iam roles create kmsCustomRole
+    --project=&lt;project_id&gt;
+    --title=&lt;kms_custom_role_name&gt;
+    --description=&lt;custom_role_description&gt;
+    --permissions=cloudkms.cryptoKeyVersions.get,cloudkms.cryptoKeyVersions.list,cloudkms.cryptoKeyVersions.useToDecrypt,cloudkms.cryptoKeyVersions.useToEncrypt,cloudkms.cryptoKeys.get,cloudkms.keyRings.get,cloudkms.locations.get,cloudkms.locations.list,resourcemanager.projects.get
+    --stage=GA</pre>
+</div>
+</div>
 </li>
 <li>
-<p>カスタムロールをCloud KMSキーとCloud Volumes ONTAP サービスアカウントに割り当てます。「gcloud kms keys add -iam-policy binding ${<em>key_name</em>}-- keyring ${<em>key_ring_NAME</em>}-- location ${<em>key_location</em>}-- member serviceAccount：${<em>service_account_Name</em>}--role_projects/customers_projects_projects_security_security_security_security_security_roles/&lt;_project.&lt;_security_security_account&gt;</p>
+<p>カスタムロールをCloud KMSキーとCloud Volumes ONTAP サービスアカウントに割り当てます。「gcloud kms keys add -iam-policy binding_key_name_-- keyring_key_ring_name&#8201;&#8212;&#8201;location_key_location_- member serviceAccount：_service_account_Name&#8201;&#8212;&#8201;role project_id_id_roles/custommskmsk`key</p>
 </li>
 <li>
 <p>サービスアカウントのJSONキーをダウンロードします。「gcloud iam service-accounts keys create key-file --iam-account=<em>sa-name</em>@<em>project-id</em>.iam.gserviceaccount.com</p>
 </li>
 </ol>
 </div>
-</li>
+<div class="olist arabic">
+<div class="title">Cloud Volumes ONTAP</div>
+<ol class="arabic">
 <li>
-<p>Cloud Volumes ONTAP 環境に切り替えます。</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+<p>優先SSHクライアントを使用してクラスタ管理LIFに接続します。</p>
+</li>
 <li>
 <p>advanced権限レベルに切り替えます:'set -privilege advanced</p>
 </li>
 <li>
-<p>データSVM用のDNSを作成DNS create -domains c.<em><a href="#project">[project]</a></em>.internal -name-servers_server_address_-vserver_svm_name_`</p>
+<p>データSVM用のDNSを作成&#8217;dns create -domains C.<em>&lt;プロジェクト&gt;</em>.internal -name-servers_server_address_-vserver _svm_name _</p>
 </li>
 <li>
 <p>CMEKエントリを作成します：'security key-manager external GCP enable -vserver_svm_name_project-id_project_-key-ring-name_key_ring_name_-key-ring -location_key_ring_location_-key-name_key_name_`</p>
@@ -1560,10 +1580,7 @@
 <p>有効なプロセスが成功したことを確認します。「security key-manager external GCP check -vserver _svm_name _」</p>
 </li>
 <li>
-<p>オプション：暗号化「vol create <em>volume_name</em>&gt;-aggregate <em>vserver_name</em>-size 10G」をテストするボリュームを作成します</p>
-</li>
-</ol>
-</div>
+<p>オプション：暗号化「vol create _volume_name」をテストするボリュームを作成します。-aggregate-aggregate_aggregate_aggregate&#8212;&#8203;vserver vserver_name _size 10Gです</p>
 </li>
 </ol>
 </div>

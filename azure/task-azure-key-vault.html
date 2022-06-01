@@ -187,13 +187,13 @@
   <ul class="custom-dropdown-menu">
     
     
-    <li data-value="aws" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-azure-key-vault.html">
+    <li data-value="aws" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/aws">
       <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services の
     </li>
     
     
     
-    <li data-value="gcp" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-azure-key-vault.html">
+    <li data-value="gcp" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp">
       <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/gcp-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Google Cloud
     </li>
     
@@ -765,6 +765,19 @@
           
 
 
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/pages/task-azure-key-vault.pdf" >
+    <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
+
+
+
+
 
 
     <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
@@ -1240,6 +1253,8 @@
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/task-encrypting-volumes.html">
         ネットアップの暗号化機能でボリュームを暗号化
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/task-azure-key-vault.html">
+        Azure Key Vaultを使用してキーを管理します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/task-protecting-ransomware.html">
         ランサムウェアからの保護を強化
       </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/task-azure-key-vault.html">
@@ -1405,7 +1420,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-01 15:28:57 +0000">06/01/2022</time>
+    <time datetime="2022-06-01 16:15:21 +0000">06/01/2022</time>
     
   
 
@@ -1418,7 +1433,7 @@
 <p>を使用できます <a href="https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts" target="_blank" rel="noopener">"Azure キーボールト（ AKV ）"</a> Azureで導入されたアプリケーションでONTAP 暗号化キーを保護するため。</p>
 </div>
 <div class="paragraph">
-<p>AKV と Cloud KMS を使用して保護することができます <a href="configure-netapp-volume-encryption-concept.html">"NetApp Volume Encryption （ NVE ）キー"</a> データSVMの場合のみ。</p>
+<p>AKVは保護に使用できます <a href="https://docs.netapp.com/us-en/ontap/configure-netapp-volume-encryption-concept.html" target="_blank" rel="noopener">"NetApp Volume Encryption （ NVE ）キー"</a> データSVMの場合のみ。</p>
 </div>
 <div class="paragraph">
 <p>AKVを使用したキー管理は、CLIまたはONTAP REST APIを使用して有効にできます。</p>
@@ -1433,10 +1448,7 @@
 <p>Cloud Volumes ONTAP でバージョン9.10.1以降が実行されている必要があります</p>
 </li>
 <li>
-<p>Cloud Volumes ONTAP クラスタのノードでNVEがサポートされている必要があります</p>
-</li>
-<li>
-<p>Volume Encryption （ VE ）ライセンスがインストールされている</p>
+<p>Volume Encryption（VE）ライセンスがインストールされている（ネットアップサポートに登録されている各Cloud Volumes ONTAP システムにNetApp Volume Encryptionライセンスが自動的にインストールされます）。</p>
 </li>
 <li>
 <p>Multi-tenant Encryption Key Management （ MTEKM ）ライセンスがインストールされています</p>
@@ -1453,12 +1465,6 @@
 <div class="title">制限</div>
 <ul>
 <li>
-<p>AKVはNSEキーおよびNAEキーでは使用できません</p>
-</li>
-<li>
-<p>AKVはMetroCluster 構成では使用できません。</p>
-</li>
-<li>
 <p>AKVはデータSVM上でのみ設定できます</p>
 </li>
 </ul>
@@ -1468,8 +1474,164 @@
 <div class="sect1">
 <h2 id="設定プロセス">設定プロセス</h2>
 <div class="sectionbody">
-<div class="olist arabic">
-<div class="title">ONTAP の設定</div>
+<div class="paragraph">
+<p>AzureにCloud Volumes ONTAP 構成を登録する方法と、Azure Key Vaultとキーを作成する方法を概説しています。これらの手順をすでに完了している場合は、特に、で正しい設定を行っていることを確認してください <a href="#create-akv">Azureキーバックアップを作成します</a>をクリックし、に進みます <a href="#ontap">Cloud Volumes ONTAP 構成</a>。* <a href="#azure-app">Azureアプリケーション登録</a>* <a href="#secret">Azureクライアントシークレットを作成する</a>* <a href="#create-akv">Azureキーバックアップを作成します</a>* <a href="#key">暗号化キーを作成します</a>* <a href="#AAD">Azure Active Directoryエンドポイントの作成（HAのみ）</a>* <a href="#ontap">Cloud Volumes ONTAP 構成</a></p>
+</div>
+<div id="azure-app" class="olist arabic">
+<div class="title">Azureアプリケーション登録</div>
+<ol class="arabic">
+<li>
+<p>Cloud Volumes ONTAP からAzure Key Vaultへのアクセスに使用するAzureサブスクリプションにアプリケーションを登録しておく必要があります。Azureポータルで、<strong>アプリケーション登録</strong>を選択します。</p>
+</li>
+<li>
+<p><strong>新規登録</strong>を選択します。</p>
+</li>
+<li>
+<p>アプリケーションの名前を指定し、サポートされているアプリケーションタイプを選択します。デフォルトの単一テナントでAzure Key Vaultの使用量が十分に設定されていること。[<strong>登録</strong>]を選択します。</p>
+</li>
+<li>
+<p>Azureの概要ウィンドウで、登録したアプリケーションを選択します。<strong>アプリケーション（クライアント）ID</strong>および<strong>ディレクトリ（テナント）ID</strong>を安全な場所にコピーします。これらの情報は、後で登録プロセスで必要になります。</p>
+</li>
+</ol>
+</div>
+<div id="secret" class="olist arabic">
+<div class="title">Azureクライアントシークレットを作成する</div>
+<ol class="arabic">
+<li>
+<p>Cloud Volumes ONTAP アプリケーション用のAzureポータルで、[** Ceritificates &amp; secrets]ペインを選択します。</p>
+</li>
+<li>
+<p>[<strong>新しいクライアントシークレット</strong>クライアントシークレットに意味のある名前を入力してください。ネットアップでは24カ月の有効期限を推奨していますが、クラウドガバナンスポリシーによっては、別の設定が必要になる場合があります。</p>
+</li>
+<li>
+<p>クライアントシークレットを保存するには、[<strong>追加]を選択します。シークレットの</strong>値**をすぐにコピーして、将来の設定のために安全な場所に保管してください。ページから移動してもシークレット値は表示されません。</p>
+</li>
+</ol>
+</div>
+<div id="create-akv" class="olist arabic">
+<div class="title">Azureキーバックアップを作成します</div>
+<ol class="arabic">
+<li>
+<p>既存のAzure Key Vaultを使用している場合は、Cloud Volumes ONTAP 構成に接続できますが、アクセスポリシーをこのプロセスの設定に合わせる必要があります。</p>
+</li>
+<li>
+<p>Azureポータルで、[** Key Vaults（キーボルト）]セクションに移動します。</p>
+</li>
+<li>
+<p>[<strong>作成</strong>]を選択します。リソースグループ、地域、価格階層などの必要な情報を入力し、削除されたボールトを保持する日数と、パージ保護が有効かどうかを選択します。この構成ではデフォルトで十分ですが、クラウドガバナンスポリシーごとに異なる設定が必要になる場合があります。</p>
+</li>
+<li>
+<p>アクセスポリシーを選択するには、<strong> Next</strong>を選択してください。</p>
+</li>
+<li>
+<p>ボリューム暗号化オプションとして[<strong>Azure Disk Encryption]を選択し、権限モデルとして[</strong>Vault access policy]を選択します。</p>
+</li>
+<li>
+<p>［<strong>アクセスポリシーの追加</strong>］を選択します。</p>
+</li>
+<li>
+<p>[<strong>テンプレートから構成する（オプション）</strong>]フィールドの横にあるキャレットを選択します。次に、[<strong> Key]、[Secret]、[Certification Management]を選択します。</strong></p>
+</li>
+<li>
+<p>各ドロップダウンメニュー(キー、シークレット、証明書)を選択し、<strong>メニューリストの一番上にある[All]</strong>を選択して、使用可能なすべてのアクセス許可を選択します。次の作業を完了しておきます</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>キー権限</strong>:19が選択されています</p>
+</li>
+<li>
+<p><strong>シークレット権限</strong>:8が選択されています</p>
+</li>
+<li>
+<p><strong>証明書のアクセス許可</strong>:16が選択されています</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>アクセスポリシーを作成するには、[**追加]を選択します。</p>
+</li>
+<li>
+<p><strong>Next</strong>を選択して、<strong>Networking</strong>オプションに進みます。</p>
+</li>
+<li>
+<p>適切なネットワークアクセス方法を選択するか、<strong>すべてのネットワーク</strong>および<strong>レビュー+作成</strong>を選択して、キーボールトを作成します。（ネットワークアクセス方法は、ガバナンスポリシーまたは企業のクラウドセキュリティチームによって規定されている場合があります）。</p>
+</li>
+<li>
+<p>キーボールトURIを記録します。作成したキーボールトで、概要メニューに移動し、右側のカラムから<strong>Vault URI </strong>をコピーします。これは、あとの手順で必要になります。</p>
+</li>
+</ol>
+</div>
+<div id="key" class="olist arabic">
+<div class="title">暗号化キーを作成します</div>
+<ol class="arabic">
+<li>
+<p>Cloud Volumes ONTAP 用に作成したキー・ボールトのメニューで、[<strong> Keys</strong>（キー**）]オプションに移動します。</p>
+</li>
+<li>
+<p>[<strong>生成/インポート</strong>]を選択して、新しいキーを作成します。</p>
+</li>
+<li>
+<p>デフォルトのオプションは<strong> Generate </strong>のままにしておきます。</p>
+</li>
+<li>
+<p>次の情報を入力します。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>暗号化キー名</p>
+</li>
+<li>
+<p>キータイプ：rsa</p>
+</li>
+<li>
+<p>RSAキーのサイズ：2048</p>
+</li>
+<li>
+<p>Enabled：はい</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>[**Create]を選択して、暗号キーを作成します。</p>
+</li>
+<li>
+<p>[<strong> Keys</strong>（キー**）]メニューに戻り、作成したキーを選択します。</p>
+</li>
+<li>
+<p>キーのプロパティを表示するには、[<strong> Current version</strong>（現在のバージョン**）]でキーIDを選択します。</p>
+</li>
+<li>
+<p>[<strong> Key Identifier</strong>（キー識別子**）]フィールドを探します。URIを16進数の文字列以外の値にコピーします。</p>
+</li>
+</ol>
+</div>
+<div id="AAD" class="olist arabic">
+<div class="title">Azure Active Directoryエンドポイントの作成（HAのみ）</div>
+<ol class="arabic">
+<li>
+<p>このプロセスは、HA Cloud Volumes ONTAP 作業環境用にAzure Key Vaultを設定する場合にのみ必要です。</p>
+</li>
+<li>
+<p>Azureポータルで、<strong>Virtual Networks</strong>に移動します。</p>
+</li>
+<li>
+<p>Cloud Volumes ONTAP 作業環境を展開した仮想ネットワークを選択し、ページの左側にある<strong> Subnets </strong>メニューを選択します。</p>
+</li>
+<li>
+<p>Cloud Volumes ONTAP 環境のサブネット名をリストから選択します。</p>
+</li>
+<li>
+<p>[<strong>サービスエンドポイント</strong>]見出しに移動します。ドロップダウンメニューで、リストから<strong>Microsoft.AzureActiveDirectory </strong>を選択します。</p>
+</li>
+<li>
+<p><strong>保存</strong>を選択して、設定を取得します。</p>
+</li>
+</ol>
+</div>
+<div id="ontap" class="olist arabic">
+<div class="title">Cloud Volumes ONTAP 構成</div>
 <ol class="arabic">
 <li>
 <p>優先SSHクライアントを使用してクラスタ管理LIFに接続します。</p>
@@ -1523,8 +1685,15 @@ Category: kms_wrapped_key_status
 </div>
 </li>
 <li>
-<p>オプション：テストボリュームを作成してAKVの機能を確認します。vol create -vserver_svm_name_-volume_name_-aggregate_aggr_size_size__ state online -policy default '正しく設定されていると、ONTAP によってボリュームが自動的に作成され、ボリュームの暗号化が有効になります。</p>
+<p>オプション：テストボリュームを作成してAKVの機能を確認します。vol create -vserver_svm_name_-volume_name_-aggregate _aggr_size_state online -policy default’</p>
 </li>
+</ol>
+</div>
+<div class="paragraph">
+<p>正しく設定されていれば、Cloud Volumes ONTAP でボリュームが自動的に作成され、ボリューム暗号化が有効になります。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>ボリュームが正しく作成および暗号化されたことを確認します。その場合、「-is-encrypted」パラメータは「true」と表示されます。vol show -vserver_svm_name_-fields is-cencryptedです</p>
 </li>

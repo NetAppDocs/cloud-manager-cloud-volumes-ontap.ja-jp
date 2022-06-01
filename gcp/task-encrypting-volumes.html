@@ -781,6 +781,10 @@
 
 
 
+
+
+
+
           
         </li>
       </ul>
@@ -1242,6 +1246,8 @@
       </a>
       <ul><li class="  active "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-encrypting-volumes.html">
         ネットアップの暗号化機能でボリュームを暗号化
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-google-key-manager.html">
+        Google Cloud Key Manager Serviceを使用してキーを管理します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-protecting-ransomware.html">
         ランサムウェアからの保護を強化
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-azure-key-vault.html">
@@ -1403,7 +1409,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-09 15:40:08 +0000">05/09/2022</time>
+    <time datetime="2022-06-01 16:15:21 +0000">06/01/2022</time>
     
   
 
@@ -1411,7 +1417,7 @@
 </p>
 
 <div class="paragraph lead">
-<p>Cloud Volumes ONTAP は、 NetApp Volume Encryption （ NVE ）および NetApp Aggregate Encryption （ NAE ）をサポートしています。NVE と NAE は、（ FIPS ） 140-2 に準拠したボリュームの保管データ暗号化を可能にするソフトウェアベースのソリューションです。 <a href="concept-security.html">"これらの暗号化ソリューションの詳細については、こちらをご覧ください"</a>。</p>
+<p>Cloud Volumes ONTAP は、 NetApp Volume Encryption （ NVE ）および NetApp Aggregate Encryption （ NAE ）をサポートしています。NVEとNAEは、FIPS 140-2に準拠したボリュームの保管データ暗号化を可能にするソフトウェアベースのソリューションです。 <a href="concept-security.html">"これらの暗号化ソリューションの詳細については、こちらをご覧ください"</a>。</p>
 </div>
 <div class="paragraph">
 <p>NVE と NAE はどちらも外部キー管理機能でサポートされています。</p>
@@ -1470,8 +1476,12 @@ Key Managers * ソリューションを検索します。
 </li>
 <li>
 <p>外部キー管理を設定</p>
-<div class="paragraph">
-<p><a href="https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-external-key-management-overview-concept.html" target="_blank" rel="noopener">"手順については、 ONTAP のドキュメントを参照してください"</a>。</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="task-google-key-manager.html">"Google Cloud Key Management Serviceの略"</a></p>
+</li>
+</ul>
 </div>
 </li>
 </ol>
