@@ -35,14 +35,16 @@ S3 へのデータ階層化は、 C2S の Cloud Volumes ONTAP でもサポート
 
 == 制限
 
-ネットアップのどのクラウドサービスも Cloud Manager からは使用できません。
+* ネットアップのどのクラウドサービスも Cloud Manager からは使用できません。
+* C2S 環境ではインターネットにアクセスできないため、次の機能も使用できません。
++
+** NetApp Cloud Central との統合
+** Cloud Manager からのソフトウェアの自動アップグレード
+** NetApp AutoSupport
+** AWS の Cloud Volumes ONTAP リソースのコスト情報
 
-C2S 環境ではインターネットにアクセスできないため、次の機能も使用できません。
 
-* NetApp Cloud Central との統合
-* Cloud Manager からのソフトウェアの自動アップグレード
-* NetApp AutoSupport
-* AWS の Cloud Volumes ONTAP リソースのコスト情報
+* Freemiumライセンスは、C2S環境ではサポートされていません。
 
 
 
