@@ -776,19 +776,6 @@
 
 
 
-
-    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/pages/task-google-key-manager.pdf" >
-    <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-</ul>
-  
-
-
-
           
         </li>
       </ul>
@@ -1296,13 +1283,9 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-azure-key-vault.html">
         Azure Key Vaultを使用してキーを管理します
       </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-google-key-manager.html">
-        Google Cloud Key Manager Serviceを使用してキーを管理します
+        Google Cloud KMSを使用してキーを管理します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-protecting-ransomware.html">
         ランサムウェアからの保護を強化
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-azure-key-vault.html">
-        Azure Key Vaultを有効にします
-      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-google-key-manager.html">
-        Google Cloud Key Manager Serviceを有効にします
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> システム管理</div>
       </a>
@@ -1480,7 +1463,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-01 16:15:21 +0000">06/01/2022</time>
+    <time datetime="2022-06-01 17:02:47 +0000">06/01/2022</time>
     
   
 
@@ -1590,7 +1573,17 @@
 <h2 id="トラブルシューティングを行う">トラブルシューティングを行う</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>トラブルシューティングが必要な場合は、上記の最後の2つの手順でREST APIのrawログをテールできます。「set d`」。「systemshell -node _node」コマンドtail -f /mroot/etc/log/mlog/kmip2_client.log</p>
+<p>トラブルシューティングが必要な場合は、上記の最後の2つの手順でREST APIのrawログをテールできます。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>「set d`」</p>
+</li>
+<li>
+<p>「systemshell -node _node」コマンドtail -f /mroot/etc/log/mlog/kmip2_client.log</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
