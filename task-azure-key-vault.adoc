@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: task-azure-key-vault.html 
+keywords: azure, encryption, NVE, NetApp volume encryption, KMIP, azure key vault 
+summary: サードパーティのキー管理サービスにAzure Key Vaultを利用 
+---
+= Azure Key Vaultを使用してキーを管理します
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+を使用できます link:https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts["Azure キーボールト（ AKV ）"^] Azureで導入されたアプリケーションでONTAP 暗号化キーを保護するため。
+
+AKV と Cloud KMS を使用して保護することができます link:configure-netapp-volume-encryption-concept.html["NetApp Volume Encryption （ NVE ）キー"] データSVMの場合のみ。
+
+AKVを使用したキー管理は、CLIまたはONTAP REST APIを使用して有効にできます。
+
+AKVを使用する場合、デフォルトではクラウドキー管理エンドポイントとの通信にデータSVM LIFが使用されることに注意してください。ノード管理ネットワークは、クラウドプロバイダの認証サービス（login.microsoftonline.com）との通信に使用されます。クラスタネットワークが正しく設定されていないと、クラスタでキー管理サービスが適切に利用されません。
+
+.前提条件
+* Cloud Volumes ONTAP でバージョン9.10.1以降が実行されている必要があります
+* Cloud Volumes ONTAP クラスタのノードでNVEがサポートされている必要があります
+* Volume Encryption （ VE ）ライセンスがインストールされている
+* Multi-tenant Encryption Key Management （ MTEKM ）ライセンスがインストールされています
+* クラスタ管理者またはSVMの管理者である必要があります
+* アクティブなAzureサブスクリプション
+
+
+.制限
+* AKVはNSEキーおよびNAEキーでは使用できません
+* AKVはMetroCluster 構成では使用できません。
+* AKVはデータSVM上でのみ設定できます
+
+
+
+
+== 設定プロセス
+
+.ONTAP の設定
+. 優先SSHクライアントを使用してクラスタ管理LIFに接続します。
+. ONTAP でadvanced権限モードに切り替えます。「set advanced-con off`」
+. 目的のデータSVMを特定し、そのDNS設定を確認します。「vserver services name-service dns show
++
+.. 目的のデータSVMのDNSエントリが存在し、そのエントリにAzure DNSのエントリが含まれている場合は、対処は必要ありません。表示されない場合は、Azure DNS、プライベートDNS、またはオンプレミスサーバを指すデータSVMのDNSサーバエントリを追加します。これは、クラスタ管理SVMのエントリと一致している必要があります。vserver services name-service dns create -vserver _svm_name -domains_domain_name-servers _ip_address _'
+.. データSVM用にDNSサービスが作成されたことを確認します。vserver services name-service dns show
+
+
+. アプリケーションの登録後に保存されたクライアントIDとテナントIDを使用してAzure Key Vaultを有効にします。「security key-manager external Azure enable -vserver _svm_name __-client-id_caz_client_client_ID_tenant_ID_name_azure-name_aze_key_name_-key_key_id_azure_key_id_id_`
+. キー管理ツールの構成を確認します。「security key-manager external Azure show
+. キー管理ツールのステータスを確認します。「security key-manager external Azure check」出力は次のようになります。
++
+[source]
+----
+::*> security key-manager external azure check
+
+Vserver: data_svm_name
+Node: akvlab01-01
+
+Category: service_reachability
+    Status: OK
+
+Category: ekmip_server
+    Status: OK
+
+Category: kms_wrapped_key_status
+    Status: UNKNOWN
+    Details: No volumes created yet for the vserver. Wrapped KEK status will be available after creating encrypted volumes.
+
+3 entries were displayed.
+----
++
+「SERVICE_Reachability」ステータスが「OK」でない場合、SVMは必要なすべての接続および権限を使用してAzure Key Vaultサービスに到達できません。初期構成で'kms _ wrapped _key_status'は'unknown'を報告します最初のボリュームが暗号化されると'ステータスはOKに変わります
+
+. オプション：テストボリュームを作成してAKVの機能を確認します。vol create -vserver_svm_name_-volume_name_-aggregate_aggr_size_size__ state online -policy default '正しく設定されていると、ONTAP によってボリュームが自動的に作成され、ボリュームの暗号化が有効になります。
+. ボリュームが正しく作成および暗号化されたことを確認します。その場合、「-is-encrypted」パラメータは「true」と表示されます。vol show -vserver_svm_name_-fields is-cencryptedです
+
