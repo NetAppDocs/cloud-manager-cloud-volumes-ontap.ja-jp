@@ -1403,7 +1403,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-07 20:54:02 +0000">06/07/2022</time>
+    <time datetime="2022-06-07 22:01:14 +0000">06/07/2022</time>
     
   
 
@@ -1450,12 +1450,12 @@
 <h2 id="storage-vm-を作成">Storage VM を作成</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>1つのノードシステムまたはHAペアに複数のStorage VMを作成できます。HAペアにStorage VMを作成するにはCloud Manager APIを使用する必要があります。一方、CLIまたはSystem Managerを使用して、単一のノードシステムにStorage VMを作成できます。</p>
+<p>ライセンスでサポートされている場合は、1つのノードシステムまたはHAペアに複数のStorage VMを作成できます。HAペアにStorage VMを作成するにはCloud Manager APIを使用する必要があります。一方、CLIまたはSystem Managerを使用して、単一のノードシステムにStorage VMを作成できます。</p>
 </div>
 <div class="sect2">
 <h3 id="シングルノードシステム">シングルノードシステム</h3>
 <div class="paragraph">
-<p>以下の手順では、CLIを使用してシングルノードシステムに新しいStorage VMを作成します。NAS LIF を作成するには 1 つのプライベート IP アドレスが必要で、管理 LIF を作成する場合はもう 1 つのプライベート IP アドレスが必要です。</p>
+<p>以下の手順では、CLIを使用してシングルノードシステムに新しいStorage VMを作成します。データLIFを作成するにはプライベートIPアドレスが1つ必要で、管理LIFを作成する場合はプライベートIPアドレスをもう1つ必要になります。</p>
 </div>
 <div class="olist arabic">
 <div class="title">手順</div>
@@ -1524,7 +1524,7 @@
 <p>Storage VM に 1 つ以上のアグリゲートを割り当てます。</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">vserver add-aggregates -vserver svm_2 -aggregates aggr1,aggr2</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli">vserver add-aggregates -vserver &lt;svm-name&gt; -aggregates &lt;aggr1,aggr2&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1580,7 +1580,7 @@
 <h2 id="haペアのstorage-vmを管理します">HAペアのStorage VMを管理します</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloud Manager APIでは、Storage VMの名前変更と削除もサポートされています。</p>
+<p>Cloud Manager APIでは、HAペアのStorage VMの名前変更と削除もサポートされます。</p>
 </div>
 <div class="sect2">
 <h3 id="storage-vmの名前を変更します">Storage VMの名前を変更します</h3>
