@@ -184,6 +184,14 @@ DNS サーバは、 Active Directory 環境に名前解決サービスを提供�
 
 
 
+=== vPC共有
+
+9.11.1リリース以降では、VPCを共有するAWSでCloud Volumes ONTAP HAペアがサポートされます。VPC共有を使用すると、他のAWSアカウントとサブネットを共有できます。この構成を使用するには、AWS環境をセットアップし、APIを使用してHAペアを導入する必要があります。
+
+link:task-deploy-aws-shared-vpc.html["共有サブネットにHAペアを導入する方法について説明します"]。
+
+
+
 == 複数の AZ にまたがる HA ペアに関する要件
 
 複数の可用性ゾーン（ AZS ）を使用する Cloud Volumes ONTAP HA 構成には、 AWS ネットワークの追加要件が適用されます。HA ペアを起動する前に、作業環境の作成時に Cloud Manager でネットワークの詳細を入力する必要があるため、これらの要件を確認しておく必要があります。

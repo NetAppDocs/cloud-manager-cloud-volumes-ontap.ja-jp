@@ -51,19 +51,26 @@ TIP: Key Managers * ソリューションを検索します。
 . link:task-connecting-to-otc.html["Cloud Volumes ONTAP CLI に接続します"^]。
 . 外部キー管理を設定
 +
-ifdef::azure[]
+ifdef::aws[]
 
 +
-** link:task-azure-key-vault.html["Azure キーボールト（ AKV ）"]
+** AWS https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-external-key-management-overview-concept.html["手順については、 ONTAP のドキュメントを参照してください"^]
 
 
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* Azure link:task-azure-key-vault.html["Azure キーボールト（ AKV ）"]
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* link:task-google-key-manager.html["Google Cloud Key Management Serviceの略"]
+* Google Cloud link:task-google-key-manager.html["Google Cloud Key Management Serviceの略"]
 
 
 endif::gcp[]

@@ -3858,9 +3858,7 @@
   <block id="d8787bda3ae35a469afc376610816a6a" category="list-text">データSVM用のDNSを作成'dns create -domains C._&lt;プロジェクト&gt;_.internal -name-servers_server_address_-vserver _svm_name _</block>
   <block id="1601dadf3d75da8ab487484480cbf4ef" category="list-text">オプション：暗号化「vol create _volume_name」をテストするボリュームを作成します。-aggregate-aggregate_aggregate_aggregate--vserver vserver_name _size 10Gです</block>
   <block id="401a8aaa330fe64d45395192c047e1ed" category="paragraph">Cloud Volumes ONTAP は、 NetApp Volume Encryption （ NVE ）および NetApp Aggregate Encryption （ NAE ）をサポートしています。NVEとNAEは、FIPS 140-2に準拠したボリュームの保管データ暗号化を可能にするソフトウェアベースのソリューションです。 <block ref="d36456219fc3d98cd4133816e30fd33f" category="inline-link-macro-rx"></block>。</block>
-  <block id="a8e451d7a52ebee36c6527d684d09cd7" category="list-text"><block ref="a8e451d7a52ebee36c6527d684d09cd7" category="inline-link-macro-rx"></block></block>
   <block id="f0daa22edb6ee8b88bae0e5a21b552ec" category="inline-link-macro">Google Cloud Key Management Serviceの略</block>
-  <block id="7cf27d24396a294ecbe07a4a35a715e6" category="list-text"><block ref="7cf27d24396a294ecbe07a4a35a715e6" category="inline-link-macro-rx"></block></block>
   <block id="8c01e5151cb74437e444454be784333c" category="list-text">Volume Encryption（VE）ライセンスがインストールされている（ネットアップサポートに登録されている各Cloud Volumes ONTAP システムにNetApp Volume Encryptionライセンスが自動的にインストールされる）</block>
   <block id="8c2e4fec68d3b8906dcb334bbfe418bf" category="paragraph">AzureにCloud Volumes ONTAP 構成を登録する方法と、Azure Key Vaultとキーを作成する方法を概説しています。これらの手順をすでに完了している場合は、特に、で正しい設定を行っていることを確認してください <block ref="b6cee0c01f8bf1f1cd6348c49fbde2b0" category="inline-xref-macro-rx"></block>をクリックし、に進みます <block ref="0d835ce531ec9eb78a13d9e8f120db62" category="inline-xref-macro-rx"></block>。</block>
   <block id="04b2bf8e8c9915aa61da3721f209d407" category="list-text"><block ref="cdef42bd73f4820f7c1e1f3c23ba776b" category="inline-xref-macro-rx"></block></block>
@@ -3954,7 +3952,6 @@
   <block id="a09b01c7001d3eb80404765be4eb61c9" category="list-text">Cloud Volumes ONTAP 構成でAmazon EBS Elastic Volumes機能がサポートされている場合は、この処理が必要になることがあります <block ref="15950bbc5dd5b213dd93808f9892a1c5" category="inline-link-macro-rx"></block>。</block>
   <block id="1cbde96d4494f1d0a0cc701b14f4979e" category="list-text">AWS では、アグリゲートに同じサイズのディスクを最大 6 本含めることができます。ただし、Amazon EBS Elastic Volumes機能をサポートする構成では、アグリゲートに最大8本のディスクを含めることができます。 <block ref="e64e49a1cded5f4109adae46b4faa045" category="inline-link-macro-rx"></block>。</block>
   <block id="b8dd8c06193176beb2ad15367f7a1a0d" category="paragraph">最大ディスクサイズは 16TiB です。</block>
-  <block id="3635902b03ef6f329f7d82d346770acc" category="summary">Cloud Volumes ONTAP HAペアは、VPCを共有するAWSでサポートされます。VPC共有を使用すると、他のAWSアカウントとサブネットを共有できます。この構成を使用するには、AWS環境をセットアップし、APIを使用してHAペアを導入する必要があります。</block>
   <block id="1ddb0e5b328575796533c1e7f5b1f802" category="doc">HAペアを共有サブネットに導入します</block>
   <block id="18520da6851f84ab4d7ab3d88d237cd9" category="inline-link">vPC共有</block>
   <block id="c81d796f0d5c668dfa8d68823f479c90" category="paragraph">を使用<block ref="93089d0988badd859f8a3f19acd5c989" category="inline-link-rx"></block>Cloud Volumes ONTAP HA構成は、次の2つのアカウントに分散されます。</block>
@@ -4003,8 +4000,6 @@
   <block id="a22063e6d541a4b1d385c3d940e03996" category="doc">Google CloudでCloud Volumes ONTAP 用のデータ提供用Storage VMを作成</block>
   <block id="77701b3d3cb3179bddf053dbed6e2e43" category="paragraph">9.11.1リリース以降、Google Cloudの特定のCloud Volumes ONTAP 構成で複数のStorage VMがサポートされています。にアクセスします<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 使用している Cloud Volumes ONTAP のバージョンでサポートされる Storage VM 数を確認してください。</block>
   <block id="8272f5b23e79d0ee33bd5151dcddc454" category="section-title">Storage VM を作成</block>
-  <block id="944ec8ab61e0f52a9d2d97f0e9d3f8a8" category="paragraph">1つのノードシステムまたはHAペアに複数のStorage VMを作成できます。HAペアにStorage VMを作成するにはCloud Manager APIを使用する必要があります。一方、CLIまたはSystem Managerを使用して、単一のノードシステムにStorage VMを作成できます。</block>
-  <block id="58bbad78237dfd7483b5391557d6f009" category="paragraph">以下の手順では、CLIを使用してシングルノードシステムに新しいStorage VMを作成します。NAS LIF を作成するには 1 つのプライベート IP アドレスが必要で、管理 LIF を作成する場合はもう 1 つのプライベート IP アドレスが必要です。</block>
   <block id="379013863d5e971d00b46819c677a99b" category="list-text">Google Cloudで、Cloud Volumes ONTAP インスタンスに移動し、LIFごとにnic0のIP範囲を追加します。</block>
   <block id="a0ffc61dcb224c763f02ac751ef98179" category="inline-image-macro">Google Cloudコンソールのスクリーンショット。IP範囲を追加してCloud Volumes ONTAP のネットワークインターフェイスを編集できます。</block>
   <block id="fd22fa73f7ee3c6c4da641ee4618201b" category="paragraph"><block ref="fd22fa73f7ee3c6c4da641ee4618201b" category="inline-image-macro-rx" type="image"></block></block>
@@ -4023,7 +4018,6 @@
   <block id="78beb47b48fe8b17a288b32a8942a187" category="paragraph">「POST/occm/api/gCP/HA/作業環境/{WE_ID}/SVM/`」</block>
   <block id="995ddfd1247131c9653edbf829fa6e28" category="paragraph">要求の本文には次の情報が含まれている必要があります</block>
   <block id="b93afa1b577022f0769bc7e27b5bcd75" category="section-title">HAペアのStorage VMを管理します</block>
-  <block id="cf65cf1a7e9ad5d29b30934568abc52f" category="paragraph">Cloud Manager APIでは、Storage VMの名前変更と削除もサポートされています。</block>
   <block id="c97c5ffc330239a3245482bb4881877a" category="section-title">Storage VMの名前を変更します</block>
   <block id="e0867a20bdb8328df5da5826abffd2f7" category="paragraph">必要に応じて、Storage VMの名前はいつでも変更できます。</block>
   <block id="369a2d15e783c13b71dafb712d78bd30" category="list-text">Storage VMの名前を変更するには、次のAPI呼び出しを使用します。</block>
@@ -4126,4 +4120,12 @@
   <block id="c871aaf8a95c147d6774c7ccaf68c0eb" category="sidebar">Google Cloudの管理</block>
   <block id="cb993f96a433ab0d99c7a6a17a1ddc9c" category="sidebar">System Managerで管理を行います</block>
   <block id="fab7a3813da88237a3633c0b925bf6d0" category="sidebar">CLIからの管理</block>
+  <block id="383f69885998c1a12752a714d0112637" category="summary">9.11.1リリース以降では、VPCを共有するAWSでCloud Volumes ONTAP HAペアがサポートされます。VPC共有を使用すると、他のAWSアカウントとサブネットを共有できます。この構成を使用するには、AWS環境をセットアップし、APIを使用してHAペアを導入する必要があります。</block>
+  <block id="443c7475fd3a991d78da491115e21872" category="paragraph">ライセンスでサポートされている場合は、1つのノードシステムまたはHAペアに複数のStorage VMを作成できます。HAペアにStorage VMを作成するにはCloud Manager APIを使用する必要があります。一方、CLIまたはSystem Managerを使用して、単一のノードシステムにStorage VMを作成できます。</block>
+  <block id="9a21580c09403b622f0f8cb3f190a88c" category="paragraph">以下の手順では、CLIを使用してシングルノードシステムに新しいStorage VMを作成します。データLIFを作成するにはプライベートIPアドレスが1つ必要で、管理LIFを作成する場合はプライベートIPアドレスをもう1つ必要になります。</block>
+  <block id="985cafc0296caf519b1775b871b1e80a" category="paragraph">Cloud Manager APIでは、HAペアのStorage VMの名前変更と削除もサポートされます。</block>
+  <block id="fd821d5714ebcc986157929dd866f41c" category="inline-link">手順については、 ONTAP のドキュメントを参照してください</block>
+  <block id="780234ea39261cf819a32f7b1f62cacd" category="list-text">AWS<block ref="f103b81da9a8e5be0e2af29f647d4fa3" category="inline-link-rx"></block></block>
+  <block id="80b607f58d83b6d6aea68e10d7e615ad" category="list-text">Azure <block ref="a8e451d7a52ebee36c6527d684d09cd7" category="inline-link-macro-rx"></block></block>
+  <block id="c06321d34601f3b5366ec101222f76b5" category="list-text">Google Cloud <block ref="7cf27d24396a294ecbe07a4a35a715e6" category="inline-link-macro-rx"></block></block>
 </blocks>
