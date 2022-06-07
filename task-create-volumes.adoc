@@ -37,6 +37,7 @@ Cloud Manager では、いくつかの方法で新しいボリュームを作成
 ifdef::aws[]
 
 * AWS で CIFS を使用する場合は、 DNS と Active Directory を設定しておく必要があります。詳細については、を参照してください link:reference-networking-aws.html["Cloud Volumes ONTAP for AWS のネットワーク要件"]。
+* Cloud Volumes ONTAP 構成でAmazon EBS Elastic Volumes機能がサポートされている場合は、この処理が必要になることがあります link:concept-aws-elastic-volumes.html["ボリュームを作成したときの動作の詳細については、こちらをご覧ください"]。
 
 
 endif::aws[]

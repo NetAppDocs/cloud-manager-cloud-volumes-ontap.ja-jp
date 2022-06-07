@@ -1,0 +1,22 @@
+= Google CloudでのStorage VMの作成がサポートされます
+:allow-uri-read: 
+
+
+
+
+=== Google CloudでのStorage VMの作成がサポートされます
+
+Google CloudのCloud Volumes ONTAP では、9.11.1リリース以降、複数のStorage VMがサポートされています。このリリースのコネクタから、Cloud Managerを使用して、Google CloudのCloud Volumes ONTAP HAペアにStorage VMを作成できます。
+
+Storage VMの作成をサポートするには、次のコネクタに対する新しいGoogle Cloud権限が必要です。
+
+[source, yaml]
+----
+- compute.instanceGroups.get
+- compute.addresses.get
+----
+ONTAP CLIまたはSystem Managerを使用して、シングルノードシステムにStorage VMを作成する必要があります。
+
+* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-gcp.html#storage-vm-limits["Google CloudのStorage VMの制限に関する詳細を確認できます"^]
+* link:task-managing-svms-gcp.html["Google CloudでCloud Volumes ONTAP 向けのデータ提供用Storage VMを作成する方法をご確認ください"]
+

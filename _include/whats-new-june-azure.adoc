@@ -1,0 +1,11 @@
+= サービスエンドポイントを使用する場合は、ネットワークアクセスが制限されます
+:allow-uri-read: 
+
+
+
+
+=== サービスエンドポイントを使用する場合は、ネットワークアクセスが制限されます
+
+Cloud Volumes ONTAP とストレージアカウント間の接続にVNetサービスエンドポイントを使用する際に、Cloud Managerはネットワークアクセスを制限するようになりました。Azure Private Link接続を無効にすると、Cloud Managerはサービスエンドポイントを使用します。
+
+link:task-enabling-private-link.html["Cloud Volumes ONTAP でのAzureプライベートリンク接続の詳細については、こちらをご覧ください"]。

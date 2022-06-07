@@ -147,7 +147,10 @@ Category: kms_wrapped_key_status
 +
 「SERVICE_Reachability」ステータスが「OK」でない場合、SVMは必要なすべての接続および権限を使用してAzure Key Vaultサービスに到達できません。初期構成で'kms _ wrapped _key_status'は'unknown'を報告します最初のボリュームが暗号化されると'ステータスはOKに変わります
 
-. オプション：テストボリュームを作成してAKVの機能を確認します。vol create -vserver_svm_name_-volume_name_-aggregate _aggr_size_state online -policy default’
+. オプション：NVEの機能を検証するテストボリュームを作成する
++
+vol create -vserver_svm_name_-volume_name_-aggregate _aggr_size_state online -policy default’
+
 +
 正しく設定されていれば、Cloud Volumes ONTAP でボリュームが自動的に作成され、ボリューム暗号化が有効になります。
 

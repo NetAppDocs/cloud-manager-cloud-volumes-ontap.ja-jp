@@ -24,7 +24,43 @@ CAUTION: すべてのディスクとアグリゲートは、 Cloud Manager か�
 . メニューアイコンをクリックし、 [ * 詳細設定 ] 、 [ 詳細な割り当て * ] の順にクリックします。
 . Add Aggregate * をクリックして、アグリゲートの詳細を指定します。
 +
-ディスクタイプとディスクサイズについては、を参照してください link:task-planning-your-config.html["構成の計画"]。
+[role="tabbed-block"]
+====
+ifdef::aws[]
 
+.AWS
+--
+** ディスクタイプとディスクサイズの選択を求めるメッセージが表示された場合は、を参照してください link:task-planning-your-config.html["AWSでCloud Volumes ONTAP 構成を計画"]。
+** アグリゲートの容量のサイズを入力するように求められたら、Amazon EBS Elastic Volumes機能をサポートする構成でアグリゲートを作成します。次のスクリーンショットは、GP3ディスクで構成される新しいアグリゲートの例を示しています。
++
+image:screenshot-aggregate-size-ev.png["GP3ディスクのアグリゲートディスク画面のスクリーンショット。TiBでアグリゲートサイズを入力します。"]
+
++
+link:concept-aws-elastic-volumes.html["Elastic Volumesのサポートに関する詳細情報"]。
+
+
+
+--
+endif::aws[]
+
+ifdef::azure[]
+
+.Azure
+--
+ディスクの種類とサイズについては、を参照してください link:task-planning-your-config-azure.html["AzureでCloud Volumes ONTAP 構成を計画"]。
+
+--
+endif::azure[]
+
+ifdef::gcp[]
+
+.Google Cloud
+--
+ディスクの種類とサイズについては、を参照してください link:task-planning-your-config-gcp.html["Google CloudでCloud Volumes ONTAP 構成を計画する"]。
+
+--
+endif::gcp[]
+
+====
 . [* Go * ] をクリックし、 [* 承認して購入 * ] をクリックします。
 

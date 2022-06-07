@@ -1,0 +1,30 @@
+= Amazon EBS Elastic Volumesのサポート
+:allow-uri-read: 
+
+
+
+
+=== Amazon EBS Elastic Volumesのサポート
+
+Cloud Volumes ONTAP アグリゲートでAmazon EBS Elastic Volumes機能がサポートされるため、パフォーマンスが向上して容量が追加されると同時に、必要に応じて基盤となるディスク容量がCloud Managerで自動的に拡張されます。
+
+Elastic Volumeは、Cloud Volumes ONTAP 9.11.0システム以降、GP3およびio1 EBSディスクタイプでサポートされます。
+
+link:concept-aws-elastic-volumes.html["Elastic Volumesのサポートに関する詳細情報"]。
+
+Elastic Volumesをサポートするために、Connectorに対する新しいAWS権限が必要になることに注意してください。
+
+[source, json]
+----
+"ec2:DescribeVolumesModifications",
+"ec2:ModifyVolume",
+----
+Cloud Managerに追加したAWSクレデンシャルの各セットに、これらの権限を必ず付与してください。最新の権限のリストは、で確認できます https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager のポリシーのページです"^]。
+
+
+
+=== 共有AWSサブネットでのHAペアの導入をサポートします
+
+Cloud Volumes ONTAP 9.11.1では、AWS VPC共有がサポートされています。このリリースのコネクタでは、APIを使用するときにAWS共有サブネットにHAペアを導入できます。
+
+link:task-deploy-aws-shared-vpc.html["共有サブネットにHAペアを導入する方法について説明します"]。

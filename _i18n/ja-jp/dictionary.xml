@@ -473,7 +473,6 @@
   <block id="65d07c0479237159daf22849e998b18c" category="admonition">アカウント管理者は、 [ 設定 *] ページから空き容量のしきい値を変更できます。</block>
   <block id="954f6e939470d2d9311a80662ca4d02c" category="section-title">AWS でのアグリゲートのディスクサイズの選択</block>
   <block id="b3f765435c76bcf5e82649e1cf8cdf05" category="paragraph">Cloud Manager は、 AWS で Cloud Volumes ONTAP 用の新しいアグリゲートを作成すると、システム内のアグリゲートの数が増えるにつれて、アグリゲート内のディスクサイズを徐々に増加させます。Cloud Manager は、 AWS で許可される最大データディスク数に達する前に、システムの最大容量を利用できるようにします。</block>
-  <block id="56f9343c98c41a75244ba7f57422c1ee" category="paragraph">たとえば、 Cloud Manager では、 Cloud Volumes ONTAP Premium または BYOL システムのアグリゲートに次のディスクサイズを選択できます。</block>
   <block id="bb9369920f48ccd809746c237f259822" category="cell">アグリゲート番号</block>
   <block id="f308e6ca453d47a2876df6eae740d8f8" category="cell">ディスクサイズ</block>
   <block id="d5dc06ae68551044e742ef0c9c74a4ee" category="cell">最大アグリゲート容量</block>
@@ -1160,14 +1159,7 @@
   <block id="f82fe496603bf204ff4b4b1c2f2016dc" category="paragraph"><block ref="f82fe496603bf204ff4b4b1c2f2016dc" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5e09b978da9c03ac56e9ae009a493fb2" category="list-text">ネットアップサポートサイトのアカウントを選択し、 * 登録 * をクリックします。</block>
   <block id="7323c95986e1d39c2cd9db2d73aada05" category="paragraph">Cloud Manager によってシステムがネットアップに登録されます。</block>
-  <block id="4dfabb9a74a517d95b15695d846b0944" category="summary">Cloud Volumes ONTAP の高度な管理を実行する必要がある場合は、 ONTAP System Manager またはコマンドラインインターフェイスを使用します。</block>
-  <block id="cadd82fb79e2226fff6bf6cfb889bd39" category="section-title">System Manager に接続しています</block>
-  <block id="f07d90bbfefc445d1cb078ac5046d7cc" category="paragraph">一部の Cloud Volumes ONTAP タスクを System Manager から実行する必要が生じることがあります。 System Manager は、 Cloud Volumes ONTAP システム上で稼働するブラウザベースの管理ツールです。たとえば、 LUN を作成する場合は、 System Manager を使用する必要があります。</block>
   <block id="b11c90fa5b1825891f7306cced59a8f6" category="paragraph">Cloud Manager にアクセスするコンピュータは、 Cloud Volumes ONTAP にネットワーク接続している必要があります。たとえば、クラウドプロバイダネットワークにあるジャンプホストから Cloud Manager へのログインが必要になることがあります。</block>
-  <block id="bc50e2c8c6842f075870ca9f893488d7" category="admonition">複数の AWS 可用性ゾーンに導入されている場合、 Cloud Volumes ONTAP HA 構成では、クラスタ管理インターフェイスにフローティング IP アドレスが使用されます。つまり、外部ルーティングは使用できません。同じルーティングドメインの一部であるホストから接続する必要があります。</block>
-  <block id="7587e47fb1fdfd160b82df32e24fa40e" category="list-text">ログイン画面で、 [ ユーザー名 ] フィールドに「 * admin * 」と入力し、作業環境の作成時に指定したパスワードを入力して、 [ * サインイン * ] をクリックします。</block>
-  <block id="a3203a051e5a85d3cb527a2c606eeda2" category="paragraph">System Manager コンソールがロードされます。これで、 Cloud Volumes ONTAP の管理に使用できるようになりました。</block>
-  <block id="ef51c06afbfb97dceda87a3df6d89d3e" category="section-title">Cloud Volumes ONTAP CLI に接続しています</block>
   <block id="ce526ab58111a5389fb309107879b9a8" category="paragraph">Cloud Volumes ONTAP CLI では、すべての管理コマンドを実行できます。高度なタスクを実行する場合や、 CLI を使い慣れている場合は、 CLI の使用を推奨します。Secure Shell （ SSH ）を使用して CLI に接続できます。</block>
   <block id="3b1f07734e1995c8bb4477cd9ebabf4d" category="admonition">複数の AZS に導入されている場合、 Cloud Volumes ONTAP HA 構成では、クラスタ管理インターフェイスにフローティング IP アドレスが使用されます。これは、外部ルーティングが使用できないことを意味します。同じルーティングドメインの一部であるホストから接続する必要があります。</block>
   <block id="6ad94be4e63b3d4783fdd1f854b7bbdf" category="list-text">Cloud Manager で、クラスタ管理インターフェイスの IP アドレスを特定します。</block>
@@ -1190,9 +1182,7 @@
   <block id="8e0363ea5260615f78f973b9445db868" category="paragraph">デフォルトでは、 Cloud Manager は Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間の Azure Private Link 接続を有効にします。プライベートリンクは Azure のエンドポイント間の接続を保護し、パフォーマンスを向上させます。<block ref="451e081c1e4ac441ce13c50d13222051" category="inline-link-rx"></block>。</block>
   <block id="bd61dd2687bcf08b472b11c632177da1" category="paragraph">ほとんどの場合、実行する必要はありません。 Cloud Manager は Azure Private Link を管理します。ただし、 Azure Private DNS を使用する場合は、構成ファイルを編集する必要があります。必要に応じて、プライベートリンク接続を無効にすることもできます。</block>
   <block id="1bf0dfe526c6a7cc50e0e7cd24f46087" category="section-title">Azure のコネクタの場所</block>
-  <block id="6882deeb4b60915fc6b7a36d03f329e3" category="inline-link-macro">Cloud Volumes ONTAP での Azure プライベートリンクの使用方法をご確認ください</block>
   <block id="573514d5de621ecfe56c91e7c665d73d" category="inline-link">Azure リージョンペア</block>
-  <block id="9a748334957b0a70bb0c68285db6fa74" category="paragraph">コネクタは、管理対象の Cloud Volumes ONTAP システムまたはにある Azure リージョンと同じ Azure リージョンに導入する必要があります<block ref="71e0e9a7366955554f0600c5ea8cfc7f" category="inline-link-rx"></block> Cloud Volumes ONTAP システム用。この要件により、 Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間で Azure Private Link 接続が使用されるようになります。 <block ref="fb7e043720e28bdcd37f42327d3b6a7c" category="inline-link-macro-rx"></block>。</block>
   <block id="b12da0384eea760e143d1a41fe2484f9" category="section-title">Cloud Volumes ONTAP でのプライベートリンク接続の動作</block>
   <block id="188ce8053291c28108253bf30f90ac2e" category="paragraph">Cloud Manager が Azure に Cloud Volumes ONTAP を導入すると、リソースグループにプライベートエンドポイントが作成されます。プライベートエンドポイントは、 Cloud Volumes ONTAP のストレージアカウントに関連付けられます。その結果、 Cloud Volumes ONTAP ストレージへのアクセスは、 Microsoft バックボーンネットワークを経由します。</block>
   <block id="b2de829903c040e99b02d3d155ca0528" category="paragraph">VNet へのプライベート VPN 接続または ExpressRoute 接続を使用する場合、クライアントが Cloud Volumes ONTAP と同じ VNet 内、ピア VNet 内、またはオンプレミスネットワーク内にある場合、クライアントアクセスはプライベートリンクを経由します。</block>
@@ -2132,7 +2122,6 @@
   <block id="faba202f20e7ef67ff97d9097e268982" category="section-title">AWS ストレージ</block>
   <block id="699a53f8b6c691bbc6e437ae620685f7" category="paragraph">AWS で Cloud Volumes ONTAP は、一部の EC2 インスタンスタイプで、ユーザデータ用の EBS ストレージとローカルの NVMe ストレージが Flash Cache として使用されます。</block>
   <block id="274282151718f163e0f1ba6da8588d2f" category="list-text">EBS ストレージ</block>
-  <block id="ca68d847e41b650021b91ed75c8493db" category="list-text">AWS では、アグリゲートに同じサイズのディスクを最大 6 本含めることができます。最大ディスクサイズは 16TiB です。</block>
   <block id="3b4f2c0ef76da93b9a05416912b2ab5e" category="inline-link-macro">使用頻度の低いデータを低コストのオブジェクトストレージに階層化します</block>
   <block id="c2bd9a205e3f7a9d01f0534822cbff80" category="paragraph">基盤となる EBS ディスクタイプは、汎用 SSD （ GP3 または gp2 ）、プロビジョニングされる IOPS SSD （ io1 ）、またはスループット最適化 HDD （ st1 ）です。EBS ディスクと Amazon S3 をにペアリングできます <block ref="767b2bdd82880da72a9a5d87e1fd40da" category="inline-link-macro-rx"></block>。</block>
   <block id="97329aff812b28715c211efe44a78032" category="list-text">ローカル NVMe ストレージ</block>
@@ -2396,8 +2385,6 @@
   <block id="c165494898bc0fbf27151d6359a27936" category="doc">アグリゲートを作成する</block>
   <block id="67ea3f429e13cb33e66f1359eb85cc04" category="list-text">キャンバスページで、アグリゲートを管理する Cloud Volumes ONTAP インスタンスの名前をダブルクリックします。</block>
   <block id="ff4facf1a49a9f339fdb4bf4880c23f1" category="list-text">Add Aggregate * をクリックして、アグリゲートの詳細を指定します。</block>
-  <block id="ce1b95f9c35ae7fd7dcc22c874f3cc92" category="inline-link-macro">構成の計画</block>
-  <block id="76e2a146d34fc80c0a943f367c0770e3" category="paragraph">ディスクタイプとディスクサイズについては、を参照してください <block ref="99028d1ab62a944a2c3b1c911a56ff71" category="inline-link-macro-rx"></block>。</block>
   <block id="833ac412ce32368430680596235b2009" category="list-text">[* Go * ] をクリックし、 [* 承認して購入 * ] をクリックします。</block>
   <block id="8849800272cf8bb1e1352cd12be62c6c" category="summary">Cloud Manager は、 Cloud Manager と Cloud Volumes ONTAP が正常に動作するために必要なインバウンドルールとアウトバウンドルールを含む AWS セキュリティグループを作成します。テスト目的または独自のポートを使用する必要がある場合には、ポートを参照してください。</block>
   <block id="ff12fe6f5d97035a37481ab9694afb95" category="doc">AWS のセキュリティグループルール</block>
@@ -2568,7 +2555,6 @@
   <block id="6086d4cf524bacd53da2671f87d5c871" category="paragraph">これらの権限は最新のに含まれています<block ref="7fc49a88d4bedbc1252c1f5516a8dc2a" category="inline-link-rx"></block>。</block>
   <block id="465b92b3276cc18a4183d48ccf476d6a" category="inline-link-macro">コールドデータを低コストのオブジェクトストレージに階層化する</block>
   <block id="79ca01fd3e60b76b5eebac3fb00bd4ed" category="paragraph">データ階層化の設定の詳細については、を参照してください <block ref="9ae9bcf59853ba48ce2658a41db24feb" category="inline-link-macro-rx"></block>。</block>
-  <block id="b91716a078dd589477b99935ea53a9b0" category="section-title">プライベートエンドポイント</block>
   <block id="a56bcaf1bc0c36eb9ba172b30e0301c3" category="paragraph">デフォルトでは、 Cloud Manager は Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間の Azure Private Link 接続を有効にします。プライベートリンクは Azure のエンドポイント間の接続を保護し、パフォーマンスを向上させます。ほとんどの場合、実行する必要はありません。 Cloud Manager は Azure Private Link を管理します。ただし、 Azure プライベート DNS を使用している場合は、構成ファイルを編集する必要があります。必要に応じて、プライベートリンク接続を無効にすることもできます。</block>
   <block id="87b7d9ff8a42dbb6c0bcd13ae09f6010" category="section-title">他の ONTAP システムへの接続</block>
   <block id="29a865e45adc910f0644ded74b229df8" category="inline-link">Microsoft Azure のドキュメント：「 Create a Site-to-Site connection in the Azure portal</block>
@@ -3048,7 +3034,6 @@
   <block id="321914d0fbcf9c45a3ea6a27f4c01ca0" category="list-text">EBS ディスクサイズ</block>
   <block id="eaaca06e2ffe7fbec746e43258afdc54" category="inline-link-macro">システムの容量を Cloud Manager で管理できます</block>
   <block id="191b65483363110aa6f035bd4c92d166" category="inline-link-macro">アグリゲートの作成は自分で行います</block>
-  <block id="ebd09406e229a7a0a15318dfb8a18a20" category="list-text">Cloud Volumes ONTAP システムを起動するときに初期ディスクサイズを選択する必要があります。その後、次の操作を実行できます <block ref="7ea57dc79d65fd61f045c2bf970d7bfe" category="inline-link-macro-rx"></block>必要に応じて <block ref="aeb7edffc7af212c1371b19a0140cdff" category="inline-link-macro-rx"></block>、次の点に注意してください。</block>
   <block id="4e401b0a78c972fda61a913355ea8a80" category="list-text">EBS ディスクのパフォーマンスはディスクサイズに依存します。サイズによって、 SSD ディスクのベースライン IOPS と最大バースト期間、および HDD ディスクのベースラインスループットとバーストスループットが決まります。</block>
   <block id="42ba4ecf0d44d7f0f8b1f23fcd9240ed" category="list-text">最終的には、必要なパフォーマンスを継続的に提供するディスクサイズを選択する必要があります。</block>
   <block id="144201862f58fd8327905be75f594393" category="list-text">4 TiB のディスクを 6 台使用するなど、大容量のディスクを選択した場合でも、 EC2 インスタンスの帯域幅が制限に達する可能性があるため、すべての IOPS が得られないことがあります。</block>
@@ -3207,7 +3192,6 @@
   <block id="611a1fa2f8a37527bbcb1f0228321b4d" category="list-text">VM タイプを選択し、チェックボックスを選択して変更の影響を確認し、 * OK * をクリックします。</block>
   <block id="3c10116b37b407ac79092a38ffb292e4" category="summary">ネットアップテクニカルサポートでサポートケースをオープンするには、事前に Cloud Manager にネットアップサポートサイトのアカウントを追加し、サポートに登録しておく必要があります。</block>
   <block id="42748df9eaa0be17ddc5cc1593cf57ab" category="doc">サポートに登録します</block>
-  <block id="7ff191df90fac0fa94ab5c2b5101a5e9" category="sidebar">Cloud Manager のすべてのドキュメント</block>
   <block id="2971acb1ab572cfb61b7c86d49e2b300" category="sidebar">Cloud Volumes ONTAP のドキュメント</block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">リリースノート</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">新機能</block>
@@ -3247,17 +3231,13 @@
   <block id="fa1ae707ae125c3e33b5791a0beb374e" category="sidebar">既存のシステムを追加します</block>
   <block id="a9e825fa00a6490b83a7ab53e320af9a" category="sidebar">作業環境を削除します</block>
   <block id="be62ee4908c8d3dca05c47093c17858d" category="sidebar">システムを削除します</block>
-  <block id="88c4daa57949b9f8bdb968d773a460f9" category="sidebar">AWS での管理</block>
   <block id="0edcab2caeaab556e980f6a3212d51d3" category="sidebar">EC2 インスタンスタイプを変更します</block>
   <block id="a96911d11ce21851c5394b372bc85f56" category="sidebar">HA ペアのルーティングテーブルを変更する</block>
   <block id="8819d055e4c3008377d8247600c4b4e5" category="sidebar">AWS のコストを監視</block>
-  <block id="419b109f5e7e2bcd226cf075f556c655" category="sidebar">Azure での管理</block>
   <block id="8b1d624f794355ece665dd67c7ae9471" category="sidebar">Azure VM タイプを変更します</block>
   <block id="1755d74bde1ae25f7eaa96466419ce0c" category="sidebar">CIFS ロックを上書きする</block>
   <block id="617e8eb58cebd5170335b12c077046d6" category="sidebar">Azure プライベートリンクを使用する</block>
-  <block id="6a778631795880c14e1b8769b042ef7b" category="sidebar">Google Cloud の管理</block>
   <block id="57478f8fdb7096e76f6786fa003c8e66" category="sidebar">マシンタイプを変更します</block>
-  <block id="e38fef34b2da390630fff994799681dc" category="sidebar">System Manager または CLI から管理を行う</block>
   <block id="099296bb7dee483863d545646b59496c" category="sidebar">システムの健全性とイベント</block>
   <block id="0460583622f03a52d7693094d6fa2452" category="sidebar">概念</block>
   <block id="8c4aa541ee911e8d80451ef8cc304806" category="sidebar">ストレージ</block>
@@ -3420,12 +3400,6 @@
   <block id="40bf45be09da9df22806f3324816106f" category="cell">CIFS サーバに関連付ける AD ドメイン内の組織単位。デフォルトは CN=Computers です。Google Managed Microsoft AD を Cloud Volumes ONTAP の AD サーバとして設定するには、このフィールドに「 * OU=computers 、 OU=Cloud 」と入力します。<block ref="8e7507132642e39310c024b1b990cf52" category="inline-link-rx"></block></block>
   <block id="e4db2787e7af2ca8c09486148b05c8e4" category="list-text">デスティネーションシステムから System Manager にログインします。</block>
   <block id="1bce083b19f5671fb510debd0f3e2ebb" category="paragraph">System Manager にログインするには、 Web ブラウザでクラスタ管理 LIF の IP アドレスを指定します。IP アドレスは Cloud Volumes ONTAP の作業環境で確認できます。</block>
-  <block id="a646a80e76f72b13f2cee97e769c5030" category="doc">System Manager または CLI を使用する</block>
-  <block id="0c0ce3241df32dee76208cf9ff12a089" category="list-text">キャンバスから Cloud Volumes ONTAP 作業環境を選択します。</block>
-  <block id="6199ed87a5c284fc6c96c4e407ddc2f0" category="list-text">右側のペインで、情報アイコンをクリックし、クラスタ管理 IP をコピーします。</block>
-  <block id="209dd9c5f51e29f38bd51ffe692ab25b" category="inline-image-macro">Cloud Volumes ONTAP 作業環境のキャンバスに表示される情報アイコンのスクリーンショット。</block>
-  <block id="508479659d1c4cbd35007e03e8274c60" category="paragraph"><block ref="508479659d1c4cbd35007e03e8274c60" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="46d765dd07540dedc3fb62a81ca5191e" category="list-text">Cloud Volumes ONTAP へのネットワーク接続が確立されたマシンで Web ブラウザを開き、 IP アドレスを入力します。</block>
   <block id="97106e7449f4966fc1e4b3b78d425110" category="section-title">System Manager のリンクが削除されました</block>
   <block id="249f6fd27ec465f7b6af7dc12178a1ea" category="paragraph">Cloud Volumes ONTAP 作業環境内から以前に利用可能だった System Manager のリンクを削除しました。</block>
   <block id="1979125e36e7d7c49ca297e15301d908" category="inline-link">System Manager への接続に関する詳細情報</block>
@@ -3433,14 +3407,8 @@
   <block id="5e10fd94744d67ee9b4af8576d7d871b" category="paragraph">9.9.0 リリース以降では、特定の Cloud Volumes ONTAP 構成で複数の Storage VM がサポートされます。にアクセスします<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 使用している Cloud Volumes ONTAP のバージョンでサポートされる Storage VM 数を確認してください。</block>
   <block id="b06a344c267b8ee73a6d4d78ace617ea" category="paragraph">Storage VM を作成して LIF を割り当てる前に、 Azure で IP アドレスを割り当てる必要があります。</block>
   <block id="0ecbfe2cb5b1df888639e1751cec905a" category="section-title">シングルノードシステム</block>
-  <block id="49da92f2dba049d8208289b0992f5eea" category="paragraph">Storage VM を作成して LIF を割り当てる前に、 Azure で IP アドレスを nic0 に割り当てる必要があります。必要な IP アドレスの数は、ストレージプロトコルによって異なります。</block>
-  <block id="0afcee1178b91716c388f1396185ac6f" category="list-text">iSCSI データ LIF アクセス用に 1 つの IP アドレス</block>
   <block id="d9fa1bba25e264315bb45a5db857089c" category="list-text">Storage VM （ SVM ）管理 LIF のオプションの IP アドレスです</block>
   <block id="0212110e6e591f399e46a0a33621323b" category="paragraph">この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</block>
-  <block id="eec85f955016d792db9f5b3484d9ed93" category="list-text">NAS データ LIF へのアクセス用に 1 つの IP アドレス</block>
-  <block id="6790f564ef647fd6702f6e6f05bf9f56" category="list-text">iSCSI LIF を介した DNS 通信と SMB 通信に使用する IP アドレス × 1</block>
-  <block id="fffed9c5a0bdaa00d58449115b30129f" category="paragraph">iSCSI LIF はフェイルオーバー時に移行されないため、この目的に使用されます。</block>
-  <block id="59411573b05f8ba9bff2c6ebef3042a6" category="list-text">SMB を使用している場合は、上記の手順を繰り返して、 DNS 通信と SMB 通信用に追加の IP アドレスを作成します。</block>
   <block id="3fc61f795c4036debc9bbee70495f5d3" category="list-text">SVM 管理 LIF を作成する場合は、上記の手順を繰り返して追加の IP アドレスを作成します。</block>
   <block id="556696d309aaf81ce29c6a76f8f8a503" category="section-title">HA ペア</block>
   <block id="8ebc8557356a6ebd39c4dd48a6f84931" category="paragraph">HA ペアに IP アドレスを割り当てる方法は、使用しているストレージプロトコルによって異なります。</block>
@@ -3460,7 +3428,6 @@
   <block id="5683cfda0c67cd1651e904160b0a5460" category="paragraph">シングルノードシステムで Storage VM と LIF を作成する方法は、使用しているストレージプロトコルによって異なります。</block>
   <block id="2d376cf045c4838856b9429d7fecf7a5" category="paragraph">新しい Storage VM と必要な LIF を作成するには、次の手順を実行します。</block>
   <block id="070ee68a98b928bc45bc4178848e21da" category="list-text">データ LIF を作成します。</block>
-  <block id="7e0c9dfe920929d81d8d5761b763bb63" category="list-text">DNS 通信と SMB 通信を提供するために必要な iSCSI LIF を作成します。</block>
   <block id="b41808a70de11f6ad8400c22ebe933f1" category="paragraph">HA ペアで Storage VM と LIF を作成する方法は、使用しているストレージプロトコルによって異なります。</block>
   <block id="83871791a7611e5a981ec0b38a662078" category="list-text">次のコマンドを使用して、ノード 2 に iSCSI LIF を作成します。</block>
   <block id="0cffe85429bb79552ce3607190d9dbad" category="list-text">次のコマンドを使用して、ノード 2 に NAS LIF を作成します。</block>
@@ -3880,7 +3847,6 @@
   <block id="c1c335737025d8b2354cceafcdabea4e" category="list-text">[**サービスエンドポイント**]見出しに移動します。ドロップダウンメニューで、リストから**Microsoft.AzureActiveDirectory **を選択します。</block>
   <block id="23b8cf63899cafd6a9d0b32fbdc5c6e8" category="list-text">**保存**を選択して、設定を取得します。</block>
   <block id="5bfda0e2440a8346cbb089805c29d898" category="list-title">Cloud Volumes ONTAP 構成</block>
-  <block id="293327de56819bbcc6bac1b0f0d39eb5" category="list-text">オプション：テストボリュームを作成してAKVの機能を確認します。vol create -vserver_svm_name_-volume_name_-aggregate _aggr_size_state online -policy default’</block>
   <block id="89fe433ed203b193e97ffc51ade125be" category="paragraph">正しく設定されていれば、Cloud Volumes ONTAP でボリュームが自動的に作成され、ボリューム暗号化が有効になります。</block>
   <block id="2f88a80d163d0a89ca5ecdf817af1f14" category="list-text">Freemiumライセンスは、C2S環境ではサポートされていません。</block>
   <block id="5e31f4e44c9ec2b42878b12dff64c9fb" category="paragraph">Cloud KMSを使用したキー管理は、CLIまたはONTAP REST APIを使用して有効にすることができます。</block>
@@ -3907,4 +3873,257 @@
   <block id="54d3d71e00eff1d12a7498874b5be642" category="list-text">「set d`」</block>
   <block id="c616900ae748d4dd41ba80df7406dd9b" category="list-text">「systemshell -node _node」コマンドtail -f /mroot/etc/log/mlog/kmip2_client.log</block>
   <block id="397841d9dc0e87fae94bd33b988bf92f" category="sidebar">Google Cloud KMSを使用してキーを管理します</block>
+  <block id="f8b475a3fefebada77a30229238d0a1a" category="section-title">2022年6月7日</block>
+  <block id="650bbb3fd1c3ec1cf13fbf6dc440ce1c" category="paragraph">コネクタの3.9.19リリースでは、次の変更が加えられました。</block>
+  <block id="daa1014700acb24b76e93296bfc813fb" category="section-title">Cloud Volumes ONTAP 9.11.1</block>
+  <block id="5422eb6b3ee88eee2b931a6c1ae61c0d" category="paragraph">Cloud ManagerでCloud Volumes ONTAP 9.11.1の導入と管理が可能になりました。これには、新機能やその他のクラウドプロバイダリージョンのサポートが含まれます。</block>
+  <block id="0d69949c9de36f8752d49be7f0ec9aed" category="paragraph"><block ref="0d69949c9de36f8752d49be7f0ec9aed" category="inline-link-rx"></block></block>
+  <block id="ffe3ec3b5faef58a758d9449470882a0" category="section-title">新しい詳細ビュー</block>
+  <block id="129cb997dac90f5eb582bd49d3cae82c" category="paragraph">Cloud Volumes ONTAP の高度な管理を行う必要がある場合は、ONTAP システムに付属の管理インターフェイスであるONTAP System Managerを使用します。高度な管理のためにCloud Managerを終了する必要がないように、Cloud ManagerのインターフェイスはCloud Managerに直接組み込まれています。</block>
+  <block id="07bba549da0c5d9af2f0531199cb73e0" category="paragraph">この拡張ビューは、Cloud Volumes ONTAP 9.10.0以降でプレビューとして使用できます。今後のリリースでは、この点をさらに改良し、機能を強化する予定です。製品内のチャットでご意見をお寄せください。</block>
+  <block id="f303a87fe6efba259b752f5a9e11064b" category="inline-link-macro">詳細については、「詳細ビュー」を参照してください</block>
+  <block id="0c6e9220b6dd38f763ce6082c0125be9" category="paragraph"><block ref="cf41d716430563f350a841f38af568db" category="inline-link-macro-rx"></block>。</block>
+  <block id="18f1ba3764c7c45f17295cada3f1b2ff" category="section-title">Amazon EBS Elastic Volumesのサポート</block>
+  <block id="2e2c03493705dc64283827f16a01fab5" category="paragraph">Cloud Volumes ONTAP アグリゲートでAmazon EBS Elastic Volumes機能がサポートされるため、パフォーマンスが向上して容量が追加されると同時に、必要に応じて基盤となるディスク容量がCloud Managerで自動的に拡張されます。</block>
+  <block id="1fb2d1e9760db598bc140d6df5875a5f" category="paragraph">Elastic Volumeは、Cloud Volumes ONTAP 9.11.0システム以降、GP3およびio1 EBSディスクタイプでサポートされます。</block>
+  <block id="70fb554e00e352dd7da6941d99b53751" category="inline-link-macro">Elastic Volumesのサポートに関する詳細情報</block>
+  <block id="65c3a54d401a824934a0b2987cd79906" category="paragraph"><block ref="e64e49a1cded5f4109adae46b4faa045" category="inline-link-macro-rx"></block>。</block>
+  <block id="1fa9d78d7f603e0879c6fe006c9879ac" category="paragraph">Elastic Volumesをサポートするために、Connectorに対する新しいAWS権限が必要になることに注意してください。</block>
+  <block id="209d7fb058921dcca459d965ee59c7fc" category="section-title">共有AWSサブネットでのHAペアの導入をサポートします</block>
+  <block id="009d92f6e41918233a5d5983863734d0" category="paragraph">Cloud Volumes ONTAP 9.11.1では、AWS VPC共有がサポートされています。このリリースのコネクタでは、APIを使用するときにAWS共有サブネットにHAペアを導入できます。</block>
+  <block id="d4b5e68525cac241fcf3cdcaa1a6e3dd" category="inline-link-macro">共有サブネットにHAペアを導入する方法について説明します</block>
+  <block id="4c45890715a33614c9b68937f7331041" category="paragraph"><block ref="a2afa807549bbfc6a98031b51b81dd74" category="inline-link-macro-rx"></block>。</block>
+  <block id="b58bf50dd57317d50ce59551de45158f" category="section-title">サービスエンドポイントを使用する場合は、ネットワークアクセスが制限されます</block>
+  <block id="982c0b0bc19727a7a5017f464489da09" category="paragraph">Cloud Volumes ONTAP とストレージアカウント間の接続にVNetサービスエンドポイントを使用する際に、Cloud Managerはネットワークアクセスを制限するようになりました。Azure Private Link接続を無効にすると、Cloud Managerはサービスエンドポイントを使用します。</block>
+  <block id="e020ad0693308c5d73b7fe4c7bafd660" category="inline-link-macro">Cloud Volumes ONTAP でのAzureプライベートリンク接続の詳細については、こちらをご覧ください</block>
+  <block id="572f029bc460b235b79bf593e07bce0a" category="paragraph"><block ref="11d2e9af90a503c65edc8ce2e258f040" category="inline-link-macro-rx"></block>。</block>
+  <block id="aace3e8a265fffb87e8d7fbd81d6adb9" category="section-title">Google CloudでのStorage VMの作成がサポートされます</block>
+  <block id="c248c01b69af03d24d1cd7a6b9ee8e7b" category="paragraph">Google CloudのCloud Volumes ONTAP では、9.11.1リリース以降、複数のStorage VMがサポートされています。このリリースのコネクタから、Cloud Managerを使用して、Google CloudのCloud Volumes ONTAP HAペアにStorage VMを作成できます。</block>
+  <block id="33fdc8eb46b228d804c2bf216d7ab788" category="paragraph">Storage VMの作成をサポートするには、次のコネクタに対する新しいGoogle Cloud権限が必要です。</block>
+  <block id="1639fb8b97b722c837cf68d599ffe1c4" category="paragraph">ONTAP CLIまたはSystem Managerを使用して、シングルノードシステムにStorage VMを作成する必要があります。</block>
+  <block id="ab9d588372f30d162e50dbbed45980eb" category="inline-link">Google CloudのStorage VMの制限に関する詳細を確認できます</block>
+  <block id="7859fc06f13ff8714740aa72213f86e7" category="list-text"><block ref="7859fc06f13ff8714740aa72213f86e7" category="inline-link-rx"></block></block>
+  <block id="3a7eebf972f838daafe4ea7948002b3d" category="inline-link-macro">Google CloudでCloud Volumes ONTAP 向けのデータ提供用Storage VMを作成する方法をご確認ください</block>
+  <block id="4d4f80e19da50b86ec7f247f81baedf7" category="list-text"><block ref="4d4f80e19da50b86ec7f247f81baedf7" category="inline-link-macro-rx"></block></block>
+  <block id="a4b1f03cb2371b278489814c31e9785d" category="list-text">オプション：NVEの機能を検証するテストボリュームを作成する</block>
+  <block id="e683d2190ea99600c0a7bda058b93d36" category="paragraph">vol create -vserver_svm_name_-volume_name_-aggregate _aggr_size_state online -policy default’</block>
+  <block id="652f5bb57cb09b4930d22c8b8241e77c" category="summary">Cloud Volumes ONTAP CLI では、すべての管理コマンドを実行できます。高度なタスクを実行する場合や、 CLI を使い慣れている場合は、 CLI の使用を推奨します。CLIにはSSHを使用して接続できます。</block>
+  <block id="f92c0062f5f51f34505c72b0a5c9b3be" category="doc">CLIからCloud Volumes ONTAP を管理します</block>
+  <block id="4776e213a50dc246e0f6754031140d45" category="summary">Cloud Volumes ONTAP の高度な管理が必要な場合は、ONTAP システムに付属の管理インターフェイスであるONTAP System Managerを使用して実行できます。高度な管理のためにCloud Managerを終了する必要がないように、Cloud ManagerのインターフェイスはCloud Managerに直接組み込まれています。</block>
+  <block id="eb548256fe08b2a0e5f541bc56282edf" category="doc">拡張ビューを使用してCloud Volumes ONTAP を管理します</block>
+  <block id="74593b49f99b6e21d38ca3d969b213f3" category="paragraph">この拡張ビューはプレビューとして使用できます。今後のリリースでは、この点をさらに改良し、機能を強化する予定です。製品内のチャットでご意見をお寄せください。</block>
+  <block id="98a1dd953dfcb1729fd4013fc440cb56" category="paragraph">Cloud ManagerのAdvanced Viewでは、次の管理機能を使用できます。</block>
+  <block id="f3c3ee89c80d32726f5f937c07631d1c" category="list-text">高度なストレージ管理</block>
+  <block id="81988711ef6c9af40c8e8973f25c0bed" category="paragraph">整合グループ、共有、qtree、クォータ、およびStorage VMの管理</block>
+  <block id="62735a856683757bf28f1f02f97c151c" category="list-text">ネットワーク管理</block>
+  <block id="90aa7b1e6da20918b753d835fd9d28fb" category="paragraph">IPspace、ネットワークインターフェイス、ポートセット、およびイーサネットポートを管理します。</block>
+  <block id="5da3380058f326675f5268466ae0c24f" category="list-text">イベントとジョブ</block>
+  <block id="59536015b2a8a8d499cbe947387acb5e" category="paragraph">イベントログ、システムアラート、ジョブ、および監査ログを表示します。</block>
+  <block id="3f20b3134627198be1e0ff879a88cd8f" category="list-text">高度なデータ保護</block>
+  <block id="18edb92cf2cbf5a1d60be48cff4de617" category="paragraph">Storage VM、LUN、および整合グループを保護する。</block>
+  <block id="f17e729a409e6c0faa3ddab50e856b07" category="list-text">ホスト管理</block>
+  <block id="36eae32729ecc4b53ba38b252bc6b356" category="paragraph">SANイニシエータグループとNFSクライアントを設定します。</block>
+  <block id="4f126feb6ef052715a206813cb196dbe" category="paragraph">System Managerを使用した高度な管理は、標準のクラウドリージョンでCloud Volumes ONTAP 9.10.0以降でサポートされます。</block>
+  <block id="0f1ca4e2133610fdc8b23e4db3f7cb0c" category="paragraph">GovCloudリージョンまたはアウトバウンドのインターネットアクセスがないリージョンでは、System Managerの統合はサポートされません。</block>
+  <block id="b03c3f1292327857639de1cd1434567b" category="paragraph">System Managerインターフェイスに表示されるいくつかの機能は、Cloud Volumes ONTAP ではサポートされません。</block>
+  <block id="92d2b6aba6afa3f690540cf3dba9b633" category="list-text">クラウド階層化</block>
+  <block id="cc215a83a7e6c7730f38e09b8c4f520d" category="paragraph">クラウド階層化サービスはCloud Volumes ONTAP ではサポートされていません。ボリュームの作成時に、Cloud Managerの標準ビューからオブジェクトストレージへのデータの階層化が直接設定されている必要があります。</block>
+  <block id="fe925ee04a93d96abc7adb5118b5ccc3" category="list-text">階層</block>
+  <block id="591730d8508aba199423a336c23df72d" category="paragraph">アグリゲートの管理（ローカル階層とクラウド階層を含む）はSystem Managerではサポートされていません。アグリゲートは、Cloud Managerの標準ビューから直接管理する必要があります。</block>
+  <block id="405e2b58413610be532a001334e7a862" category="list-text">ファームウェアのアップグレード</block>
+  <block id="ec10c0d50369bfb68fa19c871a22d0f7" category="paragraph">Cloud Volumes ONTAP では、[クラスタ]&gt;[設定*]ページからの自動ファームウェア更新はサポートされていません。</block>
+  <block id="f4e1c06a7a7ddbaea4c2d3349dc0b815" category="paragraph">また、System Managerからのロールベースアクセス制御はサポートされていません。</block>
+  <block id="7540b63d6f9cc399be4f74cff91bcaf7" category="paragraph">Cloud Volumes ONTAP 作業環境を開き、詳細ビューオプションをクリックします。</block>
+  <block id="bb1ef255816e8724de2a508f11ab6faa" category="list-text">キャンバスページで、Cloud Volumes ONTAP システムの名前をダブルクリックします。</block>
+  <block id="a31b079030fd3d406e06a9ce180abf58" category="list-text">右上の*[拡張表示に切り替える]をクリックします。</block>
+  <block id="4764848a2e939676e46196b57ed3d239" category="inline-image-macro">詳細ビューに切り替えオプションを示すCloud Volumes ONTAP 作業環境のスクリーンショット。</block>
+  <block id="3ee38239984a2c6b3ae4074ced0704c7" category="paragraph"><block ref="3ee38239984a2c6b3ae4074ced0704c7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="74d668d6c47cd0c55c4ff8f77ad621bd" category="list-text">確認メッセージが表示されたら、そのメッセージを読み、*閉じる*をクリックします。</block>
+  <block id="f0da217269d7f8fb37fd503f586df2ef" category="list-text">System Managerを使用してCloud Volumes ONTAP を管理する。</block>
+  <block id="ebd8c98f714943a83d08bf245c867de2" category="list-text">必要に応じて、* Standard Viewに切り替え*をクリックして、Cloud Managerを使用した標準的な管理に戻ります。</block>
+  <block id="c7c80403ddad5bf0ae3c78cf20ad2cf1" category="inline-image-macro">標準ビューに切り替えオプションを示すCloud Volumes ONTAP 作業環境のスクリーンショット。</block>
+  <block id="b98d787e610274d7cf438bd9dacb5eb3" category="paragraph"><block ref="b98d787e610274d7cf438bd9dacb5eb3" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="9091c5cdacecb3d4082594d5d5a31855" category="section-title">System Managerの使用方法に関するヘルプ</block>
+  <block id="29b2dad08499788ccf25f529167b3782" category="paragraph">Cloud Volumes ONTAP でSystem Managerを使用する際にサポートが必要な場合は、を参照してください<block ref="e4712fca3ed0fd9138bc58dbf36327e9" category="inline-link-rx"></block> を参照してください。役立つリンクをいくつか紹介します。</block>
+  <block id="b9cf2d579e6b088870d384fe9910b52f" category="inline-link">ボリュームとLUNの管理</block>
+  <block id="8fc667c489390551a74eb985b297d37a" category="list-text"><block ref="8fc667c489390551a74eb985b297d37a" category="inline-link-rx"></block></block>
+  <block id="3e49e5936cffd2e96856c25fa0417df2" category="inline-link">Network Management の略</block>
+  <block id="57614f27dec39901199cca4b61cebfe9" category="list-text"><block ref="57614f27dec39901199cca4b61cebfe9" category="inline-link-rx"></block></block>
+  <block id="168463a2e30ac746441036fb49df730e" category="list-text"><block ref="168463a2e30ac746441036fb49df730e" category="inline-link-rx"></block></block>
+  <block id="bfa754a08df951a3a824ddeeb1780b40" category="inline-link-macro">ボリュームを作成したときの動作の詳細については、こちらをご覧ください</block>
+  <block id="a09b01c7001d3eb80404765be4eb61c9" category="list-text">Cloud Volumes ONTAP 構成でAmazon EBS Elastic Volumes機能がサポートされている場合は、この処理が必要になることがあります <block ref="15950bbc5dd5b213dd93808f9892a1c5" category="inline-link-macro-rx"></block>。</block>
+  <block id="1cbde96d4494f1d0a0cc701b14f4979e" category="list-text">AWS では、アグリゲートに同じサイズのディスクを最大 6 本含めることができます。ただし、Amazon EBS Elastic Volumes機能をサポートする構成では、アグリゲートに最大8本のディスクを含めることができます。 <block ref="e64e49a1cded5f4109adae46b4faa045" category="inline-link-macro-rx"></block>。</block>
+  <block id="b8dd8c06193176beb2ad15367f7a1a0d" category="paragraph">最大ディスクサイズは 16TiB です。</block>
+  <block id="3635902b03ef6f329f7d82d346770acc" category="summary">Cloud Volumes ONTAP HAペアは、VPCを共有するAWSでサポートされます。VPC共有を使用すると、他のAWSアカウントとサブネットを共有できます。この構成を使用するには、AWS環境をセットアップし、APIを使用してHAペアを導入する必要があります。</block>
+  <block id="1ddb0e5b328575796533c1e7f5b1f802" category="doc">HAペアを共有サブネットに導入します</block>
+  <block id="18520da6851f84ab4d7ab3d88d237cd9" category="inline-link">vPC共有</block>
+  <block id="c81d796f0d5c668dfa8d68823f479c90" category="paragraph">を使用<block ref="93089d0988badd859f8a3f19acd5c989" category="inline-link-rx"></block>Cloud Volumes ONTAP HA構成は、次の2つのアカウントに分散されます。</block>
+  <block id="77af655ba582e54e6d4578b31231fed3" category="list-text">ネットワークを所有するVPC所有者アカウント（VPC、サブネット、およびルーティングテーブル）。</block>
+  <block id="276a017110af33316f598f585486bc29" category="list-text">EC2インスタンスが共有サブネット（2つのHAノードとメディエーターを含む）に導入されている参加者アカウント</block>
+  <block id="123682af03421de2f290c8c127ad313b" category="paragraph">複数のアベイラビリティゾーンにまたがって導入されているCloud Volumes ONTAP HA構成の場合は、HAメディエーターからVPC所有者アカウントのルーティングテーブルに書き込むための特定の権限が必要です。メディエーターで想定できるIAMロールを設定して、これらの権限を指定する必要があります。</block>
+  <block id="d0ddf69c5f314ee3119f1732980d427e" category="list-text">IAMロールを作成します。</block>
+  <block id="83f73296b842a17b957ac45fce64df7a" category="list-text">Cloud Volumes ONTAP のEC2インスタンスを導入する参加者アカウントのIAMコンソールに移動します。</block>
+  <block id="7f4640b00b5df83a54d4aaaa51f7d6ab" category="list-text">[ アクセス管理 ] で、 [ 役割 ] 、 [ 役割の作成 *] の順にクリックし、手順に従って役割を作成します。</block>
+  <block id="e1a3d580d5cb42904b96dc05c0e0903d" category="paragraph">必ず次の手順を実行してください。</block>
+  <block id="e506de832b98c2693eb3f400ef0722c0" category="list-text">信頼されるエンティティのタイプ * で、 * AWS アカウント * を選択します。</block>
+  <block id="a4977642f2eb92080375e1160904c3a7" category="list-text">別のAWSアカウント*を選択して、VPC所有者アカウントのIDを入力します。</block>
+  <block id="4aaa495471a5ae62d8384762205bf782" category="inline-link">Cloud Manager Policies ページ</block>
+  <block id="123f2e62fb6e53ac1b3fd91d12e190e0" category="list-text">から入手できる Cloud Manager IAM ポリシーを使用してポリシーを作成します<block ref="685f869a0580bc1af63188a3b940f7ac" category="inline-link-rx"></block>。</block>
+  <block id="fe1f47d50f78d0e14014e50d690720d7" category="list-text">IAMロールのロールARNをコピーして、HAペアの導入時にAPI要求に貼り付けることができるようにします。</block>
+  <block id="fd3149c0644c605d917aeebea557d6d6" category="list-text">VPC所有者アカウントのサブネットを参加者アカウントと共有します。</block>
+  <block id="fa9fe3d94968b5f037653d41700dcd70" category="paragraph">この手順は、HAペアを共有サブネットに導入するために必要です。</block>
+  <block id="d948aef27d8dea6efce2392f04bd6c9b" category="inline-link">AWSドキュメント：サブネットを共有</block>
+  <block id="5e5fbe06182db1b31429a0c61bc0a55b" category="paragraph"><block ref="5e5fbe06182db1b31429a0c61bc0a55b" category="inline-link-rx"></block></block>
+  <block id="b5efff410bfe210c5df187773e0e0617" category="list-text">VPC所有者アカウントで、Cloud Volumes ONTAP のセキュリティグループを作成します。</block>
+  <block id="fd399fa27d12a21d9e3844eda1427121" category="inline-link-macro">Cloud Volumes ONTAP のセキュリティグループルールを参照してください</block>
+  <block id="7ce51495a198d32b13be229abbde5e69" category="paragraph"><block ref="42b118f18012057fcf20af94d08351c2" category="inline-link-macro-rx"></block>。HAメディエーターのセキュリティグループを作成する必要はありません。クラウドマネージャーがそれを実現します。</block>
+  <block id="eb89b60e2a67c0ee5e8d70c5078468fc" category="list-text">APIを使用して新しいCloud Volumes ONTAP 作業環境を作成し、「haParams」オブジェクトの「"haassereRoleArn"」フィールドを渡します。</block>
+  <block id="b1dde3304edf68afb6be3819b52b7152" category="inline-link">Cloud Volumes ONTAP APIについて説明します</block>
+  <block id="45d56c7397375528eb877ce509812ff1" category="paragraph"><block ref="45d56c7397375528eb877ce509812ff1" category="inline-link-rx"></block></block>
+  <block id="73e4e3a380b383c5159ac72a69294ef7" category="paragraph">+ Elastic VolumesをサポートするAWSのアグリゲートの場合、Cloud ManagerはRAIDグループ内のディスクのサイズも増やします。 <block ref="e64e49a1cded5f4109adae46b4faa045" category="inline-link-macro-rx"></block>。</block>
+  <block id="a95a2a6014e3a2e307bfd49b7583909e" category="paragraph">たとえば、Cloud Managerは次のようなディスクサイズを選択します。</block>
+  <block id="f544f5509c6658bd68f3e69072dd7145" category="admonition">この動作は、Amazon EBS Elastic Volumes機能をサポートするアグリゲートには適用されません。Elastic Volumesが有効になっているアグリゲートは、1つまたは2つのRAIDグループで構成されます。各RAIDグループには、同じ容量の同一ディスクが4本あります。 <block ref="e64e49a1cded5f4109adae46b4faa045" category="inline-link-macro-rx"></block>。</block>
+  <block id="149dd55e6760c710e611c0480e5069ac" category="cell">Amazon EBS Elastic Volumesをサポートするアグリゲートの容量を増やす</block>
+  <block id="f17996ff912274a89bd46a09126f54a0" category="list-text">アグリゲートを選択し、*容量を追加*をクリックします。</block>
+  <block id="c2ee080a41f3128dec50564d5d2cf945" category="list-text">追加する容量を入力し、*追加*をクリックします。</block>
+  <block id="ddc70e48be52170226876f32fd0d0955" category="paragraph">アグリゲートの容量は256GiB以上、またはアグリゲートのサイズの10%以上拡張する必要があります。</block>
+  <block id="457b4b096cd2396d1dc52e52b77f7f16" category="paragraph">たとえば、アグリゲートのサイズが1.77TiBの場合、10%は181GiBです。これは256 GiBよりも小さいため、アグリゲートのサイズを256 GiB以上増やす必要があります。</block>
+  <block id="a787df3b454348b29e66a5e26381efe1" category="inline-link-macro">Elastic Volumesのサポートに関する詳細情報</block>
+  <block id="0559fee905621255aa0edc1715586e21" category="paragraph">Cloud Volumes ONTAP は、GP3ディスクを使用したAmazon EBS Elastic Volumes機能をサポートしています。 <block ref="2f34fac6c8e3e7a84b963b75a5591f20" category="inline-link-macro-rx"></block>。</block>
+  <block id="3b45d0097165753cbe807b39e8e38550" category="paragraph">Cloud Volumes ONTAP では、io1ディスクを使用したAmazon EBS Elastic Volumes機能がサポートされています。 <block ref="2f34fac6c8e3e7a84b963b75a5591f20" category="inline-link-macro-rx"></block>。</block>
+  <block id="44bacb29285bcdcf27b752d7b6c9e182" category="inline-link-macro">Amazon EBS Elastic Volumes機能</block>
+  <block id="949b72c31114a68d18199e3a249a45d1" category="list-text">をサポートしない構成を選択した場合 <block ref="7e60e4380cdf7fba407eb852e8889870" category="inline-link-macro-rx"></block>を選択した場合、Cloud Volumes ONTAP システムの起動時に初期ディスクサイズを選択する必要があります。その後、次の操作を実行できます <block ref="7ea57dc79d65fd61f045c2bf970d7bfe" category="inline-link-macro-rx"></block>必要に応じて <block ref="aeb7edffc7af212c1371b19a0140cdff" category="inline-link-macro-rx"></block>、次の点に注意してください。</block>
+  <block id="a611a569997e8479ac56d19e1a51785f" category="paragraph">前述したように、ディスクサイズの選択は、Amazon EBS Elastic Volumes機能をサポートするCloud Volumes ONTAP 構成ではサポートされていません。 <block ref="2f34fac6c8e3e7a84b963b75a5591f20" category="inline-link-macro-rx"></block>。</block>
+  <block id="0e4b0391e50169d97fc505f0c73a94ba" category="paragraph">コネクタは、管理対象の Cloud Volumes ONTAP システムまたはにある Azure リージョンと同じ Azure リージョンに導入する必要があります<block ref="71e0e9a7366955554f0600c5ea8cfc7f" category="inline-link-rx"></block> Cloud Volumes ONTAP システム用。この要件により、 Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間で Azure Private Link 接続が使用されるようになります。</block>
+  <block id="d94918dc61a0d4a0186a0235ef130897" category="paragraph">Azure Private Link接続を無効にすると、Cloud Managerはサービスエンドポイントを使用します。サービスエンドポイントであっても、Cloud Volumes ONTAP が導入されているVNetおよびコネクタが導入されているVNetへのストレージアカウントアクセスはCloud Managerによって制限されます。</block>
+  <block id="ab446ebd1f851655193779b7c50f3533" category="paragraph">Storage VM を作成して LIF を割り当てる前に、 Azure で IP アドレスを nic0 に割り当てる必要があります。</block>
+  <block id="19c2f8be3dc9f0749efedd54317e259b" category="paragraph">データ LIF アクセス用の IP アドレスと、 Storage VM （ SVM ）管理 LIF のオプションの IP アドレスを作成する必要があります。この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</block>
+  <block id="6705d4b1a3db9cb88b17655dcca33de5" category="list-text">Cloud Volumes ONTAP 9.11.1以降を実行している場合は、Storage VMのネットワークサービスポリシーを変更します。</block>
+  <block id="7acb007d1fa18c791042f54b5a8aa8ee" category="paragraph">サービスの変更が必要となるのは、Cloud Volumes ONTAP がiSCSI LIFをアウトバウンド管理接続に使用できるようにするためです。</block>
+  <block id="a22063e6d541a4b1d385c3d940e03996" category="doc">Google CloudでCloud Volumes ONTAP 用のデータ提供用Storage VMを作成</block>
+  <block id="77701b3d3cb3179bddf053dbed6e2e43" category="paragraph">9.11.1リリース以降、Google Cloudの特定のCloud Volumes ONTAP 構成で複数のStorage VMがサポートされています。にアクセスします<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 使用している Cloud Volumes ONTAP のバージョンでサポートされる Storage VM 数を確認してください。</block>
+  <block id="8272f5b23e79d0ee33bd5151dcddc454" category="section-title">Storage VM を作成</block>
+  <block id="944ec8ab61e0f52a9d2d97f0e9d3f8a8" category="paragraph">1つのノードシステムまたはHAペアに複数のStorage VMを作成できます。HAペアにStorage VMを作成するにはCloud Manager APIを使用する必要があります。一方、CLIまたはSystem Managerを使用して、単一のノードシステムにStorage VMを作成できます。</block>
+  <block id="58bbad78237dfd7483b5391557d6f009" category="paragraph">以下の手順では、CLIを使用してシングルノードシステムに新しいStorage VMを作成します。NAS LIF を作成するには 1 つのプライベート IP アドレスが必要で、管理 LIF を作成する場合はもう 1 つのプライベート IP アドレスが必要です。</block>
+  <block id="379013863d5e971d00b46819c677a99b" category="list-text">Google Cloudで、Cloud Volumes ONTAP インスタンスに移動し、LIFごとにnic0のIP範囲を追加します。</block>
+  <block id="a0ffc61dcb224c763f02ac751ef98179" category="inline-image-macro">Google Cloudコンソールのスクリーンショット。IP範囲を追加してCloud Volumes ONTAP のネットワークインターフェイスを編集できます。</block>
+  <block id="fd22fa73f7ee3c6c4da641ee4618201b" category="paragraph"><block ref="fd22fa73f7ee3c6c4da641ee4618201b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="18a5e21d3d0fe1670cfe0ae7de419c21" category="paragraph">Storage VMに管理LIFを作成する場合は、データLIF用に1つのIPアドレスが必要です。また、オプションのIPアドレスをもう1つ追加する必要があります。</block>
+  <block id="0d7249da9a767f4786051a40b37e2502" category="inline-link">Google Cloudのドキュメント：「Adding alias IP ranges to an existing instance</block>
+  <block id="0ce39c7d673ca11ede4dc76c40ab4c47" category="paragraph"><block ref="0ce39c7d673ca11ede4dc76c40ab4c47" category="inline-link-rx"></block></block>
+  <block id="314f67251497657aa0bf5f980043c0ab" category="list-text">Google Cloudで追加したIPアドレスを指定してデータLIFを作成します。</block>
+  <block id="b840b6cee4c36a177669a81f293132a6" category="open-title">NFS または SMB</block>
+  <block id="29788364ff656936651870f4b1c88537" category="list-text">オプション：Google Cloudで追加したIPアドレスを指定して、Storage VM管理LIFを作成します。</block>
+  <block id="38116fb8b40a1b0c091634498e4e2682" category="paragraph">Google CloudのCloud Volumes ONTAP システムでStorage VMを作成するには、Cloud Manager APIを使用する必要があります。Cloud ManagerではStorage VMに必要なLIFサービスが設定されるほか、アウトバウンドのSMB / CIFS通信に必要なHAペアのiSCSI LIFが設定されるため、APIを使用する（System ManagerやCLIを使用しない）必要があります。</block>
+  <block id="156e5acb649507ff0d1f61e722efa445" category="paragraph">Cloud Managerは、Google Cloudで必要なIPアドレスを割り当てます。</block>
+  <block id="4bd46f200c4c3391a3b00fc9aa8af7dd" category="paragraph">3.9.19リリースから、Cloud Volumes ONTAP HAペアのStorage VMを作成および管理するために、Connectorでは次の権限が必要になります。</block>
+  <block id="9edd86f763fc6d21418429b5c63134af" category="inline-link">ネットアップが提供するポリシー</block>
+  <block id="e32789b345ccbe1107de29d5684f39a3" category="paragraph">これらの権限はに含まれています<block ref="d2f8d77175d2dd5e5ed1a096c2593510" category="inline-link-rx"></block></block>
+  <block id="8786838db6c83df6feac856057d2e141" category="list-text">Storage VMを作成するには、次のAPI呼び出しを使用します。</block>
+  <block id="78beb47b48fe8b17a288b32a8942a187" category="paragraph">「POST/occm/api/gCP/HA/作業環境/{WE_ID}/SVM/`」</block>
+  <block id="995ddfd1247131c9653edbf829fa6e28" category="paragraph">要求の本文には次の情報が含まれている必要があります</block>
+  <block id="b93afa1b577022f0769bc7e27b5bcd75" category="section-title">HAペアのStorage VMを管理します</block>
+  <block id="cf65cf1a7e9ad5d29b30934568abc52f" category="paragraph">Cloud Manager APIでは、Storage VMの名前変更と削除もサポートされています。</block>
+  <block id="c97c5ffc330239a3245482bb4881877a" category="section-title">Storage VMの名前を変更します</block>
+  <block id="e0867a20bdb8328df5da5826abffd2f7" category="paragraph">必要に応じて、Storage VMの名前はいつでも変更できます。</block>
+  <block id="369a2d15e783c13b71dafb712d78bd30" category="list-text">Storage VMの名前を変更するには、次のAPI呼び出しを使用します。</block>
+  <block id="a8e13a4a2ae779d87c425f89f896c8d6" category="paragraph">「PUT /occm/api/gCP/HA/作業環境/{WE_ID}/SVM`」</block>
+  <block id="ce9c0fa786ae9e9debeb029c1c0a4c92" category="section-title">Storage VMを削除します</block>
+  <block id="60bf8baad4677ce21f08a45b132bf6a5" category="paragraph">不要になったStorage VMはCloud Volumes ONTAP から削除できます。</block>
+  <block id="730a4c8af06cfa818a6cf7829358b200" category="list-text">Storage VMを削除するには、次のAPI呼び出しを使用します。</block>
+  <block id="cf85e355c90a5d24771cdce3003c6914" category="paragraph">「delete /occm/api/gcp /ha/working environments /｛WE_ID｝/svm /｛svm_name｝</block>
+  <block id="393573258ab237c6e22e3d4cc7580951" category="doc">AWSのElastic Volumes</block>
+  <block id="e654f7a86a4458b9cd662267e0f29b52" category="section-title">利点</block>
+  <block id="8e6dc23c6a05e7c3276ca6dbb41fd75d" category="list-text">ディスクの動的な拡張</block>
+  <block id="68fefbc4a9a1619ecb9ec2acd1897204" category="paragraph">Cloud Managerは、Cloud Volumes ONTAP の実行中およびディスクの接続中にディスクサイズを動的に拡張できます。</block>
+  <block id="adc9460c7be3f6931c573329969ae54d" category="list-text">パフォーマンスの向上</block>
+  <block id="929fccdd7d42b80d417b8aae81b19955" category="paragraph">Elastic Volumesで有効になっているアグリゲートには、最大8本のディスクを割り当てて、2つのRAIDグループで均等に利用することができます。この構成により、スループットとパフォーマンスが向上します。</block>
+  <block id="1790dbfd8a4a8cc7fc08daf9fcbad2c0" category="list-text">大容量アグリゲート</block>
+  <block id="d22e43353734bd2aeade1847f21b8e3d" category="paragraph">8本のディスクをサポートすることで、最大アグリゲート容量は128TiBになります。これらの制限は、Elastic Volumes機能が有効になっていないアグリゲートの場合、ディスクリミットの6つと最大96TiBを超えます。</block>
+  <block id="7bb630780b8039cf7f20f5b3eb31808b" category="paragraph">システムの合計容量制限は変わりません。</block>
+  <block id="520b27ad34f587735faedf2f4e842bc7" category="inline-link">Elastic Volumesの詳細については、AWSでご確認ください</block>
+  <block id="a0ac9b8b2381362d7f62d19f1718a962" category="paragraph"><block ref="a0ac9b8b2381362d7f62d19f1718a962" category="inline-link-rx"></block></block>
+  <block id="915ad7358c605502ae877389e9ef1988" category="paragraph">Amazon EBS Elastic Volumes機能は、特定のCloud Volumes ONTAP バージョンと特定のEBSディスクタイプでサポートされています。</block>
+  <block id="88e66f44e51b83a121b5c151da60945e" category="section-title">Cloud Volumes ONTAP のバージョン</block>
+  <block id="d2990e3ab65f738557c33c327e31757d" category="paragraph">Elastic Volumes機能は、バージョン9.11.0以降で作成されたCloud Volumes ONTAP システムでサポートされます。この機能は、9.11.0より前に導入された既存のCloud Volumes ONTAP システムでは_サポートされません。</block>
+  <block id="0526bad57a6e63f90e4cd934f37ce06c" category="paragraph">たとえば、Cloud Volumes ONTAP 9.9.0システムを作成したあとに、そのシステムをバージョン9.11.0にアップグレードした場合、Elastic Volumes機能はサポートされません。バージョン9.11.0以降を使用して導入した新しいシステムである必要があります。</block>
+  <block id="3cb078976cc9f3dcda2e9afbd8d4113f" category="section-title">EBSディスクタイプ</block>
+  <block id="ba53e2e237e79570c7abb3f83408e365" category="paragraph">Elastic Volumes機能は、汎用SSD（GP3）またはプロビジョニングされたIOPS SSD（io1）を使用する場合、アグリゲートレベルで自動的に有効になります。Elastic Volumes機能は、他の種類のディスクを使用するアグリゲートではサポートされていません。</block>
+  <block id="ff750c1d3ff0f21b492880e95de93510" category="section-title">必要なAWS権限</block>
+  <block id="2552dcd3565a98232892726e9fae197b" category="paragraph">3.9.19リリース以降では、Cloud Volumes ONTAP アグリゲートでElastic Volumes機能を有効化して管理するために、Connectorで次の権限が必要になります。</block>
+  <block id="9708e121f9f5200cf3806e89c2633b16" category="list-text">EC2: DescribeVolumesModifications ( EC2 : DescribeVolumesMod</block>
+  <block id="a0343d4d10d8960a1347cc4819cae46b" category="list-text">EC2：ModifyVolume</block>
+  <block id="850e1d8ed7edce74138eb52483482120" category="section-title">Elastic Volumesのサポートの仕組み</block>
+  <block id="eb28dca619e92c97196a2e250fb67bf1" category="paragraph">Elastic Volumes機能が有効になっているアグリゲートは、1つまたは2つのRAIDグループで構成されます。各RAIDグループには、同じ容量の同一ディスクが4本あります。それぞれ2.5TiBのディスクを4本含む10TiBのアグリゲートの例を次に示します。</block>
+  <block id="90d83f1e182a2c13a87505ae2d400b63" category="inline-image-macro">この概念図は、同じサイズの4つのディスクで構成されるアグリゲートとRAIDグループを示しています。</block>
+  <block id="5f11336fe94aa467c6d4632d762eb36b" category="paragraph"><block ref="5f11336fe94aa467c6d4632d762eb36b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8dca34f59e71d34453720375345c4a09" category="paragraph">アグリゲートが作成されると、Cloud Managerは1つのRAIDグループから始まります。追加の容量が必要になった場合、Cloud ManagerはRAIDグループ内のすべてのディスクの容量を同じ量だけ増やしてアグリゲートを拡張します。容量の増加は、最小256 GiBまたはアグリゲートのサイズの10%です。</block>
+  <block id="e64977ea8d57cf2e70f795742ebdc866" category="paragraph">たとえば、アグリゲートが1TiBの場合、各ディスクは250GiBです。アグリゲートの容量の10%は100GiBです。これは256GiBよりも小さいため、アグリゲートのサイズは256GiB以上（各ディスクで64GiB）増加します。</block>
+  <block id="e4389ec13e4922df3e4d56c355f0ebe3" category="paragraph">Cloud Volumes ONTAP システムの実行中、およびディスクが接続されている間は、Cloud Managerによってディスクのサイズが拡張されます。変更はシステムの停止を伴わないものです。</block>
+  <block id="4b7cf64a687048c88be4889e9815902a" category="paragraph">アグリゲートが64TiB（各ディスクで16TiB）に達すると、Cloud Managerは容量の追加用に2つ目のRAIDグループを作成します。この2つ目のRAIDグループは、最初のRAIDグループと同様に機能します。つまり、同じ容量のディスクが4本あり、最大64TiBまで拡張できます。つまり、アグリゲートの最大容量は128TiBになります。</block>
+  <block id="58667a71835647a0d48fadd74ade5a33" category="paragraph">次に、2つのRAIDグループを含むアグリゲートの例を示します。最初のRAIDグループの容量が上限に達しており、2番目のRAIDグループのディスクには十分な空きスペースがあります。</block>
+  <block id="519c9a7d3a63016f7a375fc66ca7473e" category="inline-image-macro">この概念図は、同じサイズの4つのディスクで構成されるアグリゲートと2つのRAIDグループを示しています。</block>
+  <block id="4484bbf473388313561672300fd59a5e" category="paragraph"><block ref="4484bbf473388313561672300fd59a5e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8cae9603e8ef04ed291e5ee2b7849de4" category="section-title">ボリュームを作成したときの動作</block>
+  <block id="ae8c719d69e74c849dfce28f11b46b4e" category="paragraph">GP3ディスクまたはio1ディスクを使用するボリュームを作成すると、Cloud Managerは次のようにアグリゲート上にボリュームを作成します。</block>
+  <block id="c8b33093a5fb792407c68eb447a2a7b0" category="list-text">Elastic Volumesが有効になっている既存のGP3アグリゲートまたはio1アグリゲートがある場合、Cloud Managerはそのアグリゲートにボリュームを作成します。</block>
+  <block id="5f45a964ec9cd7a3632cc8e0b027d9d2" category="list-text">Elastic Volumesが有効なGP3アグリゲートまたはio1アグリゲートが複数ある場合、Cloud Managerは、必要なリソースの量が最も少ないボリュームをアグリゲート上に作成します。</block>
+  <block id="8e3ced8aa906dd229e56c5594f875689" category="list-text">Elastic Volumesが有効になっていないGP3アグリゲートまたはio1アグリゲートだけがシステムに存在する場合、そのアグリゲートにボリュームが作成されます。</block>
+  <block id="3e95d6583bd264db8438bf2fd489fd0e" category="paragraph">このシナリオはほとんど発生しませんが、次の2つのケースが考えられます。</block>
+  <block id="1803aca3a9f75bcc66060a285a2a3cce" category="list-text">Elastic Volumes機能は、APIからアグリゲートを作成するときに明示的に無効にした。</block>
+  <block id="e377c5f27dcd090922232b4e802eabf2" category="list-text">ユーザインターフェイスから新しいCloud Volumes ONTAP システムを作成した場合、初期アグリゲートではElastic Volumes機能は無効になります。レビュー <block ref="1970a78ed44a3cfc31f9405835942101" category="inline-xref-macro-rx"></block> 詳細については、以下をご覧ください。</block>
+  <block id="406ebadba42c61628e590ba8d1fda05b" category="list-text">既存のアグリゲートに十分な容量がない場合、Cloud ManagerはElastic Volumesが有効なアグリゲートを作成し、その新しいアグリゲートにボリュームを作成します。</block>
+  <block id="2206323b06a49c917ab8fdd25eed0898" category="paragraph">アグリゲートのサイズは、要求されたボリュームサイズと10%の容量に基づいて決まります。</block>
+  <block id="35e1526d677f2c5c412538ff39eaacd5" category="section-title">Capacity Management Mode （容量管理モード）</block>
+  <block id="0771dc2adcd72d8da362f5f6f6071394" category="paragraph">コネクタの容量管理モードは、他のタイプのアグリゲートと同様にElastic Volumesと連携します。</block>
+  <block id="4357d8c580aa0e740a5b85192e6abc29" category="list-text">自動モードが有効な場合（デフォルト設定）、容量の追加が必要になると、Cloud Managerによってアグリゲートのサイズが自動的に拡張されます。</block>
+  <block id="8e28fce5c04483d108e13eac88b1349f" category="list-text">容量管理モードを手動に変更すると、Cloud Managerは追加の容量の購入を承認するかどうかを確認するメッセージを表示します。</block>
+  <block id="3ffe064f92b34cbcdfcab03d93ac0aa6" category="inline-link-macro">容量管理モードの詳細については、こちらをご覧ください</block>
+  <block id="d2c22afe536c7332438ccf868d74c34d" category="paragraph"><block ref="ef63e2789991bbc45cfd16ad2085fca0" category="inline-link-macro-rx"></block>。</block>
+  <block id="a33974427bc165b7a93accc1aa8be64f" category="list-text">アグリゲートのサイズの拡張には最大で6時間かかることがあります。その期間、Cloud Managerはそのアグリゲートに容量を追加で要求することはできません。</block>
+  <block id="d95ee608b161269708126edb4b983c53" category="list-text">この時点で、Elastic Volumesを有効にした新しいCloud Volumes ONTAP システムを最初のアグリゲートで作成することは、APIでのみサポートされています。この操作は、Cloud Managerユーザインターフェイスではサポートされていません。ユーザインターフェイスから新しいCloud Volumes ONTAP 9.11.0以降のシステムを作成した場合、初期アグリゲートではElastic Volumeは有効になりません。</block>
+  <block id="7f2dd60cac15d963d53c4b26e028d65e" category="paragraph">他のすべての操作（新しいアグリゲートの作成など）は、ユーザインターフェイスからサポートされます。</block>
+  <block id="95f37b47d36f29b34f5eb9876539e793" category="section-title">Elastic Volumesとの連携方法</block>
+  <block id="fadf0b4acbadb08e8e435a9d7130ab76" category="paragraph">Elastic VolumesとCloud Managerは次のように連携できます。</block>
+  <block id="8a08bb1cb08b803e8dcbd2a3ace89d1e" category="list-text">初期アグリゲートでElastic Volumesが有効になっている新しいシステムを作成します</block>
+  <block id="7dc2847ac93d622984709d8490d8d064" category="paragraph">に記載されているとおり <block ref="1970a78ed44a3cfc31f9405835942101" category="inline-xref-macro-rx"></block>このアクションは、現時点ではAPIでのみサポートされています。ユーザインターフェイスからはサポートされていません。</block>
+  <block id="b66cb58951bd984f0fb3e8629023bbe1" category="paragraph">API呼び出しを開始すると、最初のアグリゲートでElastic Volumes機能がデフォルトで有効になります。</block>
+  <block id="561112ad9b56b4dd0515c5b0e35146f7" category="inline-link">APIを使用してCloud Volumes ONTAP を作成する方法について説明します</block>
+  <block id="0a91fc79f47639b5b3ee7133c078544e" category="paragraph"><block ref="0a91fc79f47639b5b3ee7133c078544e" category="inline-link-rx"></block></block>
+  <block id="d5f89027268b27b157f79b1a29b881ab" category="list-text">Elastic Volumesが有効になっているアグリゲートに新しいボリュームを作成します</block>
+  <block id="b7225bc02dfd73fec72be6e9f04f0f4a" category="paragraph">GP3ディスクまたはio1ディスクを使用するボリュームを作成すると、Elastic Volumesが有効になっているアグリゲートにCloud Managerでボリュームが自動的に作成されます。詳細については、を参照してください <block ref="e432ed6cbb90ef2b99ca3ebe7006e953" category="inline-xref-macro-rx"></block>。</block>
+  <block id="d2089f3a642b9ad1bc7dada3770cd27d" category="inline-link-macro">ボリュームを作成する方法について説明します</block>
+  <block id="4f2d1bfe14af7838cd1828dd52604954" category="paragraph"><block ref="4d37c6e51c7d2f46a8c72847ea473933" category="inline-link-macro-rx"></block>。</block>
+  <block id="200de8f157d06e0f341963c712acd766" category="list-text">Elastic Volumesが有効な新しいアグリゲートを作成します</block>
+  <block id="05d2bdc728139b94f51ceeafef16af57" category="paragraph">Cloud Volumes ONTAP システムがバージョン9.11.0以降で作成されていれば、GP3ディスクまたはio1ディスクを使用する新しいアグリゲートでは、Elastic Volumesが自動的に有効になります。</block>
+  <block id="c414fe2a2f8ddedb44f4514570c3b1f6" category="paragraph">アグリゲートを作成する際、Cloud Managerによってアグリゲートの容量サイズの入力が求められます。これは、ディスクサイズとディスク数を選択する他の設定とは異なります。</block>
+  <block id="0b865acac59236580ae47c91e0948b90" category="paragraph">次のスクリーンショットは、GP3ディスクで構成される新しいアグリゲートの例を示しています。</block>
+  <block id="623fda0299842e5f6b0ffab039125c30" category="inline-image-macro">GP3ディスクのアグリゲートディスク画面のスクリーンショット。TiBでアグリゲートサイズを入力します。</block>
+  <block id="3c6f11cbd923434b71b989c727163643" category="paragraph"><block ref="3c6f11cbd923434b71b989c727163643" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d842642316b39be001efb718a0cad4bd" category="inline-link-macro">アグリゲートの作成方法を確認できます</block>
+  <block id="3af655005fd29fbbd8824a6ef2f040dc" category="paragraph"><block ref="bdaa17f2dfe16043f8bea33e0b6d1ef8" category="inline-link-macro-rx"></block>。</block>
+  <block id="71ce9ba1a5339afe1098587175217b4b" category="list-text">Elastic Volumesが有効になっているアグリゲートを特定します</block>
+  <block id="71ba010a4e2b551c25de28ee7b4f8a9a" category="paragraph">Advanced Allocationページに移動すると、アグリゲートでElastic Volumes機能が有効になっているかどうかを確認できます。次の例では、aggr2でElasticボリュームが有効になっていますが、aggr1では有効になっていません。</block>
+  <block id="090c5fa182e6b93f4da9c8d06195700f" category="inline-image-macro">2つのアグリゲートを示すスクリーンショット。1つのアグリゲートで「Elastic Volumes」というテキストのフィールドが有効になっています。</block>
+  <block id="ee7cf33bd0cd0b3af6a7cc58c5d43380" category="paragraph"><block ref="ee7cf33bd0cd0b3af6a7cc58c5d43380" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="13cb5ebd8c0b7becb3143ed413ade223" category="list-text">アグリゲートに容量を追加します</block>
+  <block id="15b37b22bf56bc7834d3207d1f8c75c1" category="paragraph">Cloud Managerでは必要に応じてアグリゲートに容量を自動的に追加できますが、手動で容量を拡張することもできます。</block>
+  <block id="dc71aae1559eb6f97026da188f10aa46" category="inline-link-macro">アグリゲートの容量を増やす方法について説明します</block>
+  <block id="aeef03dd397a861db5fa8e9873d3c379" category="paragraph"><block ref="ea7cf76a282dc5fbb196162d820ca1ce" category="inline-link-macro-rx"></block>。</block>
+  <block id="50b028f7b0e4c1175b755f94baf3e63d" category="list-text">Elastic Volumesが有効になっているアグリゲートにデータをレプリケートします</block>
+  <block id="7d831c8a95d6f1d0ec777a6a3624c915" category="paragraph">移行先のCloud Volumes ONTAP システムがElastic Volumesをサポートしている場合、Elastic Volumeが有効になっているアグリゲートに移行先ボリュームが配置されます（GP3ディスクまたはio1ディスクを選択している場合）。</block>
+  <block id="40f78d193b858589ad7df4dd4ce61ad6" category="inline-link">データレプリケーションの設定方法について説明します</block>
+  <block id="393877290958ffe37590f4f7e5d38fd5" category="paragraph"><block ref="393877290958ffe37590f4f7e5d38fd5" category="inline-link-rx"></block></block>
+  <block id="d2d74ae0bae0ce5e572e1e18ee02a826" category="list-text">ディスクタイプとディスクサイズの選択を求めるメッセージが表示された場合は、を参照してください <block ref="26bea762cd1da7392687166de680dabd" category="inline-link-macro-rx"></block>。</block>
+  <block id="6c68871792b245e4adbddcda60b0bd40" category="list-text">アグリゲートの容量のサイズを入力するように求められたら、Amazon EBS Elastic Volumes機能をサポートする構成でアグリゲートを作成します。次のスクリーンショットは、GP3ディスクで構成される新しいアグリゲートの例を示しています。</block>
+  <block id="9a66c0f1a4025f785048bbe94328bb75" category="paragraph">ディスクの種類とサイズについては、を参照してください <block ref="01a63aaf870d7f59ca64d1c54c969d0e" category="inline-link-macro-rx"></block>。</block>
+  <block id="288c077296ee94f93986165c88b4098b" category="paragraph">ディスクの種類とサイズについては、を参照してください <block ref="5b77fb1a990fdf84a9316de6ea1967b8" category="inline-link-macro-rx"></block>。</block>
+  <block id="11efa46f237387b311e6ed482756ac49" category="cell">9.11.1</block>
+  <block id="2d189112f4baf99b6292f68099bd0faf" category="section-title">プライベートリンク</block>
+  <block id="748337dd27473691346f53855d193c97" category="sidebar">Google CloudでStorage VMを作成します</block>
+  <block id="e8d0dae7c2f60648015da9b6a5d0e0ed" category="sidebar">AWSの管理</block>
+  <block id="cd8085e85d4fffcfec2ecbbe17e419ed" category="sidebar">Azureの管理</block>
+  <block id="c871aaf8a95c147d6774c7ccaf68c0eb" category="sidebar">Google Cloudの管理</block>
+  <block id="cb993f96a433ab0d99c7a6a17a1ddc9c" category="sidebar">System Managerで管理を行います</block>
+  <block id="fab7a3813da88237a3633c0b925bf6d0" category="sidebar">CLIからの管理</block>
 </blocks>

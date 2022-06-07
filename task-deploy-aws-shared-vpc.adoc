@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: task-deploy-aws-shared-vpc.html 
+keywords: shared vpc, aws shared vpc, vpc sharing, shared subnet, deploy shared vpc, assume role 
+summary: Cloud Volumes ONTAP HAペアは、VPCを共有するAWSでサポートされます。VPC共有を使用すると、他のAWSアカウントとサブネットを共有できます。この構成を使用するには、AWS環境をセットアップし、APIを使用してHAペアを導入する必要があります。 
+---
+= HAペアを共有サブネットに導入します
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP HAペアは、VPCを共有するAWSでサポートされます。VPC共有を使用すると、他のAWSアカウントとサブネットを共有できます。この構成を使用するには、AWS環境をセットアップし、APIを使用してHAペアを導入する必要があります。
+
+を使用 https://aws.amazon.com/blogs/networking-and-content-delivery/vpc-sharing-a-new-approach-to-multiple-accounts-and-vpc-management/["vPC共有"^]Cloud Volumes ONTAP HA構成は、次の2つのアカウントに分散されます。
+
+* ネットワークを所有するVPC所有者アカウント（VPC、サブネット、およびルーティングテーブル）。
+* EC2インスタンスが共有サブネット（2つのHAノードとメディエーターを含む）に導入されている参加者アカウント
+
+
+複数のアベイラビリティゾーンにまたがって導入されているCloud Volumes ONTAP HA構成の場合は、HAメディエーターからVPC所有者アカウントのルーティングテーブルに書き込むための特定の権限が必要です。メディエーターで想定できるIAMロールを設定して、これらの権限を指定する必要があります。
+
+.手順
+. IAMロールを作成します。
++
+.. Cloud Volumes ONTAP のEC2インスタンスを導入する参加者アカウントのIAMコンソールに移動します。
+.. [ アクセス管理 ] で、 [ 役割 ] 、 [ 役割の作成 *] の順にクリックし、手順に従って役割を作成します。
++
+必ず次の手順を実行してください。
+
++
+*** 信頼されるエンティティのタイプ * で、 * AWS アカウント * を選択します。
+*** 別のAWSアカウント*を選択して、VPC所有者アカウントのIDを入力します。
+*** から入手できる Cloud Manager IAM ポリシーを使用してポリシーを作成します https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager Policies ページ"^]。
+
+
+.. IAMロールのロールARNをコピーして、HAペアの導入時にAPI要求に貼り付けることができるようにします。
+
+
+. VPC所有者アカウントのサブネットを参加者アカウントと共有します。
++
+この手順は、HAペアを共有サブネットに導入するために必要です。
+
++
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html#vpc-sharing-share-subnet["AWSドキュメント：サブネットを共有"^]
+
+. VPC所有者アカウントで、Cloud Volumes ONTAP のセキュリティグループを作成します。
++
+link:reference-security-groups.html["Cloud Volumes ONTAP のセキュリティグループルールを参照してください"]。HAメディエーターのセキュリティグループを作成する必要はありません。クラウドマネージャーがそれを実現します。
+
+. APIを使用して新しいCloud Volumes ONTAP 作業環境を作成し、「haParams」オブジェクトの「"haassereRoleArn"」フィールドを渡します。
++
+[source, json]
+----
+"haParams": {
+     “assumeRoleArn”: “arn:aws:iam::642991768967:role/mediator_role_assume_fromdev”
+}
+----
++
+https://docs.netapp.com/us-en/cloud-manager-automation/cm/overview.html["Cloud Volumes ONTAP APIについて説明します"^]
+
+

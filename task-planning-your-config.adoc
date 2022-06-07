@@ -77,8 +77,14 @@ EBS ディスクタイプ:: EBS ディスクタイプの違いは次のとおり
 +
 GP3 ディスクを選択すると、 Cloud Manager はデフォルトの IOPS とスループットの値を入力し、選択したディスクサイズに基づいて gp2 ディスクに相当するパフォーマンスを提供します。この値を増やすと、コストを高くしてもパフォーマンスを向上させることができますが、パフォーマンスが低下する可能性があるため、値を小さくすることはできません。つまり、デフォルト値をそのまま使用するか、値を大きくします。低くしないでください。 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html#gp3-ebs-volume-type["GP3 ディスクとそのパフォーマンスについては、こちらをご覧ください"^]。
 
++
+Cloud Volumes ONTAP は、GP3ディスクを使用したAmazon EBS Elastic Volumes機能をサポートしています。 link:concept-aws-elastic-volumes.html["Elastic Volumesのサポートに関する詳細情報"]。
+
 * _ 汎用 SSD （ gp2 ） _ ディスクは、幅広いワークロードに対してコストとパフォーマンスのバランスを取ります。パフォーマンスは IOPS の観点から定義されます。
 * _Provisioned IOPS SSD （ io1 ） _disks は、コストが高くても最高のパフォーマンスが求められる重要なアプリケーション用です。
++
+Cloud Volumes ONTAP では、io1ディスクを使用したAmazon EBS Elastic Volumes機能がサポートされています。 link:concept-aws-elastic-volumes.html["Elastic Volumesのサポートに関する詳細情報"]。
+
 * _Throughput Optimized HDD （ st1 ） _disks は、高速で安定したスループットを必要とする、アクセス頻度の高いワークロード用です。価格は低くなります。
 +
 
@@ -87,7 +93,7 @@ NOTE: スループット最適化 HDD （ st1 ）を使用している場合、�
 
 
 --
-EBS ディスクサイズ:: Cloud Volumes ONTAP システムを起動するときに初期ディスクサイズを選択する必要があります。その後、次の操作を実行できます link:concept-storage-management.html["システムの容量を Cloud Manager で管理できます"]必要に応じて link:task-create-aggregates.html["アグリゲートの作成は自分で行います"]、次の点に注意してください。
+EBS ディスクサイズ:: をサポートしない構成を選択した場合 link:concept-aws-elastic-volumes.html["Amazon EBS Elastic Volumes機能"]を選択した場合、Cloud Volumes ONTAP システムの起動時に初期ディスクサイズを選択する必要があります。その後、次の操作を実行できます link:concept-storage-management.html["システムの容量を Cloud Manager で管理できます"]必要に応じて link:task-create-aggregates.html["アグリゲートの作成は自分で行います"]、次の点に注意してください。
 +
 --
 * アグリゲート内のディスクはすべて同じサイズである必要があります。
@@ -97,6 +103,9 @@ EBS ディスクサイズ:: Cloud Volumes ONTAP システムを起動すると�
 +
 EBS ディスクのパフォーマンスの詳細については、を参照してください http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html["AWS ドキュメント：「 EBS Volume Types"^]。
 
++
+前述したように、ディスクサイズの選択は、Amazon EBS Elastic Volumes機能をサポートするCloud Volumes ONTAP 構成ではサポートされていません。 link:concept-aws-elastic-volumes.html["Elastic Volumesのサポートに関する詳細情報"]。
+
 
 
 --
@@ -104,7 +113,7 @@ EBS ディスクのパフォーマンスの詳細については、を参照し�
 
 AWS での Cloud Volumes ONTAP システムのサイジングに関する詳細については、次のビデオを参照してください。
 
-video::GELcXmOuYPw[youtube, width=848,height=480]
+video::GELcXmOuYPw[youtube,width=848,height=480]
 
 
 == デフォルトのシステムディスクを表示します

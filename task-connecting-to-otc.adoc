@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: task-connecting-to-otc.html 
-keywords: system manager, connecting, cli, command, command line, connect, shell, interface 
-summary: Cloud Volumes ONTAP の高度な管理を実行する必要がある場合は、 ONTAP System Manager またはコマンドラインインターフェイスを使用します。 
+keywords: connecting, cli, command, command line, connect, shell, interface 
+summary: Cloud Volumes ONTAP CLI では、すべての管理コマンドを実行できます。高度なタスクを実行する場合や、 CLI を使い慣れている場合は、 CLI の使用を推奨します。CLIにはSSHを使用して接続できます。 
 ---
-= System Manager または CLI を使用する
+= CLIからCloud Volumes ONTAP を管理します
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -13,39 +13,7 @@ summary: Cloud Volumes ONTAP の高度な管理を実行する必要がある場
 :imagesdir: ./media/
 
 
-Cloud Volumes ONTAP の高度な管理を実行する必要がある場合は、 ONTAP System Manager またはコマンドラインインターフェイスを使用します。
-
-
-
-== System Manager に接続しています
-
-一部の Cloud Volumes ONTAP タスクを System Manager から実行する必要が生じることがあります。 System Manager は、 Cloud Volumes ONTAP システム上で稼働するブラウザベースの管理ツールです。たとえば、 LUN を作成する場合は、 System Manager を使用する必要があります。
-
-Cloud Manager にアクセスするコンピュータは、 Cloud Volumes ONTAP にネットワーク接続している必要があります。たとえば、クラウドプロバイダネットワークにあるジャンプホストから Cloud Manager へのログインが必要になることがあります。
-
-ifdef::aws[]
-
-
-NOTE: 複数の AWS 可用性ゾーンに導入されている場合、 Cloud Volumes ONTAP HA 構成では、クラスタ管理インターフェイスにフローティング IP アドレスが使用されます。つまり、外部ルーティングは使用できません。同じルーティングドメインの一部であるホストから接続する必要があります。
-
-endif::aws[]
-
-.手順
-. キャンバスから Cloud Volumes ONTAP 作業環境を選択します。
-. 右側のペインで、情報アイコンをクリックし、クラスタ管理 IP をコピーします。
-+
-image:screenshot-cvo-info.png["Cloud Volumes ONTAP 作業環境のキャンバスに表示される情報アイコンのスクリーンショット。"]
-
-. Cloud Volumes ONTAP へのネットワーク接続が確立されたマシンで Web ブラウザを開き、 IP アドレスを入力します。
-. ログイン画面で、 [ ユーザー名 ] フィールドに「 * admin * 」と入力し、作業環境の作成時に指定したパスワードを入力して、 [ * サインイン * ] をクリックします。
-
-
-System Manager コンソールがロードされます。これで、 Cloud Volumes ONTAP の管理に使用できるようになりました。
-
-
-
-== Cloud Volumes ONTAP CLI に接続しています
-
+[role="lead"]
 Cloud Volumes ONTAP CLI では、すべての管理コマンドを実行できます。高度なタスクを実行する場合や、 CLI を使い慣れている場合は、 CLI の使用を推奨します。Secure Shell （ SSH ）を使用して CLI に接続できます。
 
 SSH を使用して Cloud Volumes に接続するホスト ONTAP は、 Cloud Volumes ONTAP にネットワーク接続している必要があります。たとえば、クラウドプロバイダネットワーク内のジャンプホストからSSHを使用する場合などです。

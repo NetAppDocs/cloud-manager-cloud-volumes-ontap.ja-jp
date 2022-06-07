@@ -40,9 +40,11 @@ ifdef::aws[]
 
 AWS で Cloud Volumes ONTAP は、一部の EC2 インスタンスタイプで、ユーザデータ用の EBS ストレージとローカルの NVMe ストレージが Flash Cache として使用されます。
 
-EBS ストレージ:: AWS では、アグリゲートに同じサイズのディスクを最大 6 本含めることができます。最大ディスクサイズは 16TiB です。
+EBS ストレージ:: AWS では、アグリゲートに同じサイズのディスクを最大 6 本含めることができます。ただし、Amazon EBS Elastic Volumes機能をサポートする構成では、アグリゲートに最大8本のディスクを含めることができます。 link:concept-aws-elastic-volumes.html["Elastic Volumesのサポートに関する詳細情報"]。
 +
 --
+最大ディスクサイズは 16TiB です。
+
 基盤となる EBS ディスクタイプは、汎用 SSD （ GP3 または gp2 ）、プロビジョニングされる IOPS SSD （ io1 ）、またはスループット最適化 HDD （ st1 ）です。EBS ディスクと Amazon S3 をにペアリングできます link:concept-data-tiering.html["使用頻度の低いデータを低コストのオブジェクトストレージに階層化します"]。
 
 

@@ -23,8 +23,6 @@ settings:
   langs: ja-jp,us-en,zh-cn,zh-tw,ko-kr
 sidebar:
   entries:
-  - title: Cloud Manager のすべてのドキュメント
-    url: https://docs.netapp.com/us-en/cloud-manager-family
   - title: Cloud Volumes ONTAP のドキュメント
     url: "/index.html"
   - title: リリースノート
@@ -52,6 +50,8 @@ sidebar:
           url: "/reference-networking-aws.html"
         - title: AWS 転送ゲートウェイを設定します
           url: "/task-setting-up-transit-gateway.html"
+        - title: HAペアを共有サブネットに導入します
+          url: "/task-deploy-aws-shared-vpc.html"
         - title: AWS のセキュリティグループルール
           url: "/reference-security-groups.html"
       - title: AWS KMS を設定します
@@ -134,6 +134,9 @@ sidebar:
       - title: Azure で Storage VM を作成します
         flavor: azure
         url: "/task-managing-svms-azure.html"
+      - title: Google CloudでStorage VMを作成します
+        flavor: gcp
+        url: "/task-managing-svms-gcp.html"
     - title: セキュリティとデータ暗号化
       entries:
       - title: ネットアップの暗号化機能でボリュームを暗号化
@@ -168,7 +171,7 @@ sidebar:
           url: "/task-removing.html"
         - title: システムを削除します
           url: "/task-deleting-working-env.html"
-      - title: AWS での管理
+      - title: AWSの管理
         flavor: aws
         entries:
         - title: EC2 インスタンスタイプを変更します
@@ -177,7 +180,7 @@ sidebar:
           url: "/task-change-route-tables.html"
         - title: AWS のコストを監視
           url: "/task-monitoring-costs.html"
-      - title: Azure での管理
+      - title: Azureの管理
         flavor: azure
         entries:
         - title: Azure VM タイプを変更します
@@ -186,12 +189,14 @@ sidebar:
           url: "/task-overriding-cifs-locks.html"
         - title: Azure プライベートリンクを使用する
           url: "/task-enabling-private-link.html"
-      - title: Google Cloud の管理
+      - title: Google Cloudの管理
         flavor: gcp
         entries:
         - title: マシンタイプを変更します
           url: "/task-change-gcp-machine.html"
-      - title: System Manager または CLI から管理を行う
+      - title: System Managerで管理を行います
+        url: "/task-administer-advanced-view.html"
+      - title: CLIからの管理
         url: "/task-connecting-to-otc.html"
     - title: システムの健全性とイベント
       entries:
@@ -209,6 +214,9 @@ sidebar:
         url: "/concept-client-protocols.html"
       - title: ディスクとアグリゲート
         url: "/concept-storage.html"
+      - title: AWSのElastic Volumes
+        flavor: aws
+        url: "/concept-aws-elastic-volumes.html"
       - title: データの階層化
         url: "/concept-data-tiering.html"
       - title: ストレージ管理
@@ -326,3 +334,4 @@ homepage:
 product-family:
   name: Cloud Manager
   repo: cloud-manager-family
+  sidebar_label: All Cloud Manager documentation
