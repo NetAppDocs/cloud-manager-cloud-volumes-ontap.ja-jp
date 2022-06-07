@@ -314,35 +314,27 @@
     </div>
   </div>
   <div class="n-property-bar__toolbar">
-    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
-      <div id="ie-i18n-menu">
-      <span class="ie-i18n-lang">日本語</span>
-        <button class="ie-i18n-icon-container" type="button">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">日本語</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/cloud-manager-cloud-volumes-ontap/common/svg/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
-      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
-        <div class="n-language-selector-menu">
-          <ul class="n-menu__list">
-            <li class="n-menu__list-column">
-              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-security.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/concept-security.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/concept-security.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/concept-security.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/concept-security.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
-                </li></ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/concept-security.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-security.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/concept-security.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/concept-security.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/concept-security.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li></ul>
     </div><!-- End Language Selector -->
 
     <div class="n-property-bar__cta"></div>
@@ -397,8 +389,6 @@
         
         <a target="_blank" href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/fullsite-sidebar/Cloud_Volumes_ONTAP_のドキュメント.pdf" >
           <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>このドキュメントサイトのPDF</a>
-
-
 
 
 
@@ -486,6 +476,8 @@
             ネットワークをセットアップします
           </a>
           
+
+
 
 
 
@@ -739,6 +731,8 @@
 
 
 
+
+
           
         </li>
       </ul>
@@ -848,11 +842,11 @@
           
           <a target="_blank" 
             
-              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/AWS_での管理.pdf" 
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/AWSの管理.pdf" 
             
           >
             <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-            AWS での管理
+            AWSの管理
           </a>
           
 
@@ -879,11 +873,11 @@
           
           <a target="_blank" 
             
-              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/Azure_での管理.pdf" 
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/Azureの管理.pdf" 
             
           >
             <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-            Azure での管理
+            Azureの管理
           </a>
           
 
@@ -910,11 +904,11 @@
           
           <a target="_blank" 
             
-              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/Google_Cloud_の管理.pdf" 
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/gcp/sidebar/Google_Cloudの管理.pdf" 
             
           >
             <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-            Google Cloud の管理
+            Google Cloudの管理
           </a>
           
 
@@ -926,6 +920,8 @@
     
 
   
+
+
 
 
 
@@ -1011,6 +1007,8 @@
             ストレージ
           </a>
           
+
+
 
 
 
@@ -1162,10 +1160,10 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="gcp/https://docs.netapp.com/us-en/cloud-manager-family">
-        Cloud Manager のすべてのドキュメント
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/index.html">
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/ja-jp/cloud-manager-family/"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/left_arrow.png" alt=""><pre>All Cloud Manager documentation</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/index.html">
         Cloud Volumes ONTAP のドキュメント
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> リリースノート</div>
@@ -1237,6 +1235,8 @@
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-managing-svms.html">
         Cloud Manager で Storage VM を使用できます
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-managing-svms-gcp.html">
+        Google CloudでStorage VMを作成します
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> セキュリティとデータ暗号化</div>
       </a>
@@ -1271,12 +1271,14 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-deleting-working-env.html">
         システムを削除します
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> Google Cloud の管理</div>
+        <div class="na-navbar-padding"> Google Cloudの管理</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-change-gcp-machine.html">
         マシンタイプを変更します
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-connecting-to-otc.html">
-        System Manager または CLI から管理を行う
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-administer-advanced-view.html">
+        System Managerで管理を行います
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-connecting-to-otc.html">
+        CLIからの管理
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> システムの健全性とイベント</div>
       </a>
@@ -1660,4 +1662,5 @@
     </script>
     <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/www-ntap.js'></script>
     <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/tabbed-blocks.js'></script>
+    <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/sidebar.js'></script>
   </body></html>

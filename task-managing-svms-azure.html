@@ -309,35 +309,27 @@
     </div>
   </div>
   <div class="n-property-bar__toolbar">
-    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
-      <div id="ie-i18n-menu">
-      <span class="ie-i18n-lang">日本語</span>
-        <button class="ie-i18n-icon-container" type="button">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">日本語</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/cloud-manager-cloud-volumes-ontap/common/svg/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
-      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
-        <div class="n-language-selector-menu">
-          <ul class="n-menu__list">
-            <li class="n-menu__list-column">
-              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-managing-svms-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-managing-svms-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/task-managing-svms-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-managing-svms-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/task-managing-svms-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
-                </li></ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-managing-svms-azure.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-managing-svms-azure.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-managing-svms-azure.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/task-managing-svms-azure.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/task-managing-svms-azure.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li></ul>
     </div><!-- End Language Selector -->
 
     <div class="n-property-bar__cta"></div>
@@ -392,8 +384,6 @@
         
         <a target="_blank" href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/fullsite-sidebar/Cloud_Volumes_ONTAP_のドキュメント.pdf" >
           <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>このドキュメントサイトのPDF</a>
-
-
 
 
 
@@ -481,6 +471,8 @@
             ネットワークをセットアップします
           </a>
           
+
+
 
 
 
@@ -743,6 +735,8 @@
 
 
 
+
+
           
         </li>
       </ul>
@@ -852,11 +846,11 @@
           
           <a target="_blank" 
             
-              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/AWS_での管理.pdf" 
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/AWSの管理.pdf" 
             
           >
             <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-            AWS での管理
+            AWSの管理
           </a>
           
 
@@ -883,11 +877,11 @@
           
           <a target="_blank" 
             
-              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/Azure_での管理.pdf" 
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/Azureの管理.pdf" 
             
           >
             <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-            Azure での管理
+            Azureの管理
           </a>
           
 
@@ -914,11 +908,11 @@
           
           <a target="_blank" 
             
-              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/Google_Cloud_の管理.pdf" 
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/Google_Cloudの管理.pdf" 
             
           >
             <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-            Google Cloud の管理
+            Google Cloudの管理
           </a>
           
 
@@ -930,6 +924,8 @@
     
 
   
+
+
 
 
 
@@ -1015,6 +1011,8 @@
             ストレージ
           </a>
           
+
+
 
 
 
@@ -1157,10 +1155,10 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="https://docs.netapp.com/us-en/cloud-manager-family">
-        Cloud Manager のすべてのドキュメント
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/index.html">
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/ja-jp/cloud-manager-family/"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/left_arrow.png" alt=""><pre>All Cloud Manager documentation</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/index.html">
         Cloud Volumes ONTAP のドキュメント
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> リリースノート</div>
@@ -1190,6 +1188,8 @@
         ネットワーク要件
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-setting-up-transit-gateway.html">
         AWS 転送ゲートウェイを設定します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-deploy-aws-shared-vpc.html">
+        HAペアを共有サブネットに導入します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/reference-security-groups.html">
         AWS のセキュリティグループルール
       </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html">
@@ -1275,6 +1275,8 @@
         AWS で Storage VM を作成します
       </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-managing-svms-azure.html">
         Azure で Storage VM を作成します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-managing-svms-gcp.html">
+        Google CloudでStorage VMを作成します
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> セキュリティとデータ暗号化</div>
       </a>
@@ -1311,7 +1313,7 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-deleting-working-env.html">
         システムを削除します
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> AWS での管理</div>
+        <div class="na-navbar-padding"> AWSの管理</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-change-ec2-instance.html">
         EC2 インスタンスタイプを変更します
@@ -1320,7 +1322,7 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-monitoring-costs.html">
         AWS のコストを監視
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> Azure での管理</div>
+        <div class="na-navbar-padding"> Azureの管理</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-change-azure-vm.html">
         Azure VM タイプを変更します
@@ -1329,12 +1331,14 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-enabling-private-link.html">
         Azure プライベートリンクを使用する
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> Google Cloud の管理</div>
+        <div class="na-navbar-padding"> Google Cloudの管理</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-change-gcp-machine.html">
         マシンタイプを変更します
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html">
-        System Manager または CLI から管理を行う
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-administer-advanced-view.html">
+        System Managerで管理を行います
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html">
+        CLIからの管理
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> システムの健全性とイベント</div>
       </a>
@@ -1354,6 +1358,8 @@
         クライアントプロトコル
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/concept-storage.html">
         ディスクとアグリゲート
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/concept-aws-elastic-volumes.html">
+        AWSのElastic Volumes
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/concept-data-tiering.html">
         データの階層化
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/concept-storage-management.html">
@@ -1463,7 +1469,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-28 18:09:08 +0000">04/28/2022</time>
+    <time datetime="2022-06-07 20:54:02 +0000">06/07/2022</time>
     
   
 
@@ -1518,71 +1524,10 @@
 <div class="sect2">
 <h3 id="シングルノードシステム">シングルノードシステム</h3>
 <div class="paragraph">
-<p>Storage VM を作成して LIF を割り当てる前に、 Azure で IP アドレスを nic0 に割り当てる必要があります。必要な IP アドレスの数は、ストレージプロトコルによって異なります。</p>
+<p>Storage VM を作成して LIF を割り当てる前に、 Azure で IP アドレスを nic0 に割り当てる必要があります。</p>
 </div>
-<div class="exampleblock tabbed-block">
-<div class="content">
-<div class="openblock">
-<div class="title">iSCSI</div>
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>iSCSI データ LIF アクセス用に 1 つの IP アドレス</p>
-</li>
-<li>
-<p>Storage VM （ SVM ）管理 LIF のオプションの IP アドレスです</p>
 <div class="paragraph">
-<p>この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="openblock">
-<div class="title">NFS</div>
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>NAS データ LIF へのアクセス用に 1 つの IP アドレス</p>
-</li>
-<li>
-<p>Storage VM （ SVM ）管理 LIF のオプションの IP アドレスです</p>
-<div class="paragraph">
-<p>この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="openblock">
-<div class="title">SMB</div>
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>NAS データ LIF へのアクセス用に 1 つの IP アドレス</p>
-</li>
-<li>
-<p>iSCSI LIF を介した DNS 通信と SMB 通信に使用する IP アドレス × 1</p>
-<div class="paragraph">
-<p>iSCSI LIF はフェイルオーバー時に移行されないため、この目的に使用されます。</p>
-</div>
-</li>
-<li>
-<p>Storage VM （ SVM ）管理 LIF のオプションの IP アドレスです</p>
-<div class="paragraph">
-<p>この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
+<p>データ LIF アクセス用の IP アドレスと、 Storage VM （ SVM ）管理 LIF のオプションの IP アドレスを作成する必要があります。この管理 LIF は、 SnapCenter などの管理ツールへの接続を提供します。</p>
 </div>
 <div class="olist arabic">
 <div class="title">手順</div>
@@ -1614,13 +1559,10 @@
 <p>静的 IP アドレスを使用することをお勧めします。静的 IP で IP アドレスが変更されないようにすることで、アプリケーションの不必要な停止を防止できます。</p>
 </div>
 </li>
-<li>
-<p>SMB を使用している場合は、上記の手順を繰り返して、 DNS 通信と SMB 通信用に追加の IP アドレスを作成します。</p>
-</li>
-<li>
-<p>SVM 管理 LIF を作成する場合は、上記の手順を繰り返して追加の IP アドレスを作成します。</p>
-</li>
 </ol>
+</div>
+<div class="paragraph">
+<p>SVM 管理 LIF を作成する場合は、上記の手順を繰り返して追加の IP アドレスを作成します。</p>
 </div>
 <div class="paragraph">
 <p>作成したプライベート IP アドレスをコピーします。新しい Storage VM の LIF を作成するときに、これらの IP アドレスを指定する必要があります。</p>
@@ -2129,14 +2071,6 @@
 </div>
 </li>
 <li>
-<p>DNS 通信と SMB 通信を提供するために必要な iSCSI LIF を作成します。</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">network interface create -vserver &lt;svm-name&gt; -home-port e0a -address &lt;iscsi-ip-address&gt; -lif &lt;lif-name&gt; -home-node &lt;name-of-node1&gt; -data-protocol iscsi</code></pre>
-</div>
-</div>
-</li>
-<li>
 <p>オプション： Storage VM 管理 LIF を作成する</p>
 <div class="listingblock">
 <div class="content">
@@ -2236,6 +2170,31 @@
 <p>この手順は、 Storage VM にボリュームを作成する前に、新しい Storage VM が少なくとも 1 つのアグリゲートにアクセスする必要があるためです。</p>
 </div>
 </li>
+<li>
+<p>Cloud Volumes ONTAP 9.11.1以降を実行している場合は、Storage VMのネットワークサービスポリシーを変更します。</p>
+<div class="paragraph">
+<p>サービスの変更が必要となるのは、Cloud Volumes ONTAP がiSCSI LIFをアウトバウンド管理接続に使用できるようにするためです。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface service-policy remove-service -vserver &lt;svm-name&gt; -policy default-data-files -service data-fpolicy-client
+network interface service-policy remove-service -vserver &lt;svm-name&gt; -policy default-data-files -service management-ad-client
+network interface service-policy remove-service -vserver &lt;svm-name&gt; -policy default-data-files -service management-dns-client
+network interface service-policy remove-service -vserver &lt;svm-name&gt; -policy default-data-files -service management-ldap-client
+network interface service-policy remove-service -vserver &lt;svm-name&gt; -policy default-data-files -service management-nis-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-blocks -service data-fpolicy-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-blocks -service management-ad-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-blocks -service management-dns-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-blocks -service management-ldap-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-blocks -service management-nis-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-iscsi -service data-fpolicy-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-iscsi -service management-ad-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-iscsi -service management-dns-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-iscsi -service management-ldap-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-iscsi -service management-nis-client</code></pre>
+</div>
+</div>
+</li>
 </ol>
 </div>
 </div>
@@ -2305,6 +2264,31 @@
 </div>
 <div class="paragraph">
 <p>この手順は、 Storage VM にボリュームを作成する前に、新しい Storage VM が少なくとも 1 つのアグリゲートにアクセスする必要があるためです。</p>
+</div>
+</li>
+<li>
+<p>Cloud Volumes ONTAP 9.11.1以降を実行している場合は、Storage VMのネットワークサービスポリシーを変更します。</p>
+<div class="paragraph">
+<p>サービスの変更が必要となるのは、Cloud Volumes ONTAP がiSCSI LIFをアウトバウンド管理接続に使用できるようにするためです。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface service-policy remove-service -vserver &lt;svm-name&gt; -policy default-data-files -service data-fpolicy-client
+network interface service-policy remove-service -vserver &lt;svm-name&gt; -policy default-data-files -service management-ad-client
+network interface service-policy remove-service -vserver &lt;svm-name&gt; -policy default-data-files -service management-dns-client
+network interface service-policy remove-service -vserver &lt;svm-name&gt; -policy default-data-files -service management-ldap-client
+network interface service-policy remove-service -vserver &lt;svm-name&gt; -policy default-data-files -service management-nis-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-blocks -service data-fpolicy-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-blocks -service management-ad-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-blocks -service management-dns-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-blocks -service management-ldap-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-blocks -service management-nis-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-iscsi -service data-fpolicy-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-iscsi -service management-ad-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-iscsi -service management-dns-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-iscsi -service management-ldap-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-iscsi -service management-nis-client</code></pre>
+</div>
 </div>
 </li>
 </ol>
@@ -2399,6 +2383,31 @@
 </div>
 <div class="paragraph">
 <p>この手順は、 Storage VM にボリュームを作成する前に、新しい Storage VM が少なくとも 1 つのアグリゲートにアクセスする必要があるためです。</p>
+</div>
+</li>
+<li>
+<p>Cloud Volumes ONTAP 9.11.1以降を実行している場合は、Storage VMのネットワークサービスポリシーを変更します。</p>
+<div class="paragraph">
+<p>サービスの変更が必要となるのは、Cloud Volumes ONTAP がiSCSI LIFをアウトバウンド管理接続に使用できるようにするためです。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">network interface service-policy remove-service -vserver &lt;svm-name&gt; -policy default-data-files -service data-fpolicy-client
+network interface service-policy remove-service -vserver &lt;svm-name&gt; -policy default-data-files -service management-ad-client
+network interface service-policy remove-service -vserver &lt;svm-name&gt; -policy default-data-files -service management-dns-client
+network interface service-policy remove-service -vserver &lt;svm-name&gt; -policy default-data-files -service management-ldap-client
+network interface service-policy remove-service -vserver &lt;svm-name&gt; -policy default-data-files -service management-nis-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-blocks -service data-fpolicy-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-blocks -service management-ad-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-blocks -service management-dns-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-blocks -service management-ldap-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-blocks -service management-nis-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-iscsi -service data-fpolicy-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-iscsi -service management-ad-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-iscsi -service management-dns-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-iscsi -service management-ldap-client
+network interface service-policy add-service -vserver &lt;svm-name&gt; -policy default-data-iscsi -service management-nis-client</code></pre>
+</div>
 </div>
 </li>
 </ol>
@@ -2559,4 +2568,5 @@
     </script>
     <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/www-ntap.js'></script>
     <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/tabbed-blocks.js'></script>
+    <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/sidebar.js'></script>
   </body></html>

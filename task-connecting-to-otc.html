@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head class="at-element-marker">
-  <title>System Manager または CLI を使用する | NetApp Documentation</title>
+  <title>CLIからCloud Volumes ONTAP を管理します | NetApp Documentation</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="System Manager または CLI を使用する | NetApp Documentation" />
+  <meta property="og:title" content="CLIからCloud Volumes ONTAP を管理します | NetApp Documentation" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html" />
-	<meta property="og:description" content="Cloud Volumes ONTAP の高度な管理を実行する必要がある場合は、 ONTAP System Manager またはコマンドラインインターフェイスを使用します。" />
+	<meta property="og:description" content="Cloud Volumes ONTAP CLI では、すべての管理コマンドを実行できます。高度なタスクを実行する場合や、 CLI を使い慣れている場合は、 CLI の使用を推奨します。CLIにはSSHを使用して接続できます。" />
   <meta property="og:image" content="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Cloud Volumes ONTAP の高度な管理を実行する必要がある場合は、 ONTAP System Manager またはコマンドラインインターフェイスを使用します。">
-  <meta name="keywords" content=" system manager, connecting, cli, command, command line, connect, shell, interface"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Cloud Volumes ONTAP CLI では、すべての管理コマンドを実行できます。高度なタスクを実行する場合や、 CLI を使い慣れている場合は、 CLI の使用を推奨します。CLIにはSSHを使用して接続できます。">
+  <meta name="keywords" content=" connecting, cli, command, command line, connect, shell, interface"><!-- Icons -->
   <link rel="icon" href="/ja-jp/cloud-manager-cloud-volumes-ontap/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/ja-jp/cloud-manager-cloud-volumes-ontap/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -201,7 +201,7 @@
     
   </ul>
 </div>
-<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[System Manager または CLI を使用する](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-connecting-to-otc.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[CLIからCloud Volumes ONTAP を管理します](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-connecting-to-otc.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -309,35 +309,27 @@
     </div>
   </div>
   <div class="n-property-bar__toolbar">
-    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
-      <div id="ie-i18n-menu">
-      <span class="ie-i18n-lang">日本語</span>
-        <button class="ie-i18n-icon-container" type="button">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">日本語</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/cloud-manager-cloud-volumes-ontap/common/svg/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
-      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
-        <div class="n-language-selector-menu">
-          <ul class="n-menu__list">
-            <li class="n-menu__list-column">
-              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
-                </li></ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li></ul>
     </div><!-- End Language Selector -->
 
     <div class="n-property-bar__cta"></div>
@@ -392,8 +384,6 @@
         
         <a target="_blank" href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/fullsite-sidebar/Cloud_Volumes_ONTAP_のドキュメント.pdf" >
           <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>このドキュメントサイトのPDF</a>
-
-
 
 
 
@@ -481,6 +471,8 @@
             ネットワークをセットアップします
           </a>
           
+
+
 
 
 
@@ -734,6 +726,8 @@
 
 
 
+
+
           
         </li>
       </ul>
@@ -843,11 +837,11 @@
           
           <a target="_blank" 
             
-              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/AWS_での管理.pdf" 
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/AWSの管理.pdf" 
             
           >
             <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-            AWS での管理
+            AWSの管理
           </a>
           
 
@@ -874,11 +868,11 @@
           
           <a target="_blank" 
             
-              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/Azure_での管理.pdf" 
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/Azureの管理.pdf" 
             
           >
             <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-            Azure での管理
+            Azureの管理
           </a>
           
 
@@ -905,11 +899,11 @@
           
           <a target="_blank" 
             
-              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/Google_Cloud_の管理.pdf" 
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/sidebar/Google_Cloudの管理.pdf" 
             
           >
             <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-            Google Cloud の管理
+            Google Cloudの管理
           </a>
           
 
@@ -921,6 +915,8 @@
     
 
   
+
+
 
 
     <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
@@ -1015,6 +1011,8 @@
             ストレージ
           </a>
           
+
+
 
 
 
@@ -1157,10 +1155,10 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="https://docs.netapp.com/us-en/cloud-manager-family">
-        Cloud Manager のすべてのドキュメント
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/index.html">
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/ja-jp/cloud-manager-family/"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/left_arrow.png" alt=""><pre>All Cloud Manager documentation</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/index.html">
         Cloud Volumes ONTAP のドキュメント
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> リリースノート</div>
@@ -1190,6 +1188,8 @@
         ネットワーク要件
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-setting-up-transit-gateway.html">
         AWS 転送ゲートウェイを設定します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-deploy-aws-shared-vpc.html">
+        HAペアを共有サブネットに導入します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/reference-security-groups.html">
         AWS のセキュリティグループルール
       </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html">
@@ -1275,6 +1275,8 @@
         AWS で Storage VM を作成します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-managing-svms-azure.html">
         Azure で Storage VM を作成します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-managing-svms-gcp.html">
+        Google CloudでStorage VMを作成します
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> セキュリティとデータ暗号化</div>
       </a>
@@ -1311,7 +1313,7 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-deleting-working-env.html">
         システムを削除します
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> AWS での管理</div>
+        <div class="na-navbar-padding"> AWSの管理</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-change-ec2-instance.html">
         EC2 インスタンスタイプを変更します
@@ -1320,7 +1322,7 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-monitoring-costs.html">
         AWS のコストを監視
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> Azure での管理</div>
+        <div class="na-navbar-padding"> Azureの管理</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-change-azure-vm.html">
         Azure VM タイプを変更します
@@ -1329,12 +1331,14 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-enabling-private-link.html">
         Azure プライベートリンクを使用する
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> Google Cloud の管理</div>
+        <div class="na-navbar-padding"> Google Cloudの管理</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-change-gcp-machine.html">
         マシンタイプを変更します
-      </a></li></ul></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html">
-        System Manager または CLI から管理を行う
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-administer-advanced-view.html">
+        System Managerで管理を行います
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-connecting-to-otc.html">
+        CLIからの管理
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> システムの健全性とイベント</div>
       </a>
@@ -1354,6 +1358,8 @@
         クライアントプロトコル
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/concept-storage.html">
         ディスクとアグリゲート
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/concept-aws-elastic-volumes.html">
+        AWSのElastic Volumes
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/concept-data-tiering.html">
         データの階層化
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/concept-storage-management.html">
@@ -1456,77 +1462,21 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">System Manager または CLI を使用する</h1>
+  <h1 class="n-doc__component-detail-heading">CLIからCloud Volumes ONTAP を管理します</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-05-09 15:40:08 +0000">05/09/2022</time>
+    <time datetime="2022-06-07 20:54:02 +0000">06/07/2022</time>
     
   
 
 
 </p>
 
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Volumes ONTAP の高度な管理を実行する必要がある場合は、 ONTAP System Manager またはコマンドラインインターフェイスを使用します。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="system-manager-に接続しています">System Manager に接続しています</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>一部の Cloud Volumes ONTAP タスクを System Manager から実行する必要が生じることがあります。 System Manager は、 Cloud Volumes ONTAP システム上で稼働するブラウザベースの管理ツールです。たとえば、 LUN を作成する場合は、 System Manager を使用する必要があります。</p>
-</div>
-<div class="paragraph">
-<p>Cloud Manager にアクセスするコンピュータは、 Cloud Volumes ONTAP にネットワーク接続している必要があります。たとえば、クラウドプロバイダネットワークにあるジャンプホストから Cloud Manager へのログインが必要になることがあります。</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注記">
-</td>
-<td class="content">
-複数の AWS 可用性ゾーンに導入されている場合、 Cloud Volumes ONTAP HA 構成では、クラスタ管理インターフェイスにフローティング IP アドレスが使用されます。つまり、外部ルーティングは使用できません。同じルーティングドメインの一部であるホストから接続する必要があります。
-</td>
-</tr>
-</table>
-</div>
-<div class="olist arabic">
-<div class="title">手順</div>
-<ol class="arabic">
-<li>
-<p>キャンバスから Cloud Volumes ONTAP 作業環境を選択します。</p>
-</li>
-<li>
-<p>右側のペインで、情報アイコンをクリックし、クラスタ管理 IP をコピーします。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot-cvo-info.png" alt="Cloud Volumes ONTAP 作業環境のキャンバスに表示される情報アイコンのスクリーンショット。"></span></p>
-</div>
-</li>
-<li>
-<p>Cloud Volumes ONTAP へのネットワーク接続が確立されたマシンで Web ブラウザを開き、 IP アドレスを入力します。</p>
-</li>
-<li>
-<p>ログイン画面で、 [ ユーザー名 ] フィールドに「 * admin * 」と入力し、作業環境の作成時に指定したパスワードを入力して、 [ * サインイン * ] をクリックします。</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>System Manager コンソールがロードされます。これで、 Cloud Volumes ONTAP の管理に使用できるようになりました。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="cloud-volumes-ontap-cli-に接続しています">Cloud Volumes ONTAP CLI に接続しています</h2>
-<div class="sectionbody">
-<div class="paragraph">
+<div class="paragraph lead">
 <p>Cloud Volumes ONTAP CLI では、すべての管理コマンドを実行できます。高度なタスクを実行する場合や、 CLI を使い慣れている場合は、 CLI の使用を推奨します。Secure Shell （ SSH ）を使用して CLI に接続できます。</p>
 </div>
 <div class="paragraph">
@@ -1593,8 +1543,6 @@ COT2::&gt;</pre>
 </div>
 </li>
 </ol>
-</div>
-</div>
 </div>
 
     </article>
@@ -1742,4 +1690,5 @@ COT2::&gt;</pre>
     </script>
     <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/www-ntap.js'></script>
     <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/tabbed-blocks.js'></script>
+    <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/sidebar.js'></script>
   </body></html>

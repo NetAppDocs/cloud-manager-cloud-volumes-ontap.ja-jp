@@ -314,35 +314,27 @@
     </div>
   </div>
   <div class="n-property-bar__toolbar">
-    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
-      <div id="ie-i18n-menu">
-      <span class="ie-i18n-lang">日本語</span>
-        <button class="ie-i18n-icon-container" type="button">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">日本語</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ja-jp/cloud-manager-cloud-volumes-ontap/common/svg/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
-      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
-        <div class="n-language-selector-menu">
-          <ul class="n-menu__list">
-            <li class="n-menu__list-column">
-              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-create-aggregates.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-create-aggregates.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/task-create-aggregates.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-create-aggregates.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/task-create-aggregates.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
-                </li></ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-create-aggregates.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-create-aggregates.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-create-aggregates.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/task-create-aggregates.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/task-create-aggregates.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li></ul>
     </div><!-- End Language Selector -->
 
     <div class="n-property-bar__cta"></div>
@@ -397,8 +389,6 @@
         
         <a target="_blank" href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/aws/fullsite-sidebar/Cloud_Volumes_ONTAP_のドキュメント.pdf" >
           <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>このドキュメントサイトのPDF</a>
-
-
 
 
 
@@ -486,6 +476,8 @@
             ネットワークをセットアップします
           </a>
           
+
+
 
 
 
@@ -748,6 +740,8 @@
 
 
 
+
+
           
         </li>
       </ul>
@@ -857,11 +851,11 @@
           
           <a target="_blank" 
             
-              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/AWS_での管理.pdf" 
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/AWSの管理.pdf" 
             
           >
             <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-            AWS での管理
+            AWSの管理
           </a>
           
 
@@ -888,11 +882,11 @@
           
           <a target="_blank" 
             
-              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/Azure_での管理.pdf" 
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/Azureの管理.pdf" 
             
           >
             <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-            Azure での管理
+            Azureの管理
           </a>
           
 
@@ -919,11 +913,11 @@
           
           <a target="_blank" 
             
-              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/Google_Cloud_の管理.pdf" 
+              href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/aws/sidebar/Google_Cloudの管理.pdf" 
             
           >
             <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-            Google Cloud の管理
+            Google Cloudの管理
           </a>
           
 
@@ -935,6 +929,8 @@
     
 
   
+
+
 
 
 
@@ -1020,6 +1016,8 @@
             ストレージ
           </a>
           
+
+
 
 
 
@@ -1162,10 +1160,10 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="aws/https://docs.netapp.com/us-en/cloud-manager-family">
-        Cloud Manager のすべてのドキュメント
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/index.html">
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/ja-jp/cloud-manager-family/"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/left_arrow.png" alt=""><pre>All Cloud Manager documentation</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/index.html">
         Cloud Volumes ONTAP のドキュメント
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> リリースノート</div>
@@ -1195,6 +1193,8 @@
         ネットワーク要件
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-setting-up-transit-gateway.html">
         AWS 転送ゲートウェイを設定します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-deploy-aws-shared-vpc.html">
+        HAペアを共有サブネットに導入します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/reference-security-groups.html">
         AWS のセキュリティグループルール
       </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-setting-up-kms.html">
@@ -1276,7 +1276,7 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-deleting-working-env.html">
         システムを削除します
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> AWS での管理</div>
+        <div class="na-navbar-padding"> AWSの管理</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-change-ec2-instance.html">
         EC2 インスタンスタイプを変更します
@@ -1284,8 +1284,10 @@
         HA ペアのルーティングテーブルを変更する
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-monitoring-costs.html">
         AWS のコストを監視
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-connecting-to-otc.html">
-        System Manager または CLI から管理を行う
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-administer-advanced-view.html">
+        System Managerで管理を行います
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-connecting-to-otc.html">
+        CLIからの管理
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> システムの健全性とイベント</div>
       </a>
@@ -1305,6 +1307,8 @@
         クライアントプロトコル
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/concept-storage.html">
         ディスクとアグリゲート
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/concept-aws-elastic-volumes.html">
+        AWSのElastic Volumes
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/concept-data-tiering.html">
         データの階層化
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/concept-storage-management.html">
@@ -1410,7 +1414,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-14 17:28:17 +0000">04/14/2022</time>
+    <time datetime="2022-06-07 20:54:02 +0000">06/07/2022</time>
     
   
 
@@ -1443,8 +1447,30 @@
 </li>
 <li>
 <p>Add Aggregate * をクリックして、アグリゲートの詳細を指定します。</p>
+<div class="exampleblock tabbed-block">
+<div class="content">
+<div class="openblock">
+<div class="title">AWS</div>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>ディスクタイプとディスクサイズの選択を求めるメッセージが表示された場合は、を参照してください <a href="task-planning-your-config.html">"AWSでCloud Volumes ONTAP 構成を計画"</a>。</p>
+</li>
+<li>
+<p>アグリゲートの容量のサイズを入力するように求められたら、Amazon EBS Elastic Volumes機能をサポートする構成でアグリゲートを作成します。次のスクリーンショットは、GP3ディスクで構成される新しいアグリゲートの例を示しています。</p>
 <div class="paragraph">
-<p>ディスクタイプとディスクサイズについては、を参照してください <a href="task-planning-your-config.html">"構成の計画"</a>。</p>
+<p><span class="image"><img src="./media/screenshot-aggregate-size-ev.png" alt="GP3ディスクのアグリゲートディスク画面のスクリーンショット。TiBでアグリゲートサイズを入力します。"></span></p>
+</div>
+<div class="paragraph">
+<p><a href="concept-aws-elastic-volumes.html">"Elastic Volumesのサポートに関する詳細情報"</a>。</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 </li>
 <li>
@@ -1598,4 +1624,5 @@
     </script>
     <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/www-ntap.js'></script>
     <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/tabbed-blocks.js'></script>
+    <script src='/ja-jp/cloud-manager-cloud-volumes-ontap/js/sidebar.js'></script>
   </body></html>
