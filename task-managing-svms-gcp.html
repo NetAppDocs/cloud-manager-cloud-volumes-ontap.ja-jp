@@ -1469,7 +1469,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-07 22:01:14 +0000">06/07/2022</time>
+    <time datetime="2022-06-08 19:20:38 +0000">06/08/2022</time>
     
   
 
@@ -1527,7 +1527,7 @@
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p>Google Cloudで、Cloud Volumes ONTAP インスタンスに移動し、LIFごとにnic0のIP範囲を追加します。</p>
+<p>Google Cloudで、Cloud Volumes ONTAP インスタンスに移動し、各LIFのnic0にIPアドレスを追加します。</p>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot-gcp-add-ip-range.png" alt="Google Cloudコンソールのスクリーンショット。IP範囲を追加してCloud Volumes ONTAP のネットワークインターフェイスを編集できます。"></span></p>
 </div>
@@ -1603,10 +1603,10 @@
 <div class="sect2">
 <h3 id="ha-ペア">HA ペア</h3>
 <div class="paragraph">
-<p>Google CloudのCloud Volumes ONTAP システムでStorage VMを作成するには、Cloud Manager APIを使用する必要があります。Cloud ManagerではStorage VMに必要なLIFサービスが設定されるほか、アウトバウンドのSMB / CIFS通信に必要なHAペアのiSCSI LIFが設定されるため、APIを使用する（System ManagerやCLIを使用しない）必要があります。</p>
+<p>Google CloudのCloud Volumes ONTAP システムでStorage VMを作成するには、Cloud Manager APIを使用する必要があります。Cloud ManagerではStorage VMに必要なLIFサービスが設定されるほか、アウトバウンドのSMB / CIFS通信に必要なiSCSI LIFが設定されるため、APIを使用する（System ManagerやCLIを使用することはない）必要があります。</p>
 </div>
 <div class="paragraph">
-<p>Cloud Managerは、Google Cloudで必要なIPアドレスを割り当てます。</p>
+<p>Cloud Managerは、Google Cloudで必要なIPアドレスを割り当て、SMB / NFSアクセス用のデータLIFとアウトバウンドSMB通信用のiSCSI LIFを備えたStorage VMを作成します。</p>
 </div>
 <div class="paragraph">
 <p>3.9.19リリースから、Cloud Volumes ONTAP HAペアのStorage VMを作成および管理するために、Connectorでは次の権限が必要になります。</p>
