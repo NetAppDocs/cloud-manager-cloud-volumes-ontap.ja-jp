@@ -2856,11 +2856,6 @@
   <block id="aaf6c9386307243e0c7f006a0f97bb52" category="paragraph">権限は最新のに含まれています<block ref="7fc49a88d4bedbc1252c1f5516a8dc2a" category="inline-link-rx"></block>。</block>
   <block id="fa1042438bed47a60c15908b94fd42c4" category="section-title">コールドデータを Google Cloud Storage に階層化するための要件 バケット</block>
   <block id="5a73034af6b91167e9ba69ce44d86e8f" category="list-text">Cloud Volumes ONTAP が存在するサブネットは、プライベート Google アクセス用に設定する必要があります。手順については、を参照してください<block ref="46bdb5a1fb51df5eb32e2147ea91e6d8" category="inline-link-rx"></block>。</block>
-  <block id="9d4cd42073cefc588ac43639b1e4e88a" category="list-text">次の要件を満たすサービスアカウントが必要です。</block>
-  <block id="6810b6df254e94a8ecf2052c8c7f7721" category="list-text">事前に定義された Storage Admin ロールが必要です。</block>
-  <block id="1837fe5a2076e0b48dd89e6e407d421c" category="list-text">Connector サービスアカウントは、この階層化サービスアカウントの _ サービスアカウント User_ である必要があります。</block>
-  <block id="46b491767cd12d81f9bf9593f5a96cf7" category="inline-link-macro">サービスアカウントの設定方法について説明します</block>
-  <block id="d959b688b1fc3950ea91b0d6cf69810f" category="paragraph"><block ref="d96cbc06eb9960eb349571429d09201c" category="inline-link-macro-rx"></block>。</block>
   <block id="afe7022770dc53fd2a2de81727d4343a" category="list-text">バケットをお客様が管理する暗号化キーで暗号化するには、 Google Cloud ストレージバケットでキーを使用できるようにします。</block>
   <block id="030b67ae86ab61438eb6b00a3ade8e7a" category="inline-link-macro">お客様が管理する暗号化キーを Cloud Volumes ONTAP で使用する方法について説明します</block>
   <block id="d9c32a88801cedef2b665ed828d3ec26" category="paragraph"><block ref="c6d38e0757454a32ebb960ce7a42b88f" category="inline-link-macro-rx"></block>。</block>
@@ -4000,7 +3995,6 @@
   <block id="a22063e6d541a4b1d385c3d940e03996" category="doc">Google CloudでCloud Volumes ONTAP 用のデータ提供用Storage VMを作成</block>
   <block id="77701b3d3cb3179bddf053dbed6e2e43" category="paragraph">9.11.1リリース以降、Google Cloudの特定のCloud Volumes ONTAP 構成で複数のStorage VMがサポートされています。にアクセスします<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 使用している Cloud Volumes ONTAP のバージョンでサポートされる Storage VM 数を確認してください。</block>
   <block id="8272f5b23e79d0ee33bd5151dcddc454" category="section-title">Storage VM を作成</block>
-  <block id="379013863d5e971d00b46819c677a99b" category="list-text">Google Cloudで、Cloud Volumes ONTAP インスタンスに移動し、LIFごとにnic0のIP範囲を追加します。</block>
   <block id="a0ffc61dcb224c763f02ac751ef98179" category="inline-image-macro">Google Cloudコンソールのスクリーンショット。IP範囲を追加してCloud Volumes ONTAP のネットワークインターフェイスを編集できます。</block>
   <block id="fd22fa73f7ee3c6c4da641ee4618201b" category="paragraph"><block ref="fd22fa73f7ee3c6c4da641ee4618201b" category="inline-image-macro-rx" type="image"></block></block>
   <block id="18a5e21d3d0fe1670cfe0ae7de419c21" category="paragraph">Storage VMに管理LIFを作成する場合は、データLIF用に1つのIPアドレスが必要です。また、オプションのIPアドレスをもう1つ追加する必要があります。</block>
@@ -4009,8 +4003,6 @@
   <block id="314f67251497657aa0bf5f980043c0ab" category="list-text">Google Cloudで追加したIPアドレスを指定してデータLIFを作成します。</block>
   <block id="b840b6cee4c36a177669a81f293132a6" category="open-title">NFS または SMB</block>
   <block id="29788364ff656936651870f4b1c88537" category="list-text">オプション：Google Cloudで追加したIPアドレスを指定して、Storage VM管理LIFを作成します。</block>
-  <block id="38116fb8b40a1b0c091634498e4e2682" category="paragraph">Google CloudのCloud Volumes ONTAP システムでStorage VMを作成するには、Cloud Manager APIを使用する必要があります。Cloud ManagerではStorage VMに必要なLIFサービスが設定されるほか、アウトバウンドのSMB / CIFS通信に必要なHAペアのiSCSI LIFが設定されるため、APIを使用する（System ManagerやCLIを使用しない）必要があります。</block>
-  <block id="156e5acb649507ff0d1f61e722efa445" category="paragraph">Cloud Managerは、Google Cloudで必要なIPアドレスを割り当てます。</block>
   <block id="4bd46f200c4c3391a3b00fc9aa8af7dd" category="paragraph">3.9.19リリースから、Cloud Volumes ONTAP HAペアのStorage VMを作成および管理するために、Connectorでは次の権限が必要になります。</block>
   <block id="9edd86f763fc6d21418429b5c63134af" category="inline-link">ネットアップが提供するポリシー</block>
   <block id="e32789b345ccbe1107de29d5684f39a3" category="paragraph">これらの権限はに含まれています<block ref="d2f8d77175d2dd5e5ed1a096c2593510" category="inline-link-rx"></block></block>
@@ -4128,4 +4120,13 @@
   <block id="780234ea39261cf819a32f7b1f62cacd" category="list-text">AWS<block ref="f103b81da9a8e5be0e2af29f647d4fa3" category="inline-link-rx"></block></block>
   <block id="80b607f58d83b6d6aea68e10d7e615ad" category="list-text">Azure <block ref="a8e451d7a52ebee36c6527d684d09cd7" category="inline-link-macro-rx"></block></block>
   <block id="c06321d34601f3b5366ec101222f76b5" category="list-text">Google Cloud <block ref="7cf27d24396a294ecbe07a4a35a715e6" category="inline-link-macro-rx"></block></block>
+  <block id="b9b815f5546c4c8adc367e9b0b643daf" category="list-text">サービスアカウントがCloud Volumes ONTAP に接続されている必要があります。</block>
+  <block id="3416d6997f78d0ffe7261725d24751ca" category="inline-link-macro">このサービスアカウントの設定方法について説明します</block>
+  <block id="1599759c277422fbe5e683ed93eafe5f" category="paragraph"><block ref="5a9b347c50656bd207fa757a3eb4fa66" category="inline-link-macro-rx"></block>。</block>
+  <block id="cfdfdba6990e94ddaae28fd71b33c102" category="paragraph">Cloud Volumes ONTAP 作業環境の作成時に、このサービスアカウントを選択するよう求められます。</block>
+  <block id="4094070de63eb60a22dafb42ecab40fb" category="paragraph">導入時にサービスアカウントを選択しなかった場合は、Cloud Volumes ONTAP をシャットダウンし、Google Cloudコンソールに移動して、Cloud Volumes ONTAP インスタンスにサービスアカウントを接続する必要があります。データの階層化は、次のセクションの説明に従って有効にできます。</block>
+  <block id="03b060a90dee73a6134cc6c1ebdf7458" category="paragraph">Google Cloudでは、このオプションを表示する前にサービスアカウントをCloud Volumes ONTAP に接続する必要があります。 <block ref="066865d547a10de791f5772d517b17f7" category="inline-xref-macro-rx"></block>。</block>
+  <block id="870789b9d0beec538c84e00432400091" category="list-text">Google Cloudで、Cloud Volumes ONTAP インスタンスに移動し、各LIFのnic0にIPアドレスを追加します。</block>
+  <block id="71ab72fd4554a8b53d36a4e2687c3235" category="paragraph">Google CloudのCloud Volumes ONTAP システムでStorage VMを作成するには、Cloud Manager APIを使用する必要があります。Cloud ManagerではStorage VMに必要なLIFサービスが設定されるほか、アウトバウンドのSMB / CIFS通信に必要なiSCSI LIFが設定されるため、APIを使用する（System ManagerやCLIを使用することはない）必要があります。</block>
+  <block id="fb806393c7f698f410dd00705de40f9b" category="paragraph">Cloud Managerは、Google Cloudで必要なIPアドレスを割り当て、SMB / NFSアクセス用のデータLIFとアウトバウンドSMB通信用のiSCSI LIFを備えたStorage VMを作成します。</block>
 </blocks>

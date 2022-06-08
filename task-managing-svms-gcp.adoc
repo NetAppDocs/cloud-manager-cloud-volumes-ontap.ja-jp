@@ -40,7 +40,7 @@ Storage VM は ONTAP 内で実行される仮想マシンであり、クライ�
 以下の手順では、CLIを使用してシングルノードシステムに新しいStorage VMを作成します。データLIFを作成するにはプライベートIPアドレスが1つ必要で、管理LIFを作成する場合はプライベートIPアドレスをもう1つ必要になります。
 
 .手順
-. Google Cloudで、Cloud Volumes ONTAP インスタンスに移動し、LIFごとにnic0のIP範囲を追加します。
+. Google Cloudで、Cloud Volumes ONTAP インスタンスに移動し、各LIFのnic0にIPアドレスを追加します。
 +
 image:screenshot-gcp-add-ip-range.png["Google Cloudコンソールのスクリーンショット。IP範囲を追加してCloud Volumes ONTAP のネットワークインターフェイスを編集できます。"]
 
@@ -101,9 +101,9 @@ vserver add-aggregates -vserver <svm-name> -aggregates <aggr1,aggr2>
 
 === HA ペア
 
-Google CloudのCloud Volumes ONTAP システムでStorage VMを作成するには、Cloud Manager APIを使用する必要があります。Cloud ManagerではStorage VMに必要なLIFサービスが設定されるほか、アウトバウンドのSMB / CIFS通信に必要なHAペアのiSCSI LIFが設定されるため、APIを使用する（System ManagerやCLIを使用しない）必要があります。
+Google CloudのCloud Volumes ONTAP システムでStorage VMを作成するには、Cloud Manager APIを使用する必要があります。Cloud ManagerではStorage VMに必要なLIFサービスが設定されるほか、アウトバウンドのSMB / CIFS通信に必要なiSCSI LIFが設定されるため、APIを使用する（System ManagerやCLIを使用することはない）必要があります。
 
-Cloud Managerは、Google Cloudで必要なIPアドレスを割り当てます。
+Cloud Managerは、Google Cloudで必要なIPアドレスを割り当て、SMB / NFSアクセス用のデータLIFとアウトバウンドSMB通信用のiSCSI LIFを備えたStorage VMを作成します。
 
 3.9.19リリースから、Cloud Volumes ONTAP HAペアのStorage VMを作成および管理するために、Connectorでは次の権限が必要になります。
 

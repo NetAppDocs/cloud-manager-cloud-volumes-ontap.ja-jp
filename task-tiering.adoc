@@ -168,18 +168,19 @@ ifdef::gcp[]
 === コールドデータを Google Cloud Storage に階層化するための要件 バケット
 
 * Cloud Volumes ONTAP が存在するサブネットは、プライベート Google アクセス用に設定する必要があります。手順については、を参照してください https://cloud.google.com/vpc/docs/configure-private-google-access["Google Cloud のドキュメント：「 Configuring Private Google Access"^]。
-* 次の要件を満たすサービスアカウントが必要です。
+* サービスアカウントがCloud Volumes ONTAP に接続されている必要があります。
 +
-** 事前に定義された Storage Admin ロールが必要です。
-** Connector サービスアカウントは、この階層化サービスアカウントの _ サービスアカウント User_ である必要があります。
-+
-link:task-creating-gcp-service-account.html["サービスアカウントの設定方法について説明します"]。
+link:task-creating-gcp-service-account.html["このサービスアカウントの設定方法について説明します"]。
 
-** バケットをお客様が管理する暗号化キーで暗号化するには、 Google Cloud ストレージバケットでキーを使用できるようにします。
++
+Cloud Volumes ONTAP 作業環境の作成時に、このサービスアカウントを選択するよう求められます。
+
++
+導入時にサービスアカウントを選択しなかった場合は、Cloud Volumes ONTAP をシャットダウンし、Google Cloudコンソールに移動して、Cloud Volumes ONTAP インスタンスにサービスアカウントを接続する必要があります。データの階層化は、次のセクションの説明に従って有効にできます。
+
+* バケットをお客様が管理する暗号化キーで暗号化するには、 Google Cloud ストレージバケットでキーを使用できるようにします。
 +
 link:task-setting-up-gcp-encryption.html["お客様が管理する暗号化キーを Cloud Volumes ONTAP で使用する方法について説明します"]。
-
-
 
 
 
@@ -199,8 +200,10 @@ endif::gcp[]
 image:screenshot_enable_capacity_tiering.gif["Cloud Manager がデータ階層化を有効にしようとしたときに問題が発生した場合に、作業環境のメニューから使用できる容量階層化を有効にするオプションのスクリーンショット。"]
 
 +
+このオプションが表示されるのは、 Cloud Manager システムの作成時にデータの階層化を有効にできなかった場合のみです。
 
-NOTE: このオプションが表示されるのは、 Cloud Manager システムの作成時にデータの階層化を有効にできなかった場合のみです。
++
+Google Cloudでは、このオプションを表示する前にサービスアカウントをCloud Volumes ONTAP に接続する必要があります。 <<Requirements,すべての要件を満たしていることを確認します>>。
 
 . Enable * をクリックします。これにより、この Cloud Volumes ONTAP システムで階層化データに使用するオブジェクトストアが Cloud Manager で作成されます。
 
