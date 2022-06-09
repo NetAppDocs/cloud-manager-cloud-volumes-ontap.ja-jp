@@ -121,9 +121,9 @@ NFS に使用する IP アドレスはロードバランサに割り当てられ
 +
 .. [* 設定 ] で、 [* フロントエンド IP 設定 *] をクリックします。
 .. [ 追加（ Add ） ] をクリックします。
-.. フロントエンド IP の名前を入力し、 Cloud Volumes ONTAP HA ペアのサブネットを選択して、 * Dynamic * を選択したままにします。
+.. フロントエンドIPの名前を入力し、Cloud Volumes ONTAP HAペアのサブネットを選択し、* Dynamic *が選択されたままにしておきます。また、アベイラビリティゾーンに障害が発生した場合でもIPアドレスを使用できるようにするには、ゾーン冗長*を選択したままにします。
 +
-image:screenshot_azure_frontend_ip.gif["名前とサブネットが選択されている Azure ポータルにフロントエンド IP アドレスを追加するスクリーンショット。"]
+image:screenshot_azure_frontend_ip.png["名前とサブネットが選択されている Azure ポータルにフロントエンド IP アドレスを追加するスクリーンショット。"]
 
 .. 作成したフロントエンド IP 設定の名前をクリックし、 * Assignment * を * Static * に変更して、 * Save * をクリックします。
 +
@@ -194,9 +194,9 @@ iSCSI LIF は、 DNS 通信と SMB 通信に必要です。iSCSI LIF はフェ�
 +
 .. [* 設定 ] で、 [* フロントエンド IP 設定 *] をクリックします。
 .. [ 追加（ Add ） ] をクリックします。
-.. フロントエンド IP の名前を入力し、 Cloud Volumes ONTAP HA ペアのサブネットを選択して、 * Dynamic * を選択したままにします。
+.. フロントエンドIPの名前を入力し、Cloud Volumes ONTAP HAペアのサブネットを選択し、* Dynamic *が選択されたままにしておきます。また、アベイラビリティゾーンに障害が発生した場合でもIPアドレスを使用できるようにするには、ゾーン冗長*を選択したままにします。
 +
-image:screenshot_azure_frontend_ip.gif["名前とサブネットが選択されている Azure ポータルにフロントエンド IP アドレスを追加するスクリーンショット。"]
+image:screenshot_azure_frontend_ip.png["名前とサブネットが選択されている Azure ポータルにフロントエンド IP アドレスを追加するスクリーンショット。"]
 
 .. 作成したフロントエンド IP 設定の名前をクリックし、 * Assignment * を * Static * に変更して、 * Save * をクリックします。
 +

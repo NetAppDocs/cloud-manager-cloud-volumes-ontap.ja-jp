@@ -526,9 +526,7 @@
   <block id="7be0ecb9e73595d673d5fbaed0cb6378" category="list-text">Azure ポータルで、 * ロードバランサ * サービスを開きます。</block>
   <block id="8097feb21f6c4186704bf26f92131fe0" category="list-text">HA ペアのロードバランサの名前をクリックします。</block>
   <block id="91755019ec4f9b4503c2abd1e2018220" category="list-text">[* 設定 ] で、 [* フロントエンド IP 設定 *] をクリックします。</block>
-  <block id="7edcf3b7dac7218c74f45badfcadf54c" category="list-text">フロントエンド IP の名前を入力し、 Cloud Volumes ONTAP HA ペアのサブネットを選択して、 * Dynamic * を選択したままにします。</block>
   <block id="fde48a87720c7f4a7b3fe579cf70ce21" category="inline-image-macro">名前とサブネットが選択されている Azure ポータルにフロントエンド IP アドレスを追加するスクリーンショット。</block>
-  <block id="624bf1221024c93616a16790392b5131" category="paragraph"><block ref="624bf1221024c93616a16790392b5131" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0da801a9d3d38ccf39fc77f357cbd875" category="list-text">作成したフロントエンド IP 設定の名前をクリックし、 * Assignment * を * Static * に変更して、 * Save * をクリックします。</block>
   <block id="0f21ca89d8c8b745954f3d9e19a0dd80" category="list-text">作成した各フロントエンド IP のヘルスプローブを追加します。</block>
   <block id="1b45149e0b23a41687b2084ae6d33a48" category="list-text">ロードバランサーの * 設定 * で、 * ヘルスプローブ * をクリックします。</block>
@@ -4129,4 +4127,19 @@
   <block id="870789b9d0beec538c84e00432400091" category="list-text">Google Cloudで、Cloud Volumes ONTAP インスタンスに移動し、各LIFのnic0にIPアドレスを追加します。</block>
   <block id="71ab72fd4554a8b53d36a4e2687c3235" category="paragraph">Google CloudのCloud Volumes ONTAP システムでStorage VMを作成するには、Cloud Manager APIを使用する必要があります。Cloud ManagerではStorage VMに必要なLIFサービスが設定されるほか、アウトバウンドのSMB / CIFS通信に必要なiSCSI LIFが設定されるため、APIを使用する（System ManagerやCLIを使用することはない）必要があります。</block>
   <block id="fb806393c7f698f410dd00705de40f9b" category="paragraph">Cloud Managerは、Google Cloudで必要なIPアドレスを割り当て、SMB / NFSアクセス用のデータLIFとアウトバウンドSMB通信用のiSCSI LIFを備えたStorage VMを作成します。</block>
+  <block id="8ad37a38e1be1cd56ba8016e897e15c5" category="inline-link">VPCネットワークピアリングの詳細を確認できます</block>
+  <block id="3af417bcb28902bf6e018910cab4b830" category="paragraph">コネクタとは別のVPCにCloud Volumes ONTAP を導入する場合は、VPCネットワークピアリングを設定する必要があります。<block ref="7da1fe3c3eb485cc3c06acb3359fc320" category="inline-link-rx"></block></block>
+  <block id="b961ba228f0253598e8fe47f55865219" category="list-text">フロントエンドIPの名前を入力し、Cloud Volumes ONTAP HAペアのサブネットを選択し、* Dynamic *が選択されたままにしておきます。また、アベイラビリティゾーンに障害が発生した場合でもIPアドレスを使用できるようにするには、ゾーン冗長*を選択したままにします。</block>
+  <block id="c00e2d19af360558425fe43036ba7057" category="paragraph"><block ref="c00e2d19af360558425fe43036ba7057" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5505ffcb759fb1c9c3793b2dd386cd82" category="inline-link-macro">PAYGOとBYOLの違いを解説します</block>
+  <block id="b71c93cf4431b3a81c64a35fe6dbe9cf" category="paragraph">システムをPAYGOからノード単位のライセンスからBYOLへ（逆も同様）に変換することはサポートされていません。新しいシステムを導入し、そのシステムにデータをレプリケートする必要があります。 <block ref="d81e4230804422351d525c6f4d42f594" category="inline-link-macro-rx"></block>。</block>
+  <block id="594cb44c6500d8855ad820b0653e02c7" category="section-title">PAYGOとBYOLの2つのモデルが変わります</block>
+  <block id="a704128156d562fe5860508e9584ee34" category="paragraph">システムをPAYGOからノード単位のライセンスからBYOLへ（逆も同様）に変換することはできません。従量課金制サブスクリプションとBYOLサブスクリプションを切り替える場合は、新しいシステムを導入し、既存のシステムから新しいシステムにデータをレプリケートする必要があります。</block>
+  <block id="7f7c7e70efe0e6e29f5d0b207145f30e" category="list-text">新しい Cloud Volumes ONTAP の作業環境を作成します。</block>
+  <block id="9bd20ffd5e91ec2bb61bc593be38bb13" category="list-text">レプリケートする必要があるボリュームごとに、システム間の1回限りのデータレプリケーションを設定します。</block>
+  <block id="95b10ad2ca24b4c8bd5673b7383531a2" category="inline-link">システム間でデータをレプリケートする方法について説明します</block>
+  <block id="0f1f7d0cff1734f943c2503c9febec73" category="paragraph"><block ref="0f1f7d0cff1734f943c2503c9febec73" category="inline-link-rx"></block></block>
+  <block id="2dd15870a87ceaf45f31f08d066afaeb" category="list-text">元の作業環境を削除して、不要になった Cloud Volumes ONTAP システムを終了します。</block>
+  <block id="2464ba8f7f97ce117f749b75a1c60906" category="inline-link-macro">Cloud Volumes ONTAP 作業環境を削除する方法について説明します</block>
+  <block id="4397e74dad93d251efd7f65b1756f22b" category="paragraph"><block ref="8170ae40f603808099e16014cfba3f00" category="inline-link-macro-rx"></block>。</block>
 </blocks>

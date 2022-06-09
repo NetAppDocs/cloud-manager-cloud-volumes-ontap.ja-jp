@@ -209,3 +209,21 @@ Eval ライセンスを BYOL に変換すると、 Cloud Manager は Cloud Volum
 
 
 Cloud Manager によって変換プロセスが開始されます。Cloud Volumes ONTAP は、このプロセスの一環として自動的に再起動します。バックアップが完了すると、ライセンス情報に新しいライセンスが反映されます。
+
+
+
+== PAYGOとBYOLの2つのモデルが変わります
+
+システムをPAYGOからノード単位のライセンスからBYOLへ（逆も同様）に変換することはできません。従量課金制サブスクリプションとBYOLサブスクリプションを切り替える場合は、新しいシステムを導入し、既存のシステムから新しいシステムにデータをレプリケートする必要があります。
+
+.手順
+. 新しい Cloud Volumes ONTAP の作業環境を作成します。
+. レプリケートする必要があるボリュームごとに、システム間の1回限りのデータレプリケーションを設定します。
++
+https://docs.netapp.com/us-en/cloud-manager-replication/task-replicating-data.html["システム間でデータをレプリケートする方法について説明します"^]
+
+. 元の作業環境を削除して、不要になった Cloud Volumes ONTAP システムを終了します。
++
+link:task-deleting-working-env.html["Cloud Volumes ONTAP 作業環境を削除する方法について説明します"]。
+
+

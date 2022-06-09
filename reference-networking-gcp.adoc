@@ -185,6 +185,8 @@ TIP: ネットワークでインターネットへのすべての通信にプロ
 
 コネクタには、 Cloud Volumes ONTAP を導入する VPC へのネットワーク接続が必要です。HA ペアを導入する場合は、コネクタから VPC -0 への接続のみが必要です。
 
+コネクタとは別のVPCにCloud Volumes ONTAP を導入する場合は、VPCネットワークピアリングを設定する必要があります。 https://cloud.google.com/vpc/docs/vpc-peering["VPCネットワークピアリングの詳細を確認できます"^]
+
 
 
 === アウトバウンドインターネットアクセス
