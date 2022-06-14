@@ -55,32 +55,13 @@ TIP: LIF は、物理ポートに関連付けられた IP アドレスです。S
 
 === Azure サービスへのセキュアな接続
 
-Cloud Manager は、 Cloud Volumes ONTAP がプライベートで Azure サービスに接続できるように、 VNet サービスエンドポイントと Azure プライベートリンクエンドポイントを設定します。
+デフォルトでは、Cloud ManagerはCloud Volumes ONTAP リソースとAzureリソース間の接続にAzure Private Linkを有効にします。
 
+ほとんどの場合、必要な操作はありません。Cloud ManagerがAzure Private Linkを管理する必要があります。ただし、 Azure Private DNS を使用する場合は、構成ファイルを編集する必要があります。また、Azureのコネクタの場所に関する要件も把握しておく必要があります。
 
+ビジネスニーズに応じて、プライベートリンク接続を無効にすることもできます。リンクを無効にすると、代わりにサービスエンドポイントを使用するようにCloud Volumes ONTAP が設定されます。
 
-==== サービスエンドポイント
-
-Cloud Manager を使用すると、 VNet サービスエンドポイントはデータ階層化用に Cloud Volumes ONTAP から Azure Blob ストレージへのセキュアな接続を確立できます。Cloud Volumes ONTAP から Azure サービスへの追加のサービスエンドポイントはサポートされません。
-
-Cloud Manager ポリシーに以下の権限が設定されている場合、 Cloud Manager は VNet サービスエンドポイントを有効にします。
-
-[source, json]
-----
-"Microsoft.Network/virtualNetworks/subnets/write",
-"Microsoft.Network/routeTables/join/action",
-----
-これらの権限は最新のに含まれています https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager ポリシー"]。
-
-データ階層化の設定の詳細については、を参照してください link:task-tiering.html["コールドデータを低コストのオブジェクトストレージに階層化する"]。
-
-
-
-==== プライベートリンク
-
-デフォルトでは、 Cloud Manager は Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間の Azure Private Link 接続を有効にします。プライベートリンクは Azure のエンドポイント間の接続を保護し、パフォーマンスを向上させます。ほとんどの場合、実行する必要はありません。 Cloud Manager は Azure Private Link を管理します。ただし、 Azure プライベート DNS を使用している場合は、構成ファイルを編集する必要があります。必要に応じて、プライベートリンク接続を無効にすることもできます。
-
-link:task-enabling-private-link.html["Azure プライベートリンクとクラウドの使用の詳細については、こちらをご覧ください Volume ONTAP の略"]。
+link:task-enabling-private-link.html["AzureプライベートリンクまたはサービスエンドポイントでCloud Volumes ONTAP を使用する方法の詳細については、こちらをご覧ください"]。
 
 
 

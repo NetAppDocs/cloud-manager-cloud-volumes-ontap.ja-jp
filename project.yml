@@ -187,7 +187,7 @@ sidebar:
           url: "/task-change-azure-vm.html"
         - title: CIFS ロックを上書きする
           url: "/task-overriding-cifs-locks.html"
-        - title: Azure プライベートリンクを使用する
+        - title: Azure Private Linkまたはサービスエンドポイントを使用する
           url: "/task-enabling-private-link.html"
       - title: Google Cloudの管理
         flavor: gcp

@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: task-enabling-private-link.html 
-keywords: azure private link, private link connection, private link to storage 
-summary: デフォルトでは、 Cloud Manager は Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間の Azure Private Link 接続を有効にします。プライベートリンクは、 Azure のエンドポイント間の接続を保護します。 
+keywords: azure private link, private link connection, private link to storage, service endpoints, enable service endpoint, disable private link 
+summary: デフォルトでは、Cloud ManagerはCloud Volumes ONTAP リソースとAzureリソース間の接続にAzure Private Linkを有効にします。必要に応じて、Azure Private Linkを無効にし、サービスエンドポイントを使用することができます。 
 ---
-= Cloud Volumes ONTAP で Azure プライベートリンクを使用する
+= Azure Private Linkまたはサービスエンドポイントを使用する
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,21 +14,48 @@ summary: デフォルトでは、 Cloud Manager は Cloud Volumes ONTAP とそ�
 
 
 [role="lead"]
-デフォルトでは、 Cloud Manager は Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間の Azure Private Link 接続を有効にします。プライベートリンクは Azure のエンドポイント間の接続を保護し、パフォーマンスを向上させます。 https://docs.microsoft.com/en-us/azure/private-link/private-link-overview["詳細はこちら。"^]。
-
-ほとんどの場合、実行する必要はありません。 Cloud Manager は Azure Private Link を管理します。ただし、 Azure Private DNS を使用する場合は、構成ファイルを編集する必要があります。必要に応じて、プライベートリンク接続を無効にすることもできます。
+デフォルトでは、Cloud ManagerはCloud Volumes ONTAP リソースとAzureリソース間の接続にAzure Private Linkを有効にします。必要に応じて、Azure Private Linkを無効にし、サービスエンドポイントを使用することができます。
 
 
 
-== Azure のコネクタの場所
+== 概要
 
-コネクタは、管理対象の Cloud Volumes ONTAP システムまたはにある Azure リージョンと同じ Azure リージョンに導入する必要があります https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies["Azure リージョンペア"^] Cloud Volumes ONTAP システム用。この要件により、 Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間で Azure Private Link 接続が使用されるようになります。
+Cloud Managerを使用すると、Cloud Volumes ONTAP ノードと次のAzureリソース間の接続にAzureプライベートリンクを使用できます。
+
+* Cloud Volumes ONTAP とそれに関連付けられたストレージアカウントの間の接続
+* バックアップとデータ階層化のためのCloud Volumes ONTAP とAzure BLOBストレージ間の接続
+
+
+Azure Private Linkは、Azureのエンドポイント間の接続を保護し、パフォーマンスを向上させます。
+
+必要に応じて、Azureプライベートリンクの代わりにサービスエンドポイントを使用するようにCloud Volumes ONTAP を設定できます。
+
+どちらの構成でも、Cloud ManagerはCloud Volumes ONTAP アカウントとストレージアカウント間の接続に関して常にネットワークアクセスを制限します。ネットワークアクセスは、Cloud Volumes ONTAP が導入されているVNetおよびコネクタが導入されているVNetに限定されます。
 
 
 
-== Cloud Volumes ONTAP でのプライベートリンク接続の動作
+== 代わりにAzure Private Linkを無効にし、サービスエンドポイントを使用してください
 
-Cloud Manager が Azure に Cloud Volumes ONTAP を導入すると、リソースグループにプライベートエンドポイントが作成されます。プライベートエンドポイントは、 Cloud Volumes ONTAP のストレージアカウントに関連付けられます。その結果、 Cloud Volumes ONTAP ストレージへのアクセスは、 Microsoft バックボーンネットワークを経由します。
+ビジネスで必要な場合は、Cloud Managerで設定を変更して、Azure Private Linkの代わりにサービスエンドポイントを使用するようにCloud Volumes ONTAP を設定できます。この設定を変更すると、新しく作成した環境 Cloud Volumes ONTAP システムに変更が適用されます。
+
+.手順
+. Cloud Manager コンソールの右上にある設定アイコンをクリックし、 * コネクタ設定 * を選択します。
+. [*Azure* ] で、 [* Azure プライベートリンクを使用する *] をクリックします。
+. Cloud Volumes ONTAP とストレージアカウント間のプライベートリンク接続 * の選択を解除します。
+. [ 保存（ Save ） ] をクリックします。
+
+
+
+
+== Azureプライベートリンクを使用する
+
+ほとんどの場合、Cloud Volumes ONTAP でAzureプライベートリンクを設定するために必要な作業はありません。Cloud ManagerでAzureプライベートリンクを管理できます。ただし、 Azure Private DNS を使用する場合は、構成ファイルを編集する必要があります。また、Azureのコネクタの場所に関する要件も把握しておく必要があります。
+
+
+
+=== Cloud Volumes ONTAP ストレージアカウントでのプライベートリンク接続の動作
+
+Cloud Manager が Azure に Cloud Volumes ONTAP を導入すると、リソースグループにプライベートエンドポイントが作成されます。プライベートエンドポイントは、Cloud Volumes ONTAP のストレージアカウントに関連付けられます。その結果、 Cloud Volumes ONTAP ストレージへのアクセスは、 Microsoft バックボーンネットワークを経由します。
 
 VNet へのプライベート VPN 接続または ExpressRoute 接続を使用する場合、クライアントが Cloud Volumes ONTAP と同じ VNet 内、ピア VNet 内、またはオンプレミスネットワーク内にある場合、クライアントアクセスはプライベートリンクを経由します。
 
@@ -38,7 +65,13 @@ image:diagram_azure_private_link.png["この概念図は、 Cloud Volumes ONTAP 
 
 
 
-== Cloud Manager に Azure プライベート DNS の詳細を指定します
+=== Azure のコネクタの場所
+
+コネクタは、管理対象の Cloud Volumes ONTAP システムまたはにある Azure リージョンと同じ Azure リージョンに導入する必要があります https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies["Azure リージョンペア"^] Cloud Volumes ONTAP システム用。この要件により、 Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間で Azure Private Link 接続が使用されるようになります。
+
+
+
+=== Cloud Manager に Azure プライベート DNS の詳細を指定します
 
 を使用する場合 https://docs.microsoft.com/en-us/azure/dns/private-dns-overview["Azure プライベート DNS"^]では、各コネクタの構成ファイルを変更する必要があります。そうしないと、 Cloud Manager で Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間の Azure Private Link 接続を有効にできません。
 
@@ -67,7 +100,7 @@ Subscription パラメータが必要なのは、プライベート DNS ゾー�
 
 
 
-== 障害発生時のロールバックを有効にする
+=== 障害発生時のロールバックを有効にする
 
 Cloud Manager が特定のアクションの一部として Azure Private Link の作成に失敗すると、 Azure Private Link 接続なしで処理を完了します。このエラーは、新しい作業環境（シングルノードまたは HA ペア）の作成時、または HA ペアで次の操作が行われた場合に発生します。新しいアグリゲートの作成、既存のアグリゲートへのディスクの追加、 32TiB を超える場合の新しいストレージアカウントの作成。
 
@@ -84,19 +117,4 @@ Cloud Manager で Azure Private Link を作成できない場合、このデフ�
 ----
 { "rollbackOnAzurePrivateLinkFailure": true }
 ----
-
-
-
-
-== Azure Private Link 接続を無効にする
-
-Azure 構成で必要な場合は、 Cloud Volumes ONTAP アカウントとストレージアカウント間の Azure プライベートリンク接続を無効にできます。
-
-Azure Private Link接続を無効にすると、Cloud Managerはサービスエンドポイントを使用します。サービスエンドポイントであっても、Cloud Volumes ONTAP が導入されているVNetおよびコネクタが導入されているVNetへのストレージアカウントアクセスはCloud Managerによって制限されます。
-
-.手順
-. Cloud Manager コンソールの右上にある設定アイコンをクリックし、 * コネクタ設定 * を選択します。
-. [*Azure* ] で、 [* Azure プライベートリンクを使用する *] をクリックします。
-. Cloud Volumes ONTAP とストレージアカウント間のプライベートリンク接続 * の選択を解除します。
-. [ 保存（ Save ） ] をクリックします。
 
