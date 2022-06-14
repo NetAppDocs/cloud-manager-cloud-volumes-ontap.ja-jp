@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head class="at-element-marker">
-  <title>Cloud Volumes ONTAP で Azure プライベートリンクを使用する | NetApp Documentation</title>
+  <title>Azure Private Linkまたはサービスエンドポイントを使用する | NetApp Documentation</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Cloud Volumes ONTAP で Azure プライベートリンクを使用する | NetApp Documentation" />
+  <meta property="og:title" content="Azure Private Linkまたはサービスエンドポイントを使用する | NetApp Documentation" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-enabling-private-link.html" />
-	<meta property="og:description" content="デフォルトでは、 Cloud Manager は Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間の Azure Private Link 接続を有効にします。プライベートリンクは、 Azure のエンドポイント間の接続を保護します。" />
+	<meta property="og:description" content="デフォルトでは、Cloud ManagerはCloud Volumes ONTAP リソースとAzureリソース間の接続にAzure Private Linkを有効にします。必要に応じて、Azure Private Linkを無効にし、サービスエンドポイントを使用することができます。" />
   <meta property="og:image" content="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="デフォルトでは、 Cloud Manager は Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間の Azure Private Link 接続を有効にします。プライベートリンクは、 Azure のエンドポイント間の接続を保護します。">
-  <meta name="keywords" content=" azure private link, private link connection, private link to storage"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="デフォルトでは、Cloud ManagerはCloud Volumes ONTAP リソースとAzureリソース間の接続にAzure Private Linkを有効にします。必要に応じて、Azure Private Linkを無効にし、サービスエンドポイントを使用することができます。">
+  <meta name="keywords" content=" azure private link, private link connection, private link to storage, service endpoints, enable service endpoint, disable private link"><!-- Icons -->
   <link rel="icon" href="/ja-jp/cloud-manager-cloud-volumes-ontap/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/ja-jp/cloud-manager-cloud-volumes-ontap/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -206,7 +206,7 @@
     
   </ul>
 </div>
-<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[Cloud Volumes ONTAP で Azure プライベートリンクを使用する](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-enabling-private-link.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-enabling-private-link.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[Azure Private Linkまたはサービスエンドポイントを使用する](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-enabling-private-link.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-enabling-private-link.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -1274,7 +1274,7 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/task-overriding-cifs-locks.html">
         CIFS ロックを上書きする
       </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/task-enabling-private-link.html">
-        Azure プライベートリンクを使用する
+        Azure Private Linkまたはサービスエンドポイントを使用する
       </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/task-administer-advanced-view.html">
         System Managerで管理を行います
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/task-connecting-to-otc.html">
@@ -1396,14 +1396,14 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Cloud Volumes ONTAP で Azure プライベートリンクを使用する</h1>
+  <h1 class="n-doc__component-detail-heading">Azure Private Linkまたはサービスエンドポイントを使用する</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-06-07 20:54:02 +0000">06/07/2022</time>
+    <time datetime="2022-06-14 21:06:07 +0000">06/14/2022</time>
     
   
 
@@ -1413,26 +1413,72 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>デフォルトでは、 Cloud Manager は Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間の Azure Private Link 接続を有効にします。プライベートリンクは Azure のエンドポイント間の接続を保護し、パフォーマンスを向上させます。 <a href="https://docs.microsoft.com/en-us/azure/private-link/private-link-overview" target="_blank" rel="noopener">"詳細はこちら。"</a>。</p>
-</div>
-<div class="paragraph">
-<p>ほとんどの場合、実行する必要はありません。 Cloud Manager は Azure Private Link を管理します。ただし、 Azure Private DNS を使用する場合は、構成ファイルを編集する必要があります。必要に応じて、プライベートリンク接続を無効にすることもできます。</p>
+<p>デフォルトでは、Cloud ManagerはCloud Volumes ONTAP リソースとAzureリソース間の接続にAzure Private Linkを有効にします。必要に応じて、Azure Private Linkを無効にし、サービスエンドポイントを使用することができます。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="azure-のコネクタの場所">Azure のコネクタの場所</h2>
+<h2 id="概要">概要</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>コネクタは、管理対象の Cloud Volumes ONTAP システムまたはにある Azure リージョンと同じ Azure リージョンに導入する必要があります <a href="https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies" target="_blank" rel="noopener">"Azure リージョンペア"</a> Cloud Volumes ONTAP システム用。この要件により、 Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間で Azure Private Link 接続が使用されるようになります。</p>
+<p>Cloud Managerを使用すると、Cloud Volumes ONTAP ノードと次のAzureリソース間の接続にAzureプライベートリンクを使用できます。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Volumes ONTAP とそれに関連付けられたストレージアカウントの間の接続</p>
+</li>
+<li>
+<p>バックアップとデータ階層化のためのCloud Volumes ONTAP とAzure BLOBストレージ間の接続</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Azure Private Linkは、Azureのエンドポイント間の接続を保護し、パフォーマンスを向上させます。</p>
+</div>
+<div class="paragraph">
+<p>必要に応じて、Azureプライベートリンクの代わりにサービスエンドポイントを使用するようにCloud Volumes ONTAP を設定できます。</p>
+</div>
+<div class="paragraph">
+<p>どちらの構成でも、Cloud ManagerはCloud Volumes ONTAP アカウントとストレージアカウント間の接続に関して常にネットワークアクセスを制限します。ネットワークアクセスは、Cloud Volumes ONTAP が導入されているVNetおよびコネクタが導入されているVNetに限定されます。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="cloud-volumes-ontap-でのプライベートリンク接続の動作">Cloud Volumes ONTAP でのプライベートリンク接続の動作</h2>
+<h2 id="代わりにazure-private-linkを無効にしサービスエンドポイントを使用してください">代わりにAzure Private Linkを無効にし、サービスエンドポイントを使用してください</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloud Manager が Azure に Cloud Volumes ONTAP を導入すると、リソースグループにプライベートエンドポイントが作成されます。プライベートエンドポイントは、 Cloud Volumes ONTAP のストレージアカウントに関連付けられます。その結果、 Cloud Volumes ONTAP ストレージへのアクセスは、 Microsoft バックボーンネットワークを経由します。</p>
+<p>ビジネスで必要な場合は、Cloud Managerで設定を変更して、Azure Private Linkの代わりにサービスエンドポイントを使用するようにCloud Volumes ONTAP を設定できます。この設定を変更すると、新しく作成した環境 Cloud Volumes ONTAP システムに変更が適用されます。</p>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>Cloud Manager コンソールの右上にある設定アイコンをクリックし、 * コネクタ設定 * を選択します。</p>
+</li>
+<li>
+<p>[<strong>Azure</strong> ] で、 [* Azure プライベートリンクを使用する *] をクリックします。</p>
+</li>
+<li>
+<p>Cloud Volumes ONTAP とストレージアカウント間のプライベートリンク接続 * の選択を解除します。</p>
+</li>
+<li>
+<p>[ 保存（ Save ） ] をクリックします。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="azureプライベートリンクを使用する">Azureプライベートリンクを使用する</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ほとんどの場合、Cloud Volumes ONTAP でAzureプライベートリンクを設定するために必要な作業はありません。Cloud ManagerでAzureプライベートリンクを管理できます。ただし、 Azure Private DNS を使用する場合は、構成ファイルを編集する必要があります。また、Azureのコネクタの場所に関する要件も把握しておく必要があります。</p>
+</div>
+<div class="sect2">
+<h3 id="cloud-volumes-ontap-ストレージアカウントでのプライベートリンク接続の動作">Cloud Volumes ONTAP ストレージアカウントでのプライベートリンク接続の動作</h3>
+<div class="paragraph">
+<p>Cloud Manager が Azure に Cloud Volumes ONTAP を導入すると、リソースグループにプライベートエンドポイントが作成されます。プライベートエンドポイントは、Cloud Volumes ONTAP のストレージアカウントに関連付けられます。その結果、 Cloud Volumes ONTAP ストレージへのアクセスは、 Microsoft バックボーンネットワークを経由します。</p>
 </div>
 <div class="paragraph">
 <p>VNet へのプライベート VPN 接続または ExpressRoute 接続を使用する場合、クライアントが Cloud Volumes ONTAP と同じ VNet 内、ピア VNet 内、またはオンプレミスネットワーク内にある場合、クライアントアクセスはプライベートリンクを経由します。</p>
@@ -1444,10 +1490,14 @@
 <p><span class="image"><img src="./media/diagram_azure_private_link.png" alt="この概念図は、 Cloud Volumes ONTAP へのデータアクセスと、プライベートエンドポイントを介したストレージアカウントへのプライベートリンクを示しています。"></span></p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="azure-のコネクタの場所">Azure のコネクタの場所</h3>
+<div class="paragraph">
+<p>コネクタは、管理対象の Cloud Volumes ONTAP システムまたはにある Azure リージョンと同じ Azure リージョンに導入する必要があります <a href="https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies" target="_blank" rel="noopener">"Azure リージョンペア"</a> Cloud Volumes ONTAP システム用。この要件により、 Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間で Azure Private Link 接続が使用されるようになります。</p>
 </div>
-<div class="sect1">
-<h2 id="cloud-manager-に-azure-プライベート-dns-の詳細を指定します">Cloud Manager に Azure プライベート DNS の詳細を指定します</h2>
-<div class="sectionbody">
+</div>
+<div class="sect2">
+<h3 id="cloud-manager-に-azure-プライベート-dns-の詳細を指定します">Cloud Manager に Azure プライベート DNS の詳細を指定します</h3>
 <div class="paragraph">
 <p>を使用する場合 <a href="https://docs.microsoft.com/en-us/azure/dns/private-dns-overview" target="_blank" rel="noopener">"Azure プライベート DNS"</a>では、各コネクタの構成ファイルを変更する必要があります。そうしないと、 Cloud Manager で Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間の Azure Private Link 接続を有効にできません。</p>
 </div>
@@ -1487,10 +1537,8 @@
 </ol>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="障害発生時のロールバックを有効にする">障害発生時のロールバックを有効にする</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="障害発生時のロールバックを有効にする">障害発生時のロールバックを有効にする</h3>
 <div class="paragraph">
 <p>Cloud Manager が特定のアクションの一部として Azure Private Link の作成に失敗すると、 Azure Private Link 接続なしで処理を完了します。このエラーは、新しい作業環境（シングルノードまたは HA ペア）の作成時、または HA ペアで次の操作が行われた場合に発生します。新しいアグリゲートの作成、既存のアグリゲートへのディスクの追加、 32TiB を超える場合の新しいストレージアカウントの作成。</p>
 </div>
@@ -1516,33 +1564,6 @@
 </li>
 </ol>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="azure-private-link-接続を無効にする">Azure Private Link 接続を無効にする</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Azure 構成で必要な場合は、 Cloud Volumes ONTAP アカウントとストレージアカウント間の Azure プライベートリンク接続を無効にできます。</p>
-</div>
-<div class="paragraph">
-<p>Azure Private Link接続を無効にすると、Cloud Managerはサービスエンドポイントを使用します。サービスエンドポイントであっても、Cloud Volumes ONTAP が導入されているVNetおよびコネクタが導入されているVNetへのストレージアカウントアクセスはCloud Managerによって制限されます。</p>
-</div>
-<div class="olist arabic">
-<div class="title">手順</div>
-<ol class="arabic">
-<li>
-<p>Cloud Manager コンソールの右上にある設定アイコンをクリックし、 * コネクタ設定 * を選択します。</p>
-</li>
-<li>
-<p>[<strong>Azure</strong> ] で、 [* Azure プライベートリンクを使用する *] をクリックします。</p>
-</li>
-<li>
-<p>Cloud Volumes ONTAP とストレージアカウント間のプライベートリンク接続 * の選択を解除します。</p>
-</li>
-<li>
-<p>[ 保存（ Save ） ] をクリックします。</p>
-</li>
-</ol>
 </div>
 </div>
 </div>
