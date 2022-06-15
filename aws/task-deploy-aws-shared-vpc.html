@@ -1414,7 +1414,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-07 22:01:14 +0000">06/07/2022</time>
+    <time datetime="2022-06-15 15:43:43 +0000">06/15/2022</time>
     
   
 
@@ -1464,11 +1464,30 @@
 <p>別のAWSアカウント*を選択して、VPC所有者アカウントのIDを入力します。</p>
 </li>
 <li>
-<p>から入手できる Cloud Manager IAM ポリシーを使用してポリシーを作成します <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies" target="_blank" rel="noopener">"Cloud Manager Policies ページ"</a>。</p>
+<p>「STS: AssumeRole」権限を含むIAMロールにポリシーを関連付けます。</p>
+<div class="paragraph">
+<p>例：</p>
+</div>
 </li>
 </ul>
 </div>
 </li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Effect": "Allow",
+    "Action": "sts:AssumeRole",
+    "Resource": "arn:aws:iam::account-id:role/Test*"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>IAMロールのロールARNをコピーして、HAペアの導入時にAPI要求に貼り付けることができるようにします。</p>
 </li>
@@ -1495,7 +1514,7 @@
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-json" data-lang="json">"haParams": {
-     “assumeRoleArn”: “arn:aws:iam::642991768967:role/mediator_role_assume_fromdev”
+     "assumeRoleArn": "arn:aws:iam::642991768967:role/mediator_role_assume_fromdev"
 }</code></pre>
 </div>
 </div>
