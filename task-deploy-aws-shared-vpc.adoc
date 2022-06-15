@@ -35,7 +35,22 @@ summary: 9.11.1リリース以降では、VPCを共有するAWSでCloud Volumes 
 +
 *** 信頼されるエンティティのタイプ * で、 * AWS アカウント * を選択します。
 *** 別のAWSアカウント*を選択して、VPC所有者アカウントのIDを入力します。
-*** から入手できる Cloud Manager IAM ポリシーを使用してポリシーを作成します https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager Policies ページ"^]。
+*** 「STS: AssumeRole」権限を含むIAMロールにポリシーを関連付けます。
++
+例：
+
++
+[source, json]
+----
+{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Effect": "Allow",
+    "Action": "sts:AssumeRole",
+    "Resource": "arn:aws:iam::account-id:role/Test*"
+  }
+}
+----
 
 
 .. IAMロールのロールARNをコピーして、HAペアの導入時にAPI要求に貼り付けることができるようにします。
@@ -57,7 +72,7 @@ link:reference-security-groups.html["Cloud Volumes ONTAP のセキュリティ�
 [source, json]
 ----
 "haParams": {
-     “assumeRoleArn”: “arn:aws:iam::642991768967:role/mediator_role_assume_fromdev”
+     "assumeRoleArn": "arn:aws:iam::642991768967:role/mediator_role_assume_fromdev"
 }
 ----
 +

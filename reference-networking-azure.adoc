@@ -55,9 +55,9 @@ TIP: LIF は、物理ポートに関連付けられた IP アドレスです。S
 
 === Azure サービスへのセキュアな接続
 
-デフォルトでは、Cloud ManagerはCloud Volumes ONTAP リソースとAzureリソース間の接続にAzure Private Linkを有効にします。
+デフォルトでは、Cloud ManagerはCloud Volumes ONTAP とAzureストレージアカウント間の接続用にAzure Private Linkを有効にします。
 
-ほとんどの場合、必要な操作はありません。Cloud ManagerがAzure Private Linkを管理する必要があります。ただし、 Azure Private DNS を使用する場合は、構成ファイルを編集する必要があります。また、Azureのコネクタの場所に関する要件も把握しておく必要があります。
+ほとんどの場合、必要な操作はありません。Cloud ManagerがAzure Private Linkを管理する必要があります。ただし、 Azure プライベート DNS を使用している場合は、構成ファイルを編集する必要があります。また、Azureのコネクタの場所に関する要件も把握しておく必要があります。
 
 ビジネスニーズに応じて、プライベートリンク接続を無効にすることもできます。リンクを無効にすると、代わりにサービスエンドポイントを使用するようにCloud Volumes ONTAP が設定されます。
 

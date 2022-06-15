@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-enabling-private-link.html 
 keywords: azure private link, private link connection, private link to storage, service endpoints, enable service endpoint, disable private link 
-summary: デフォルトでは、Cloud ManagerはCloud Volumes ONTAP リソースとAzureリソース間の接続にAzure Private Linkを有効にします。必要に応じて、Azure Private Linkを無効にし、サービスエンドポイントを使用することができます。 
+summary: Cloud Volumes ONTAP は、関連付けられたストレージアカウントへの接続にAzure Private Linkを使用します。必要に応じて、Azure Private Linkを無効にし、サービスエンドポイントを使用することができます。 
 ---
 = Azure Private Linkまたはサービスエンドポイントを使用する
 :hardbreaks:
@@ -14,19 +14,13 @@ summary: デフォルトでは、Cloud ManagerはCloud Volumes ONTAP リソー�
 
 
 [role="lead"]
-デフォルトでは、Cloud ManagerはCloud Volumes ONTAP リソースとAzureリソース間の接続にAzure Private Linkを有効にします。必要に応じて、Azure Private Linkを無効にし、サービスエンドポイントを使用することができます。
+Cloud Volumes ONTAP は、関連付けられたストレージアカウントへの接続にAzure Private Linkを使用します。必要に応じて、Azure Private Linkを無効にし、サービスエンドポイントを使用することができます。
 
 
 
 == 概要
 
-Cloud Managerを使用すると、Cloud Volumes ONTAP ノードと次のAzureリソース間の接続にAzureプライベートリンクを使用できます。
-
-* Cloud Volumes ONTAP とそれに関連付けられたストレージアカウントの間の接続
-* バックアップとデータ階層化のためのCloud Volumes ONTAP とAzure BLOBストレージ間の接続
-
-
-Azure Private Linkは、Azureのエンドポイント間の接続を保護し、パフォーマンスを向上させます。
+デフォルトでは、Cloud Managerは、Cloud Volumes ONTAP とそれに関連付けられたストレージアカウント間の接続にAzure Private Linkを有効にします。Azure Private Linkは、Azureのエンドポイント間の接続を保護し、パフォーマンスを向上させます。
 
 必要に応じて、Azureプライベートリンクの代わりにサービスエンドポイントを使用するようにCloud Volumes ONTAP を設定できます。
 
@@ -53,7 +47,7 @@ Azure Private Linkは、Azureのエンドポイント間の接続を保護し、
 
 
 
-=== Cloud Volumes ONTAP ストレージアカウントでのプライベートリンク接続の動作
+=== プライベートリンク接続の仕組み
 
 Cloud Manager が Azure に Cloud Volumes ONTAP を導入すると、リソースグループにプライベートエンドポイントが作成されます。プライベートエンドポイントは、Cloud Volumes ONTAP のストレージアカウントに関連付けられます。その結果、 Cloud Volumes ONTAP ストレージへのアクセスは、 Microsoft バックボーンネットワークを経由します。
 
