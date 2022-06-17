@@ -490,7 +490,6 @@
   <block id="24ccc997472d0e30221fe39df91aa347" category="inline-link-macro">Advanced allocation * ページからアクセスします</block>
   <block id="0ea918acc7a4eddfe90aa3982fd4332c" category="paragraph">Cloud Manager でアグリゲートを管理するのではなく、自分で管理できます。 <block ref="2414ef63108c7ecff38292e17ac61802" category="inline-link-macro-rx"></block>では、特定の数のディスクを含む新しいアグリゲートの作成、既存のアグリゲートへのディスクの追加、および特定のアグリゲートでのボリュームの作成を行うことができます。</block>
   <block id="1d19e21de0f93b11f5ceb8b535a3afc2" category="section-title">容量管理</block>
-  <block id="3b63d4ec434de86415bca73f12d741a3" category="paragraph">アカウント管理者は、ストレージ容量の決定について Cloud Manager から通知するかどうか、または Cloud Manager が容量の要件を自動的に管理するかどうかを選択できます。これらのモードの仕組みを理解するのに役立つ場合があります。</block>
   <block id="f2be69b635c39988351f6636a52c66bd" category="section-title">自動容量管理</block>
   <block id="f40e552fce5b2f183c035526f1c7bde9" category="paragraph">容量管理モードは、デフォルトで自動に設定されています。このモードでは、 Cloud Volumes ONTAP インスタンスで追加の容量が必要になると、 Cloud Manager によって新しいディスクが自動的に購入されます。また、未使用のディスクセット（アグリゲート）の削除、必要に応じてアグリゲート間でのボリュームの移動、ディスクの障害状態の解除を試行します。</block>
   <block id="4ecae3c28a5b318997a02fa69a0d0950" category="paragraph">次の例は、このモードの動作を示しています。</block>
@@ -4142,4 +4141,24 @@
   <block id="3b7d5a44ee60c424b0f9531a36f99994" category="section-title">プライベートリンク接続の仕組み</block>
   <block id="cd14dd2b5bd666f4fd9008fa68836b01" category="paragraph">デフォルトでは、Cloud ManagerはCloud Volumes ONTAP とAzureストレージアカウント間の接続用にAzure Private Linkを有効にします。</block>
   <block id="44fbda76f93db897942a813a2ca722df" category="paragraph">ほとんどの場合、必要な操作はありません。Cloud ManagerがAzure Private Linkを管理する必要があります。ただし、 Azure プライベート DNS を使用している場合は、構成ファイルを編集する必要があります。また、Azureのコネクタの場所に関する要件も把握しておく必要があります。</block>
+  <block id="ae271afdca3c7d6785a9aefa74e6c80e" category="doc">コネクタの容量設定を管理します</block>
+  <block id="b62aaf3fb48f9f8f103dc68c41211be5" category="paragraph">各コネクタには、Cloud Volumes ONTAP のアグリゲート容量の管理方法を決定する設定があります。</block>
+  <block id="4edc935aeaaf3923beb2e4249e6c56f3" category="paragraph">これらの設定は、コネクタによって管理されるすべてのCloud Volumes ONTAP システムに適用されます。別のコネクタがある場合は、別の方法で設定できます。</block>
+  <block id="4f85ddd6337c9d7a3f7f9955945eece1" category="paragraph">コネクタ設定を変更するには、アカウント管理者権限が必要です。</block>
+  <block id="03c93da41831d72dcea5fc724b2b4658" category="list-text">*容量*で、次のいずれかの設定を変更します。</block>
+  <block id="6b4ff0efcdf107fc68c01f001273f945" category="list-text">ストレージ容量の決定についてCloud Managerから通知するかどうか、またはCloud Managerが容量の要件を自動的に管理するかどうかを選択します。</block>
+  <block id="af1f64d74440547a71a0dfdd077d8a15" category="inline-link-macro">容量管理モードの仕組みをご確認ください</block>
+  <block id="46e6171a2e84c75269ac8bcb3c5004d8" category="paragraph"><block ref="f8a3c55f9fa8638c083e126aaf830b07" category="inline-link-macro-rx"></block>。</block>
+  <block id="562e73580c466cead324e6a17fbfe1c8" category="list-text">空きスペース率</block>
+  <block id="314b05c3387324c9621b3b3cd58816d4" category="list-text">アグリゲートの空きスペース率が指定したしきい値を下回ったときに通知をトリガーします。</block>
+  <block id="a27b16792f86cfcc4c0f28d5d58e43f4" category="paragraph">空きスペース率は、次のように計算します。</block>
+  <block id="b9fbc310908f08e909d0f601f964b6d5" category="paragraph">（アグリゲート容量-アグリゲートで使用されている合計容量）/アグリゲートの容量</block>
+  <block id="1bf0c6edc1ff4a9b211fcdf6bda9cef9" category="list-text">データ階層化の空きスペース率</block>
+  <block id="0bc3c683bdb3389ca9d8d2211fce0878" category="list-text">データを大容量階層（オブジェクトストレージ）に階層化するときに必要な高パフォーマンス階層（ディスク）の空きスペースの量を定義します。</block>
+  <block id="3e230a58ba269a917d314abcc623818e" category="paragraph">この比率はディザスタリカバリのシナリオにとって重要です。大容量階層からデータが読み取られると、Cloud Volumes ONTAP はパフォーマンス階層にデータを移動してパフォーマンスを向上させます。十分なスペースがないと、 Cloud Volumes ONTAP はデータを移動できません。</block>
+  <block id="a8511ef1eba750b782198f5ec3686faa" category="paragraph">アカウント管理者は、ストレージ容量の決定について Cloud Manager から通知するかどうか、または Cloud Manager が容量の要件を自動的に管理するかどうかを選択できます。</block>
+  <block id="99a583bf10de030bdac538c8b15f5b45" category="paragraph">この動作は、コネクタの_Capacity Management Mode_onによって決定されます。容量管理モードは、そのコネクタで管理されているすべてのCloud Volumes ONTAP システムに影響します。別のコネクタがある場合は、別の方法で設定できます。</block>
+  <block id="825ccc8f97f155807b31877cfd383216" category="inline-link-macro">容量管理モードを変更する方法について説明します</block>
+  <block id="bb4793d3293acae6810aa94d7a19444b" category="paragraph"><block ref="efe15a4f6f400360bbcb54034c690ce4" category="inline-link-macro-rx"></block>。</block>
+  <block id="278a1c52ea1d5d6936facc457046eea4" category="sidebar">容量の設定を管理します</block>
 </blocks>

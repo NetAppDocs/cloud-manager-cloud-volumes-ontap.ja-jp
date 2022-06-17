@@ -124,6 +124,8 @@ sidebar:
         url: "/task-create-aggregates.html"
       - title: 既存のアグリゲートを管理する
         url: "/task-manage-aggregates.html"
+      - title: 容量の設定を管理します
+        url: "/task-manage-capacity-settings.html"
     - title: Storage VM 管理
       entries:
       - title: Cloud Manager で Storage VM を使用できます
