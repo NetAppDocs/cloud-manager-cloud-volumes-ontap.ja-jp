@@ -700,6 +700,8 @@
 
 
 
+
+
           
         </li>
       </ul>
@@ -1230,6 +1232,8 @@
         アグリゲートを作成する
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-manage-aggregates.html">
         既存のアグリゲートを管理する
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-manage-capacity-settings.html">
+        容量の設定を管理します
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> Storage VM 管理</div>
       </a>
@@ -1403,7 +1407,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-07 20:54:02 +0000">06/07/2022</time>
+    <time datetime="2022-06-17 21:19:34 +0000">06/17/2022</time>
     
   
 
@@ -1484,7 +1488,10 @@
 <h2 id="容量管理">容量管理</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>アカウント管理者は、ストレージ容量の決定について Cloud Manager から通知するかどうか、または Cloud Manager が容量の要件を自動的に管理するかどうかを選択できます。これらのモードの仕組みを理解するのに役立つ場合があります。</p>
+<p>アカウント管理者は、ストレージ容量の決定について Cloud Manager から通知するかどうか、または Cloud Manager が容量の要件を自動的に管理するかどうかを選択できます。</p>
+</div>
+<div class="paragraph">
+<p>この動作は、コネクタの_Capacity Management Mode_onによって決定されます。容量管理モードは、そのコネクタで管理されているすべてのCloud Volumes ONTAP システムに影響します。別のコネクタがある場合は、別の方法で設定できます。</p>
 </div>
 <div class="sect2">
 <h3 id="自動容量管理">自動容量管理</h3>
@@ -1527,6 +1534,12 @@
 <h3 id="手動による容量管理">手動による容量管理</h3>
 <div class="paragraph">
 <p>アカウント管理者が容量管理モードを手動に設定した場合、容量の決定が必要な状況になると、 Cloud Manager に「 Action Required 」メッセージが表示され、自動モードで説明されている例と同じ例が手動モードにも適用されますが、アクションを受け入れる必要があります。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="詳細はこちら">詳細はこちら。</h3>
+<div class="paragraph">
+<p><a href="task-manage-capacity-settings.html">"容量管理モードを変更する方法について説明します"</a>。</p>
 </div>
 </div>
 </div>
