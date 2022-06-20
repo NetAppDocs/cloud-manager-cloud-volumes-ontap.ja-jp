@@ -18,7 +18,7 @@ summary: 9.11.1リリース以降では、VPCを共有するAWSでCloud Volumes 
 
 を使用 https://aws.amazon.com/blogs/networking-and-content-delivery/vpc-sharing-a-new-approach-to-multiple-accounts-and-vpc-management/["vPC共有"^]Cloud Volumes ONTAP HA構成は、次の2つのアカウントに分散されます。
 
-* ネットワークを所有するVPC所有者アカウント（VPC、サブネット、およびルーティングテーブル）。
+* ネットワークを所有するVPC所有者アカウント（VPC、サブネット、ルーティングテーブル、セキュリティグループ）
 * EC2インスタンスが共有サブネット（2つのHAノードとメディエーターを含む）に導入されている参加者アカウント
 
 
@@ -68,6 +68,9 @@ https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html#vpc-sharing-sh
 link:reference-security-groups.html["Cloud Volumes ONTAP のセキュリティグループルールを参照してください"]。HAメディエーターのセキュリティグループを作成する必要はありません。クラウドマネージャーがそれを実現します。
 
 . APIを使用して新しいCloud Volumes ONTAP 作業環境を作成し、「haParams」オブジェクトの「"haassereRoleArn"」フィールドを渡します。
++
+例：
+
 +
 [source, json]
 ----
