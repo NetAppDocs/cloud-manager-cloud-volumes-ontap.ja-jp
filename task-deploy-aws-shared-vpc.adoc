@@ -18,44 +18,21 @@ summary: 9.11.1リリース以降では、VPCを共有するAWSでCloud Volumes 
 
 を使用 https://aws.amazon.com/blogs/networking-and-content-delivery/vpc-sharing-a-new-approach-to-multiple-accounts-and-vpc-management/["vPC共有"^]Cloud Volumes ONTAP HA構成は、次の2つのアカウントに分散されます。
 
-* ネットワークを所有するVPC所有者アカウント（VPC、サブネット、ルーティングテーブル、セキュリティグループ）
+* ネットワークを所有するVPC所有者アカウント（VPC、サブネット、ルーティングテーブル、Cloud Volumes ONTAP セキュリティグループ）
 * EC2インスタンスが共有サブネット（2つのHAノードとメディエーターを含む）に導入されている参加者アカウント
 
 
 複数のアベイラビリティゾーンにまたがって導入されているCloud Volumes ONTAP HA構成の場合は、HAメディエーターからVPC所有者アカウントのルーティングテーブルに書き込むための特定の権限が必要です。メディエーターで想定できるIAMロールを設定して、これらの権限を指定する必要があります。
 
+次の図は、この導入に関連するコンポーネントを示しています。
+
+image:diagram-aws-vpc-sharing.png["共有VPCにおけるCloud Volumes ONTAP HA構成の概念図。VPCの所有者アカウントと参加者アカウントで使用できる共有VPCを示しています。共有VPCには、IAMロール、ルートテーブル、セキュリティグループ、および3つの共有サブネットがあります。参加者アカウントには、Cloud Volumes ONTAP HA構成とメディエーターに接続されたIAMロールが含まれています。"]
+
+以下の手順で説明するように、サブネットを参加者アカウントと共有し、VPC所有者アカウント内にIAMロールとセキュリティグループを作成する必要があります。
+
+Cloud Volumes ONTAP の作業環境を作成すると、Cloud ManagerによってIAMロールが自動的に作成されてメディエーターに関連付けられます。このロールは、VPC所有者アカウントで作成したIAMロールを前提としており、HAペアに関連付けられているルーティングテーブルを変更します。
+
 .手順
-. IAMロールを作成します。
-+
-.. Cloud Volumes ONTAP のEC2インスタンスを導入する参加者アカウントのIAMコンソールに移動します。
-.. [ アクセス管理 ] で、 [ 役割 ] 、 [ 役割の作成 *] の順にクリックし、手順に従って役割を作成します。
-+
-必ず次の手順を実行してください。
-
-+
-*** 信頼されるエンティティのタイプ * で、 * AWS アカウント * を選択します。
-*** 別のAWSアカウント*を選択して、VPC所有者アカウントのIDを入力します。
-*** 「STS: AssumeRole」権限を含むIAMロールにポリシーを関連付けます。
-+
-例：
-
-+
-[source, json]
-----
-{
-  "Version": "2012-10-17",
-  "Statement": {
-    "Effect": "Allow",
-    "Action": "sts:AssumeRole",
-    "Resource": "arn:aws:iam::account-id:role/Test*"
-  }
-}
-----
-
-
-.. IAMロールのロールARNをコピーして、HAペアの導入時にAPI要求に貼り付けることができるようにします。
-
-
 . VPC所有者アカウントのサブネットを参加者アカウントと共有します。
 +
 この手順は、HAペアを共有サブネットに導入するために必要です。
@@ -67,7 +44,24 @@ https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html#vpc-sharing-sh
 +
 link:reference-security-groups.html["Cloud Volumes ONTAP のセキュリティグループルールを参照してください"]。HAメディエーターのセキュリティグループを作成する必要はありません。クラウドマネージャーがそれを実現します。
 
+. VPC所有者アカウントで、次の権限を含むIAMロールを作成します。
++
+[source, json]
+----
+Action": [
+                "ec2:AssignPrivateIpAddresses",
+                "ec2:CreateRoute",
+                "ec2:DeleteRoute",
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DescribeRouteTables",
+                "ec2:DescribeVpcs",
+                "ec2:ReplaceRoute",
+                "ec2:UnassignPrivateIpAddresses"
+----
 . APIを使用して新しいCloud Volumes ONTAP 作業環境を作成し、「haParams」オブジェクトの「"haassereRoleArn"」フィールドを渡します。
++
+「仮定ロールアーn」フィールドには、VPC所有者アカウントで作成したIAMロールのARNを含める必要があります（前の手順を参照）。
+
 +
 例：
 
