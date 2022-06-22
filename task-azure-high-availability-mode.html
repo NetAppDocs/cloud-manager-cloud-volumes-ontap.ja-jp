@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head class="at-element-marker">
-  <title>AWS のセキュリティグループルール | NetApp Documentation</title>
+  <title>Azureでハイアベイラビリティモードを有効にします | NetApp Documentation</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="AWS のセキュリティグループルール | NetApp Documentation" />
+  <meta property="og:title" content="Azureでハイアベイラビリティモードを有効にします | NetApp Documentation" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/reference-security-groups.html" />
-	<meta property="og:description" content="Cloud Manager は、 Cloud Manager と Cloud Volumes ONTAP が正常に動作するために必要なインバウンドルールとアウトバウンドルールを含む AWS セキュリティグループを作成します。テスト目的または独自のポートを使用する必要がある場合には、ポートを参照してください。" />
+	<meta property="og:url" content="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-azure-high-availability-mode.html" />
+	<meta property="og:description" content="Microsoft Azureの高可用性モードを有効にして、計画外のフェイルオーバー時間を短縮し、NFSv4でCloud Volumes ONTAP がサポートされるようにする必要があります。" />
   <meta property="og:image" content="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Cloud Manager は、 Cloud Manager と Cloud Volumes ONTAP が正常に動作するために必要なインバウンドルールとアウトバウンドルールを含む AWS セキュリティグループを作成します。テスト目的または独自のポートを使用する必要がある場合には、ポートを参照してください。">
-  <meta name="keywords" content=" security group, security groups, rules, ports, aws, inbound, outbound, rules"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Microsoft Azureの高可用性モードを有効にして、計画外のフェイルオーバー時間を短縮し、NFSv4でCloud Volumes ONTAP がサポートされるようにする必要があります。">
+  <meta name="keywords" content=" high availability mode, EnableHighAvailabilityMode, action required, nfsv4"><!-- Icons -->
   <link rel="icon" href="/ja-jp/cloud-manager-cloud-volumes-ontap/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/ja-jp/cloud-manager-cloud-volumes-ontap/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -170,7 +170,7 @@
   <!-- Start Page Toolbar -->
   
   <div class="page-nav-toolbar">
-<div id="flavor-dropdown" class="custom-dropdown" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/reference-security-groups.html">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/task-azure-high-availability-mode.html">
   
   <div class="custom-dropdown-select unselected" title="すべてのクラウドプロバイダ">
     <label>クラウドプロバイダ</label>
@@ -182,7 +182,7 @@
   <ul class="custom-dropdown-menu">
     
     
-    <li data-value="aws" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/reference-security-groups.html">
+    <li data-value="aws" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/aws">
       <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services の
     </li>
     
@@ -194,14 +194,14 @@
     
     
     
-    <li data-value="azure" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/azure">
+    <li data-value="azure" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/task-azure-high-availability-mode.html">
       <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/azure-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
     </li>
     
     
   </ul>
 </div>
-<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[AWS のセキュリティグループルール](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/reference-security-groups.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/reference-security-groups.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[Azureでハイアベイラビリティモードを有効にします](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-azure-high-availability-mode.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-azure-high-availability-mode.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -320,15 +320,15 @@
       </div>
 
       <ul class="custom-dropdown-menu"><li>
-          <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/reference-security-groups.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+          <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-azure-high-availability-mode.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/reference-security-groups.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+          <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-azure-high-availability-mode.html" target="_self"><span translate="no" class="notranslate">English</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/reference-security-groups.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+          <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-azure-high-availability-mode.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/reference-security-groups.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+          <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/task-azure-high-availability-mode.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/reference-security-groups.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+          <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/task-azure-high-availability-mode.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
         </li></ul>
     </div><!-- End Language Selector -->
 
@@ -477,15 +477,6 @@
 
 
 
-    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/pages/reference-security-groups.pdf" >
-    <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-</ul>
-  
 
 
 
@@ -540,6 +531,15 @@
 
 
 
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/ja-jp/cloud-manager-cloud-volumes-ontap/pdfs/pages/task-azure-high-availability-mode.pdf" >
+    <img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
 
 
 
@@ -1194,7 +1194,7 @@
         AWS 転送ゲートウェイを設定します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-deploy-aws-shared-vpc.html">
         HAペアを共有サブネットに導入します
-      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/reference-security-groups.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/reference-security-groups.html">
         AWS のセキュリティグループルール
       </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html">
         AWS KMS を設定します
@@ -1217,7 +1217,7 @@
         キーを使用して暗号化を設定します
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-set-up-licensing-azure.html">
         ライセンスをセットアップする
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-azure-high-availability-mode.html">
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-azure-high-availability-mode.html">
         ハイアベイラビリティモードを有効にします
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html">
         Azure で Cloud Volumes ONTAP を起動します
@@ -1470,877 +1470,88 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">AWS のセキュリティグループルール</h1>
+  <h1 class="n-doc__component-detail-heading">Azureでハイアベイラビリティモードを有効にします</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-05-09 15:40:08 +0000">05/09/2022</time>
+    <time datetime="2022-06-22 18:13:30 +0000">06/22/2022</time>
     
   
 
 
 </p>
 
-<div id="preamble">
-<div class="sectionbody">
 <div class="paragraph lead">
-<p>Cloud Manager で作成される AWS セキュリティグループには、コネクタと Cloud Volumes ONTAP が正常に動作するために必要なインバウンドとアウトバウンドのルールが含まれています。テスト目的でポートを参照したり、独自のセキュリティグループを使用したりする場合に使用します。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="cloud-volumes-ontap-のルール">Cloud Volumes ONTAP のルール</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Volumes ONTAP のセキュリティグループには、インバウンドルールとアウトバウンドルールの両方が必要です。</p>
-</div>
-<div class="sect2">
-<h3 id="インバウンドルール">インバウンドルール</h3>
-<div class="paragraph">
-<p>定義済みセキュリティグループのインバウンドルールの送信元は 0.0.0.0/0 です。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 80%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">プロトコル</th>
-<th class="tableblock halign-left valign-top">ポート</th>
-<th class="tableblock halign-left valign-top">目的</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべての ICMP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべて</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">インスタンスの ping を実行します</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">クラスタ管理 LIF の IP アドレスを使用した System Manager Web コンソールへの HTTP アクセス</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">クラスタ管理 LIF の IP アドレスを使用した System Manager Web コンソールへの HTTPS アクセス</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SSH</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">22</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">クラスタ管理 LIF またはノード管理 LIF の IP アドレスへの SSH アクセス</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">111</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS のリモートプロシージャコール</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">139</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CIFS の NetBIOS サービスセッション</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">161-162</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">簡易ネットワーク管理プロトコル</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">445</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS フレーム同期を使用した Microsoft SMB over TCP</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">635</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS マウント</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">749</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2049</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS サーバデーモン</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3260</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">iSCSI データ LIF を介した iSCSI アクセス</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4045</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS ロックデーモン</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4046</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS のネットワークステータスモニタ</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">10000</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NDMP を使用したバックアップ</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">11104</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SnapMirror のクラスタ間通信セッションの管理</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">11105</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">クラスタ間 LIF を使用した SnapMirror データ転送</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">111</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS のリモートプロシージャコール</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">161-162</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">簡易ネットワーク管理プロトコル</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">635</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS マウント</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2049</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS サーバデーモン</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4045</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS ロックデーモン</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4046</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS のネットワークステータスモニタ</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4049</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS rquotad プロトコル</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="アウトバウンドルール">アウトバウンドルール</h3>
-<div class="paragraph">
-<p>Cloud Volumes 用の事前定義済みセキュリティグループ ONTAP は、すべての発信トラフィックをオープンします。これが可能な場合は、基本的なアウトバウンドルールに従います。より厳格なルールが必要な場合は、高度なアウトバウンドルールを使用します。</p>
-</div>
-<div class="sect3">
-<h4 id="基本的なアウトバウンドルール">基本的なアウトバウンドルール</h4>
-<div class="paragraph">
-<p>Cloud Volumes ONTAP 用の定義済みセキュリティグループには、次のアウトバウンドルールが含まれています。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 60%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">プロトコル</th>
-<th class="tableblock halign-left valign-top">ポート</th>
-<th class="tableblock halign-left valign-top">目的</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべての ICMP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべて</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべての発信トラフィック</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべての TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべて</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべての発信トラフィック</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべての UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべて</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべての発信トラフィック</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="高度なアウトバウンドルール">高度なアウトバウンドルール</h4>
-<div class="paragraph">
-<p>発信トラフィックに厳格なルールが必要な場合は、次の情報を使用して、 Cloud Volumes ONTAP による発信通信に必要なポートのみを開くことができます。</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注記">
-</td>
-<td class="content">
-source は、 Cloud Volumes ONTAP システムのインターフェイス（ IP アドレス）です。
-</td>
-</tr>
-</table>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 6%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 34%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">サービス</th>
-<th class="tableblock halign-left valign-top">プロトコル</th>
-<th class="tableblock halign-left valign-top">ポート</th>
-<th class="tableblock halign-left valign-top">ソース</th>
-<th class="tableblock halign-left valign-top">宛先</th>
-<th class="tableblock halign-left valign-top">目的</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" rowspan="18"><p class="tableblock">Active Directory</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">88</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory フォレスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos V 認証</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">137</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory フォレスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS ネームサービス</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">138</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory フォレスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS データグラムサービス</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">139</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory フォレスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS サービスセッション</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP および UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">389</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory フォレスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LDAP</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">445</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory フォレスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS フレーム同期を使用した Microsoft SMB over TCP</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">464</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory フォレスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos V パスワードの変更と設定（ SET_CHANGE ）</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">464</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory フォレスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos キー管理</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">749</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory フォレスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos V Change &amp; Set Password （ RPCSEC_GSS ）</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">88</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">データ LIF （ NFS 、 CIFS 、 iSCSI ）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory フォレスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos V 認証</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">137</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">データ LIF （ NFS 、 CIFS ）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory フォレスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS ネームサービス</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">138</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">データ LIF （ NFS 、 CIFS ）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory フォレスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS データグラムサービス</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">139</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">データ LIF （ NFS 、 CIFS ）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory フォレスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS サービスセッション</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP および UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">389</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">データ LIF （ NFS 、 CIFS ）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory フォレスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LDAP</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">445</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">データ LIF （ NFS 、 CIFS ）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory フォレスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NetBIOS フレーム同期を使用した Microsoft SMB over TCP</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">464</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">データ LIF （ NFS 、 CIFS ）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory フォレスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos V パスワードの変更と設定（ SET_CHANGE ）</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">464</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">データ LIF （ NFS 、 CIFS ）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory フォレスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos キー管理</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">749</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">データ LIF （ NFS 、 CIFS ）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Active Directory フォレスト</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kerberos V Change &amp; Set Password （ RPCSEC_GSS ）</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">AutoSupport</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">support.netapp.com</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AutoSupport （デフォルトは HTTPS ）</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">support.netapp.com</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AutoSupport （転送プロトコルが HTTPS から HTTP に変更された場合のみ）</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 へのバックアップ</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5010</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">クラスタ間 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">バックアップエンドポイントまたはリストアエンドポイント</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 へのバックアップ処理とリストア処理 フィーチャー（ Feature ）</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">クラスタ</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべてのトラフィック</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべてのトラフィック</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1 つのノード上のすべての LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">もう一方のノードのすべての LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">クラスタ間通信（ Cloud Volumes ONTAP HA のみ）</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3000</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HA メディエータ</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ZAPI コール（ Cloud Volumes ONTAP HA のみ）</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ICMP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HA メディエータ</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">キープアライブ（ Cloud Volumes ONTAP HA のみ）</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DHCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">68</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DHCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">初回セットアップ用の DHCP クライアント</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DHCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">67</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DHCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DHCP サーバ</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF とデータ LIF （ NFS 、 CIFS ）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NDMP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">18600 ～ 18699</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">宛先サーバ</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NDMP コピー</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SMTP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">25</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">メールサーバ</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SMTP アラート。 AutoSupport に使用できます</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">SNMP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">161</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">サーバを監視します</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP トラップによる監視</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">161</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">サーバを監視します</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP トラップによる監視</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">162</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">サーバを監視します</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP トラップによる監視</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">162</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">サーバを監視します</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP トラップによる監視</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">SnapMirror</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">11104</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">クラスタ間 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP クラスタ間 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SnapMirror のクラスタ間通信セッションの管理</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">11105</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">クラスタ間 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP クラスタ間 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SnapMirror によるデータ転送</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">syslog</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">514</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ノード管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">syslog サーバ</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">syslog 転送メッセージ</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="ha-mediator-外部セキュリティグループのルール">HA Mediator 外部セキュリティグループのルール</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Volumes ONTAP HA Mediator 用に事前定義された外部セキュリティグループには、次のインバウンドルールとアウトバウンドルールが含まれています。</p>
-</div>
-<div class="sect2">
-<h3 id="インバウンドルール-2">インバウンドルール</h3>
-<div class="paragraph">
-<p>インバウンドルールの送信元は 0.0.0.0/0 です。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 60%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">プロトコル</th>
-<th class="tableblock halign-left valign-top">ポート</th>
-<th class="tableblock halign-left valign-top">目的</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SSH</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">22</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HA メディエータへの SSH 接続</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3000</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">コネクタからの RESTful API アクセス</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="アウトバウンドルール-2">アウトバウンドルール</h3>
-<div class="paragraph">
-<p>HA メディエータの定義済みセキュリティグループは、すべての発信トラフィックを開きます。これが可能な場合は、基本的なアウトバウンドルールに従います。より厳格なルールが必要な場合は、高度なアウトバウンドルールを使用します。</p>
-</div>
-<div class="sect3">
-<h4 id="基本的なアウトバウンドルール-2">基本的なアウトバウンドルール</h4>
-<div class="paragraph">
-<p>HA Mediator 用の定義済みセキュリティグループには、次のアウトバウンドルールが含まれます。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 60%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">プロトコル</th>
-<th class="tableblock halign-left valign-top">ポート</th>
-<th class="tableblock halign-left valign-top">目的</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべての TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべて</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべての発信トラフィック</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべての UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべて</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべての発信トラフィック</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="高度なアウトバウンドルール-2">高度なアウトバウンドルール</h4>
-<div class="paragraph">
-<p>発信トラフィックに厳格なルールが必要な場合は、次の情報を使用して、 HA メディエータによる発信通信に必要なポートだけを開くことができます。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 44.4445%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">プロトコル</th>
-<th class="tableblock halign-left valign-top">ポート</th>
-<th class="tableblock halign-left valign-top">宛先</th>
-<th class="tableblock halign-left valign-top">目的</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">コネクタの IP アドレス</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">メディエーターのアップグレードをダウンロードします</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AWS API サービス</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ストレージのフェイルオーバーを支援します</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AWS API サービス</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ストレージのフェイルオーバーを支援します</p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注記">
-</td>
-<td class="content">
-ポート 443 および 53 を開く代わりに、ターゲットサブネットから AWS EC2 サービスへのインターフェイス VPC エンドポイントを作成できます。
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="ha構成の内部セキュリティグループに関するルール">HA構成の内部セキュリティグループに関するルール</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Volumes ONTAP HA構成用に事前定義された内部セキュリティグループには、次のルールが含まれています。このセキュリティグループを使用すると、HAノード間、メディエーターとノード間の通信が可能になります。</p>
+<p>Microsoft Azureの高可用性モードを有効にして、計画外のフェイルオーバー時間を短縮し、NFSv4でCloud Volumes ONTAP がサポートされるようにする必要があります。</p>
 </div>
 <div class="paragraph">
-<p>Cloud Manager は常にこのセキュリティグループを作成します。独自のオプションはありません。</p>
+<p>Cloud Volumes ONTAP 9.10.1リリースから、Microsoft Azureで実行されるCloud Volumes ONTAP HAペアの計画外フェイルオーバー時間が短縮され、NFSv4がサポートされるようになりました。これらの機能拡張をCloud Volumes ONTAP で使用できるようにするには、Azureサブスクリプションでハイアベイラビリティ機能を有効にする必要があります。</p>
 </div>
-<div class="sect2">
-<h3 id="インバウンドルール-3">インバウンドルール</h3>
 <div class="paragraph">
-<p>事前定義されたセキュリティグループには、次の着信ルールが含まれています。</p>
+<p>Azureサブスクリプションでこの機能を有効にする必要がある場合、Cloud Managerから「Action Required」メッセージにこれらの詳細が表示されます。</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 60%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">プロトコル</th>
-<th class="tableblock halign-left valign-top">ポート</th>
-<th class="tableblock halign-left valign-top">目的</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべてのトラフィック</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべて</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HA メディエータと HA ノード間の通信</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="アウトバウンドルール-3">アウトバウンドルール</h3>
 <div class="paragraph">
-<p>定義済みのセキュリティグループには、次の発信ルールが含まれます。</p>
+<p>次の点に注意してください。</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 60%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">プロトコル</th>
-<th class="tableblock halign-left valign-top">ポート</th>
-<th class="tableblock halign-left valign-top">目的</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべてのトラフィック</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべて</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HA メディエータと HA ノード間の通信</p></td>
-</tr>
-</tbody>
-</table>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Volumes ONTAP HA ペアの高可用性に問題はありません。この Azure 機能は、 ONTAP と連携して動作し、計画外のフェイルオーバーによって発生する NFS プロトコルのアプリケーション停止時間を短縮します。</p>
+</li>
+<li>
+<p>この機能を有効にしても、 Cloud Volumes ONTAP HA ペアの処理は中断されません。</p>
+</li>
+<li>
+<p>Azure サブスクリプションでこの機能を有効にしても、他の VM で原因の問題は発生しません。</p>
+</li>
+</ul>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="コネクタのルール">コネクタのルール</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>コネクタのセキュリティグループには、インバウンドとアウトバウンドの両方のルールが必要です。</p>
+<p>「Owner」権限があるAzureユーザは、Azure CLIからこの機能を有効にできます。</p>
 </div>
-<div class="sect2">
-<h3 id="インバウンドルール-4">インバウンドルール</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 80%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">プロトコル</th>
-<th class="tableblock halign-left valign-top">ポート</th>
-<th class="tableblock halign-left valign-top">目的</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SSH</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">22</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">コネクタホストへの SSH アクセスを提供します</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">クライアント Web ブラウザからローカルユーザインターフェイスへの HTTP アクセス、および Cloud Data Sense からの接続を提供します</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">クライアント Web ブラウザからローカルへの HTTPS アクセスを提供します ユーザインターフェイス</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3128</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AWS ネットワークで NAT やプロキシを使用していない場合に、 Cloud Data Sense インスタンスにインターネットアクセスを提供します</p></td>
-</tr>
-</tbody>
-</table>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p><a href="https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart" target="_blank" rel="noopener">"Azure PortalからAzure Cloud Shellにアクセスします"</a></p>
+</li>
+<li>
+<p>ハイアベイラビリティモード機能を登録します。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-azurecli" data-lang="azurecli">az account set -s AZURE_SUBSCRIPTION_NAME_OR_ID
+az feature register --name EnableHighAvailabilityMode --namespace Microsoft.Network
+az provider register -n Microsoft.Network</code></pre>
 </div>
-<div class="sect2">
-<h3 id="アウトバウンドルール-4">アウトバウンドルール</h3>
+</div>
+</li>
+<li>
+<p>必要に応じて、機能が登録されたことを確認します。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-azurecli" data-lang="azurecli">az feature show --name EnableHighAvailabilityMode --namespace Microsoft.Network</code></pre>
+</div>
+</div>
 <div class="paragraph">
-<p>コネクタの事前定義されたセキュリティグループは、すべての発信トラフィックを開きます。これが可能な場合は、基本的なアウトバウンドルールに従います。より厳格なルールが必要な場合は、高度なアウトバウンドルールを使用します。</p>
+<p>Azure CLIから次のような結果が返されることを確認します。</p>
 </div>
-<div class="sect3">
-<h4 id="基本的なアウトバウンドルール-3">基本的なアウトバウンドルール</h4>
-<div class="paragraph">
-<p>コネクタの事前定義されたセキュリティグループには、次のアウトバウンドルールが含まれています。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 60%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">プロトコル</th>
-<th class="tableblock halign-left valign-top">ポート</th>
-<th class="tableblock halign-left valign-top">目的</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべての TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべて</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべての発信トラフィック</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべての UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべて</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">すべての発信トラフィック</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="高度なアウトバウンドルール-3">高度なアウトバウンドルール</h4>
-<div class="paragraph">
-<p>発信トラフィックに固定ルールが必要な場合は、次の情報を使用して、コネクタによる発信通信に必要なポートだけを開くことができます。</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注記">
-</td>
-<td class="content">
-送信元 IP アドレスは、コネクタホストです。
-</td>
-</tr>
-</table>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">サービス</th>
-<th class="tableblock halign-left valign-top">プロトコル</th>
-<th class="tableblock halign-left valign-top">ポート</th>
-<th class="tableblock halign-left valign-top">宛先</th>
-<th class="tableblock halign-left valign-top">目的</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">API コールと AutoSupport</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">443</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">アウトバウンドインターネットおよび ONTAP クラスタ管理 LIF</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">API が AWS や ONTAP 、クラウドデータ検知、ランサムウェアサービス、ネットアップへの AutoSupport メッセージの送信を呼び出します</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">API コール</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3000</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP HA メディエーター</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP HA メディエーターとの通信</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8088</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 へのバックアップ</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">S3 へのバックアップを API で呼び出します</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">53</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DNS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Manager による DNS 解決に使用されます</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">クラウドデータの意味</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">80</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Data Sense インスタンス</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP に最適なクラウドデータ</p></td>
-</tr>
-</tbody>
-</table>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Features/providers/Microsoft.Network/features/EnableHighAvailabilityMode",
+  "name": "Microsoft.Network/EnableHighAvailabilityMode",
+  "properties": {
+    "state": "Registered"
+  },
+  "type": "Microsoft.Features/providers/features"
+}</pre>
 </div>
 </div>
-</div>
+</li>
+</ol>
 </div>
 
     </article>
