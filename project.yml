@@ -75,6 +75,8 @@ sidebar:
         url: "/task-set-up-azure-encryption.html"
       - title: ライセンスをセットアップする
         url: "/task-set-up-licensing-azure.html"
+      - title: ハイアベイラビリティモードを有効にします
+        url: "/task-azure-high-availability-mode.html"
       - title: Azure で Cloud Volumes ONTAP を起動します
         url: "/task-deploying-otc-azure.html"
     - title: Google Cloud で始めましょう

@@ -4109,8 +4109,6 @@
   <block id="14c6e9ce4cfa25dc1cfa02fe401deed1" category="section-title">Azureプライベートリンクを使用する</block>
   <block id="347431c5a9e1d410f530ec93c187d045" category="paragraph">ほとんどの場合、Cloud Volumes ONTAP でAzureプライベートリンクを設定するために必要な作業はありません。Cloud ManagerでAzureプライベートリンクを管理できます。ただし、 Azure Private DNS を使用する場合は、構成ファイルを編集する必要があります。また、Azureのコネクタの場所に関する要件も把握しておく必要があります。</block>
   <block id="1a4c6839ae7b3d4de45f275929539d1b" category="paragraph">Cloud Manager が Azure に Cloud Volumes ONTAP を導入すると、リソースグループにプライベートエンドポイントが作成されます。プライベートエンドポイントは、Cloud Volumes ONTAP のストレージアカウントに関連付けられます。その結果、 Cloud Volumes ONTAP ストレージへのアクセスは、 Microsoft バックボーンネットワークを経由します。</block>
-  <block id="fe133d1f6db8d046e4b328c0d9a967a1" category="paragraph">Cloud Volumes ONTAP システムの最大数は、使用しているライセンスモデルに関係なく、ネットアップアカウントあたり50に制限されます。</block>
-  <block id="ae5034ae6657395ba1fc2a16d2c55db3" category="paragraph">a_system_に は、 HA ペアまたはシングルノードシステムを指定します。たとえば、8つのCloud Volumes ONTAP HAペアと4つのシングルノードシステムがある場合、合計で12個のシステムがあり、アカウントに38個のシステムを追加で割り当てることができます。</block>
   <block id="11e5ec6a6dd579034180a34f735c57ee" category="paragraph">ビジネスニーズに応じて、プライベートリンク接続を無効にすることもできます。リンクを無効にすると、代わりにサービスエンドポイントを使用するようにCloud Volumes ONTAP が設定されます。</block>
   <block id="4ff3b739a9573101f05111dd5136fe72" category="inline-link-macro">AzureプライベートリンクまたはサービスエンドポイントでCloud Volumes ONTAP を使用する方法の詳細については、こちらをご覧ください</block>
   <block id="47d9f4d696319d2e54439849e1a532f3" category="paragraph"><block ref="c666fc2bdc96ffeac9aa956ec79d2d3c" category="inline-link-macro-rx"></block>。</block>
@@ -4158,4 +4156,19 @@
   <block id="2bce87c6b4b3176bac40c2e0439a5737" category="paragraph">「securityGroupId」フィールドには、VPC所有者アカウントで作成したセキュリティグループを指定する必要があります（上記の手順2を参照）。</block>
   <block id="b11fdc24b5ec8e29c24abb5b80715fc3" category="list-text">"haParams"オブジェクトの"amereRoleArn"を想定します</block>
   <block id="d02c51c501566fb6b3f4693ca83b01ea" category="paragraph">「仮定ロールアーn」フィールドには、VPC所有者アカウントで作成したIAMロールのARNを含める必要があります（上記の手順3を参照）。</block>
+  <block id="f4cf4636284848695d07f7eb4c75e531" category="summary">Microsoft Azureの高可用性モードを有効にして、計画外のフェイルオーバー時間を短縮し、NFSv4でCloud Volumes ONTAP がサポートされるようにする必要があります。</block>
+  <block id="e50998a44626779ff3f707014e804bb6" category="doc">Azureでハイアベイラビリティモードを有効にします</block>
+  <block id="8c3a857138568ac83d0c9e6b5e13c75e" category="paragraph">Cloud Volumes ONTAP 9.10.1リリースから、Microsoft Azureで実行されるCloud Volumes ONTAP HAペアの計画外フェイルオーバー時間が短縮され、NFSv4がサポートされるようになりました。これらの機能拡張をCloud Volumes ONTAP で使用できるようにするには、Azureサブスクリプションでハイアベイラビリティ機能を有効にする必要があります。</block>
+  <block id="f962fda902f28c365c71973532fe62d2" category="paragraph">Azureサブスクリプションでこの機能を有効にする必要がある場合、Cloud Managerから「Action Required」メッセージにこれらの詳細が表示されます。</block>
+  <block id="4b86a9bfe35da8d5b3e1175b8664656d" category="list-text">Cloud Volumes ONTAP HA ペアの高可用性に問題はありません。この Azure 機能は、 ONTAP と連携して動作し、計画外のフェイルオーバーによって発生する NFS プロトコルのアプリケーション停止時間を短縮します。</block>
+  <block id="74c86f2714a033254b4bc8058a066937" category="list-text">この機能を有効にしても、 Cloud Volumes ONTAP HA ペアの処理は中断されません。</block>
+  <block id="7dbbac252a198b9c7c543b30ca9455a6" category="list-text">Azure サブスクリプションでこの機能を有効にしても、他の VM で原因の問題は発生しません。</block>
+  <block id="3a3aee537f8eb946ce95b303a0b0cde6" category="paragraph">「Owner」権限があるAzureユーザは、Azure CLIからこの機能を有効にできます。</block>
+  <block id="dede8f1d754e5872747fd6fdd219a9da" category="inline-link">Azure PortalからAzure Cloud Shellにアクセスします</block>
+  <block id="826fb3564b49a63adcbf5c36eec58144" category="list-text"><block ref="826fb3564b49a63adcbf5c36eec58144" category="inline-link-rx"></block></block>
+  <block id="17cecf34f6070ab2eecf2740c05f04fb" category="list-text">ハイアベイラビリティモード機能を登録します。</block>
+  <block id="f2c8cae480fd1319bed5bc6dad61485e" category="list-text">必要に応じて、機能が登録されたことを確認します。</block>
+  <block id="3f8d6716204225738a12373603bece28" category="paragraph">Azure CLIから次のような結果が返されることを確認します。</block>
+  <block id="b730a5e05a41eebeb51f5aee7c746386" category="paragraph">a_system_に は、 HA ペアまたはシングルノードシステムを指定します。たとえば、2つのCloud Volumes ONTAP HAペアと2つのシングルノードシステムがある場合、合計4つのシステムがあり、アカウントに16のシステムを追加することができます。</block>
+  <block id="0b6cbfb7fa10ae2ac77ae5d3273ea95e" category="sidebar">ハイアベイラビリティモードを有効にします</block>
 </blocks>
