@@ -20,6 +20,77 @@ Cloud Manager の Cloud Volumes ONTAP 管理の新機能について説明しま
 
 
 
+== 2022年7月3日
+
+コネクタの3.9.20リリースでは、次の変更が加えられました。
+
+
+
+=== デジタルウォレット
+
+デジタルウォレットに、アカウントで消費された合計容量とライセンスパッケージで消費された容量が表示されるようになりました。この情報は、料金の支払い方法や、容量の追加購入が必要かどうかを把握するのに役立ちます。
+
+image:screenshot-digital-wallet-summary.png["容量ベースのライセンスのデジタルウォレットページを示すスクリーンショット。アカウントの使用済み容量の概要が表示され、ライセンスパッケージ別に容量が表示されます。"]
+
+ifdef::aws[]
+
+
+
+=== Elastic Volumesの機能拡張
+
+Cloud Managerで、ユーザインターフェイスからCloud Volumes ONTAP の作業環境を作成する際に、Amazon EBS Elastic Volumes機能がサポートされるようになりました。Elastic Volumes機能は、GP3またはio1ディスクを使用している場合、デフォルトで有効になっています。初期容量はストレージのニーズに基づいて選択し、Cloud Volumes ONTAP の導入後に変更することができます。
+
+link:concept-aws-elastic-volumes.html["Elastic VolumesのAWSサポートの詳細については、こちらをご覧ください"]。
+
+
+
+=== AWSのONTAP S3ライセンス
+
+バージョン9.11.0以降を実行している新規および既存のCloud Volumes ONTAP システムには、AWSにONTAP S3ライセンスが自動的にインストールされるようになりました。
+
+https://docs.netapp.com/us-en/ontap/object-storage-management/index.html["ONTAP で S3 オブジェクトストレージサービスを設定および管理する方法について説明します"^]。
+
+endif::aws[]
+
+ifdef::azure[]
+
+
+
+=== Azure Cloudリージョンが新たにサポートされます
+
+9.10.1リリース以降、Azure West US 3リージョンでCloud Volumes ONTAP がサポートされるようになりました。
+
+https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP でサポートされるリージョンの完全なリストを表示します"^]
+
+
+
+=== AzureのONTAP S3ライセンス
+
+バージョン9.9.1以降を実行している新規および既存のCloud Volumes ONTAP システムに、Cloud ManagerによってONTAP S3ライセンスがAzureに自動的にインストールされるようになりました。
+
+https://docs.netapp.com/us-en/ontap/object-storage-management/index.html["ONTAP で S3 オブジェクトストレージサービスを設定および管理する方法について説明します"^]。
+
+endif::azure[]
+
+ifdef::gcp[]
+
+
+
+=== 新しいGoogle Cloudリージョンサポート
+
+9.10.1リリース以降、Cloud Volumes ONTAP は次のGoogle Cloudリージョンでサポートされるようになりました。
+
+* マドリード（ヨーロッパ-南西部1）
+* パリ（ヨーロッパ-西9区）
+* ワルシャワ（ヨーロッパ中央部2）
+
+
+https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP でサポートされるリージョンの完全なリストを表示します"^]
+
+endif::gcp[]
+
+
+
 == 2022年6月7日
 
 コネクタの3.9.19リリースでは、次の変更が加えられました。

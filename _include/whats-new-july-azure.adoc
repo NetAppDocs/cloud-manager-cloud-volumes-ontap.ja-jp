@@ -1,0 +1,19 @@
+= Azure Cloudリージョンが新たにサポートされます
+:allow-uri-read: 
+
+
+
+
+=== Azure Cloudリージョンが新たにサポートされます
+
+9.10.1リリース以降、Azure West US 3リージョンでCloud Volumes ONTAP がサポートされるようになりました。
+
+https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP でサポートされるリージョンの完全なリストを表示します"^]
+
+
+
+=== AzureのONTAP S3ライセンス
+
+バージョン9.9.1以降を実行している新規および既存のCloud Volumes ONTAP システムに、Cloud ManagerによってONTAP S3ライセンスがAzureに自動的にインストールされるようになりました。
+
+https://docs.netapp.com/us-en/ontap/object-storage-management/index.html["ONTAP で S3 オブジェクトストレージサービスを設定および管理する方法について説明します"^]。

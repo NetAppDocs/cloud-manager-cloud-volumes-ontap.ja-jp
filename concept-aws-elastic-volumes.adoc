@@ -132,12 +132,7 @@ link:concept-storage-management.html#capacity-management["容量管理モード�
 
 == 制限
 
-* アグリゲートのサイズの拡張には最大で6時間かかることがあります。その期間、Cloud Managerはそのアグリゲートに容量を追加で要求することはできません。
-* この時点で、Elastic Volumesを有効にした新しいCloud Volumes ONTAP システムを最初のアグリゲートで作成することは、APIでのみサポートされています。この操作は、Cloud Managerユーザインターフェイスではサポートされていません。ユーザインターフェイスから新しいCloud Volumes ONTAP 9.11.0以降のシステムを作成した場合、初期アグリゲートではElastic Volumeは有効になりません。
-+
-他のすべての操作（新しいアグリゲートの作成など）は、ユーザインターフェイスからサポートされます。
-
-
+アグリゲートのサイズの拡張には最大で6時間かかることがあります。その期間、Cloud Managerはそのアグリゲートに容量を追加で要求することはできません。
 
 
 
@@ -145,15 +140,9 @@ link:concept-storage-management.html#capacity-management["容量管理モード�
 
 Elastic VolumesとCloud Managerは次のように連携できます。
 
-* 初期アグリゲートでElastic Volumesが有効になっている新しいシステムを作成します
+* GP3ディスクまたはio1ディスクを使用する場合は、初期アグリゲートでElastic Volumesが有効になっている新しいシステムを作成します
 +
-に記載されているとおり <<Limitations>>このアクションは、現時点ではAPIでのみサポートされています。ユーザインターフェイスからはサポートされていません。
-
-+
-API呼び出しを開始すると、最初のアグリゲートでElastic Volumes機能がデフォルトで有効になります。
-
-+
-https://docs.netapp.com/us-en/cloud-manager-automation/cm/overview.html["APIを使用してCloud Volumes ONTAP を作成する方法について説明します"^]
+link:task-deploying-otc-aws.html["Cloud Volumes ONTAP システムの作成方法について説明します"]
 
 * Elastic Volumesが有効になっているアグリゲートに新しいボリュームを作成します
 +

@@ -1,0 +1,19 @@
+= Elastic Volumesの機能拡張
+:allow-uri-read: 
+
+
+
+
+=== Elastic Volumesの機能拡張
+
+Cloud Managerで、ユーザインターフェイスからCloud Volumes ONTAP の作業環境を作成する際に、Amazon EBS Elastic Volumes機能がサポートされるようになりました。Elastic Volumes機能は、GP3またはio1ディスクを使用している場合、デフォルトで有効になっています。初期容量はストレージのニーズに基づいて選択し、Cloud Volumes ONTAP の導入後に変更することができます。
+
+link:concept-aws-elastic-volumes.html["Elastic VolumesのAWSサポートの詳細については、こちらをご覧ください"]。
+
+
+
+=== AWSのONTAP S3ライセンス
+
+バージョン9.11.0以降を実行している新規および既存のCloud Volumes ONTAP システムには、AWSにONTAP S3ライセンスが自動的にインストールされるようになりました。
+
+https://docs.netapp.com/us-en/ontap/object-storage-management/index.html["ONTAP で S3 オブジェクトストレージサービスを設定および管理する方法について説明します"^]。
