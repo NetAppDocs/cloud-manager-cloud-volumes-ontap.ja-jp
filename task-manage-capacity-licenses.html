@@ -1425,7 +1425,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-09 15:40:08 +0000">05/09/2022</time>
+    <time datetime="2022-07-03 16:13:01 +0000">07/03/2022</time>
     
   
 
@@ -1463,10 +1463,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="アカウントの容量を表示します">アカウントの容量を表示します</h2>
+<h2 id="アカウントの使用済み容量を表示します">アカウントの使用済み容量を表示します</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>パッケージごとにライセンスで許可された容量とプロビジョニング済み容量を表示して、データボリューム用の十分なスペースを確保します。</p>
+<p>Digital Walletには、アカウントで消費された合計容量と、ライセンスパッケージで消費された容量が表示されます。この情報は、料金の支払い方法や、容量の追加購入が必要かどうかを把握するのに役立ちます。</p>
 </div>
 <div class="olist arabic">
 <div class="title">手順</div>
@@ -1475,13 +1475,48 @@
 <p>[ * すべてのサービス ] 、 [ デジタルウォレット ] 、 [ Cloud Volumes ONTAP * ] の順にクリックします。</p>
 </li>
 <li>
-<p>Capacity Based Licenses * を選択した場合は、各パッケージのライセンス容量とプロビジョニング済み容量が表示されます。</p>
+<p>「* Capacity Based Licenses」を選択した場合は、消費容量、ライセンスされた総容量、従量課金制の合計容量を示すパッケージの概要が表示されます。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Total Consumed capacity_は、ネットアップアカウントのすべてのCloud Volumes ONTAP システムのプロビジョニング済み総容量です。充電は、ボリューム内のローカルスペース、使用済みスペース、格納済みスペース、または有効なスペースに関係なく、各ボリュームにプロビジョニングされたサイズに基づいて行われます。</p>
+</li>
+<li>
+<p>_合計ライセンス_は、ネットアップから購入したライセンス使用済み容量（BYOL）の合計です。</p>
+</li>
+<li>
+<p>_従量課金制の合計_は、クラウドマーケットプレイスのサブスクリプションを使用してプロビジョニングされた合計容量です。PAYGOによる課金は、使用済み容量がライセンスで許可された容量を超えた場合、またはデジタルウォレットに使用可能なBYOLライセンスがない場合にのみ使用されます。</p>
+<div class="paragraph">
+<p>次の例では、容量が2、000 TiBのアカウントを使用しています。</p>
+</div>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_capacity-based-licenses.png" alt="プロフェッショナルパッケージと Essentials パッケージのプロビジョニング済み容量とライセンス済み容量を比較したスクリーンショット。"></span></p>
 </div>
 </li>
 <li>
-<p>必要に応じて、ライセンスで許可された容量を追加で購入し、アカウントにライセンスを追加します。</p>
+<p>ライセンスパッケージごとの使用済み容量を表示します。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>消費済み容量-パッケージのボリュームの合計容量が表示されます。特定のパッケージの詳細を表示するには、ツールチップの上にマウスポインタを置きます。</p>
+<div class="paragraph">
+<p>Essentialsパッケージに表示される容量を理解するには、充電の仕組みを理解しておく必要があります。 <a href="concept-licensing.html#notes-about-charging">"Essentialsパッケージの充電について説明します"</a>。</p>
+</div>
+</li>
+<li>
+<p>BYOLとPAYGOの_Capacitiesには、ライセンス消費モデルで消費される合計容量が表示されます。</p>
+<div class="paragraph">
+<p>次に、複数のライセンスパッケージがあるアカウントの例を示します。</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot-digital-wallet-packages.png" alt="プロフェッショナルパッケージ、最適化パッケージ、および必須パッケージの消費容量を示すスクリーンショット。"></span></p>
+</div>
 </li>
 </ol>
 </div>

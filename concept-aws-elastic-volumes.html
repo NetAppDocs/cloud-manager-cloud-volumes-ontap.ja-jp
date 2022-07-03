@@ -1425,7 +1425,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-07 20:54:02 +0000">06/07/2022</time>
+    <time datetime="2022-07-03 16:13:01 +0000">07/03/2022</time>
     
   
 
@@ -1616,18 +1616,8 @@
 <div class="sect1">
 <h2 id="制限">制限</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>アグリゲートのサイズの拡張には最大で6時間かかることがあります。その期間、Cloud Managerはそのアグリゲートに容量を追加で要求することはできません。</p>
-</li>
-<li>
-<p>この時点で、Elastic Volumesを有効にした新しいCloud Volumes ONTAP システムを最初のアグリゲートで作成することは、APIでのみサポートされています。この操作は、Cloud Managerユーザインターフェイスではサポートされていません。ユーザインターフェイスから新しいCloud Volumes ONTAP 9.11.0以降のシステムを作成した場合、初期アグリゲートではElastic Volumeは有効になりません。</p>
 <div class="paragraph">
-<p>他のすべての操作（新しいアグリゲートの作成など）は、ユーザインターフェイスからサポートされます。</p>
-</div>
-</li>
-</ul>
+<p>アグリゲートのサイズの拡張には最大で6時間かかることがあります。その期間、Cloud Managerはそのアグリゲートに容量を追加で要求することはできません。</p>
 </div>
 </div>
 </div>
@@ -1640,15 +1630,9 @@
 <div class="ulist">
 <ul>
 <li>
-<p>初期アグリゲートでElastic Volumesが有効になっている新しいシステムを作成します</p>
+<p>GP3ディスクまたはio1ディスクを使用する場合は、初期アグリゲートでElastic Volumesが有効になっている新しいシステムを作成します</p>
 <div class="paragraph">
-<p>に記載されているとおり <a href="#Limitations">[Limitations]</a>このアクションは、現時点ではAPIでのみサポートされています。ユーザインターフェイスからはサポートされていません。</p>
-</div>
-<div class="paragraph">
-<p>API呼び出しを開始すると、最初のアグリゲートでElastic Volumes機能がデフォルトで有効になります。</p>
-</div>
-<div class="paragraph">
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-automation/cm/overview.html" target="_blank" rel="noopener">"APIを使用してCloud Volumes ONTAP を作成する方法について説明します"</a></p>
+<p><a href="task-deploying-otc-aws.html">"Cloud Volumes ONTAP システムの作成方法について説明します"</a></p>
 </div>
 </li>
 <li>

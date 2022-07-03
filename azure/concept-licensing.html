@@ -1359,7 +1359,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-22 18:13:30 +0000">06/22/2022</time>
+    <time datetime="2022-07-03 16:13:01 +0000">07/03/2022</time>
     
   
 
@@ -1381,17 +1381,9 @@
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">フリーミアムのサービス</dt>
+<dt class="hdlist1">容量単位のライセンス</dt>
 <dd>
-<p>ライセンスや契約を購入することなく、プロビジョニングされた容量を最大 500GiB まで無料で利用できます。限定的なサポートが含まれます。</p>
-</dd>
-<dt class="hdlist1">Essentials パッケージ</dt>
-<dd>
-<p>さまざまな構成で Cloud Volumes ONTAP の容量に基づいて料金が発生します。</p>
-</dd>
-<dt class="hdlist1">プロフェッショナルパッケージ</dt>
-<dd>
-<p>Cloud Volumes ONTAP 構成の種類に関係なく、容量ごとに料金が発生Cloud Backup でバックアップを無制限に実行できます。</p>
+<p>ネットアップアカウントで複数のCloud Volumes ONTAP システムをプロビジョニングした容量分だけ料金が発生追加のクラウドデータサービスを購入できます。</p>
 </dd>
 <dt class="hdlist1">Keystone Flex サブスクリプション</dt>
 <dd>
@@ -1408,8 +1400,24 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="フリーミアムのサービス">フリーミアムのサービス</h2>
+<h2 id="容量単位のライセンス">容量単位のライセンス</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>容量ベースのライセンスパッケージを使用すると、TiB分の容量に対してCloud Volumes ONTAP の料金を支払うことができます。このライセンスはネットアップアカウントに関連付けられており、ライセンスで十分な容量が使用可能であれば、ライセンスに対して複数のシステムを充電することができます。</p>
+</div>
+<div class="paragraph">
+<p>たとえば、 20TiB のライセンスを 1 つ購入して 4 つの Cloud Volumes ONTAP システムを導入し、各システムに 5TiB のボリュームを割り当てて合計 20TiB にするとします。そのアカウントに導入されている各 Cloud Volumes ONTAP システムのボリュームで容量を使用できます。</p>
+</div>
+<div class="paragraph">
+<p>容量ベースのライセンスは、 a_packag_ の形式で用意されています。Cloud Volumes ONTAP システムを導入する際には、ビジネスニーズに応じて、複数のライセンスパッケージから選択できます。</p>
+</div>
+<div class="sect2">
+<h3 id="パッケージ">パッケージ</h3>
+<div class="paragraph">
+<p>Cloud Volumes ONTAP で使用できる容量ベースのパッケージは次のとおりです。</p>
+</div>
+<div class="sect3">
+<h4 id="フリーミアム">フリーミアム</h4>
 <div class="paragraph">
 <p>Cloud Volumes ONTAP のすべての機能をネットアップから無償で提供（クラウドプロバイダの料金がまだ適用されます）。</p>
 </div>
@@ -1428,43 +1436,22 @@
 <p>ネットアップのアカウント 1 つにつき、最大 10 台の Cloud Volumes ONTAP システムを任意のクラウドプロバイダで使用できます。</p>
 </li>
 <li>
-<p>Cloud Volumes ONTAP システム用にプロビジョニングされた容量が 500GiB を超えると、 Cloud Manager はシステムを Essentials パッケージ（容量ベースのライセンス）に変換します。</p>
+<p>Cloud Volumes ONTAP システム用にプロビジョニングされた容量が 500GiB を超えると、 Cloud Manager はシステムを Essentials パッケージに変換します。</p>
+<div class="paragraph">
+<p>システムがEssentialsパッケージに変換されるとすぐに、が表示されます <a href="#Notes about charging">最低料金</a> 適用されます。</p>
+</div>
 <div class="paragraph">
 <p>プロビジョニングされた容量が 500GiB 未満の他のシステムは、 Freemium （ Freemium 製品を使用して導入されている場合）に残ります。</p>
 </div>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect3">
+<h4 id="essentialsをクリックします">Essentialsをクリックします</h4>
 <div class="paragraph">
-<p>Freemium製品の導入方法をご確認ください。</p>
+<p>さまざまな構成で Cloud Volumes ONTAP の容量に基づいて料金が発生します。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="task-set-up-licensing-azure.html">"AzureでCloud Volumes ONTAP のライセンスをセットアップする"</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="容量ベースのライセンスパッケージ">容量ベースのライセンスパッケージ</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>容量単位のライセンスでは、 TiB 単位の Cloud Volumes ONTAP に対して料金を支払うことができます。このライセンスはネットアップアカウントに関連付けられており、ライセンスで十分な容量が使用可能であれば、ライセンスに対して複数のシステムを充電することができます。</p>
-</div>
-<div class="paragraph">
-<p>たとえば、 20TiB のライセンスを 1 つ購入して 4 つの Cloud Volumes ONTAP システムを導入し、各システムに 5TiB のボリュームを割り当てて合計 20TiB にするとします。そのアカウントに導入されている各 Cloud Volumes ONTAP システムのボリュームで容量を使用できます。</p>
-</div>
-<div class="paragraph">
-<p>容量ベースのライセンスは、 a_packag_ の形式で用意されています。Cloud Volumes ONTAP システムを導入するときは、 _Essentials_package または _Professional_package を選択できます。</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Essentials パッケージ</dt>
-<dd>
-<div class="openblock">
-<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -1486,19 +1473,21 @@
 </ul>
 </div>
 </div>
+<div class="sect3">
+<h4 id="プロフェッショナル">プロフェッショナル</h4>
+<div class="paragraph">
+<p>バックアップの数に制限はなく、あらゆる種類のCloud Volumes ONTAP 構成で容量ごとに料金が発生します。</p>
 </div>
-</dd>
-<dt class="hdlist1">プロフェッショナルパッケージ</dt>
-<dd>
-<div class="openblock">
-<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>すべての Cloud Volumes ONTAP 構成（シングルノードまたは任意のストレージタイプの HA ）にライセンスを提供</p>
+<p>Cloud Volumes ONTAP 構成のライセンスを提供します</p>
+<div class="paragraph">
+<p>プライマリボリュームとセカンダリボリュームの容量を同じ速度で課金する、シングルノードまたはHA</p>
+</div>
 </li>
 <li>
-<p>Cloud Backup を使用したボリュームのバックアップを含みます（このライセンスを使用するボリュームのみ）</p>
+<p>Cloud Backupを使用したボリュームバックアップは無制限ですが、Professionalパッケージとともに導入されたCloud Volumes ONTAP システムのみが対象です</p>
 </li>
 <li>
 <p>ネットアップのクラウドデータサービスを追加コストで利用できます</p>
@@ -1507,27 +1496,21 @@
 </div>
 </div>
 </div>
-</dd>
-</dl>
-</div>
 <div class="sect2">
 <h3 id="消費モデル">消費モデル</h3>
 <div class="paragraph">
-<p>Essentials パッケージと Professional パッケージには、次の消費モデルがあります。</p>
+<p>容量ベースのライセンスパッケージには、次の消費モデルがあります。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>ネットアップから購入したライセンス（ BYOL ）。任意のクラウドプロバイダで Cloud Volumes ONTAP を導入する際に使用できます。</p>
-<div class="paragraph">
-<p>1 つのクラウドプロバイダに制限されることはありません。</p>
-</div>
+<p>* BYOL *：ネットアップから購入したライセンス。任意のクラウドプロバイダでCloud Volumes ONTAP を導入する際に使用できます。</p>
 </li>
 <li>
-<p>クラウドプロバイダの市場から 1 時間単位のサブスクリプション（ PAYGO ）が提供されます。</p>
+<p>* PAYGO *：クラウドプロバイダの市場から1時間ごとのサブスクリプション。</p>
 </li>
 <li>
-<p>クラウドプロバイダの市場から年間契約を獲得できます。</p>
+<p>* Annual *：クラウドプロバイダの市場から年間契約。</p>
 </li>
 </ul>
 </div>
@@ -1605,23 +1588,78 @@ Cloud Managerには、無償トライアルが開始されたとき、7日が残
 </div>
 <div class="sect2">
 <h3 id="充電に関するメモ">充電に関するメモ</h3>
+<div class="paragraph">
+<p>以下の詳細は、課金が容量ベースのライセンスとどのように連携するかを理解するのに役立ちます。</p>
+</div>
+<div class="sect3">
+<h4 id="最低料金">最低料金</h4>
+<div class="paragraph">
+<p>プライマリ（読み取り/書き込み）ボリュームが1つ以上あるStorage VMをデータ提供する場合は、最小4TiBの料金が発生します。プライマリボリュームの合計が4TiBを下回る場合、Cloud ManagerはそのStorage VMに4TiBの最小料金を適用します。</p>
+</div>
+<div class="paragraph">
+<p>まだボリュームをプロビジョニングしていない場合は、最小料金は適用されません。</p>
+</div>
+<div class="paragraph">
+<p>4TiBの最小容量チャージは、セカンダリ（データ保護）ボリュームのみを含むStorage VMには適用されません。たとえば、1TiBのセカンダリデータが格納されたStorage VMがある場合、その1TiBのデータに対してのみ課金されます。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="年齢が高すぎます">年齢が高すぎます</h4>
+<div class="paragraph">
+<p>BYOL の容量を超えた場合やライセンスの有効期限が切れた場合は、マーケットプレイスのサブスクリプションに基づいて 1 時間あたりの料金が高すぎることを意味します。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="essentials-パッケージ">Essentials パッケージ</h4>
+<div class="paragraph">
+<p>Essentialsパッケージでは、導入タイプ（HAまたはシングルノード）とボリュームタイプ（プライマリまたはセカンダリ）ごとに課金されます。たとえば、_Essentials HA_に は、_Essentials Secondary HA_と は異なる価格が設定されています。</p>
+</div>
+<div class="paragraph">
+<p>NetApp（BYOL）からEssentialsライセンスを購入し、その導入環境およびボリュームタイプのライセンス容量を超えると、Digital Walletは高額なEssentialsライセンスを購入した場合に料金を支払います（ライセンスがある場合）。これは、市場に課金する前に、前払い済みの容量として購入済みの使用可能容量を最初に使用するためです。市場に課金することで、月額料金が加算されます。</p>
+</div>
+<div class="paragraph">
+<p>次に例を示します。Essentialsパッケージには、次のライセンスがあるとします。</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>BYOL の容量を超えた場合やライセンスの有効期限が切れた場合は、マーケットプレイスのサブスクリプションに基づいて 1 時間あたりの料金が高すぎることを意味します。</p>
+<p>500TiBのコミット済み容量を含む500TiBのセカンダリHA_License</p>
 </li>
 <li>
-<p>パッケージごとに 4TiB 以上の容量を追加容量が 4TiB 未満の Cloud Volumes ONTAP インスタンスは、 4TiB の割合で請求されます。</p>
+<p>100TiBのコミット済み容量のみを含む500TiB _ Essentialsシングルノードライセンス</p>
 </li>
+</ul>
+</div>
+<div class="paragraph">
+<p>セカンダリボリュームを含むHAペアにはもう1つの50TiBがプロビジョニングされます。デジタルウォレットでは、50TiBをPAYGOに課金する代わりに、_Essentials Single Node_licenseに対して50TiBの超過分を課金します。このライセンスは_Essentials Secondary HA_より も価格が高くなりますが、PAYGOの価格よりも安いです。</p>
+</div>
+<div class="paragraph">
+<p>デジタルウォレットでは、50TiBが_Essentialsシングルノードライセンスに対して課金されたものとして表示されます。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="storage-vms">Storage VMs</h4>
+<div class="ulist">
+<ul>
 <li>
 <p>データ提供用の Storage VM （ SVM ）を追加する場合、追加のライセンスコストは発生しませんが、データ提供用 SVM ごとの容量は 4TiB になります。</p>
 </li>
 <li>
 <p>ディザスタリカバリ用 SVM は、プロビジョニングされた容量に基づいて料金が発生します。</p>
 </li>
-<li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ha-ペア">HA ペア</h4>
+<div class="paragraph">
 <p>HA ペアの場合、ノードのプロビジョニング済み容量に対してのみ料金が発生します。パートナーノードに同期ミラーリングされるデータには料金は発生しません。</p>
-</li>
+</div>
+</div>
+<div class="sect3">
+<h4 id="flexcloneボリュームとflexcache-ボリューム">FlexCloneボリュームとFlexCache ボリューム</h4>
+<div class="ulist">
+<ul>
 <li>
 <p>FlexClone ボリュームで使用される容量に対する料金は発生しません。</p>
 </li>
@@ -1629,6 +1667,7 @@ Cloud Managerには、無償トライアルが開始されたとき、7日が残
 <p>ソースおよびデスティネーションの FlexCache ボリュームはプライマリデータとみなされ、プロビジョニング済みスペースに基づいて料金が発生します。</p>
 </li>
 </ul>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1727,10 +1766,35 @@ Cloud Managerには、無償トライアルが開始されたとき、7日が残
 <h2 id="システムの最大数">システムの最大数</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloud Volumes ONTAP システムの最大数は、使用しているライセンスモデルに関係なく、ネットアップアカウントあたり 20 に制限されます。</p>
+<p>Cloud Volumes ONTAP システムの最大数は、ネットアップアカウントあたり20個に制限されています。a_system_は、Cloud Volumes ONTAP HAペア、Cloud Volumes ONTAP シングルノードシステム、またはユーザが作成した追加のStorage VMです。デフォルトのStorage VMはカウントされません。これにより、環境 のすべてのライセンスモデルが制限されます。</p>
 </div>
 <div class="paragraph">
-<p>a_system_に は、 HA ペアまたはシングルノードシステムを指定します。たとえば、2つのCloud Volumes ONTAP HAペアと2つのシングルノードシステムがある場合、合計4つのシステムがあり、アカウントに16のシステムを追加することができます。</p>
+<p>たとえば、次の3つの作業環境があるとします。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1つのStorage VMを含むシングルノードのCloud Volumes ONTAP システム（Cloud Volumes ONTAP の導入時に作成されるデフォルトのStorage VM）</p>
+<div class="paragraph">
+<p>この作業環境は1つのシステムとしてカウントされます。</p>
+</div>
+</li>
+<li>
+<p>2つのStorage VMを含むシングルノードのCloud Volumes ONTAP システム（デフォルトのStorage VMと、作成した追加のStorage VM 1台）</p>
+<div class="paragraph">
+<p>この作業環境は、シングルノードシステム用と追加のStorage VM用の2つのシステムとしてカウントされます。</p>
+</div>
+</li>
+<li>
+<p>3つのStorage VMを含むCloud Volumes ONTAP HAペア（デフォルトのStorage VMと、作成した追加のStorage VM 2つ）</p>
+<div class="paragraph">
+<p>この作業環境は、HAペア用と追加のStorage VM用の2つという3つのシステムとしてカウントされます。</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>合計6つのシステムです。その後、アカウントに14台のシステムを追加するためのスペースを確保します。</p>
 </div>
 <div class="paragraph">
 <p>ご質問がある場合は、アカウント担当者または営業チームにお問い合わせください。</p>
