@@ -1332,7 +1332,6 @@
   <block id="6cfeec56d62104397ed8dc01e81de3ba" category="paragraph"><block ref="2ccb396125a12f708cc5bb17905b5f90" category="inline-link-macro-rx"></block>。</block>
   <block id="4edb70089cdbc18de22fa9ead5189bc8" category="section-title">アカウントを承認します</block>
   <block id="1c41d8404a680acdfbd1135446677d69" category="paragraph">Cloud Manager で Keystone Flex Subscriptions を使用して管理する前に、ネットアップに連絡して、 Keystone Flex Subscriptions で Cloud Manager ユーザアカウントを承認する必要があります。</block>
-  <block id="2dd472e5849f2d63d198abee4211faf1" category="list-text">[ * すべてのサービス ] &gt; [ デジタルウォレット * ] をクリックします。</block>
   <block id="34050b9fba3323c4ec7fb2d89aa95a36" category="list-text">[* Keystone Flex Subscription* ] をクリックします。</block>
   <block id="daf4ae396784c74ec2cbf002eaaa25f4" category="list-text">「 NetApp Keystone へようこそ」ページが表示された場合は、ページに記載されているアドレスにメールを送信してください。</block>
   <block id="16692c26ca4528e651bbb36d93c465c7" category="paragraph">ネットアップの担当者は、お客様のユーザアカウントに登録へのアクセスを許可することで、リクエストを処理します。</block>
@@ -2025,7 +2024,6 @@
   <block id="93e69b27c99652c72cf49fd51a487813" category="paragraph"><block ref="93e69b27c99652c72cf49fd51a487813" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1e565fae8cb8375a73df9abf2e99667a" category="paragraph">この通知からアップグレードプロセスを開始できます。アップグレードプロセスを自動化するには、 S3 バケットからソフトウェアイメージを取得し、イメージをインストールしてから、システムを再起動します。</block>
   <block id="d898e4d722776933e5dbfe89668ef31e" category="paragraph">ボリュームやアグリゲートの作成などの Cloud Manager の処理が Cloud Volumes ONTAP システムで実行されていないことを確認します。</block>
-  <block id="e17d9d52c8208dfce3fde1af20447264" category="list-text">「 * キャンバス * 」をクリックします。</block>
   <block id="d51a07decbe601cbb24e543eb1a87686" category="list-text">作業環境を選択します。</block>
   <block id="253804b3f61f30ff9abeb479b2c10701" category="paragraph">新しいバージョンが使用可能になると、右側のペインに通知が表示されます。</block>
   <block id="3ff5bd4f7d1ec1b55544ace7c0a77dbc" category="list-text">新しいバージョンが利用可能な場合は、 * アップグレード * をクリックします。</block>
@@ -2191,7 +2189,6 @@
   <block id="3346762ff8f7a33c4ab0e7fa6f5ae4bf" category="summary">容量ベースのライセンスをデジタルウォレットから管理して、ネットアップアカウントに Cloud Volumes ONTAP システム用の十分な容量があることを確認します。</block>
   <block id="56a50532d8da2bebb09d6190c126140c" category="doc">容量ベースのライセンスを管理します</block>
   <block id="93ed65a89f306426be7980ddc22595e8" category="paragraph">_ 容量ベースのライセンス _ 容量単位の Cloud Volumes ONTAP に対する支払いが可能。</block>
-  <block id="0abf972ae04f5fd460eb8fb37920a7e2" category="list-text">[ * すべてのサービス ] 、 [ デジタルウォレット ] 、 [ Cloud Volumes ONTAP * ] の順にクリックします。</block>
   <block id="8881e3192df3d6a5d7efc284f0e0beee" category="inline-image-macro">プロフェッショナルパッケージと Essentials パッケージのプロビジョニング済み容量とライセンス済み容量を比較したスクリーンショット。</block>
   <block id="a67c1e3fa166897e8cc4f860ff4aa0c5" category="paragraph"><block ref="a67c1e3fa166897e8cc4f860ff4aa0c5" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b2dfe525c9a6bec7392826fba889fe07" category="section-title">購入済みライセンスをアカウントに追加します</block>
@@ -2205,12 +2202,10 @@
   <block id="bf78c4658c1ace314410495dc10c0ba1" category="paragraph">容量を追加購入した場合やライセンス期間を延長した場合は、 Cloud Manager によってデジタルウォレットのライセンスが自動的に更新されます。必要なことは何もありません。</block>
   <block id="3782253c295a20f84aac6d9de87d5256" category="paragraph">ただし、インターネットにアクセスできない場所に Cloud Manager を導入した場合は、 Cloud Manager でライセンスを手動で更新する必要があります。</block>
   <block id="e02250fabfba9f2d7325403663479a43" category="paragraph">ライセンスファイル（ HA ペアがある場合は _files_ ）。</block>
-  <block id="d4737869e4d4dc07c6bb7c4c990d49f2" category="list-text">ライセンスの横にあるアクションメニューをクリックし、 * ライセンスの更新 * を選択します。</block>
   <block id="f591dbc4232b149ea0792178559405f9" category="list-text">ライセンスファイルをアップロードします。</block>
   <block id="034f6db5181ab87d962e69b9b7b5a995" category="list-text">[ ライセンスのアップロード ] をクリックします。</block>
   <block id="8f79a5bc1b9725ce4036eb2d94c60de9" category="section-title">容量ベースのライセンスを削除する</block>
   <block id="78a946dc090d511b993ffbe9803dff06" category="paragraph">容量ベースのライセンスの期限が切れて使用できなくなった場合は、いつでも削除できます。</block>
-  <block id="f079c14c88dca42fef3c7cb092bd6831" category="list-text">ライセンスの横にあるアクションメニューをクリックし、 * ライセンスの削除 * を選択します。</block>
   <block id="40b851aafab82c78484c46169f816fd2" category="list-text">[ 削除（ Remove ） ] をクリックして確定します。</block>
   <block id="742dad1976d10fd0a81cc360e7f1bde4" category="summary">Cloud Volumes ONTAP には、 2 つの目的で Google Cloud サービスアカウントが必要です。1 つ目は、 Google Cloud の低コストのオブジェクトストレージにコールドデータを階層化するデータ階層化を有効にする場合です。2 つ目は、 Cloud Backup Service を使用して低コストのオブジェクトストレージにボリュームをバックアップできるようにする場合です。</block>
   <block id="d39a322c0902d3bf2bf75781b1e1c8ab" category="doc">データ階層化とバックアップ用のサービスアカウントを作成します</block>
@@ -2292,7 +2287,6 @@
   <block id="17ac9e85cf5b6f7b77acf61fb7721242" category="list-text">クラウドプロバイダの市場から従量課金制（ PAYGO ）で 1 時間単位のサブスクリプションが提供されます</block>
   <block id="9426b05d2fc423b761e34f9d75b4066d" category="section-title">PAYGO ライセンスを管理します</block>
   <block id="39489bc3468be0f9c30ed41b5ac89051" category="paragraph">デジタルウォレットページでは、シリアル番号と PAYGO ライセンスタイプを含む、 PAYGO Cloud Volumes ONTAP の各システムに関する詳細を表示できます。</block>
-  <block id="343c7ed77049523f4d99e8d4c436a330" category="list-text">ドロップダウンから [* Node Based Licenses] を選択します。</block>
   <block id="87089bacab591352ad6ad6579e34d93e" category="list-text">[PAYGO] をクリックします。</block>
   <block id="82be8e06ac169a3de0fce42cd01f5760" category="list-text">PAYGO ライセンスごとに詳細を表に示します。</block>
   <block id="76e10a0df08439afad301bff55b0ae58" category="inline-image-macro">3 つのペイゴライセンスを含むデジタルウォレットページの表を示すスクリーンショット。各行には、名前、システムのタイプ、シリアル番号、パッケージ、およびライセンスを管理するためのリンクが表示されます。</block>
@@ -3278,7 +3272,6 @@
   <block id="b4fdd997b1f33e0d4c6964444c2bf399" category="section-title">SMB</block>
   <block id="11b07e87cde6233c7e410399ad203deb" category="paragraph">SMB は、 Windows システム向けの従来のファイルアクセスプロトコルです。クライアントは、 SMB 2.0 、 SMB 2.1 、 SMB 3.0 、および SMB 3.1.1 の各プロトコルを使用して ONTAP ボリューム内のファイルにアクセスできます。NFS と同様に、複数の形式の権限の組み合わせがサポートされています。</block>
   <block id="6958464059ef304c59d06fcb948ccafd" category="inline-link">ONTAP で S3 オブジェクトストレージサービスを設定および管理する方法について説明します</block>
-  <block id="75081fb4982f7b843e702079b35f0ed4" category="paragraph"><block ref="3fe75f10a35597997861eca633c30fa7" category="inline-link-rx"></block>。</block>
   <block id="cad02caeb4ee636c87f28b0bb1263080" category="inline-link-macro">サポートされるクライアントプロトコルおよびバージョンについて説明します</block>
   <block id="f0ddee23dd0d83f105bbdaa15ff5d87a" category="paragraph"><block ref="43c09f3d08ec80b50648a2a905bca06c" category="inline-link-macro-rx"></block>。</block>
   <block id="a6a8d3a613b6b7ece18f688d168e5cda" category="cell">API が AWS や ONTAP 、クラウドデータ検知、ランサムウェアサービス、ネットアップへの AutoSupport メッセージの送信を呼び出します</block>
@@ -4144,7 +4137,6 @@
   <block id="986e1f3279b4d74444bd32d4f833afbd" category="section-title">デジタルウォレット</block>
   <block id="d5503d6062daaaa4326462970164cbac" category="paragraph">デジタルウォレットに、アカウントで消費された合計容量とライセンスパッケージで消費された容量が表示されるようになりました。この情報は、料金の支払い方法や、容量の追加購入が必要かどうかを把握するのに役立ちます。</block>
   <block id="232ac716fdabb7e9b9ba7c3a108574a7" category="inline-image-macro">容量ベースのライセンスのデジタルウォレットページを示すスクリーンショット。アカウントの使用済み容量の概要が表示され、ライセンスパッケージ別に容量が表示されます。</block>
-  <block id="25151b376af0a0b205be15ab92b4cd97" category="paragraph"><block ref="25151b376af0a0b205be15ab92b4cd97" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d9c05beb7c27c53dc1cb952afddea3ac" category="section-title">Elastic Volumesの機能拡張</block>
   <block id="119ffefd11e6681de49e316bc16a471d" category="paragraph">Cloud Managerで、ユーザインターフェイスからCloud Volumes ONTAP の作業環境を作成する際に、Amazon EBS Elastic Volumes機能がサポートされるようになりました。Elastic Volumes機能は、GP3またはio1ディスクを使用している場合、デフォルトで有効になっています。初期容量はストレージのニーズに基づいて選択し、Cloud Volumes ONTAP の導入後に変更することができます。</block>
   <block id="0c5741d0ec0127a10c28f7c82579da32" category="inline-link-macro">Elastic VolumesのAWSサポートの詳細については、こちらをご覧ください</block>
@@ -4155,9 +4147,6 @@
   <block id="c55cc410beff8f86afc3ba8027b681f7" category="paragraph">9.10.1リリース以降、Azure West US 3リージョンでCloud Volumes ONTAP がサポートされるようになりました。</block>
   <block id="1a3362a1b5304a4e1e1112496974b9ae" category="section-title">AzureのONTAP S3ライセンス</block>
   <block id="e29ddfe6afa32fb2c96c8682f4ca73e8" category="paragraph">バージョン9.9.1以降を実行している新規および既存のCloud Volumes ONTAP システムに、Cloud ManagerによってONTAP S3ライセンスがAzureに自動的にインストールされるようになりました。</block>
-  <block id="82e8338c73d6540f48f2e0cc8d035511" category="list-text">マドリード（ヨーロッパ-南西部1）</block>
-  <block id="1a1145c860165dcd96b82eb7d32cd59f" category="list-text">パリ（ヨーロッパ-西9区）</block>
-  <block id="eb4cae07e62b958e999eaa4c0d9b254b" category="list-text">ワルシャワ（ヨーロッパ中央部2）</block>
   <block id="1cea3dd4ff4ec3b14e8632bf82e14041" category="list-text">GP3ディスクまたはio1ディスクを使用する場合は、初期アグリゲートでElastic Volumesが有効になっている新しいシステムを作成します</block>
   <block id="99ef8dc541c558ff343420594d6dcb5c" category="inline-link-macro">Cloud Volumes ONTAP システムの作成方法について説明します</block>
   <block id="f56c72fa8323042cbff6cb92648345ca" category="paragraph"><block ref="f56c72fa8323042cbff6cb92648345ca" category="inline-link-macro-rx"></block></block>
@@ -4223,4 +4212,13 @@
   <block id="bbb170bfbf4105204b0dbe4292724d6e" category="paragraph">次に、複数のライセンスパッケージがあるアカウントの例を示します。</block>
   <block id="9dbb08096054a8593f55c8cd3e2863d6" category="inline-image-macro">プロフェッショナルパッケージ、最適化パッケージ、および必須パッケージの消費容量を示すスクリーンショット。</block>
   <block id="943b03ddb77b543ab329dfed996ad4ac" category="paragraph"><block ref="943b03ddb77b543ab329dfed996ad4ac" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="998e6cc07bc5c3b4a2329ad21093316c" category="paragraph"><block ref="998e6cc07bc5c3b4a2329ad21093316c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3fe75f10a35597997861eca633c30fa7" category="paragraph"><block ref="3fe75f10a35597997861eca633c30fa7" category="inline-link-rx"></block></block>
+  <block id="e101009414989b26a668aca3a341820c" category="paragraph">&lt;stdin&gt;で未解決のディレクティブ:_include/whats-new-July - GCP.adoc[]</block>
+  <block id="c0d3ce4ea1bcde455d433b9182cdde33" category="list-text">左側のナビゲーションメニューから、* Digital Wallet *を選択します。</block>
+  <block id="5844b24c31c1897efda5443d984702f8" category="list-text">[*Node] Cloud Volumes ONTAP タブで、ドロップダウンから[*Node Based Licenses]を選択します。</block>
+  <block id="f3ea3c5e0bf5262dea3ca4f879eccdc7" category="list-text">左側のナビゲーションメニューから*Canvas *を選択します。</block>
+  <block id="666ac747a8d5a1aa317496f8add413a6" category="list-text">[* Cloud Volumes ONTAP *（ライセンスの追加）]タブで、[*容量ベースのライセンス*]を選択したまま、[*ライセンスの追加]をクリックします。</block>
+  <block id="ecdf6ba3b837de5910abdabc360df552" category="list-text">[ライセンスの更新*（Cloud Volumes ONTAP *）]タブで、ライセンスの横にあるアクションメニューをクリックし、[ライセンスの更新*（Update License *）]を選択します。</block>
+  <block id="5ca97f84ee577fbacf355fc75d23921d" category="list-text">[ライセンスの削除（Cloud Volumes ONTAP ）]タブで、ライセンスの横にあるアクションメニューをクリックし、[ライセンスの削除（Remove License）]を選択します。</block>
 </blocks>

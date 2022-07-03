@@ -33,8 +33,8 @@ link:concept-licensing.html["Cloud Volumes ONTAP ライセンスの詳細につ�
 デジタルウォレットページでは、シリアル番号と PAYGO ライセンスタイプを含む、 PAYGO Cloud Volumes ONTAP の各システムに関する詳細を表示できます。
 
 .手順
-. [ * すべてのサービス ] 、 [ デジタルウォレット ] 、 [ Cloud Volumes ONTAP * ] の順にクリックします。
-. ドロップダウンから [* Node Based Licenses] を選択します。
+. 左側のナビゲーションメニューから、* Digital Wallet *を選択します。
+. [*Node] Cloud Volumes ONTAP タブで、ドロップダウンから[*Node Based Licenses]を選択します。
 . [PAYGO] をクリックします。
 . PAYGO ライセンスごとに詳細を表に示します。
 +
@@ -56,8 +56,8 @@ image:screenshot_paygo_licenses.png["3 つのペイゴライセンスを含む�
 ノードベースのライセンスをデジタルウォレットに追加して、新しい Cloud Volumes ONTAP システムの作成時にライセンスを選択できるようにします。デジタルウォレットは、これらのライセンスを _unassigned _ として識別します。
 
 .手順
-. [ * すべてのサービス ] 、 [ デジタルウォレット ] 、 [ Cloud Volumes ONTAP * ] の順にクリックします。
-. ドロップダウンから [* Node Based Licenses] を選択します。
+. 左側のナビゲーションメニューから、* Digital Wallet *を選択します。
+. [*Node] Cloud Volumes ONTAP タブで、ドロップダウンから[*Node Based Licenses]を選択します。
 . [ * 未割り当て * （ Unassigned * ） ]
 . [ 未割り当てライセンスの追加 ] をクリックします。
 . ライセンスのシリアル番号を入力するか、ライセンスファイルをアップロードしてください。
@@ -84,8 +84,8 @@ Cloud Volumes ONTAP 用の未割り当てのノードベースライセンスが
 変換されたライセンスの有効期限は、 Cloud Volumes ONTAP ライセンスと同じです。
 
 .手順
-. [ * すべてのサービス ] 、 [ デジタルウォレット ] 、 [ Cloud Volumes ONTAP * ] の順にクリックします。
-. ドロップダウンから [* Node Based Licenses] を選択します。
+. 左側のナビゲーションメニューから、* Digital Wallet *を選択します。
+. [*Node] Cloud Volumes ONTAP タブで、ドロップダウンから[*Node Based Licenses]を選択します。
 . [ * 未割り当て * （ Unassigned * ） ]
 . [*Exchange ライセンス *] をクリックします。
 +
@@ -125,8 +125,8 @@ image:screenshot_license_generator.gif["スクリーンショット： NetApp Li
 Cloud Manager がセキュアなインターネット接続経由でライセンスファイルにアクセスできない場合は、ユーザがファイルを取得して、 Cloud Manager に手動でアップロードできます。
 
 .手順
-. [ * すべてのサービス ] 、 [ デジタルウォレット ] 、 [ Cloud Volumes ONTAP * ] の順にクリックします。
-. ドロップダウンから [* Node Based Licenses] を選択します。
+. 左側のナビゲーションメニューから、* Digital Wallet *を選択します。
+. [*Node] Cloud Volumes ONTAP タブで、ドロップダウンから[*Node Based Licenses]を選択します。
 . BYOL * タブで、 Cloud Volumes ONTAP システムの詳細を展開します。
 . システムライセンスの横にあるアクションメニューをクリックし、 * ライセンスの更新 * を選択します。
 . ライセンスファイル（ HA ペアがある場合はファイル）をアップロードします。
@@ -150,8 +150,8 @@ Cloud Volumes ONTAP BYOL システムの追加容量ライセンスを購入す�
 Cloud Manager の右下にあるチャットアイコンからお問い合わせいただき、容量ライセンスを追加購入してください。購入したライセンスは、 Cloud Volumes ONTAP システムに適用できます。
 
 .手順
-. [ * すべてのサービス ] 、 [ デジタルウォレット ] 、 [ Cloud Volumes ONTAP * ] の順にクリックします。
-. ドロップダウンから [* Node Based Licenses] を選択します。
+. 左側のナビゲーションメニューから、* Digital Wallet *を選択します。
+. [*Node] Cloud Volumes ONTAP タブで、ドロップダウンから[*Node Based Licenses]を選択します。
 . BYOL * タブで、 Cloud Volumes ONTAP システムの詳細を展開します。
 . [Add Capacity License*] をクリックします。
 . シリアル番号を入力するか、ライセンスファイル（ HA ペアを使用している場合はファイル）をアップロードします。
@@ -165,8 +165,8 @@ Cloud Manager の右下にあるチャットアイコンからお問い合わせ
 容量を追加するライセンスを延長した場合は、 Cloud Manager でライセンスを更新する必要があります。
 
 .手順
-. [ * すべてのサービス ] 、 [ デジタルウォレット ] 、 [ Cloud Volumes ONTAP * ] の順にクリックします。
-. ドロップダウンから [* Node Based Licenses] を選択します。
+. 左側のナビゲーションメニューから、* Digital Wallet *を選択します。
+. [*Node] Cloud Volumes ONTAP タブで、ドロップダウンから[*Node Based Licenses]を選択します。
 . BYOL * タブで、 Cloud Volumes ONTAP システムの詳細を展開します。
 . 容量ライセンスの横にあるアクションメニューをクリックし、 * ライセンスの更新 * を選択します。
 . ライセンスファイル（ HA ペアがある場合はファイル）をアップロードします。
@@ -180,8 +180,8 @@ Cloud Manager の右下にあるチャットアイコンからお問い合わせ
 使用されなくなったために期限切れになった容量ライセンスは、いつでも削除できます。
 
 .手順
-. [ * すべてのサービス ] 、 [ デジタルウォレット ] 、 [ Cloud Volumes ONTAP * ] の順にクリックします。
-. ドロップダウンから [* Node Based Licenses] を選択します。
+. 左側のナビゲーションメニューから、* Digital Wallet *を選択します。
+. [*Node] Cloud Volumes ONTAP タブで、ドロップダウンから[*Node Based Licenses]を選択します。
 . BYOL * タブで、 Cloud Volumes ONTAP システムの詳細を展開します。
 . 容量ライセンスの横にあるアクションメニューをクリックし、 * ライセンスの削除 * を選択します。
 . [ 削除（ Remove ） ] をクリックします。
@@ -200,8 +200,8 @@ Eval ライセンスを BYOL に変換すると、 Cloud Manager は Cloud Volum
 
 
 .手順
-. [ * すべてのサービス ] 、 [ デジタルウォレット ] 、 [ Cloud Volumes ONTAP * ] の順にクリックします。
-. ドロップダウンから [* Node Based Licenses] を選択します。
+. 左側のナビゲーションメニューから、* Digital Wallet *を選択します。
+. [*Node] Cloud Volumes ONTAP タブで、ドロップダウンから[*Node Based Licenses]を選択します。
 . 「 * 評価 * 」をクリックします。
 . 表で、 Cloud Volumes ONTAP システムの *Convert to BYOL License* をクリックします。
 . シリアル番号を入力するか、ライセンスファイルをアップロードしてください。

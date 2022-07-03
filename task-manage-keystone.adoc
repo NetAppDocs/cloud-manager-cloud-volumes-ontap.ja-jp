@@ -29,7 +29,7 @@ link:concept-licensing.html["Cloud Volumes ONTAP ライセンスの詳細につ�
 Cloud Manager で Keystone Flex Subscriptions を使用して管理する前に、ネットアップに連絡して、 Keystone Flex Subscriptions で Cloud Manager ユーザアカウントを承認する必要があります。
 
 .手順
-. [ * すべてのサービス ] > [ デジタルウォレット * ] をクリックします。
+. 左側のナビゲーションメニューから、* Digital Wallet *を選択します。
 . [* Keystone Flex Subscription* ] をクリックします。
 . 「 NetApp Keystone へようこそ」ページが表示された場合は、ページに記載されているアドレスにメールを送信してください。
 +
@@ -50,7 +50,7 @@ Cloud Volumes ONTAP で使用するサブスクリプションをリンクしま
 ネットアップがアカウントを承認したら、 Keystone Flex Subscriptions をリンクして Cloud Volumes ONTAP で使用できるようにする必要があります。この操作により、新しい Cloud Volumes ONTAP システムの充電方法としてサブスクリプションを選択できます。
 
 .手順
-. [ * すべてのサービス ] > [ デジタルウォレット * ] をクリックします。
+. 左側のナビゲーションメニューから、* Digital Wallet *を選択します。
 . [* Keystone Flex Subscription* ] をクリックします。
 . リンクするサブスクリプションの場合は、をクリックします image:icon-action.png["横方向の 3 つの点を示すアイコン"] をクリックし、 * Link * を選択します。
 +
@@ -67,7 +67,7 @@ image:screenshot-keystone-link.png["サブスクリプションのリンクオ�
 サブスクリプションのコミット済み容量を調整する必要がある場合は、 Cloud Manager のインターフェイスから直接要求を送信できます。
 
 .手順
-. [ * すべてのサービス ] > [ デジタルウォレット * ] をクリックします。
+. 左側のナビゲーションメニューから、* Digital Wallet *を選択します。
 . [* Keystone Flex Subscription* ] をクリックします。
 . 容量を調整するサブスクリプションの場合、をクリックします image:icon-action.png["横方向の 3 つの点を示すアイコン"] をクリックし、 * 詳細を表示して編集 * を選択します。
 . 1 つ以上のサブスクリプションのコミット済み容量を入力します。
@@ -86,7 +86,7 @@ image:screenshot-keystone-request.png["サブスクリプションのコミッ�
 新しい Cloud Volumes ONTAP システムで Keystone Flex サブスクリプションを使用する必要がなくなった場合は、サブスクリプションのリンクを解除できます。既存の Cloud Volumes ONTAP サブスクリプションに関連付けられていないサブスクリプションはリンク解除のみ可能です。
 
 .手順
-. [ * すべてのサービス ] > [ デジタルウォレット * ] をクリックします。
+. 左側のナビゲーションメニューから、* Digital Wallet *を選択します。
 . [* Keystone Flex Subscription* ] をクリックします。
 . リンクを解除するサブスクリプションの場合は、をクリックします image:icon-action.png["横方向の 3 つの点を示すアイコン"] をクリックし、 * リンク解除 * を選択します。
 
