@@ -4142,11 +4142,9 @@
   <block id="0c5741d0ec0127a10c28f7c82579da32" category="inline-link-macro">Elastic VolumesのAWSサポートの詳細については、こちらをご覧ください</block>
   <block id="3cc8cd9bef921086f444d55cf1ea25c6" category="paragraph"><block ref="a2865c7bad4b206df6582ad55cba915e" category="inline-link-macro-rx"></block>。</block>
   <block id="7fb4d101a5e000398c4d5b4c48b802a6" category="section-title">AWSのONTAP S3ライセンス</block>
-  <block id="e1d7a3ee89947f3549d385865ef27dda" category="paragraph">バージョン9.11.0以降を実行している新規および既存のCloud Volumes ONTAP システムには、AWSにONTAP S3ライセンスが自動的にインストールされるようになりました。</block>
   <block id="c86d179c90248acd6ebdba05bd94320c" category="section-title">Azure Cloudリージョンが新たにサポートされます</block>
   <block id="c55cc410beff8f86afc3ba8027b681f7" category="paragraph">9.10.1リリース以降、Azure West US 3リージョンでCloud Volumes ONTAP がサポートされるようになりました。</block>
   <block id="1a3362a1b5304a4e1e1112496974b9ae" category="section-title">AzureのONTAP S3ライセンス</block>
-  <block id="e29ddfe6afa32fb2c96c8682f4ca73e8" category="paragraph">バージョン9.9.1以降を実行している新規および既存のCloud Volumes ONTAP システムに、Cloud ManagerによってONTAP S3ライセンスがAzureに自動的にインストールされるようになりました。</block>
   <block id="1cea3dd4ff4ec3b14e8632bf82e14041" category="list-text">GP3ディスクまたはio1ディスクを使用する場合は、初期アグリゲートでElastic Volumesが有効になっている新しいシステムを作成します</block>
   <block id="99ef8dc541c558ff343420594d6dcb5c" category="inline-link-macro">Cloud Volumes ONTAP システムの作成方法について説明します</block>
   <block id="f56c72fa8323042cbff6cb92648345ca" category="paragraph"><block ref="f56c72fa8323042cbff6cb92648345ca" category="inline-link-macro-rx"></block></block>
@@ -4221,4 +4219,8 @@
   <block id="666ac747a8d5a1aa317496f8add413a6" category="list-text">[* Cloud Volumes ONTAP *（ライセンスの追加）]タブで、[*容量ベースのライセンス*]を選択したまま、[*ライセンスの追加]をクリックします。</block>
   <block id="ecdf6ba3b837de5910abdabc360df552" category="list-text">[ライセンスの更新*（Cloud Volumes ONTAP *）]タブで、ライセンスの横にあるアクションメニューをクリックし、[ライセンスの更新*（Update License *）]を選択します。</block>
   <block id="5ca97f84ee577fbacf355fc75d23921d" category="list-text">[ライセンスの削除（Cloud Volumes ONTAP ）]タブで、ライセンスの横にあるアクションメニューをクリックし、[ライセンスの削除（Remove License）]を選択します。</block>
+  <block id="8152540df51584ebf79193211a381d46" category="paragraph">AWSでバージョン9.11.0以降を実行している新規および既存のCloud Volumes ONTAP システムにONTAP S3ライセンスが追加されました。</block>
+  <block id="f225a4f57ea32da8b983d7bffd20b6eb" category="paragraph">バージョン9.9.1以降を実行する新規および既存のCloud Volumes ONTAP システムにONTAP S3ライセンスが追加されました。</block>
+  <block id="809e3658d55a8182673968a51f763bd4" category="inline-link">ONTAP ランサムウェア対策機能</block>
+  <block id="286a15f897b0ea49a39300795dbb689e" category="paragraph">この機能を使用すると、ランサムウェアに対する保護を強化し、とは別のユースケースに対処できます<block ref="4212bad7bd1fb5a7b1b9d017fd36eeae" category="inline-link-rx"></block> 有効にするには、System ManagerまたはONTAP CLIを使用します。</block>
 </blocks>
