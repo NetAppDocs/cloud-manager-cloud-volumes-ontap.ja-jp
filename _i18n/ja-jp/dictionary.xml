@@ -1180,8 +1180,6 @@
   <block id="9cc699a3c9c133d094ca124626325568" category="paragraph">DNS 名は Azure DNS の命名規則と一致している必要があります 要件<block ref="6fc4fbd803a50e88fc639ed7537b302d" category="inline-link-rx"></block>。</block>
   <block id="a06cf36058872986abd7f3dd286084e3" category="list-text">コネクタホストに SSH 接続してログインします。</block>
   <block id="fccc9b1aa20f1188588a2827e62fa40a" category="list-text">次のディレクトリに移動します。 /opt/application/NetApp/cloudmanager/docx_occm/data</block>
-  <block id="47ea64e6173d0ab4cda577e25a2d608b" category="list-text">次のパラメータを図のように変更して app.conf を編集します。</block>
-  <block id="03df5ed990dc79c8e6e9d61bc890ac4f" category="paragraph">Subscription パラメータが必要なのは、プライベート DNS ゾーンがコネクタとは異なるサブスクリプションに存在する場合だけです。</block>
   <block id="6f35ba1af4056628e6fc10196137fc15" category="list-text">ファイルを保存し、コネクタからログオフします。</block>
   <block id="4dbd1699313f9a246cfb29418554adf1" category="paragraph">再起動は必要ありません。</block>
   <block id="65d4f53995ffa0759f8e9ed896c6e68e" category="section-title">障害発生時のロールバックを有効にする</block>
@@ -4223,4 +4221,7 @@
   <block id="f225a4f57ea32da8b983d7bffd20b6eb" category="paragraph">バージョン9.9.1以降を実行する新規および既存のCloud Volumes ONTAP システムにONTAP S3ライセンスが追加されました。</block>
   <block id="809e3658d55a8182673968a51f763bd4" category="inline-link">ONTAP ランサムウェア対策機能</block>
   <block id="286a15f897b0ea49a39300795dbb689e" category="paragraph">この機能を使用すると、ランサムウェアに対する保護を強化し、とは別のユースケースに対処できます<block ref="4212bad7bd1fb5a7b1b9d017fd36eeae" category="inline-link-rx"></block> 有効にするには、System ManagerまたはONTAP CLIを使用します。</block>
+  <block id="21f6d246225534dc3444037c83f109c3" category="list-text">「user-private-dns-zone-settings」パラメータに次のキーワードと値のペアを追加して、app.confを編集します。</block>
+  <block id="b5544a18e847192d0e5a82658b3e0f92" category="paragraph">パラメータは、「system-id」と同じレベルで入力する必要があります。</block>
+  <block id="ff9fcf498a74a638ff2a01da3cae4468" category="paragraph">subscriptionKeywordは、プライベートDNSゾーンがコネクタとは異なるサブスクリプションに存在する場合にのみ必要です。</block>
 </blocks>

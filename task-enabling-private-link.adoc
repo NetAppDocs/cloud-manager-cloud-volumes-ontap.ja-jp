@@ -74,17 +74,25 @@ DNS 名は Azure DNS の命名規則と一致している必要があります �
 .手順
 . コネクタホストに SSH 接続してログインします。
 . 次のディレクトリに移動します。 /opt/application/NetApp/cloudmanager/docx_occm/data
-. 次のパラメータを図のように変更して app.conf を編集します。
+. 「user-private-dns-zone-settings」パラメータに次のキーワードと値のペアを追加して、app.confを編集します。
 +
 ....
-"user-private-dns-zone-settings": {
-   "use-existing": true,
-   "resource-group": "<resource group name of the DNS zone>",
-   "subscription": "<subscription ID>"
-  }
+"user-private-dns-zone-settings" : {
+   "resource-group" : "<resource group name of the DNS zone>",
+   "subscription" : "<subscription ID>",
+   "use-existing" : true
+}
 ....
 +
-Subscription パラメータが必要なのは、プライベート DNS ゾーンがコネクタとは異なるサブスクリプションに存在する場合だけです。
+パラメータは、「system-id」と同じレベルで入力する必要があります。
+
++
+....
+"system-id" : "<system ID>",
+"user-private-dns-zone-settings" : {
+....
++
+subscriptionKeywordは、プライベートDNSゾーンがコネクタとは異なるサブスクリプションに存在する場合にのみ必要です。
 
 . ファイルを保存し、コネクタからログオフします。
 +
