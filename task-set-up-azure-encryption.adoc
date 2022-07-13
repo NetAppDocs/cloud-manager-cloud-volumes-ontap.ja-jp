@@ -110,7 +110,7 @@ HA ペア::
 "Microsoft.KeyVault/vaults/read",
 "Microsoft.KeyVault/vaults/accessPolicies/write"
 ----
-最新の権限のリストは、で確認できます https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager のポリシーのページです"^]。
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html["権限の最新のリストを表示します"^]
 
 
 NOTE: 最初の3つの権限はHAペアには必要ありません。

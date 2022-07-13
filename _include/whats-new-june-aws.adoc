@@ -19,7 +19,7 @@ Elastic Volumesをサポートするために、Connectorに対する新しいAW
 "ec2:DescribeVolumesModifications",
 "ec2:ModifyVolume",
 ----
-Cloud Managerに追加したAWSクレデンシャルの各セットに、これらの権限を必ず付与してください。最新の権限のリストは、で確認できます https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager のポリシーのページです"^]。
+Cloud Managerに追加したAWSクレデンシャルの各セットに、これらの権限を必ず付与してください。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["AWSの最新のコネクタポリシーを確認します"^]。
 
 
 

@@ -56,6 +56,8 @@ sidebar:
           url: "/reference-security-groups.html"
       - title: AWS KMS を設定します
         url: "/task-setting-up-kms.html"
+      - title: IAMロールを設定する
+        url: "/task-set-up-iam-roles.html"
       - title: ライセンスをセットアップする
         url: "/task-set-up-licensing-aws.html"
       - title: AWS で Cloud Volumes ONTAP を起動します

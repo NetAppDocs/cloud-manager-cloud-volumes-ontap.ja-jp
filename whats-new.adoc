@@ -121,7 +121,7 @@ Elastic Volumesをサポートするために、Connectorに対する新しいAW
 "ec2:DescribeVolumesModifications",
 "ec2:ModifyVolume",
 ----
-Cloud Managerに追加したAWSクレデンシャルの各セットに、これらの権限を必ず付与してください。最新の権限のリストは、で確認できます https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager のポリシーのページです"^]。
+Cloud Managerに追加したAWSクレデンシャルの各セットに、これらの権限を必ず付与してください。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["AWSの最新のコネクタポリシーを確認します"^]。
 
 
 
@@ -233,7 +233,7 @@ https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-tiering.htm
 ----
 これらの権限は、Cloud Managerによる配置グループの作成方法を最適化するために必要になります。
 
-Cloud Managerに追加したAWSクレデンシャルの各セットに、これらの権限を必ず付与してください。最新の権限のリストは、で確認できます https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager のポリシーのページです"^]。
+Cloud Managerに追加したAWSクレデンシャルの各セットに、これらの権限を必ず付与してください。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["AWSの最新のコネクタポリシーを確認します"^]。
 
 endif::aws[]
 
@@ -579,7 +579,7 @@ image:screenshot_azure_resource_group.png["既存のリソースグループを�
 "Microsoft.Network/privateEndpoints/delete",
 "Microsoft.Compute/availabilitySets/delete",
 ----
-Cloud Manager に追加した Azure クレデンシャルの各セットに、これらの権限を必ず付与してください。最新の権限のリストは、で確認できます https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager のポリシーのページです"^]。
+Cloud Manager に追加した Azure クレデンシャルの各セットに、これらの権限を必ず付与してください。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html["Azureの最新のコネクタポリシーを表示します"^]。
 
 
 
@@ -673,7 +673,7 @@ Cloud Volumes ONTAP システムの導入時および電源をオフにするた
 
 ifdef::azure[]
 
-Azure スナップショットを削除するには、 Connector で新しい権限が必要になることに注意してください。 https://mysupport.netapp.com/site/info/cloud-manager-policies["Azure の最新の Cloud Manager ポリシーを表示します"^]。
+Azure スナップショットを削除するには、 Connector で新しい権限が必要になることに注意してください。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html["Azureの最新のコネクタポリシーを表示します"^]。
 
 [source, json]
 ----

@@ -150,14 +150,14 @@ ifdef::azure[]
 
 === コールドデータを Azure BLOB ストレージに階層化するための要件
 
-必要な権限が Cloud Manager に割り当てられていれば、パフォーマンス階層と大容量階層の間に接続を設定する必要はありません。Cloud Manager ポリシーに以下の権限が設定されている場合、 Cloud Manager は VNet サービスエンドポイントを有効にします。
+必要な権限が Cloud Manager に割り当てられていれば、パフォーマンス階層と大容量階層の間に接続を設定する必要はありません。Cloud Managerでは、コネクタのカスタムロールに次の権限がある場合にVNetサービスエンドポイントを有効にします。
 
 [source, json]
 ----
 "Microsoft.Network/virtualNetworks/subnets/write",
 "Microsoft.Network/routeTables/join/action",
 ----
-権限は最新のに含まれています https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager ポリシー"]。
+権限はデフォルトでカスタムロールに含まれています。 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html["ConnectorのAzure権限を表示します"^]
 
 endif::azure[]
 

@@ -69,7 +69,7 @@ Elastic Volumes機能は、汎用SSD（GP3）またはプロビジョニング�
 * EC2：ModifyVolume
 
 
-これらの権限はに含まれています https://mysupport.netapp.com/site/info/cloud-manager-policies["ネットアップが提供するポリシー"^]
+これらの権限はに含まれています https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["ネットアップが提供するポリシー"^]
 
 
 

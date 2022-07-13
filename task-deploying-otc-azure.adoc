@@ -101,7 +101,7 @@ Cloud Volumes ONTAP の新しいリソースグループを作成するか、既
 Azure に導入する Cloud Volumes ONTAP HA ペアごとに専用のリソースグループを使用する必要があります。リソースグループでサポートされる HA ペアは 1 つだけです。Azure リソースグループに 2 つ目の Cloud Volumes ONTAP HA ペアを導入しようとすると、 Cloud Manager で接続の問題が発生します。
 
 
-TIP: 使用している Azure アカウントにが割り当てられている場合 https://mysupport.netapp.com/site/info/cloud-manager-policies["必要な権限"^]導入の失敗や削除が発生した場合、 Cloud Manager はリソースグループから Cloud Volumes ONTAP リソースを削除します。
+TIP: 使用している Azure アカウントにが割り当てられている場合 https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html["必要な権限"^]導入の失敗や削除が発生した場合、 Cloud Manager はリソースグループから Cloud Volumes ONTAP リソースを削除します。
 
 
 

@@ -120,7 +120,6 @@
   <block id="2d6e88c43d1b87d3d042cce1773371b7" category="paragraph">Cloud Volumes ONTAP の新しいリソースグループを作成するか、既存のリソースグループを使用します。Cloud Volumes ONTAP には、新しい専用のリソースグループを使用することを推奨します。既存の共有リソースグループに Cloud Volumes ONTAP を導入することは可能ですが、データ損失のリスクがあるため推奨されません。詳細については、上記の警告を参照してください。</block>
   <block id="c9187ee1a002f195f99a19e00d1b9596" category="paragraph">Azure に導入する Cloud Volumes ONTAP HA ペアごとに専用のリソースグループを使用する必要があります。リソースグループでサポートされる HA ペアは 1 つだけです。Azure リソースグループに 2 つ目の Cloud Volumes ONTAP HA ペアを導入しようとすると、 Cloud Manager で接続の問題が発生します。</block>
   <block id="21c199e82e474a9a5607a2b9ccb8e66f" category="inline-link">必要な権限</block>
-  <block id="24890578d550dfd7eafc2569059f89e2" category="admonition">使用している Azure アカウントにが割り当てられている場合<block ref="a18b1518901620e43c44c260945ff7cb" category="inline-link-rx"></block>導入の失敗や削除が発生した場合、 Cloud Manager はリソースグループから Cloud Volumes ONTAP リソースを削除します。</block>
   <block id="338578acf7e0dc54ebcd8c3592f0b022" category="cell">セキュリティグループ</block>
   <block id="aeba611d332bf85ad8d5a14dd92fa935" category="inline-link-macro">デフォルトのセキュリティグループを表示します</block>
   <block id="44651ffc55fe78607ad39789f43eab9b" category="cell">既存のセキュリティグループを選択する場合は、 Cloud Volumes ONTAP の要件を満たす必要があります。 <block ref="f88b68abd6e0fcb97b26739e6dccf3c6" category="inline-link-macro-rx"></block>。</block>
@@ -368,8 +367,6 @@
   <block id="74b0825a91f70136708bc63f9253e89c" category="paragraph">Cloud Volumes ONTAP は、シングルノード構成または Google Cloud Platform の HA ペアとして起動できます。</block>
   <block id="8fece025a1a8fef7018449bf104a2527" category="section-title">始める前に</block>
   <block id="3a2e3bd3692b5b10d4e8d1876ea764e4" category="list-text">を用意しておく必要があります<block ref="31efb472d9740ae4bd5b3185af479587" category="inline-link-rx"></block>。</block>
-  <block id="bd6c369240f89bf86e4b626364f908e2" category="inline-link-macro">最新の権限が必要です</block>
-  <block id="3321bc090ceb16b6084591444ef6cd3a" category="list-text">コネクタに関連付けられているサービスアカウント <block ref="64a8bbbeae7df623fa565fb7d6d95fe1" category="inline-link-macro-rx"></block>。</block>
   <block id="af2fe545c466e4cd2bff03fb7e3dd4f2" category="paragraph">設定を選択し、管理者から GCP ネットワーク情報を取得して準備を完了しておく必要があります。詳細については、を参照してください <block ref="7c40283f4f533a5903d1033c57ef27f4" category="inline-link-macro-rx"></block>。</block>
   <block id="fb387d3403e9d0f4168631a5c1e65d3d" category="inline-link">プロジェクトで有効にします</block>
   <block id="3f7dd317abe229076594c229e96f375d" category="list-text">Google Cloud API はとする必要があります<block ref="2bf1d71c4d11fe94040400dbdd9bbe2e" category="inline-link-rx"></block>：</block>
@@ -889,8 +886,6 @@
   <block id="1b267f21193669a66008c34cc479a4fc" category="inline-image-macro">既存のリソースグループを選択できる作業環境作成ウィザードのスクリーンショット。</block>
   <block id="cad0012f66cb2f1cfe9fddf03895f77e" category="paragraph"><block ref="cad0012f66cb2f1cfe9fddf03895f77e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ea2f95cd186ab87bca1dcce34b32534a" category="paragraph">導入に失敗したり削除したりした場合、 Cloud Manager は次の権限を使用してリソースグループから Cloud Volumes ONTAP リソースを削除します。</block>
-  <block id="eaf263597aafb24c99ce4e16af420ae8" category="inline-link">Cloud Manager のポリシーのページです</block>
-  <block id="5a0c4362aa70d1aeb52c4b022fd88361" category="paragraph">Cloud Manager に追加した Azure クレデンシャルの各セットに、これらの権限を必ず付与してください。最新の権限のリストは、で確認できます<block ref="0e92ab1ca454f31f07a6e5fba6519a3a" category="inline-link-rx"></block>。</block>
   <block id="0a3c5ad9f109853d264fbf6240883bfe" category="section-title">Blob パブリックアクセスが Azure で無効になりました</block>
   <block id="3d0f1890147e4cb614f14a676c8ef588" category="paragraph">セキュリティの強化として、 Cloud Volumes ONTAP 用のストレージアカウントの作成時に Cloud Manager で * Blob パブリックアクセス * が無効になるようになりました。</block>
   <block id="aef1ee9aa40596fa2f356372bd8af7d5" category="section-title">Azure Private Link の機能強化</block>
@@ -922,8 +917,6 @@
   <block id="bf3fded166c9420fbd66b824ce9bbc0b" category="section-title">古いクラウド Snapshot の削除</block>
   <block id="63c06d07a1fa7b849380de0fd3b1183b" category="paragraph">Cloud Volumes ONTAP システムの導入時および電源をオフにするたびに作成されたルートディスクとブートディスクの古いクラウド Snapshot が Cloud Manager で削除されるようになりました。ルートボリュームとブートボリュームの両方に対して最新の 2 つの Snapshot のみが保持されます。</block>
   <block id="f39a950236a2ad655637cfc92f42e08a" category="paragraph">この機能拡張により、不要になった Snapshot を削除することでクラウドプロバイダのコストを削減できます。</block>
-  <block id="c6864fba0c63991f673104f8962961a0" category="inline-link">Azure の最新の Cloud Manager ポリシーを表示します</block>
-  <block id="39a27239d032dc234fdb9bf37df2907f" category="paragraph">Azure スナップショットを削除するには、 Connector で新しい権限が必要になることに注意してください。<block ref="a2c3d86df958bba3f2cf61370f533f94" category="inline-link-rx"></block>。</block>
   <block id="838ebd02c4e75e1a01b87638b45ee617" category="section-title">2021 年 5 月 24 日</block>
   <block id="910d8975bd41857a0103e9a8657ea7d9" category="section-title">Cloud Volumes ONTAP 9.9.1</block>
   <block id="c863fcd8d7f3278495a83acff7ce4871" category="paragraph">Cloud Volumes ONTAP 9.9.9..1. を導入および管理できるようになりました。</block>
@@ -1305,9 +1298,6 @@
   <block id="35e4967d2a2e90d7bfa5caff34b2036e" category="paragraph">Cloud Manager では、 AWS での Cloud Volumes ONTAP の実行に関連するリソースコストを確認できます。また、ネットアップの機能を使用してストレージコストを削減し、どれだけのコストを節約したかを確認することもできます。</block>
   <block id="a5d977ba36574331e6fac69ee299d352" category="paragraph">ページを更新すると、 Cloud Manager によってコストが更新されます。最終的なコストの詳細については、 AWS を参照してください。</block>
   <block id="ef6804a71d4dc1bde5a7f23c03679def" category="list-text">Cloud Manager から AWS からコスト情報を取得できることを確認します。</block>
-  <block id="54656853d86488021d6d7dbdb510aa1d" category="list-text">Cloud Manager に権限を提供する IAM ポリシーに次の操作が含まれていることを確認します。</block>
-  <block id="d76af3fd99bc3d655a1c7ebb39340b6f" category="inline-link">Cloud Manager ポリシー</block>
-  <block id="387b1d5a0d67dbd2eb72b8f47d9d96c2" category="paragraph">これらのアクションは最新のに含まれています<block ref="0dc063d42cd9e31c0e2c7df9df595c9f" category="inline-link-rx"></block>。これらの権限は、 NetApp Cloud Central から自動的に導入された新しいシステムに含まれます。</block>
   <block id="de4e4bb6bc85c14c6a8601fd20afdca3" category="inline-link">* WorkingEnvironmentId* タグをアクティブにします</block>
   <block id="ee0050b628db7de40e04e661d528d91f" category="list-text"><block ref="541edff71c56eae6d36d5f7a463cfcca" category="inline-link-rx"></block>。</block>
   <block id="2a8cdc8078be7ba49f8cc84255ed8462" category="paragraph">AWS のコストを追跡するために、 Cloud Manager はコスト割り当てタグを Cloud Volumes ONTAP インスタンスに割り当てます。最初の作業環境を作成したら、 * WorkingEnvironmentId * タグをアクティブ化します。ユーザ定義のタグは、請求とコスト管理のコンソールでアクティブ化するまでは AWS 請求レポートに表示されません。</block>
@@ -2481,8 +2471,6 @@
   <block id="d9483fef78159e6b7c5c069f6308ec9e" category="doc">お客様が管理する暗号化キーを Cloud Volumes ONTAP で使用する</block>
   <block id="769b2b29e604b8ed7cfb5dd3f4866402" category="paragraph">Google Cloud Storage では常にデータが暗号化されてからディスクに書き込まれますが、 Cloud Manager API を使用して、 _cuser-managed 暗号化キー _ を使用する Cloud Volumes ONTAP システムを作成できます。これらは、 Cloud Key Management Service を使用して GCP で生成および管理するキーです。</block>
   <block id="b9619c1148373a636c12c8213eddff6c" category="list-text">キーが格納されているプロジェクトのプロジェクトレベルで、 Cloud Manager Connector サービスアカウントの権限が正しいことを確認します。</block>
-  <block id="ba4d50b593a64cf3bc09099137fea857" category="inline-link">Cloud Manager YAML ファイル</block>
-  <block id="26acc058d297ac8811f53111c6405f4c" category="paragraph">権限はから提供されます<block ref="1c047ede583bccd8d55f27e40850ab68" category="inline-link-rx"></block> デフォルトでは、 Cloud Key Management Service に別のプロジェクトを使用する場合は適用できません。</block>
   <block id="8d6f8ae15f085c0f77796ef25c3e542f" category="paragraph">権限は次のとおりです。</block>
   <block id="e58a4fe969b25e78703eca19dbe150f4" category="inline-link">Google Compute Engine Service Agent</block>
   <block id="f83957d35ae58c124cdefecdb0acb6d2" category="list-text">のサービスアカウントを確認します<block ref="20c753a1b4fa297bc9e2c3ab9d93174c" category="inline-link-rx"></block> キーに対する Cloud KMS の暗号化 / 復号化権限があることを確認します。</block>
@@ -2796,8 +2784,6 @@
   <block id="389b4752108a2a4a55739697be41dad2" category="paragraph">Cloud Volumes ONTAP が S3 に接続されていることを確認します。この接続を提供する最善の方法は、 S3 サービスへの vPC エンドポイントを作成することです。手順については、を参照してください<block ref="739944581ddd86bd6d09f3841372a69b" category="inline-link-rx"></block>。</block>
   <block id="9daf3764d930a69c2d6feecf1143803d" category="paragraph">問題が発生した場合は、を参照してください<block ref="133eaae00ad88e811386070963e01d00" category="inline-link-rx"></block>。</block>
   <block id="9937c497b7ba5b93c4e025e7034a6ab2" category="section-title">コールドデータを Azure BLOB ストレージに階層化するための要件</block>
-  <block id="69fc3aa126fc7a09511fee14d2ec37b4" category="paragraph">必要な権限が Cloud Manager に割り当てられていれば、パフォーマンス階層と大容量階層の間に接続を設定する必要はありません。Cloud Manager ポリシーに以下の権限が設定されている場合、 Cloud Manager は VNet サービスエンドポイントを有効にします。</block>
-  <block id="aaf6c9386307243e0c7f006a0f97bb52" category="paragraph">権限は最新のに含まれています<block ref="7fc49a88d4bedbc1252c1f5516a8dc2a" category="inline-link-rx"></block>。</block>
   <block id="fa1042438bed47a60c15908b94fd42c4" category="section-title">コールドデータを Google Cloud Storage に階層化するための要件 バケット</block>
   <block id="5a73034af6b91167e9ba69ce44d86e8f" category="list-text">Cloud Volumes ONTAP が存在するサブネットは、プライベート Google アクセス用に設定する必要があります。手順については、を参照してください<block ref="46bdb5a1fb51df5eb32e2147ea91e6d8" category="inline-link-rx"></block>。</block>
   <block id="afe7022770dc53fd2a2de81727d4343a" category="list-text">バケットをお客様が管理する暗号化キーで暗号化するには、 Google Cloud ストレージバケットでキーを使用できるようにします。</block>
@@ -2913,7 +2899,6 @@
   <block id="ee838eedbc836643e82292aaec35e9bd" category="section-title">暗号化キーを使用する作業環境を作成します</block>
   <block id="b182b79adc6d3d917ce345097c4ccd53" category="paragraph">キーヴォールトを作成して暗号化キーを生成したら、そのキーを使用するように設定した新しい Cloud Volumes ONTAP システムを作成できます。これらの手順は、 Cloud Manager API を使用してサポートされています。</block>
   <block id="60caa3723d35318302867d5f5c093f4a" category="paragraph">シングルノードの Cloud Volumes ONTAP システムでお客様が管理するキーを使用する場合は、 Cloud Manager Connector で次の権限を確認します。</block>
-  <block id="9de255345c89e4a84f3125ff96e9f3ed" category="paragraph">最新の権限のリストは、で確認できます<block ref="0e92ab1ca454f31f07a6e5fba6519a3a" category="inline-link-rx"></block>。</block>
   <block id="c4e08114666cf6bc480ea8458e1dd083" category="list-text">次の Cloud Manager API 呼び出しを使用して、 Azure サブスクリプション内の主要なバックアップのリストを取得します。</block>
   <block id="b5bc96f48f2241c984568df161fa1a37" category="paragraph">HA ペアの場合：「 GET /azure-ha/ma/metadata/vaults 」</block>
   <block id="ac20be2c156e351d08e2cd3c7c63b584" category="paragraph">シングルノードの場合：「 GET /azure-vsa/metadata/vaults 」</block>
@@ -3037,7 +3022,6 @@
   <block id="aa1a1dda4b1ade9ea7484b8f180091ba" category="paragraph">いずれかのパッケージを選択した場合、ボリュームを指定し、構成を確認および承認するだけで済みます。</block>
   <block id="c449e34e5848c75cf2ae5048d97482c1" category="list-text">* IAM ロール * ： Cloud Manager にロールを割り当てるには、デフォルトのオプションを使用することを推奨します。</block>
   <block id="bef2f3bc1b5f6b5fc3eaabff818b8b07" category="inline-link">Cloud Volumes ONTAP ノードのポリシーの要件</block>
-  <block id="28df6ca63a931a73e42bb1a5832f842b" category="paragraph">独自のポリシーを使用する場合は、それが満たされている必要があります<block ref="e6af531133ecd89e70d5f32cb2437c92" category="inline-link-rx"></block>。</block>
   <block id="a6fcc094aa2aa8328784bade825b168a" category="inline-link-macro">データ階層化の仕組みをご確認ください</block>
   <block id="e3d16ce79bcead59781233b93cb58009" category="paragraph"><block ref="204d09224c7e7513a2d3fc955e6c2d5a" category="inline-link-macro-rx"></block>。</block>
   <block id="92a1203fc5511fdb287e0ca1b80062ce" category="list-text">* 使用状況プロファイル、ディスクタイプ、階層化ポリシー * ：必要に応じて、 Storage Efficiency 機能を有効にするかどうかを選択し、ボリューム階層化ポリシーを編集します。</block>
@@ -3064,7 +3048,6 @@
   <block id="0d27f0f1131dc607258f48d5dc5dcf14" category="list-text">* ルートテーブル * ：複数の AZ を選択した場合は、フローティング IP アドレスへのルートを含むルーティングテーブルを選択します。</block>
   <block id="5e2b7cebb4bf10923692995c621e2e85" category="paragraph">複数のルートテーブルがある場合は、正しいルートテーブルを選択することが非常に重要です。そうしないと、一部のクライアントが Cloud Volumes ONTAP HA ペアにアクセスできない場合があります。ルーティングテーブルの詳細については、を参照してください<block ref="8ed06851f50fcdbded65cb78f986bfa5" category="inline-link-rx"></block>。</block>
   <block id="b2bb3f64fb5b828b17cb684f3c44b684" category="inline-link">Cloud Volumes ONTAP ノードと HA のポリシー要件 メディエーター</block>
-  <block id="75b4ad07a93bd884b4cecba578453c90" category="paragraph">独自のポリシーを使用する場合は、それが満たされている必要があります<block ref="a2de7a18595694bfdf2d090235d628ca" category="inline-link-rx"></block>。</block>
   <block id="e33d0575f3a1479ae00cc2fb1764511c" category="list-text">* CIFS セットアップ * ： CIFS プロトコルを選択した場合は、 CIFS サーバをセットアップします。</block>
   <block id="b687eeea7d6170a303a1764ea5284467" category="paragraph">Cloud Manager が Cloud Volumes ONTAP HA ペアを起動します。タイムラインで進行状況を追跡できます。</block>
   <block id="63f5b3a996af84469a7cccd34a9a29c0" category="paragraph">HA ペアの起動で問題が発生した場合は、障害メッセージを確認します。また、作業環境を選択して、 [ 環境の再作成 ] をクリックすることもできます。</block>
@@ -3391,7 +3374,6 @@
   <block id="ef8e1d8f242a7ee4d109deb44db1b252" category="section-title">コネクタに新しいAWS権限が必要です</block>
   <block id="bfd761a70b5f9cd277ef7c878344df38" category="paragraph">単一のAvailability Zone（AZ；アベイラビリティゾーン）にHAペアを導入する際にAWS分散配置グループを作成するためには、次の権限が必要です。</block>
   <block id="0080f4096e51a12d4256890c125c5c46" category="paragraph">これらの権限は、Cloud Managerによる配置グループの作成方法を最適化するために必要になります。</block>
-  <block id="26dd25d183752a9f37249174f3d3ff89" category="paragraph">Cloud Managerに追加したAWSクレデンシャルの各セットに、これらの権限を必ず付与してください。最新の権限のリストは、で確認できます<block ref="0e92ab1ca454f31f07a6e5fba6519a3a" category="inline-link-rx"></block>。</block>
   <block id="81ad4f0de90ee8a7305d0fd7751df796" category="section-title">新しいGoogle Cloudリージョンサポート</block>
   <block id="6b071f4257d8badb0aeb96e6b0547800" category="paragraph">9.10.1リリース以降、Cloud Volumes ONTAP は次のGoogle Cloudリージョンでサポートされるようになりました。</block>
   <block id="b11df59ba05c25c3a8734d54b7501ae7" category="list-text">デリー（アジア-サウス2）</block>
@@ -3924,7 +3906,6 @@
   <block id="29788364ff656936651870f4b1c88537" category="list-text">オプション：Google Cloudで追加したIPアドレスを指定して、Storage VM管理LIFを作成します。</block>
   <block id="4bd46f200c4c3391a3b00fc9aa8af7dd" category="paragraph">3.9.19リリースから、Cloud Volumes ONTAP HAペアのStorage VMを作成および管理するために、Connectorでは次の権限が必要になります。</block>
   <block id="9edd86f763fc6d21418429b5c63134af" category="inline-link">ネットアップが提供するポリシー</block>
-  <block id="e32789b345ccbe1107de29d5684f39a3" category="paragraph">これらの権限はに含まれています<block ref="d2f8d77175d2dd5e5ed1a096c2593510" category="inline-link-rx"></block></block>
   <block id="8786838db6c83df6feac856057d2e141" category="list-text">Storage VMを作成するには、次のAPI呼び出しを使用します。</block>
   <block id="78beb47b48fe8b17a288b32a8942a187" category="paragraph">「POST/occm/api/gCP/HA/作業環境/{WE_ID}/SVM/`」</block>
   <block id="995ddfd1247131c9653edbf829fa6e28" category="paragraph">要求の本文には次の情報が含まれている必要があります</block>
@@ -4224,4 +4205,46 @@
   <block id="deae9d093dee266b166a3693474231a9" category="paragraph">この場合、Cloud Volumes ONTAP をブートして、ユーザの手を煩わせることなくデータを提供できるようにする必要があります。</block>
   <block id="4f68f7a47531b2df7b7a4db5225d57b5" category="list-text">BYOL _は、ネットアップから購入したライセンス容量を示します。</block>
   <block id="0c27ea3454ff74c09bafc9361752d263" category="list-text">PAYGO _ライセンス消費モデル別の合計消費容量を表示します。</block>
+  <block id="37bd0d8d0efdd824ed9e36094f3c2c1c" category="paragraph">これらの権限はに含まれています<block ref="98fe8f9430f05dddae3f56358643ae7b" category="inline-link-rx"></block></block>
+  <block id="ae80bc88aef0110098f23957532726a9" category="list-text">Cloud Managerに権限を提供するIAMポリシーに必要な権限が含まれていることを確認します。</block>
+  <block id="d0cc9b5d406e02bdbb6a1a9848e6af5f" category="inline-link">必要な権限を確認します</block>
+  <block id="0fcac0fe9e3d9ae4416e83b6bf0316d1" category="paragraph"><block ref="0fcac0fe9e3d9ae4416e83b6bf0316d1" category="inline-link-rx"></block></block>
+  <block id="63e4eec15ba75260d01771611989182b" category="inline-link">AWSの最新のコネクタポリシーを確認します</block>
+  <block id="3f5180c6dfc0906c58f04ff000c41a28" category="paragraph">Cloud Managerに追加したAWSクレデンシャルの各セットに、これらの権限を必ず付与してください。<block ref="68d3de9f2b18269a91b4a95ab6a0f18b" category="inline-link-rx"></block>。</block>
+  <block id="ea03ff7045a27cd5d2c4f32dcc1e5c1a" category="inline-link">Azureの最新のコネクタポリシーを表示します</block>
+  <block id="295513df08c7c28471bdab48a5e355ca" category="paragraph">Cloud Manager に追加した Azure クレデンシャルの各セットに、これらの権限を必ず付与してください。<block ref="574207c2ae4659a179501fd348865e04" category="inline-link-rx"></block>。</block>
+  <block id="a8871b0f5e2060375f5d22d7b732e703" category="paragraph">Azure スナップショットを削除するには、 Connector で新しい権限が必要になることに注意してください。<block ref="574207c2ae4659a179501fd348865e04" category="inline-link-rx"></block>。</block>
+  <block id="5df454c08487b25ef7ed689e20bbb85b" category="admonition">使用している Azure アカウントにが割り当てられている場合<block ref="cd2b97a09fd9df6a215a5b6e4e80bd0b" category="inline-link-rx"></block>導入の失敗や削除が発生した場合、 Cloud Manager はリソースグループから Cloud Volumes ONTAP リソースを削除します。</block>
+  <block id="2976866d443a54a1d677044dcbde1667" category="paragraph">必要な権限が Cloud Manager に割り当てられていれば、パフォーマンス階層と大容量階層の間に接続を設定する必要はありません。Cloud Managerでは、コネクタのカスタムロールに次の権限がある場合にVNetサービスエンドポイントを有効にします。</block>
+  <block id="0f0088348e85cdf82b3a00d88879bc4d" category="inline-link">ConnectorのAzure権限を表示します</block>
+  <block id="8ddf671701dec41bed133165068f79cf" category="paragraph">権限はデフォルトでカスタムロールに含まれています。<block ref="02023942a78dd9e7d6b9acab278574c6" category="inline-link-rx"></block></block>
+  <block id="50e6df40fd4046e3d4cba1fe6794893f" category="summary">各Cloud Volumes ONTAP ノードには、必要な権限を提供するIAMロールが関連付けられている必要があります。HAメディエーターについても同様です。Cloud ManagerでIAMロールを作成するのが最も簡単ですが、独自のロールを使用することもできます。</block>
+  <block id="75c41138bbd7704a1e0b806bef4b58ac" category="doc">Cloud Volumes ONTAP 用のIAMロールを設定します</block>
+  <block id="e8d7c2539c0a4191d2d2e9716d9aa611" category="paragraph">必要な権限を持つIAMロールを各Cloud Volumes ONTAP ノードに関連付ける必要があります。HAメディエーターについても同様です。Cloud ManagerでIAMロールを作成するのが最も簡単ですが、独自のロールを使用することもできます。</block>
+  <block id="beb54b15eed37770fdbcb3e343aab17f" category="paragraph">このタスクはオプションです。Cloud Volumes ONTAP 作業環境を作成する際、デフォルトでは、Cloud ManagerにIAMロールを自動的に作成するように設定されています。ビジネスのセキュリティポリシーでIAMロールを自分で作成する必要がある場合は、次の手順を実行します。</block>
+  <block id="07561162983a030769cc8563b6143a06" category="inline-link-macro">C2SにCloud Volumes ONTAP を導入する方法を学習します</block>
+  <block id="f6fe0c003ae0bc360a2c1d722f423983" category="admonition">AWS Commercialクラウド サービス 環境でIAMロールを独自に割り当てる必要があります。 <block ref="af622e808f4363be4413c4e256d0f137" category="inline-link-macro-rx"></block>。</block>
+  <block id="1e71ce7defc90d8f5a2c46c08ba968df" category="list-text">AWS IAMコンソールに移動します。</block>
+  <block id="2be2a83dff352bbae732dfe827629b52" category="list-text">次の権限を含むIAMポリシーを作成します。</block>
+  <block id="f671db25e387df2f231d7d414ac6e1ba" category="list-text">Cloud Volumes ONTAP ノード</block>
+  <block id="222ddb2f355a49f64fb3858123f2b97b" category="open-title">標準領域</block>
+  <block id="1411debdb32e6b128ca27ec92a708cbd" category="open-title">GovCloud（US）リージョン</block>
+  <block id="a8416eae2db8c97eb943559351fab358" category="open-title">C2S環境</block>
+  <block id="3e5c966a065f647b413d08592c0e466d" category="list-text">IAMロールを作成し、前の手順で作成したポリシーをそのロールに関連付けます。</block>
+  <block id="a640e21419d545eaa2be7040f35bcbde" category="paragraph">新しいCloud Volumes ONTAP 作業環境を作成するときに選択できるIAMロールを設定できました。</block>
+  <block id="ab066b3292d8ab61ef3b5c77169cdd19" category="list-title">詳細情報</block>
+  <block id="0eab25f343df3cb0d26a483c0c7e529f" category="inline-link">AWSのドキュメント：「IAMポリシーの作成</block>
+  <block id="45e9fc9038e8db14384b82fa67d6e96c" category="list-text"><block ref="45e9fc9038e8db14384b82fa67d6e96c" category="inline-link-rx"></block></block>
+  <block id="c6239bda161ac0e2a3f3a7f04121192f" category="inline-link">AWSのドキュメント：「IAMロールの作成</block>
+  <block id="a617d64955af268e6cf6dcbbd1b9c7a2" category="list-text"><block ref="a617d64955af268e6cf6dcbbd1b9c7a2" category="inline-link-rx"></block></block>
+  <block id="9bbbccce6014d45ac8f43e7614d2a34c" category="paragraph">これらの権限はに含まれています<block ref="4e2f5782ef353f7277cd9ba2163caaf1" category="inline-link-rx"></block>。</block>
+  <block id="67e53d36a1474a1493554aa780f091dd" category="inline-link">デフォルトでは、Connectorサービスアカウントの権限です</block>
+  <block id="30770411d4576ecdafaa756fb5a82328" category="paragraph">権限は、で提供されています<block ref="296035bc3f3b9b7f4150059e833c4544" category="inline-link-rx"></block>、ただし、Cloud Key Management Serviceに別のプロジェクトを使用する場合は適用できません。</block>
+  <block id="791fab48bebea2a79a35d70b5cc07227" category="inline-link">権限の最新のリストを表示します</block>
+  <block id="ba7ae0204894b3edc44a2f0822ad2da8" category="paragraph"><block ref="ba7ae0204894b3edc44a2f0822ad2da8" category="inline-link-rx"></block></block>
+  <block id="9e1dbaa97d16ff9bc20f90cb1663f522" category="inline-link">必要な権限がある必要があります</block>
+  <block id="acbe60cca2f08e7905a3283a0c9d7b09" category="list-text">コネクタに関連付けられているサービスアカウント<block ref="9efb82dd4baa51f3442d848d3fff4260" category="inline-link-rx"></block></block>
+  <block id="ca28d9f44067f5a160cea063e474fc37" category="paragraph">独自のポリシーを使用する場合は、それが満たされている必要があります <block ref="a89eb99c31d3fd4d78e3bc9ddfb0dc20" category="inline-link-macro-rx"></block>。</block>
+  <block id="6459a9ada2e38351f8beba8f79c30a5f" category="paragraph">独自のポリシーを使用する場合は、それが満たされている必要があります <block ref="f5cab54abdefb42b27e2bac59f2262c2" category="inline-link-macro-rx"></block>。</block>
+  <block id="e26c5d07fc30848902a99c95897441b4" category="sidebar">IAMロールを設定する</block>
 </blocks>

@@ -21,17 +21,9 @@ Cloud Manager では、 AWS での Cloud Volumes ONTAP の実行に関連する�
 .ステップ
 . Cloud Manager から AWS からコスト情報を取得できることを確認します。
 +
-.. Cloud Manager に権限を提供する IAM ポリシーに次の操作が含まれていることを確認します。
+.. Cloud Managerに権限を提供するIAMポリシーに必要な権限が含まれていることを確認します。
 +
-[source, json]
-----
-"ce:GetReservationUtilization",
-"ce:GetDimensionValues",
-"ce:GetCostAndUsage",
-"ce:GetTags"
-----
-+
-これらのアクションは最新のに含まれています https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager ポリシー"^]。これらの権限は、 NetApp Cloud Central から自動的に導入された新しいシステムに含まれます。
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-aws.html["必要な権限を確認します"^]
 
 .. https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/activating-tags.html["* WorkingEnvironmentId* タグをアクティブにします"^]。
 +

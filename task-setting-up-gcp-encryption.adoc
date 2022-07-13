@@ -19,7 +19,7 @@ Google Cloud Storage では常にデータが暗号化されてからディス�
 .手順
 . キーが格納されているプロジェクトのプロジェクトレベルで、 Cloud Manager Connector サービスアカウントの権限が正しいことを確認します。
 +
-権限はから提供されます https://mysupport.netapp.com/site/info/cloud-manager-policies["Cloud Manager YAML ファイル"^] デフォルトでは、 Cloud Key Management Service に別のプロジェクトを使用する場合は適用できません。
+権限は、で提供されています https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-gcp.html["デフォルトでは、Connectorサービスアカウントの権限です"^]、ただし、Cloud Key Management Serviceに別のプロジェクトを使用する場合は適用できません。
 
 +
 権限は次のとおりです。
