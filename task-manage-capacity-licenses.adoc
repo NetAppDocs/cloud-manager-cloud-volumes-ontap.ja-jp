@@ -59,7 +59,8 @@ image:screenshot_capacity-based-licenses.png["プロフェッショナルパッ�
 +
 Essentialsパッケージに表示される容量を理解するには、充電の仕組みを理解しておく必要があります。 link:concept-licensing.html#notes-about-charging["Essentialsパッケージの充電について説明します"]。
 
-** BYOLとPAYGOの_Capacitiesには、ライセンス消費モデルで消費される合計容量が表示されます。
+** BYOL _は、ネットアップから購入したライセンス容量を示します。
+** PAYGO _ライセンス消費モデル別の合計消費容量を表示します。
 +
 次に、複数のライセンスパッケージがあるアカウントの例を示します。
 

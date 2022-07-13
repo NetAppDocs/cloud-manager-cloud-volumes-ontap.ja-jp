@@ -112,7 +112,21 @@ endif::gcp[]
 
 == データ損失が発生した場合の予測
 
-高速の書き込み速度を選択し、データ損失が発生した場合、システムをブートして、ユーザの手を煩わせることなくデータを提供できるはずです。ノードでデータが失われると、 2 つの EMS メッセージが報告されます。1 つは wafl.root.content.changed で、もう 1 つは ERROR 重大度レベルイベントです。もう 1 つは、デバッグ重大度レベルイベントを含む nv.check.failed です。両方のメッセージがデータ損失の兆候として存在している必要があります。
+高速の書き込み速度が原因でデータ損失が発生した場合、Event Management System（EMS；イベント管理システム）で次の2つのイベントが報告されます。
+
+* Cloud Volumes ONTAP 9.11.0以降
++
+ DEBUG nv.check.failed: NVRAM check failed with error "NVRAM disabled due to dirty shutdown with High Write Speed mode"
++
+ ERROR wafl.root.content.changed: Contents of the root volume '' might have changed. Verify that all recent configuration changes are still in effect.
+* Cloud Volumes ONTAP 9.8～9.10.1
++
+ DEBUG nv.check.failed: NVRAM check failed with error "NVRAM disabled due to dirty shutdown"
++
+ ERROR wafl.root.content.changed: Contents of the root volume '' might have changed. Verify that all recent configuration changes are still in effect.
+
+
+この場合、Cloud Volumes ONTAP をブートして、ユーザの手を煩わせることなくデータを提供できるようにする必要があります。
 
 
 

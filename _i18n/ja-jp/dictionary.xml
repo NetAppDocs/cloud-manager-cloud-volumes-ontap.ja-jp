@@ -49,7 +49,6 @@
   <block id="3d64d0d43e2b3f4726dd94ece523a44b" category="inline-link-macro">既存のシステムの書き込み速度を変更する</block>
   <block id="f7ccf02d84fa210180071ca2470f84e9" category="paragraph">を作成するときに、書き込み速度を選択できます 新しい作業環境を構築できます <block ref="bb09c850cc1f480d84d76846ade7e379" category="inline-link-macro-rx"></block>。</block>
   <block id="a6b5c3b6343acd9e9c252b6734e21729" category="section-title">データ損失が発生した場合の予測</block>
-  <block id="c2bed051015327a0fbd183fa026d6072" category="paragraph">高速の書き込み速度を選択し、データ損失が発生した場合、システムをブートして、ユーザの手を煩わせることなくデータを提供できるはずです。ノードでデータが失われると、 2 つの EMS メッセージが報告されます。1 つは wafl.root.content.changed で、もう 1 つは ERROR 重大度レベルイベントです。もう 1 つは、デバッグ重大度レベルイベントを含む nv.check.failed です。両方のメッセージがデータ損失の兆候として存在している必要があります。</block>
   <block id="ccd6abf00ee311d6ee0fe0cfa658d4af" category="section-title">データ損失が発生した場合のデータアクセスの停止方法</block>
   <block id="3c88118331e31a974e72f747b05eac91" category="paragraph">データ損失について懸念がある場合、データ損失時にアプリケーションの実行を停止し、データ損失の問題に適切に対処したあとでデータアクセスを再開するには、 CLI から NVFAIL オプションを使用してこの目標を達成します。</block>
   <block id="da40cbf3df02166f4e0befe0ef32dcce" category="list-text">をクリックして NVFAIL オプションを有効にします</block>
@@ -822,10 +821,6 @@
   <block id="cc3717c29172e7c4beafc5f30f3639ac" category="paragraph">新しい Cloud Volumes ONTAP 作業環境を作成する際に、ライセンス選択画面を再設計しました。この変更は、 2021 年 7 月に導入された容量別課金方法と、クラウドプロバイダマーケットプレイスを通じて提供される予定のサービスを反映しています。</block>
   <block id="cb859e966c34323b5da18c0c77998603" category="section-title">デジタルウォレットの更新</block>
   <block id="912b97680395d2b9dfdd2d9fcfded8bf" category="paragraph">Cloud Volumes ONTAP ライセンスを 1 つのタブに統合し、 * デジタルウォレット * を更新しました。</block>
-  <block id="6040922a9492ff1a6966cd9d9d73a9f9" category="section-title">ネットアップアカウントあたり 20 システム</block>
-  <block id="3ac6338087c4180b5cbb359584abab3a" category="paragraph">Cloud Volumes ONTAP システムの最大数は、使用しているライセンスモデルに関係なく、ネットアップアカウントあたり 20 に制限されます。</block>
-  <block id="5908d4e5a438659ba844464125f51abe" category="paragraph">a_system_に は、 HA ペアまたはシングルノードシステムを指定します。たとえば、 2 つの Cloud Volumes ONTAP HA ペアと 2 つのシングルノードシステムがある場合、合計 4 つのシステムがあり、アカウントに 16 のシステムを追加で配置できます。</block>
-  <block id="a259bb127cd2a1cd02edf6a3a2484f33" category="paragraph">ご質問がある場合は、アカウント担当者または営業チームにお問い合わせください。</block>
   <block id="fc2be74c7bf9f46e12967c2298a899ba" category="inline-link-macro">ネットアップアカウントの詳細については、こちらをご覧ください</block>
   <block id="bbbee7961ccb9cea5bdfe8ab78e43452" category="paragraph">Cloud Volumes ONTAP は、 9.10.1 リリース以降、 Microsoft Azure で次の VM タイプでサポートされるようになりました。</block>
   <block id="aafab9b991240605f56b3df780360449" category="list-text">E4ds_v4</block>
@@ -3229,7 +3224,6 @@
   <block id="506e74c9262ca17fcd45f9fc1bb03b87" category="paragraph">ボリュームのサイズを変更する必要がある場合は、を使用して変更できます<block ref="bfb8b856b98909d9b8eda9fe0698d61f" category="inline-link-rx"></block>。ボリュームのサイズを変更する際は、システムの容量制限を考慮してください。にアクセスします<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block> 詳細：</block>
   <block id="06c86f2b2f40c7b5ae916f820dace6f3" category="inline-link">Cloud Volumes ONTAP のリリースノートに移動します</block>
   <block id="65e42190c099391692bcdbf38f75b3dc" category="paragraph">このページで説明する機能拡張は、 Cloud Volumes ONTAP の管理を可能にする Cloud Manager の機能に固有のものです。Cloud Volumes ONTAP ソフトウェア自体の新機能については、<block ref="708e09e3f2783926556b9c6d77f63a27" category="inline-link-rx"></block></block>
-  <block id="e0109745edea3dd07561e6ef24e031b3" category="paragraph"><block ref="e0109745edea3dd07561e6ef24e031b3" category="inline-link-rx"></block></block>
   <block id="eaae0996b48caf454deb2608523a1af2" category="paragraph"><block ref="a3830f1e68e521753c115aa90de96c67" category="inline-link-rx"></block>。</block>
   <block id="cd46020b2ca09f66f5c79bd35fe2da2e" category="paragraph"><block ref="4107f790de2a45bc9a00a9b75db49bc5" category="inline-link-rx"></block>。</block>
   <block id="0149fd22e5722b132cbafe2d3e86e10b" category="list-text">テンプレートからハードコーディングされていないすべてのパラメータに値を追加します。を参照してください <block ref="c4711ce582f4a278fe266c32d7e1a70b" category="inline-xref-macro-rx"></block> Cloud Volumes ONTAP ボリュームを導入するために必要なすべてのパラメータの詳細については、を参照してください。</block>
@@ -4184,7 +4178,6 @@
   <block id="2ba3f057b3f441a58c358dd4703ea556" category="paragraph">デジタルウォレットでは、50TiBが_Essentialsシングルノードライセンスに対して課金されたものとして表示されます。</block>
   <block id="2204b0f79985b7b0565114e8305937a5" category="section-title">Storage VMs</block>
   <block id="ea2d4d2ac58be22179ef1e523d4602b4" category="section-title">FlexCloneボリュームとFlexCache ボリューム</block>
-  <block id="c0a01aae03aec488789ec9662cb472bb" category="paragraph">Cloud Volumes ONTAP システムの最大数は、ネットアップアカウントあたり20個に制限されています。a_system_は、Cloud Volumes ONTAP HAペア、Cloud Volumes ONTAP シングルノードシステム、またはユーザが作成した追加のStorage VMです。デフォルトのStorage VMはカウントされません。これにより、環境 のすべてのライセンスモデルが制限されます。</block>
   <block id="ee39f25358b04b9ab4c35e9b485d2797" category="paragraph">たとえば、次の3つの作業環境があるとします。</block>
   <block id="35851ad4214e2cb5358ee8d010fd31e9" category="list-text">1つのStorage VMを含むシングルノードのCloud Volumes ONTAP システム（Cloud Volumes ONTAP の導入時に作成されるデフォルトのStorage VM）</block>
   <block id="75a89431d9d36de5dedb4018f6ca3cbe" category="paragraph">この作業環境は1つのシステムとしてカウントされます。</block>
@@ -4204,7 +4197,6 @@
   <block id="39d8821e12869173bcc44d49a6c82619" category="list-text">消費済み容量-パッケージのボリュームの合計容量が表示されます。特定のパッケージの詳細を表示するには、ツールチップの上にマウスポインタを置きます。</block>
   <block id="d30bc4bd5cee7ac23a1df54311d1f4b3" category="inline-link-macro">Essentialsパッケージの充電について説明します</block>
   <block id="33b4838dec7acdb2df64d13961f0a255" category="paragraph">Essentialsパッケージに表示される容量を理解するには、充電の仕組みを理解しておく必要があります。 <block ref="eee0a6ebb632d7e4c34635f35e9b54cf" category="inline-link-macro-rx"></block>。</block>
-  <block id="da1c54b789cbe5eb82490a61a1240bdc" category="list-text">BYOLとPAYGOの_Capacitiesには、ライセンス消費モデルで消費される合計容量が表示されます。</block>
   <block id="bbb170bfbf4105204b0dbe4292724d6e" category="paragraph">次に、複数のライセンスパッケージがあるアカウントの例を示します。</block>
   <block id="9dbb08096054a8593f55c8cd3e2863d6" category="inline-image-macro">プロフェッショナルパッケージ、最適化パッケージ、および必須パッケージの消費容量を示すスクリーンショット。</block>
   <block id="943b03ddb77b543ab329dfed996ad4ac" category="paragraph"><block ref="943b03ddb77b543ab329dfed996ad4ac" category="inline-image-macro-rx" type="image"></block></block>
@@ -4224,4 +4216,12 @@
   <block id="21f6d246225534dc3444037c83f109c3" category="list-text">「user-private-dns-zone-settings」パラメータに次のキーワードと値のペアを追加して、app.confを編集します。</block>
   <block id="b5544a18e847192d0e5a82658b3e0f92" category="paragraph">パラメータは、「system-id」と同じレベルで入力する必要があります。</block>
   <block id="ff9fcf498a74a638ff2a01da3cae4468" category="paragraph">subscriptionKeywordは、プライベートDNSゾーンがコネクタとは異なるサブスクリプションに存在する場合にのみ必要です。</block>
+  <block id="34010f1e0d61721ccadb44d47c32e547" category="paragraph">容量単位のライセンスを使用する場合、Cloud Volumes ONTAP システムの最大数はネットアップアカウントあたり20個に制限されます。a_system_は、Cloud Volumes ONTAP HAペア、Cloud Volumes ONTAP シングルノードシステム、またはユーザが作成した追加のStorage VMです。デフォルトのStorage VMはカウントされません。これにより、環境 のすべてのライセンスモデルが制限されます。</block>
+  <block id="b4c7b5de587c69b61237e13a2d37bbf1" category="paragraph">20台以上のシステムを必要とする大規模な導入環境の場合は、アカウント担当者または営業チームにお問い合わせください。</block>
+  <block id="3bc8827b2b8b4b47a25fb21994526d52" category="paragraph">高速の書き込み速度が原因でデータ損失が発生した場合、Event Management System（EMS；イベント管理システム）で次の2つのイベントが報告されます。</block>
+  <block id="be98a72c550adaac0016c02f579ae8d6" category="list-text">Cloud Volumes ONTAP 9.11.0以降</block>
+  <block id="7cd42532925d5e610a9d3694b57652da" category="list-text">Cloud Volumes ONTAP 9.8～9.10.1</block>
+  <block id="deae9d093dee266b166a3693474231a9" category="paragraph">この場合、Cloud Volumes ONTAP をブートして、ユーザの手を煩わせることなくデータを提供できるようにする必要があります。</block>
+  <block id="4f68f7a47531b2df7b7a4db5225d57b5" category="list-text">BYOL _は、ネットアップから購入したライセンス容量を示します。</block>
+  <block id="0c27ea3454ff74c09bafc9361752d263" category="list-text">PAYGO _ライセンス消費モデル別の合計消費容量を表示します。</block>
 </blocks>
