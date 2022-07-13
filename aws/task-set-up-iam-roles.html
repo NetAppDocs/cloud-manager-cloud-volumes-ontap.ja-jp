@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head class="at-element-marker">
-  <title>拡張ビューを使用してCloud Volumes ONTAP を管理します | NetApp Documentation</title>
+  <title>Cloud Volumes ONTAP 用のIAMロールを設定します | NetApp Documentation</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="拡張ビューを使用してCloud Volumes ONTAP を管理します | NetApp Documentation" />
+  <meta property="og:title" content="Cloud Volumes ONTAP 用のIAMロールを設定します | NetApp Documentation" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-administer-advanced-view.html" />
-	<meta property="og:description" content="Cloud Volumes ONTAP の高度な管理が必要な場合は、ONTAP システムに付属の管理インターフェイスであるONTAP System Managerを使用して実行できます。高度な管理のためにCloud Managerを終了する必要がないように、Cloud ManagerのインターフェイスはCloud..." />
+	<meta property="og:url" content="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" />
+	<meta property="og:description" content="各Cloud Volumes ONTAP ノードには、必要な権限を提供するIAMロールが関連付けられている必要があります。HAメディエーターについても同様です。Cloud ManagerでIAMロールを作成するのが最も簡単ですが、独自のロールを使用することもできます。" />
   <meta property="og:image" content="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Cloud Volumes ONTAP の高度な管理が必要な場合は、ONTAP システムに付属の管理インターフェイスであるONTAP System Managerを使用して実行できます。高度な管理のためにCloud Managerを終了する必要がないように、Cloud ManagerのインターフェイスはCloud...">
-  <meta name="keywords" content=" system manager, advanced view, access system manager, load system manager, use system manager"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="各Cloud Volumes ONTAP ノードには、必要な権限を提供するIAMロールが関連付けられている必要があります。HAメディエーターについても同様です。Cloud ManagerでIAMロールを作成するのが最も簡単ですが、独自のロールを使用することもできます。">
+  <meta name="keywords" content=" iam role, mediator role, cloud volumes ontap role, policy, iam policy, permissions"><!-- Icons -->
   <link rel="icon" href="/ja-jp/cloud-manager-cloud-volumes-ontap/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/ja-jp/cloud-manager-cloud-volumes-ontap/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -54,7 +54,7 @@
   <!-- Canonical url -->
   
     
-    <link rel="canonical" href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-administer-advanced-view.html" />
+    <link rel="canonical" href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" />
   <link rel='stylesheet' href='/ja-jp/cloud-manager-cloud-volumes-ontap/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
     if (document.location.hostname === "docs.netapp.com") {
       var head = document.getElementsByTagName('head')[0];
@@ -173,7 +173,7 @@
   <!-- Start Page Toolbar -->
   
   <div class="page-nav-toolbar">
-<div id="flavor-dropdown" class="custom-dropdown" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/task-administer-advanced-view.html">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html">
   
   
   <div class="custom-dropdown-select selected" title="AWS">
@@ -187,26 +187,26 @@
   <ul class="custom-dropdown-menu">
     
     
-    <li data-value="aws" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-administer-advanced-view.html">
+    <li data-value="aws" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-set-up-iam-roles.html">
       <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/aws-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Amazon Web Services の
     </li>
     
     
     
-    <li data-value="gcp" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp/task-administer-advanced-view.html">
+    <li data-value="gcp" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/gcp">
       <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/gcp-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Google Cloud
     </li>
     
     
     
-    <li data-value="azure" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/azure/task-administer-advanced-view.html">
+    <li data-value="azure" data-url="/ja-jp/cloud-manager-cloud-volumes-ontap/azure">
       <img alt="" src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/azure-ico.svg" onerror="this.src='/ja-jp/cloud-manager-cloud-volumes-ontap/images/blank-ico.png'" class="custom-icon" />Microsoft Azure
     </li>
     
     
   </ul>
 </div>
-<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[拡張ビューを使用してCloud Volumes ONTAP を管理します](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-administer-advanced-view.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" alt="" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-administer-system-manager.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" alt="" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" alt="" class="github-icon" />寄稿者向けガイド</a></div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/issues/new?body=Page%3A%20[Cloud Volumes ONTAP 用のIAMロールを設定します](https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/discuss-sm.svg" alt="" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/blob/main/task-set-up-iam-roles.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/edit-sm.svg" alt="" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/cloud-manager-cloud-volumes-ontap/images/article-sm.svg" alt="" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -327,15 +327,15 @@
       </div>
 
       <ul class="custom-dropdown-menu"><li>
-          <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-administer-advanced-view.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+          <a href="https://docs.netapp.com/ja-jp/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-administer-advanced-view.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+          <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" target="_self"><span translate="no" class="notranslate">English</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-administer-advanced-view.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+          <a href="https://docs.netapp.com/zh-cn/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/task-administer-advanced-view.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+          <a href="https://docs.netapp.com/zh-tw/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/task-administer-advanced-view.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+          <a href="https://docs.netapp.com/ko-kr/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
         </li></ul>
     </div><!-- End Language Selector -->
 
@@ -493,6 +493,8 @@
 
 
 
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
 
 
 
@@ -900,8 +902,6 @@
   
 
 
-    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
-  
 
 
 
@@ -1155,7 +1155,7 @@
         AWS のセキュリティグループルール
       </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-setting-up-kms.html">
         AWS KMS を設定します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-set-up-iam-roles.html">
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-set-up-iam-roles.html">
         IAMロールを設定する
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-set-up-licensing-aws.html">
         ライセンスをセットアップする
@@ -1244,7 +1244,7 @@
         HA ペアのルーティングテーブルを変更する
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-monitoring-costs.html">
         AWS のコストを監視
-      </a></li></ul></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-administer-advanced-view.html">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-administer-advanced-view.html">
         System Managerで管理を行います
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/aws/task-connecting-to-otc.html">
         CLIからの管理
@@ -1367,170 +1367,198 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">拡張ビューを使用してCloud Volumes ONTAP を管理します</h1>
+  <h1 class="n-doc__component-detail-heading">Cloud Volumes ONTAP 用のIAMロールを設定します</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-06-07 20:54:02 +0000">06/07/2022</time>
+    <time datetime="2022-07-13 19:47:06 +0000">07/13/2022</time>
     
   
 
 
 </p>
 
-<div id="preamble">
-<div class="sectionbody">
 <div class="paragraph lead">
-<p>Cloud Volumes ONTAP の高度な管理が必要な場合は、ONTAP システムに付属の管理インターフェイスであるONTAP System Managerを使用して実行できます。高度な管理のためにCloud Managerを終了する必要がないように、Cloud ManagerのインターフェイスはCloud Managerに直接組み込まれています。</p>
+<p>必要な権限を持つIAMロールを各Cloud Volumes ONTAP ノードに関連付ける必要があります。HAメディエーターについても同様です。Cloud ManagerでIAMロールを作成するのが最も簡単ですが、独自のロールを使用することもできます。</p>
 </div>
 <div class="paragraph">
-<p>この拡張ビューはプレビューとして使用できます。今後のリリースでは、この点をさらに改良し、機能を強化する予定です。製品内のチャットでご意見をお寄せください。</p>
+<p>このタスクはオプションです。Cloud Volumes ONTAP 作業環境を作成する際、デフォルトでは、Cloud ManagerにIAMロールを自動的に作成するように設定されています。ビジネスのセキュリティポリシーでIAMロールを自分で作成する必要がある場合は、次の手順を実行します。</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="の機能">の機能</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud ManagerのAdvanced Viewでは、次の管理機能を使用できます。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>高度なストレージ管理</p>
-<div class="paragraph">
-<p>整合グループ、共有、qtree、クォータ、およびStorage VMの管理</p>
-</div>
-</li>
-<li>
-<p>ネットワーク管理</p>
-<div class="paragraph">
-<p>IPspace、ネットワークインターフェイス、ポートセット、およびイーサネットポートを管理します。</p>
-</div>
-</li>
-<li>
-<p>イベントとジョブ</p>
-<div class="paragraph">
-<p>イベントログ、システムアラート、ジョブ、および監査ログを表示します。</p>
-</div>
-</li>
-<li>
-<p>高度なデータ保護</p>
-<div class="paragraph">
-<p>Storage VM、LUN、および整合グループを保護する。</p>
-</div>
-</li>
-<li>
-<p>ホスト管理</p>
-<div class="paragraph">
-<p>SANイニシエータグループとNFSクライアントを設定します。</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="サポートされている構成">サポートされている構成</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>System Managerを使用した高度な管理は、標準のクラウドリージョンでCloud Volumes ONTAP 9.10.0以降でサポートされます。</p>
-</div>
-<div class="paragraph">
-<p>GovCloudリージョンまたはアウトバウンドのインターネットアクセスがないリージョンでは、System Managerの統合はサポートされません。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="制限">制限</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>System Managerインターフェイスに表示されるいくつかの機能は、Cloud Volumes ONTAP ではサポートされません。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>クラウド階層化</p>
-<div class="paragraph">
-<p>クラウド階層化サービスはCloud Volumes ONTAP ではサポートされていません。ボリュームの作成時に、Cloud Managerの標準ビューからオブジェクトストレージへのデータの階層化が直接設定されている必要があります。</p>
-</div>
-</li>
-<li>
-<p>階層</p>
-<div class="paragraph">
-<p>アグリゲートの管理（ローカル階層とクラウド階層を含む）はSystem Managerではサポートされていません。アグリゲートは、Cloud Managerの標準ビューから直接管理する必要があります。</p>
-</div>
-</li>
-<li>
-<p>ファームウェアのアップグレード</p>
-<div class="paragraph">
-<p>Cloud Volumes ONTAP では、[クラスタ]&gt;[設定*]ページからの自動ファームウェア更新はサポートされていません。</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>また、System Managerからのロールベースアクセス制御はサポートされていません。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="開始方法">開始方法</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Volumes ONTAP 作業環境を開き、詳細ビューオプションをクリックします。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-cloud-volumes-ontap/images/note.svg" alt="注記">
+</td>
+<td class="content">
+AWS Commercialクラウド サービス 環境でIAMロールを独自に割り当てる必要があります。 <a href="task-getting-started-aws-c2s.html">"C2SにCloud Volumes ONTAP を導入する方法を学習します"</a>。
+</td>
+</tr>
+</table>
 </div>
 <div class="olist arabic">
 <div class="title">手順</div>
 <ol class="arabic">
 <li>
-<p>キャンバスページで、Cloud Volumes ONTAP システムの名前をダブルクリックします。</p>
+<p>AWS IAMコンソールに移動します。</p>
 </li>
 <li>
-<p>右上の*[拡張表示に切り替える]をクリックします。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot-cvo-advanced-view.png" alt="詳細ビューに切り替えオプションを示すCloud Volumes ONTAP 作業環境のスクリーンショット。"></span></p>
-</div>
-</li>
-<li>
-<p>確認メッセージが表示されたら、そのメッセージを読み、*閉じる*をクリックします。</p>
-</li>
-<li>
-<p>System Managerを使用してCloud Volumes ONTAP を管理する。</p>
-</li>
-<li>
-<p>必要に応じて、* Standard Viewに切り替え*をクリックして、Cloud Managerを使用した標準的な管理に戻ります。</p>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot-cvo-standard-view.png" alt="標準ビューに切り替えオプションを示すCloud Volumes ONTAP 作業環境のスクリーンショット。"></span></p>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="system-managerの使用方法に関するヘルプ">System Managerの使用方法に関するヘルプ</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Volumes ONTAP でSystem Managerを使用する際にサポートが必要な場合は、を参照してください <a href="https://docs.netapp.com/us-en/ontap/index.html" target="_blank" rel="noopener">"ONTAP のドキュメント"</a> を参照してください。役立つリンクをいくつか紹介します。</p>
-</div>
+<p>次の権限を含むIAMポリシーを作成します。</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.netapp.com/us-en/ontap/volume-admin-overview-concept.html" target="_blank" rel="noopener">"ボリュームとLUNの管理"</a></p>
+<p>Cloud Volumes ONTAP ノード</p>
+<div class="exampleblock tabbed-block">
+<div class="content">
+<div class="openblock">
+<div class="title">標準領域</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+	"Version": "2012-10-17",
+	"Statement": [{
+			"Action": "s3:ListAllMyBuckets",
+			"Resource": "arn:aws:s3:::*",
+			"Effect": "Allow"
+		}, {
+			"Action": [
+				"s3:ListBucket",
+				"s3:GetBucketLocation"
+			],
+			"Resource": "arn:aws:s3:::fabric-pool-*",
+			"Effect": "Allow"
+		}, {
+			"Action": [
+				"s3:GetObject",
+				"s3:PutObject",
+				"s3:DeleteObject"
+			],
+			"Resource": "arn:aws:s3:::fabric-pool-*",
+			"Effect": "Allow"
+		}
+	]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">GovCloud（US）リージョン</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Action": "s3:ListAllMyBuckets",
+        "Resource": "arn:aws-us-gov:s3:::*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:ListBucket",
+            "s3:GetBucketLocation"
+        ],
+        "Resource": "arn:aws-us-gov:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:GetObject",
+            "s3:PutObject",
+            "s3:DeleteObject"
+        ],
+        "Resource": "arn:aws-us-gov:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">C2S環境</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Action": "s3:ListAllMyBuckets",
+        "Resource": "arn:aws-iso:s3:::*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:ListBucket",
+            "s3:GetBucketLocation"
+        ],
+        "Resource": "arn:aws-iso:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:GetObject",
+            "s3:PutObject",
+            "s3:DeleteObject"
+        ],
+        "Resource": "arn:aws-iso:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/ontap/network-manage-overview-concept.html" target="_blank" rel="noopener">"Network Management の略"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/ontap/concept_dp_overview.html" target="_blank" rel="noopener">"データ保護"</a></p>
+<p>HA メディエータ</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+	"Version": "2012-10-17",
+	"Statement": [{
+			"Effect": "Allow",
+			"Action": [
+				"ec2:AssignPrivateIpAddresses",
+				"ec2:CreateRoute",
+				"ec2:DeleteRoute",
+				"ec2:DescribeNetworkInterfaces",
+				"ec2:DescribeRouteTables",
+				"ec2:DescribeVpcs",
+				"ec2:ReplaceRoute",
+				"ec2:UnassignPrivateIpAddresses"
+			],
+			"Resource": "*"
+		}
+	]
+}</code></pre>
+</div>
+</div>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>IAMロールを作成し、前の手順で作成したポリシーをそのロールに関連付けます。</p>
+</li>
+</ol>
 </div>
+<div class="paragraph">
+<p>新しいCloud Volumes ONTAP 作業環境を作成するときに選択できるIAMロールを設定できました。</p>
+</div>
+<div class="ulist">
+<div class="title">詳細情報</div>
+<ul>
+<li>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html" target="_blank" rel="noopener">"AWSのドキュメント：「IAMポリシーの作成"</a></p>
+</li>
+<li>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html" target="_blank" rel="noopener">"AWSのドキュメント：「IAMロールの作成"</a></p>
+</li>
+</ul>
 </div>
 
     </article>

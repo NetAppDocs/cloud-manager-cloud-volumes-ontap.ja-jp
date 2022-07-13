@@ -494,6 +494,8 @@
 
 
 
+
+
         </li>
       </ul>
     
@@ -1148,6 +1150,8 @@
         AWS のセキュリティグループルール
       </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html">
         AWS KMS を設定します
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html">
+        IAMロールを設定する
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-set-up-licensing-aws.html">
         ライセンスをセットアップする
       </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/cloud-manager-cloud-volumes-ontap/task-deploying-otc-aws.html">
@@ -1427,7 +1431,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-08 19:20:38 +0000">06/08/2022</time>
+    <time datetime="2022-07-13 19:47:06 +0000">07/13/2022</time>
     
   
 
@@ -1607,7 +1611,7 @@
 <div class="sect2">
 <h3 id="コールドデータを-azure-blob-ストレージに階層化するための要件">コールドデータを Azure BLOB ストレージに階層化するための要件</h3>
 <div class="paragraph">
-<p>必要な権限が Cloud Manager に割り当てられていれば、パフォーマンス階層と大容量階層の間に接続を設定する必要はありません。Cloud Manager ポリシーに以下の権限が設定されている場合、 Cloud Manager は VNet サービスエンドポイントを有効にします。</p>
+<p>必要な権限が Cloud Manager に割り当てられていれば、パフォーマンス階層と大容量階層の間に接続を設定する必要はありません。Cloud Managerでは、コネクタのカスタムロールに次の権限がある場合にVNetサービスエンドポイントを有効にします。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1616,7 +1620,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>権限は最新のに含まれています <a href="https://mysupport.netapp.com/site/info/cloud-manager-policies">"Cloud Manager ポリシー"</a>。</p>
+<p>権限はデフォルトでカスタムロールに含まれています。 <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions-azure.html" target="_blank" rel="noopener">"ConnectorのAzure権限を表示します"</a></p>
 </div>
 </div>
 <div class="sect2">
