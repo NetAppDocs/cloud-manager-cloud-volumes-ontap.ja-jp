@@ -295,11 +295,13 @@
           <div id="react-search" 
           data-search-html="/ja-jp/cloud-manager-cloud-volumes-ontap/search.html"
           data-type="widget" 
-          data-placeholder="ドキュメントを検索" 
-          data-no-results-found="{query}に該当する結果はありません" 
-          data-did-you-mean="{suggestion} を検索" 
-          data-no-results-found-did-you-mean="{query} に該当する結果はありません。{suggestion} の間違いではありませんか?" 
-          data-results-found="{hitCount} 件見つかりました"  
+          data-placeholder="ドキュメントを検索"
+          data-no-results-found="{query}に該当する結果はありません"
+          data-did-you-mean="{suggestion} を検索"
+          data-no-results-found-did-you-mean="{query} に該当する結果はありません。{suggestion} の間違いではありませんか?"
+          data-results-found="{hitCount} 件見つかりました"
+          data-error-message="We're sorry, an issue occurred when fetching your results. Please try again."
+          data-error-reset="Reset Search"
           data-sk-es-pf-indexes=""
           data-flavor="aws"></div>
           <button class="n-property-bar__search-toggle-button" type="button">
@@ -1368,7 +1370,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-07-03 16:13:01 +0000">07/03/2022</time>
+    <time datetime="2022-07-13 16:51:33 +0000">07/13/2022</time>
     
   
 
@@ -1596,6 +1598,46 @@ Cloud Managerには、無償トライアルが開始されたとき、7日が残
 </div>
 </div>
 <div class="sect2">
+<h3 id="システムの最大数">システムの最大数</h3>
+<div class="paragraph">
+<p>容量単位のライセンスを使用する場合、Cloud Volumes ONTAP システムの最大数はネットアップアカウントあたり20個に制限されます。a_system_は、Cloud Volumes ONTAP HAペア、Cloud Volumes ONTAP シングルノードシステム、またはユーザが作成した追加のStorage VMです。デフォルトのStorage VMはカウントされません。これにより、環境 のすべてのライセンスモデルが制限されます。</p>
+</div>
+<div class="paragraph">
+<p>たとえば、次の3つの作業環境があるとします。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1つのStorage VMを含むシングルノードのCloud Volumes ONTAP システム（Cloud Volumes ONTAP の導入時に作成されるデフォルトのStorage VM）</p>
+<div class="paragraph">
+<p>この作業環境は1つのシステムとしてカウントされます。</p>
+</div>
+</li>
+<li>
+<p>2つのStorage VMを含むシングルノードのCloud Volumes ONTAP システム（デフォルトのStorage VMと、作成した追加のStorage VM 1台）</p>
+<div class="paragraph">
+<p>この作業環境は、シングルノードシステム用と追加のStorage VM用の2つのシステムとしてカウントされます。</p>
+</div>
+</li>
+<li>
+<p>3つのStorage VMを含むCloud Volumes ONTAP HAペア（デフォルトのStorage VMと、作成した追加のStorage VM 2つ）</p>
+<div class="paragraph">
+<p>この作業環境は、HAペア用と追加のStorage VM用の2つという3つのシステムとしてカウントされます。</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>合計6つのシステムです。その後、アカウントに14台のシステムを追加するためのスペースを確保します。</p>
+</div>
+<div class="paragraph">
+<p>20台以上のシステムを必要とする大規模な導入環境の場合は、アカウント担当者または営業チームにお問い合わせください。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html" target="_blank" rel="noopener">"ネットアップアカウントの詳細については、こちらをご覧ください"</a>。</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="充電に関するメモ">充電に関するメモ</h3>
 <div class="paragraph">
 <p>以下の詳細は、課金が容量ベースのライセンスとどのように連携するかを理解するのに役立ちます。</p>
@@ -1768,48 +1810,6 @@ Cloud Managerには、無償トライアルが開始されたとき、7日が残
 </div>
 <div class="paragraph">
 <p>システムをPAYGOからノード単位のライセンスからBYOLへ（逆も同様）に変換することはサポートされていません。新しいシステムを導入し、そのシステムにデータをレプリケートする必要があります。 <a href="task-manage-node-licenses.html">"PAYGOとBYOLの違いを解説します"</a>。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="システムの最大数">システムの最大数</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Cloud Volumes ONTAP システムの最大数は、ネットアップアカウントあたり20個に制限されています。a_system_は、Cloud Volumes ONTAP HAペア、Cloud Volumes ONTAP シングルノードシステム、またはユーザが作成した追加のStorage VMです。デフォルトのStorage VMはカウントされません。これにより、環境 のすべてのライセンスモデルが制限されます。</p>
-</div>
-<div class="paragraph">
-<p>たとえば、次の3つの作業環境があるとします。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>1つのStorage VMを含むシングルノードのCloud Volumes ONTAP システム（Cloud Volumes ONTAP の導入時に作成されるデフォルトのStorage VM）</p>
-<div class="paragraph">
-<p>この作業環境は1つのシステムとしてカウントされます。</p>
-</div>
-</li>
-<li>
-<p>2つのStorage VMを含むシングルノードのCloud Volumes ONTAP システム（デフォルトのStorage VMと、作成した追加のStorage VM 1台）</p>
-<div class="paragraph">
-<p>この作業環境は、シングルノードシステム用と追加のStorage VM用の2つのシステムとしてカウントされます。</p>
-</div>
-</li>
-<li>
-<p>3つのStorage VMを含むCloud Volumes ONTAP HAペア（デフォルトのStorage VMと、作成した追加のStorage VM 2つ）</p>
-<div class="paragraph">
-<p>この作業環境は、HAペア用と追加のStorage VM用の2つという3つのシステムとしてカウントされます。</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>合計6つのシステムです。その後、アカウントに14台のシステムを追加するためのスペースを確保します。</p>
-</div>
-<div class="paragraph">
-<p>ご質問がある場合は、アカウント担当者または営業チームにお問い合わせください。</p>
-</div>
-<div class="paragraph">
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-netapp-accounts.html" target="_blank" rel="noopener">"ネットアップアカウントの詳細については、こちらをご覧ください"</a>。</p>
 </div>
 </div>
 </div>
