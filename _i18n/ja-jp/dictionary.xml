@@ -140,7 +140,6 @@
   <block id="5f785ef412cf3ae3f3656054cca2d342" category="list-text">* 書き込み速度と WORM * （シングルノードシステムのみ）： * Normal * または * High * 書き込み速度を選択し、必要に応じて Write Once 、 Read Many （ WORM ）ストレージをアクティブにします。</block>
   <block id="7e747f6f397a13c9ddfd3cf35ed0a063" category="inline-link-macro">書き込み速度の詳細については、こちらをご覧ください。</block>
   <block id="154182f595466ead49f0896392c37343" category="paragraph"><block ref="12222f10612c9f092ca31c9e99478649" category="inline-link-macro-rx"></block>。</block>
-  <block id="aaba9ed07f65bdca98f42e38431e1fa9" category="paragraph">Cloud Backup が有効になっている場合やデータ階層化が有効になっている場合は、 WORM を有効にすることはできません。</block>
   <block id="750f81869269b4f604a849fb2104a6b3" category="inline-link-macro">WORM ストレージの詳細については、こちらをご覧ください。</block>
   <block id="9fbcc7d5f14bd49b571c1a321923fd19" category="paragraph"><block ref="b8e9389aa16366d8b675fc0ac72edf2e" category="inline-link-macro-rx"></block>。</block>
   <block id="99933c51e50b7da9dbe73f3421397211" category="list-text">* Secure Communication to Storage &amp; WORM * （ HA のみ）： Azure ストレージアカウントへの HTTPS 接続を有効にするかどうかを選択し、必要に応じて Write Once Read Many （ WORM ）ストレージをアクティブにします。</block>
@@ -1002,7 +1001,6 @@
   <block id="e2d4a517cbcae1c0966d5e478d743531" category="list-text">Cloud Volumes ONTAP の WORM ストレージは、「信頼されたストレージ管理者」モデルで機能します。WORM ファイルは書き換えから保護されますが、期限切れ前の WORM データがボリュームに含まれていた場合でも、クラスタ管理者はボリュームを削除できます。</block>
   <block id="6d0cc0f6b100bdce8cb06276811faff9" category="list-text">信頼できるストレージ管理者モデルに加えて、 Cloud Volumes ONTAP の WORM ストレージも「信頼できるクラウド管理者」モデルで暗黙的に動作します。クラウド管理者は、クラウドプロバイダからクラウドストレージを直接削除するか、編集することで、有効期限が切れる前に WORM データを削除できました。</block>
   <block id="eb57ade58504f4d5c09cb5e8cd78ae55" category="list-text">WORM ストレージをアクティブ化すると、オブジェクトストレージへのデータ階層化を有効にできません。</block>
-  <block id="d9054c47c3f9c235104ce71c08d03270" category="list-text">WORM ストレージを有効にするには、 Cloud Backup Service を無効にする必要があります。</block>
   <block id="098ced68694df35d5e0943a0cad2fb8f" category="summary">初期 Cloud Volumes ONTAP システムの起動後にストレージの追加が必要になった場合は、 FlexVol Manager から NFS 、 CIFS 、または iSCSI 用の新しい ボリュームを作成できます。</block>
   <block id="c65544a3678422a2d15f8bc1a12dec12" category="doc">FlexVol ボリュームを作成します</block>
   <block id="f5452253eae7fb5f36ff2e68cd8aa5ae" category="paragraph">Cloud Manager では、いくつかの方法で新しいボリュームを作成できます。</block>
@@ -4247,4 +4245,5 @@
   <block id="ca28d9f44067f5a160cea063e474fc37" category="paragraph">独自のポリシーを使用する場合は、それが満たされている必要があります <block ref="a89eb99c31d3fd4d78e3bc9ddfb0dc20" category="inline-link-macro-rx"></block>。</block>
   <block id="6459a9ada2e38351f8beba8f79c30a5f" category="paragraph">独自のポリシーを使用する場合は、それが満たされている必要があります <block ref="f5cab54abdefb42b27e2bac59f2262c2" category="inline-link-macro-rx"></block>。</block>
   <block id="e26c5d07fc30848902a99c95897441b4" category="sidebar">IAMロールを設定する</block>
+  <block id="15cbb1f16ecbbcee7df3dcd252b9d2ef" category="paragraph">データの階層化が有効になっていると、 WORM を有効にできません。</block>
 </blocks>

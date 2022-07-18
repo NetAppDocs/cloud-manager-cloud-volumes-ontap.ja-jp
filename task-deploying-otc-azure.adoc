@@ -145,7 +145,7 @@ link:concept-data-tiering.html["データ階層化の詳細については、こ
 link:concept-write-speed.html["書き込み速度の詳細については、こちらをご覧ください。"]。
 
 +
-Cloud Backup が有効になっている場合やデータ階層化が有効になっている場合は、 WORM を有効にすることはできません。
+データの階層化が有効になっていると、 WORM を有効にできません。
 
 +
 link:concept-worm.html["WORM ストレージの詳細については、こちらをご覧ください。"]。
